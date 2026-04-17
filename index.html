@@ -34,7 +34,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 .day-hdr .arrow{margin-left:auto;transition:transform .2s;font-size:12px;color:var(--mt)}
 .day.open .arrow{transform:rotate(180deg)}
 .day-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.day.open .day-body{max-height:2000px}
+.day.open .day-body{max-height:5000px}
 .evt{display:flex;align-items:flex-start;gap:8px;padding:6px 14px;font-size:12.5px;line-height:1.5}
 .evt:last-child{padding-bottom:12px}
 .evt .time{color:var(--mt);min-width:88px;flex-shrink:0;font-size:11.5px;font-variant-numeric:tabular-nums}
@@ -70,7 +70,9 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 .area{margin-bottom:12px}
 .area h4{font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ac)}
 .spot{display:inline-flex;align-items:center;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:5px 10px;font-size:12px;margin:0 4px 6px 0}
+.spot a{font-weight:600}
 .spot .pr{color:var(--mt);margin-left:4px;font-size:11px}
+.spot .desc{color:var(--mt);font-size:11px;margin-left:4px}
 
 .emergency{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:12px}
 .em-card{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px;text-align:center;font-size:12.5px}
@@ -80,6 +82,20 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 
 #map{height:45vh;min-height:280px;border-radius:12px;border:1px solid var(--bd);margin-bottom:10px}
 .transit li{margin-left:16px;font-size:12.5px;line-height:1.8}
+
+.route-card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:10px}
+.route-card h3{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.route-step{font-size:12.5px;line-height:1.8;white-space:pre-line}
+.route-alt{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:12px;line-height:1.7}
+.route-list{font-size:12.5px;line-height:2}
+.route-list li{margin-left:16px;display:flex;flex-wrap:wrap;align-items:center;gap:4px}
+
+.script-block{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px 14px;margin-bottom:8px;font-size:12.5px;line-height:1.8}
+.script-block p{margin-bottom:6px}
+.script-block p:last-child{margin-bottom:0}
+.qa-item{margin-bottom:10px}
+.qa-item .q{font-weight:700;color:var(--ac);font-size:12.5px;margin-bottom:2px}
+.qa-item .a{font-size:12.5px;line-height:1.7;color:var(--tx)}
 
 .price-total{font-size:18px;font-weight:700;color:var(--ac)}
 
@@ -186,7 +202,8 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <div class="label">Poster Number</div><div class="value hl">P-99</div>
   <div class="label">Abstract Number</div><div class="value">432</div>
   <div class="label">Title</div><div class="value">Stress-Induced Birefringence Measurement for Crack Detection in Bessel Beam Laser-Drilled Glass</div>
-  <div class="label">Author</div><div class="value">Nakcho Choi</div>
+  <div class="label">Authors</div><div class="value">Nakcho Choi, Jeongjin Park, Seongjun Lee</div>
+  <div class="label">Affiliation</div><div class="value">Mobile Display Division, Samsung Display Co., Ltd.</div>
   <div class="label">Session</div><div class="value hl">Thursday, May 7 &nbsp;|&nbsp; 5:00 PM – 7:30 PM</div>
   <div class="label">Setup Time</div><div class="value">11:00 AM on Thursday</div>
   <div class="label">Location</div><div class="value">LA Convention Center</div>
@@ -201,10 +218,91 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <li>관련 논문/데이터 태블릿에 준비</li>
   </ul></div>
 </div>
+
+<!-- English Presentation Script -->
+<div class="day" id="script-elevator"><div class="day-hdr" onclick="tog(this)">🎤 30-Second Elevator Pitch<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:12px 14px">
+<div class="script-block">
+<p>"Hi, I'm Nakcho Choi from Samsung Display. Our poster shows a new way to predict where cracks will happen in laser-drilled glass — before they actually break. We use liquid crystal sensors to see invisible stress patterns around the holes. The key finding? The most dangerous moment is at about 75% drilling depth, not when you punch all the way through. This helps us catch defects early in manufacturing for Under Display Cameras and Glass Core Substrates."</p>
+</div>
+</div></div>
+
+<div class="day" id="script-walkthrough"><div class="day-hdr" onclick="tog(this)">🗣 2-Minute Walkthrough Script<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:12px 14px">
+<div class="script-block">
+<p>"So here's the problem — when you laser-drill tiny holes in glass for smartphone cameras or chip packaging, sometimes cracks form and you don't know why. Traditional inspection only catches defects after the damage is done.</p>
+<p>Our approach is different. We use something called stress-induced birefringence — basically, when glass is stressed, it bends light differently. We put a liquid crystal layer on the glass and measure how the light changes. That gives us a colorful stress map.</p>
+<p><b>[Point to Figure 2]</b> Here you can see — as we increase the laser energy, the stress rings get bigger and more intense.</p>
+<p><b>[Point to Figures 3-4]</b> This is the interesting part. We drilled at different depths — 300, 400, and 500 microns. The stress peaks at 400 microns, which is about 80% through. After the hole breaks through at 500, the stress actually drops. So the half-cut stage is the most dangerous.</p>
+<p><b>[Point to Figures 5-6]</b> And here's where it gets cool. We mapped the slow axis orientation — which shows you the direction the stress is pointing. The cracks follow exactly perpendicular to the slow axis vectors. So we can literally predict the crack path before it happens.</p>
+<p>The bottom line — this gives manufacturers a non-destructive way to find problem holes before they crack, saving yield in both display and semiconductor fabrication."</p>
+</div>
+</div></div>
+
+<div class="day" id="script-qa"><div class="day-hdr" onclick="tog(this)">❓ Common Q&A Prep<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:12px 14px">
+<div class="qa-item">
+  <div class="q">Q: "How does this compare to conventional inspection methods?"</div>
+  <div class="a">A: "Conventional methods like optical microscopy only see surface defects after they happen. Our method detects subsurface stress accumulation before any visible damage occurs. It's predictive rather than reactive."</div>
+</div>
+<div class="qa-item">
+  <div class="q">Q: "Can this be applied in-line in a production environment?"</div>
+  <div class="a">A: "That's the goal. The measurement is non-destructive and relatively fast. We're currently optimizing the setup for higher throughput. The liquid crystal sensing approach doesn't require complex optics."</div>
+</div>
+<div class="qa-item">
+  <div class="q">Q: "Why does stress peak at 80% depth?"</div>
+  <div class="a">A: "At that point, you have maximum thermal stress concentration without the relief that comes from full perforation. Once the hole breaks through, the stress redistributes. Think of it like bending a stick — the stress is highest just before it snaps."</div>
+</div>
+<div class="qa-item">
+  <div class="q">Q: "What about different glass types or thicknesses?"</div>
+  <div class="a">A: "Our current data is on 500-micron substrates. The principle applies universally since stress-induced birefringence is a fundamental optical property. We'd expect similar trends in different glasses, though the exact depth ratios may shift."</div>
+</div>
+</div></div>
 </div>
 
 <!-- TAB 2: Map & Transit -->
 <div class="tab" id="t2">
+
+<div class="route-card">
+  <h3>🛬 LAX → 호텔 이동</h3>
+  <div class="route-step">1. 수하물 찾기 → 도착장 밖으로 나가기
+2. Uber/Lyft 앱 열기 → "Residence Inn LA Live" 검색
+   - 예상 비용: <b>$15-25</b> (팁 포함)
+   - 소요시간: 15-20분 (교통 상황에 따라 30분)
+   - LAX에서 승차: <b>"LAXit" 전용 픽업존</b> 따라가기</div>
+  <div class="route-alt">
+    <b>💡 대안: Metro</b> (저렴하지만 시간 오래 걸림)<br>
+    LAX → Aviation/Century station (셔틀) → Metro K Line → Expo/Crenshaw → Pico station<br>
+    약 50분, $1.75
+  </div>
+</div>
+
+<div class="route-card">
+  <h3>📍 호텔 → 학회장 (LA Convention Center)</h3>
+  <div class="route-step"><b>🚶 도보 10분</b> (0.5마일 / 800m)
+호텔 나와서 → W. Olympic Blvd 서쪽 → S. Figueroa St 좌회전 → 컨벤션센터 South Hall
+<a href="https://www.google.com/maps/dir/Residence+Inn+by+Marriott+Los+Angeles+L.A.+LIVE/Los+Angeles+Convention+Center" target="_blank" rel="noopener">Google Maps 경로 열기</a></div>
+  <div class="route-alt">
+    <b>🚇 Metro Pico Station</b> (도보 5분)<br>
+    A Line / E Line 이용 가능<br>
+    운행: 4:30 AM ~ 11:45 PM<br>
+    배차: 피크 8분, 비피크 10-20분<br>
+    요금: $1.75 (TAP 카드 or Apple Pay)
+  </div>
+</div>
+
+<div class="route-card">
+  <h3>🚗 주변 관광지 이동</h3>
+  <ul class="route-list">
+    <li>🏖 <b>Santa Monica:</b> Uber $25-35, 30-40분</li>
+    <li>🔭 <b>Griffith Observatory:</b> Uber $20-30, 25분 | 무료입장</li>
+    <li>🎬 <b>Hollywood:</b> Uber $15-25, 20분</li>
+    <li>🇰🇷 <b>Koreatown:</b> Uber $10-15, 15분</li>
+    <li>🏛 <b>Getty Center:</b> Uber $20-30, 25분 | 무료입장 (주차 $20)</li>
+    <li>🍽 <b>Grand Central Market:</b> 도보 20분 or Uber $8-10</li>
+  </ul>
+</div>
+
 <div id="map"></div>
 <div class="card">
   <h3>🚇 교통 정보</h3>
@@ -221,32 +319,32 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="tab" id="t3">
 <div class="card">
 <div class="area"><h4>🚶 도보 5분 — LA Live</h4>
-<span class="spot">Yard House<span class="pr">$15-25</span></span>
-<span class="spot">Fleming's<span class="pr">$40-80</span></span>
-<span class="spot">Rock'N Fish<span class="pr">$20-35</span></span>
-<span class="spot">Shaquille's<span class="pr">$15-25</span></span>
-<span class="spot">Sol Agave<span class="pr">$15-25</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Yard+House+LA+Live" target="_blank" rel="noopener">Yard House</a><span class="pr">$15-25</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Fleming's+Prime+Steakhouse+LA+Live" target="_blank" rel="noopener">Fleming's</a><span class="pr">$40-80</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Rock'N+Fish+LA+Live" target="_blank" rel="noopener">Rock'N Fish</a><span class="pr">$20-35</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Shaquille's+LA+Live" target="_blank" rel="noopener">Shaquille's</a><span class="pr">$15-25</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Sol+Agave+LA+Live" target="_blank" rel="noopener">Sol Agave</a><span class="pr">$15-25</span></span>
 </div>
 <div class="area"><h4>🚶 도보 15분 — DTLA</h4>
-<span class="spot">Grand Central Market<span class="pr">$8-15</span></span>
-<span class="spot">Sugarfish<span class="pr">$30-50</span></span>
-<span class="spot">Bottega Louie<span class="pr">$20-35</span></span>
-<span class="spot">The Broad<span class="pr">무료</span></span>
-<span class="spot">Disney Concert Hall<span class="pr">무료</span></span>
-<span class="spot">Last Bookstore<span class="pr">무료</span></span>
-<span class="spot">GRAMMY Museum<span class="pr">$18</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Grand+Central+Market+Los+Angeles" target="_blank" rel="noopener">Grand Central Market</a><span class="pr">$8-15</span><span class="desc">| 도보 20분, 다양한 먹거리 푸드홀</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Sugarfish+DTLA+Los+Angeles" target="_blank" rel="noopener">Sugarfish</a><span class="pr">$30-50</span><span class="desc">| 도보 15분, 오마카세 스시</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Bottega+Louie+Los+Angeles" target="_blank" rel="noopener">Bottega Louie</a><span class="pr">$20-35</span><span class="desc">| 도보 15분, 이탈리안/마카롱</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/The+Broad+Museum+Los+Angeles" target="_blank" rel="noopener">The Broad</a><span class="pr">무료</span><span class="desc">| 도보 20분, 현대미술관</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Walt+Disney+Concert+Hall+Los+Angeles" target="_blank" rel="noopener">Walt Disney Concert Hall</a><span class="pr">무료</span><span class="desc">| 도보 25분, 프랭크 게리 건축</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/The+Last+Bookstore+Los+Angeles" target="_blank" rel="noopener">Last Bookstore</a><span class="pr">무료</span><span class="desc">| 도보 20분, LA 명소 서점</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/GRAMMY+Museum+Los+Angeles" target="_blank" rel="noopener">GRAMMY Museum</a><span class="pr">$18</span><span class="desc">| 도보 3분, LA Live 내 음악 박물관</span></span>
 </div>
 <div class="area"><h4>🚗 Uber 15분 — Koreatown</h4>
-<span class="spot">백정 KBBQ<span class="pr">$30-50</span></span>
-<span class="spot">해장촌<span class="pr">$30-40</span></span>
-<span class="spot">강남역<span class="pr">$25-35</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Baekjeong+Korean+BBQ+Koreatown+Los+Angeles" target="_blank" rel="noopener">백정 KBBQ</a><span class="pr">$30-50</span><span class="desc">| 유명 한인타운 고기집</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Haejangchon+Korean+BBQ+Koreatown" target="_blank" rel="noopener">해장촌</a><span class="pr">$30-40</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Gangnam+Station+Korean+BBQ+Koreatown+LA" target="_blank" rel="noopener">강남역</a><span class="pr">$25-35</span></span>
 </div>
 <div class="area"><h4>🚗 Uber 25-40분 — 관광지</h4>
-<span class="spot">Santa Monica Beach</span>
-<span class="spot">Griffith Observatory<span class="pr">무료</span></span>
-<span class="spot">Hollywood Sign</span>
-<span class="spot">Getty Center<span class="pr">무료</span></span>
-<span class="spot">Universal Studios</span>
+<span class="spot"><a href="https://www.google.com/maps/search/Santa+Monica+Pier" target="_blank" rel="noopener">Santa Monica Pier</a><span class="desc">| Uber 35분, 해변+놀이공원</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Griffith+Observatory+Los+Angeles" target="_blank" rel="noopener">Griffith Observatory</a><span class="pr">무료</span><span class="desc">| Uber 25분, LA 야경 명소</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Hollywood+Sign+Los+Angeles" target="_blank" rel="noopener">Hollywood Sign</a><span class="desc">| Uber 20분</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Getty+Center+Los+Angeles" target="_blank" rel="noopener">Getty Center</a><span class="pr">무료</span><span class="desc">| Uber 25분, 무료입장 (주차 $20)</span></span>
+<span class="spot"><a href="https://www.google.com/maps/search/Universal+Studios+Hollywood" target="_blank" rel="noopener">Universal Studios</a><span class="desc">| Uber 25분</span></span>
 </div>
 </div>
 </div>
@@ -286,7 +384,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="tab" id="t5">
 <div class="card">
   <h3>🏨 호텔 정보</h3>
-  <div class="label">호텔명</div><div class="value">Residence Inn by Marriott LA L.A. LIVE</div>
+  <div class="label">호텔명</div><div class="value"><a href="https://www.marriott.com/en-us/hotels/laxri-residence-inn-los-angeles-l-a-live/overview/" target="_blank" rel="noopener">Residence Inn by Marriott LA L.A. LIVE</a></div>
   <div class="label">주소</div><div class="value">901 W. Olympic Blvd, Los Angeles, CA 90015</div>
   <div class="label">체크인 / 체크아웃</div><div class="value">5/4 (Mon) → 5/8 (Fri)</div>
   <div class="label">확인번호</div><div class="value hl">S60JSV7K</div>
@@ -295,6 +393,9 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <div class="value">$335/night × 4 = $1,340 + tax $215.60</div>
   <div class="price-total">총 $1,555.60</div>
   <div style="margin-top:8px;font-size:12px;color:var(--mt)">취소: 체크인 72시간 전까지 무료</div>
+  <div style="margin-top:10px">
+    <a href="https://www.google.com/maps/dir/Los+Angeles+International+Airport/Residence+Inn+by+Marriott+Los+Angeles+L.A.+LIVE,+901+W+Olympic+Blvd,+Los+Angeles,+CA+90015" target="_blank" rel="noopener" style="font-size:12.5px">📍 LAX → 호텔 Google Maps 경로</a>
+  </div>
 </div>
 <div class="card">
   <h3>✈️ 항공편</h3>
@@ -323,7 +424,7 @@ function openTab(i,btn){
   if(i===2)setTimeout(()=>{if(window._m)window._m.invalidateSize()},100);
 }
 
-// Day cards
+// Day cards (collapsibles)
 function tog(el){el.parentElement.classList.toggle('open')}
 $('d4').classList.add('open');
 
@@ -333,8 +434,8 @@ function initMap(){
   if(mapDone)return;mapDone=true;
   const m=L.map('map',{zoomControl:false}).setView([34.0407,-118.2668],13);
   L.control.zoom({position:'bottomright'}).addTo(m);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/'+(html.dataset.theme==='dark'?'dark_all':'light_all')+'/{z}/{x}/{y}{r}.png',{
-    attribution:'&copy;OSM &copy;CARTO',maxZoom:18}).addTo(m);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',maxZoom:19}).addTo(m);
   [[33.9425,-118.4081,'✈️ LAX'],[34.0407,-118.2668,'🏛 Convention Center'],[34.0395,-118.2653,'🏨 Residence Inn'],
    [34.0408,-118.2662,'🚇 Pico Station'],[34.0430,-118.2650,'🎭 LA Live'],[34.0597,-118.3004,'🇰🇷 Koreatown'],
    [34.0195,-118.4912,'🏖 Santa Monica'],[34.1184,-118.3004,'🔭 Griffith Observatory'],[34.0506,-118.2494,'🍽 Grand Central Market']
