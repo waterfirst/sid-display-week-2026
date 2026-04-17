@@ -173,10 +173,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <nav id="nav">
   <button class="active" onclick="openTab(0,this)">📋 일정</button>
   <button onclick="openTab(1,this)">⭐ 내 발표</button>
-  <button onclick="openTab(2,this)">🗺 지도·교통</button>
-  <button onclick="openTab(3,this)">🍽 맛집·관광</button>
-  <button onclick="openTab(4,this)">⚠️ 안전·팁</button>
-  <button onclick="openTab(5,this)">🏨 호텔·항공</button>
+  <button onclick="openTab(2,this)">🔬 BM 시뮬</button>
+  <button onclick="openTab(3,this)">🚗 이동수단</button>
+  <button onclick="openTab(4,this)">🗺 지도</button>
+  <button onclick="openTab(5,this)">🍽 맛집·관광</button>
+  <button onclick="openTab(6,this)">⚠️ 안전·팁</button>
+  <button onclick="openTab(7,this)">🏨 호텔·항공</button>
 </nav>
 <main>
 
@@ -313,8 +315,154 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div></div>
 </div>
 
-<!-- TAB 2: Map & Transit -->
+<!-- TAB 2: BM Diffraction Simulator Results -->
 <div class="tab" id="t2">
+<div class="card"><h3>🔬 BM 반사회절 억제 — 10가지 모드 시뮬레이션</h3>
+<div class="label">원편광판 없는 OLED에서 BM 슬릿 반사회절을 억제하는 10가지 구조를 시뮬레이션 비교</div></div>
+
+<div class="day open"><div class="day-hdr" onclick="tog(this)">📊 성능 순위 요약<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:2">
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12px;min-width:500px">
+<tr style="border-bottom:1px solid var(--bd)"><th style="text-align:left;padding:6px">순위</th><th style="text-align:left">모드</th><th>가로(dB)</th><th>세로(dB)</th><th>피크(dB)</th><th style="text-align:left">특징</th></tr>
+<tr style="background:rgba(234,179,8,.1)"><td>🥇1</td><td><strong>Checkerboard ⭐</strong></td><td>-51.1</td><td>-32.7</td><td>-7.9</td><td>양축 최강, 분리가능 2D</td></tr>
+<tr style="background:rgba(234,179,8,.1)"><td>🥇1</td><td><strong>2D-Checker 🆕</strong></td><td>-51.1</td><td>-32.7</td><td>-5.7</td><td>바둑판 = 동일 원리</td></tr>
+<tr><td>🥉3</td><td><strong>Combo</strong></td><td>-28.3</td><td>-11.4</td><td><strong>-12.5</strong></td><td>피크 억제 최강</td></tr>
+<tr><td>4</td><td><strong>Nano-Diffuser 🆕</strong></td><td>-15.1</td><td>-5.1</td><td>-11.3</td><td>회절→Haze 변환</td></tr>
+<tr><td>5</td><td>Phase-Gradient 🆕</td><td>-13.3</td><td>-3.6</td><td>-0.9</td><td>빔 편향</td></tr>
+<tr><td>6</td><td>Horizontal</td><td>-51.1</td><td>0.0</td><td>-4.0</td><td>가로만 (1D)</td></tr>
+<tr><td>7</td><td>Apodization</td><td>-2.5</td><td>-3.4</td><td>-2.8</td><td>에지 연속 전이</td></tr>
+<tr><td>8</td><td>Jitter</td><td>-0.9</td><td>-0.3</td><td>-0.7</td><td>위치 지터</td></tr>
+<tr><td>9</td><td>ZigZag-Edge 🆕</td><td>-0.8</td><td>+0.1</td><td>-0.4</td><td>경계 변조 (미미)</td></tr>
+</table></div>
+</div></div>
+
+<div class="day"><div class="day-hdr" onclick="tog(this)">기존 6모드 설명<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.8">
+<p><strong>1. Baseline</strong> — 원본 BM 슬릿 (기준). sinc(kx·a/2)×sinc(ky·b/2) 회절</p>
+<p><strong>2. Horizontal</strong> — 가로 유기막 패치 (1D). 가로 -51dB 억제 but 세로 효과 없음</p>
+<p><strong>3. Checkerboard ⭐</strong> — φ(x,y) = φx(x) + φy(y) 분리가능 2D 위상. 양축 독립 제어. 최적: cb_wx=a/2, cb_hy=b/2, φ=π</p>
+<p><strong>4. Apodization</strong> — Raised-cosine 에지. sinc 꼬리 1/k² → 1/k⁴ 감쇠</p>
+<p><strong>5. Jitter</strong> — 유사랜덤 위치 지터. 이산 차수 → 확산 스캐터. σ/P=0.05~0.15 권장</p>
+<p><strong>6. Combo</strong> — 체크보드 + 아포다이제이션. 양축 cardinal 소멸 + 고차 억제. 이론적 최상위</p>
+</div></div>
+
+<div class="day"><div class="day-hdr" onclick="tog(this)">🆕 신규 4모드 — 혁신적 회절 제어<span class="day-tag tag-po">NEW</span><span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.8">
+<p><strong>7. 2D-Checker</strong> — 바둑판 위상 상쇄 간섭. 슬릿 내부를 NxM 격자로 분할, (i+j)%2 기반 0/π 교차. 가로+세로 축 에너지를 대각선으로 발산. Checkerboard와 수학적 동치 확인.</p>
+<p><strong>8. Nano-Diffuser 🔥</strong> — 나노 크기 패치에 랜덤 위상 [0,2π) 부여. 날카로운 회절선 → 부드러운 Haze(연무)로 변환. 총 에너지 보존, 피크 휘도 -11.3dB 대폭 감소. <span style="color:var(--gd)">실용적으로 가장 유망</span></p>
+<p><strong>9. Phase-Gradient</strong> — φ(x)=slope·x 선형 위상 경사 (프리즘 효과). 0차 회절을 정면에서 편향. 그러나 에너지 재집중으로 피크 억제 약함 (-0.9dB)</p>
+<p><strong>10. ZigZag-Edge</strong> — BM 경계를 사인파로 변조. 직선 edge의 sinc 분산 의도. 결과: 변조 효과 미미 (-0.8dB). 직선 edge 기여가 dominant.</p>
+</div></div>
+
+<div class="day"><div class="day-hdr" onclick="tog(this)">💡 핵심 인사이트<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.8">
+<p>✅ <strong>최적 전략 1위: Combo</strong> — 양축 억제 + 피크 -12.5dB 최강</p>
+<p>✅ <strong>실용 전략: Nano-Diffuser</strong> — 제조 가능하다면 Haze 방식이 시인성 측면 최고</p>
+<p>✅ <strong>단순 구현: Checkerboard</strong> — 구현 쉽고 양축 균형 최고</p>
+<p>❌ <strong>ZigZag-Edge</strong> — 경계 변조만으로는 부족, 위상 제어 필요</p>
+<p>❌ <strong>Phase-Gradient</strong> — 빔 편향만으로는 피크 억제 어려움</p>
+<p style="margin-top:8px;color:var(--mt)">시뮬레이션 파라미터: BM 10×60μm, Pitch 30×90μm, λ=550nm, Grid 512×512</p>
+</div></div>
+</div>
+
+<!-- TAB 3: Transportation Guide -->
+<div class="tab" id="t3">
+<div class="card"><h3>🚗 LA 이동수단 완전 가이드</h3>
+<div class="label">Waymo · Uber · Lyft · Metro — 사전 준비부터 탑승까지</div></div>
+
+<div class="day open"><div class="day-hdr" onclick="tog(this)">🤖 Waymo (구글 무인택시)<span class="day-tag tag-po">추천 체험</span><span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
+<p><strong>사전 준비 (한국에서 미리!):</strong></p>
+<p>1. <a href="https://apps.apple.com/app/waymo-one/id1465735591" target="_blank" rel="noopener">Waymo One 앱</a> 다운로드 (iOS/Android)</p>
+<p>2. 계정 생성 + 신용카드 등록 (Visa/Master)</p>
+<p>3. 미국 도착 후 바로 호출 가능</p>
+<p style="margin-top:8px"><strong>탑승 방법:</strong></p>
+<p>1. 앱 열기 → 목적지 입력 (Uber와 동일)</p>
+<p>2. 차량 배정 → 도착 시 앱으로 잠금 해제</p>
+<p>3. 탑승 → 차량이 자동 출발</p>
+<p>4. 차내에서 음악 선택, 온도 조절 가능</p>
+<p>5. 도착 → 자동 결제 (팁 불필요!)</p>
+<p style="margin-top:8px"><strong>차량:</strong> Jaguar I-PACE (전기차), 깨끗하고 넓음</p>
+<p style="margin-top:8px;padding:8px;background:rgba(245,158,11,.1);border-radius:6px">⚠️ <strong>LAX 공항 직접 픽업 불가</strong> (2026.4 기준)<br>
+우회법 1: 공항 밖 도보 15~20분 → 호출 가능 지역에서 호출<br>
+우회법 2: 무료 셔틀 → LAX/Metro Transit Center → 여기서 호출 (할증 없어 절반 가격)</p>
+<p style="margin-top:8px"><strong>추천 활용:</strong></p>
+<p>· 컨벤션센터 ↔ 코리아타운: $10~15, 15분</p>
+<p>· 컨벤션센터 ↔ 산타모니카: $25~35, 30분</p>
+<p>· 컨벤션센터 ↔ 그리피스: $20~30, 25분</p>
+<p>· <strong>야간 이용</strong> 가능 (24시간 운행)</p>
+<p style="margin-top:8px;color:var(--gn)">💡 첫날은 짐 많으니 Uber 추천. 학회 중 시내 이동에 Waymo 체험!</p>
+</div></div>
+
+<div class="day open"><div class="day-hdr" onclick="tog(this)">🚕 Uber / Lyft<span class="day-tag tag-ci">메인 이동수단</span><span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
+<p><strong>사전 준비 (한국에서 미리!):</strong></p>
+<p>1. <a href="https://apps.apple.com/app/uber/id368677368" target="_blank" rel="noopener">Uber 앱</a> + <a href="https://apps.apple.com/app/lyft/id529379082" target="_blank" rel="noopener">Lyft 앱</a> 둘 다 설치</p>
+<p>2. 해외 결제 가능 카드 등록 (Visa/Master)</p>
+<p>3. 한국 전화번호로 가입 OK (미국 번호 불필요)</p>
+<p>4. 두 앱 가격 비교해서 저렴한 쪽 이용</p>
+<p style="margin-top:8px"><strong>LAX 공항 → 호텔 (Uber/Lyft):</strong></p>
+<p>1. 수하물 찾기 → 도착장 밖으로 나가기</p>
+<p>2. <strong>"LAXit"</strong> 표지판 따라가기 (전용 픽업존)</p>
+<p>3. 앱에서 목적지: "Residence Inn LA Live" 입력</p>
+<p>4. 차량번호 확인 후 탑승</p>
+<p>5. 예상: <strong>$15~25</strong>, 15~20분 (교통 상황 따라 30분)</p>
+<p style="margin-top:8px"><strong>차량 등급:</strong></p>
+<p>· <strong>UberX / Lyft Standard</strong> — 기본, $15~25 (추천)</p>
+<p>· <strong>Uber Comfort</strong> — 넓은 차, +$5~10</p>
+<p>· <strong>Uber Black / Lyft Lux</strong> — 고급차, $40~60</p>
+<p>· <strong>UberXL</strong> — 대형차 (짐 많을 때), $25~35</p>
+<p style="margin-top:8px"><strong>팁 문화:</strong></p>
+<p>· 기본: 앱에서 15~20% 팁 추가 (선택이지만 관례)</p>
+<p>· 짐 도와주면 $2~3 추가</p>
+<p>· 팁은 하차 후 앱에서 결제 (현금 불필요)</p>
+<p style="margin-top:8px;padding:8px;background:rgba(99,102,241,.1);border-radius:6px">💡 <strong>안전 팁</strong><br>
+· 반드시 차량번호 + 운전자 사진 확인 후 탑승<br>
+· "What's my name?" 물어보는 운전자 → 정상 (본인 확인)<br>
+· 앱에서 경로 실시간 확인 가능<br>
+· 야간에는 뒷좌석 탑승 추천</p>
+<p style="margin-top:8px"><strong>주요 구간 예상 요금:</strong></p>
+<p>· LAX → 호텔: $15~25 (15~20분)</p>
+<p>· 호텔 → 코리아타운: $10~18 (15분)</p>
+<p>· 호텔 → 산타모니카: $25~40 (30~40분)</p>
+<p>· 호텔 → 그리피스: $20~30 (25분)</p>
+<p>· 호텔 → 할리우드: $15~25 (20분)</p>
+<p>· 호텔 → LAX 귀국: $15~25 (15~20분)</p>
+</div></div>
+
+<div class="day"><div class="day-hdr" onclick="tog(this)">🚇 Metro (지하철/경전철)<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
+<p><strong>가장 가까운 역:</strong> <a href="https://www.google.com/maps/search/Pico+Station+Metro+LA" target="_blank" rel="noopener">Pico Station</a> (도보 5분, 컨벤션센터 바로 앞)</p>
+<p><strong>노선:</strong> A Line (파랑) / E Line (금색)</p>
+<p><strong>운행:</strong> 4:30 AM ~ 11:45 PM</p>
+<p><strong>배차:</strong> 피크 8분, 비피크 10~20분</p>
+<p><strong>요금:</strong> $1.75/회 (TAP 카드 or Apple Pay)</p>
+<p style="margin-top:8px"><strong>TAP 카드 구매:</strong></p>
+<p>· Metro 역 자판기에서 구매 ($2 카드비 + 충전)</p>
+<p>· 또는 <strong>Apple Pay / Google Pay</strong>로 바로 탑승 가능</p>
+<p style="margin-top:8px"><strong>유용한 노선:</strong></p>
+<p>· Pico → 7th/Metro Center (환승역, 도보 2정거장)</p>
+<p>· B/D Line → Hollywood, Universal City 방면</p>
+<p style="margin-top:8px;padding:8px;background:rgba(239,68,68,.1);border-radius:6px">⚠️ <strong>Metro 주의사항</strong><br>
+· 소지품 항상 주의 (핸드폰, 가방)<br>
+· 늦은 밤(10PM 이후) 이용 자제 → Uber/Waymo 추천<br>
+· Skid Row 인근 역 주의</p>
+</div></div>
+
+<div class="day"><div class="day-hdr" onclick="tog(this)">🚶 도보 이동 (호텔 기준)<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
+<p><strong>호텔 → 컨벤션센터:</strong> 도보 10분 (800m)</p>
+<p style="color:var(--mt)">W. Olympic Blvd 서쪽 → S. Figueroa St 좌회전 → South Hall</p>
+<p><strong>호텔 → LA Live:</strong> 도보 5분 (400m)</p>
+<p><strong>호텔 → Pico Metro역:</strong> 도보 5분</p>
+<p><strong>호텔 → Grand Central Market:</strong> 도보 20분 (1.5km) or Uber $8</p>
+<p><strong>호텔 → The Broad:</strong> 도보 25분 (2km) or Uber $8</p>
+<p style="margin-top:8px;color:var(--gn)">💡 컨벤션센터·LA Live·Pico역은 모두 도보권!</p>
+</div></div>
+</div>
+
+<!-- TAB 4: Map & Transit -->
+<div class="tab" id="t4">
 
 <div class="route-card">
   <h3>🛬 LAX → 호텔 이동</h3>
@@ -369,7 +517,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 
 <!-- TAB 3: Food & Sights -->
-<div class="tab" id="t3">
+<div class="tab" id="t5">
 <div class="card">
 <div class="area"><h4>🚶 도보 5분 — LA Live</h4>
 <span class="spot"><a href="https://www.google.com/maps/search/Yard+House+LA+Live" target="_blank" rel="noopener">Yard House</a><span class="pr">$15-25</span></span>
@@ -403,7 +551,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 
 <!-- TAB 4: Safety & Tips -->
-<div class="tab" id="t4">
+<div class="tab" id="t6">
 <div class="card">
 <h3>🚨 긴급 연락처</h3>
 <div class="emergency">
@@ -434,7 +582,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 
 <!-- TAB 5: Hotel & Flight -->
-<div class="tab" id="t5">
+<div class="tab" id="t7">
 <div class="card">
   <h3>🏨 호텔 정보</h3>
   <div class="label">호텔명</div><div class="value"><a href="https://www.marriott.com/en-us/hotels/laxri-residence-inn-los-angeles-l-a-live/overview/" target="_blank" rel="noopener">Residence Inn by Marriott LA L.A. LIVE</a></div>
@@ -474,7 +622,7 @@ function openTab(i,btn){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   $('t'+i).classList.add('active');btn.classList.add('active');
   $('nav').classList.remove('open');
-  if(i===2)setTimeout(()=>{if(window._m)window._m.invalidateSize()},100);
+  if(i===4)setTimeout(()=>{if(window._m)window._m.invalidateSize()},100);
 }
 
 // Day cards (collapsibles)
@@ -495,7 +643,7 @@ function initMap(){
   ].forEach(p=>L.marker([p[0],p[1]]).addTo(m).bindPopup('<b>'+p[2]+'</b>'));
   window._m=m;
 }
-new MutationObserver((_,o)=>{if($('t2').classList.contains('active')){initMap();o.disconnect()}}).observe($('t2'),{attributes:true,attributeFilter:['class']});
+new MutationObserver((_,o)=>{if($('t4').classList.contains('active')){initMap();o.disconnect()}}).observe($('t4'),{attributes:true,attributeFilter:['class']});
 
 // Checklist
 const docs=['여권','ESTA','항공권 e-ticket','호텔 확인서 (S60JSV7K)','DW 배지/등록확인','포스터 P-99 파일','신용카드/현금','여행자보험','eSIM','명함'];
