@@ -23,6 +23,8 @@
   --poster-glow:rgba(234,179,8,.08);
   --safe-green-bg:rgba(34,197,94,.08);--safe-green-border:rgba(34,197,94,.2);--safe-green-text:#86efac;
   --toggle-bg:var(--surface2);--toggle-icon:var(--text2);
+  --card-shadow:none;
+  --nav-active-bg:rgba(99,102,241,.15);
 }
 [data-theme="light"]{
   --bg:#f8fafc;--surface:#ffffff;--surface2:#f1f5f9;--border:#e2e8f0;
@@ -38,6 +40,8 @@
   --safe-green-bg:rgba(34,197,94,.06);--safe-green-border:rgba(34,197,94,.15);--safe-green-text:#16a34a;
   --green:#16a34a;--red:#dc2626;--amber:#d97706;--cyan:#0891b2;
   --toggle-bg:#e2e8f0;--toggle-icon:#475569;
+  --card-shadow:0 1px 3px rgba(0,0,0,.08);
+  --nav-active-bg:rgba(79,70,229,.1);
 }
 
 /* ===== RESET & BASE ===== */
@@ -49,11 +53,19 @@ a:hover{text-decoration:underline;}
 /* ===== NAV ===== */
 .nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;transition:background .3s,border-color .3s;}
 .nav::-webkit-scrollbar{display:none;}
-.nav-btn{flex-shrink:0;padding:.7rem 1rem;color:var(--text3);font-size:12px;font-weight:500;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-family:inherit;white-space:nowrap;}
+.nav-btn{flex-shrink:0;padding:.7rem 1rem;color:var(--text2);font-size:12px;font-weight:500;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-family:inherit;white-space:nowrap;touch-action:manipulation;}
 .nav-btn:hover{color:var(--text);}
-.nav-btn.active{color:var(--accent2);border-bottom-color:var(--accent);}
-.theme-toggle{flex-shrink:0;margin-left:auto;padding:.5rem .8rem;background:var(--toggle-bg);border:1px solid var(--border);border-radius:2rem;cursor:pointer;font-size:14px;color:var(--toggle-icon);display:flex;align-items:center;gap:6px;transition:all .2s;margin-right:.5rem;}
+.nav-btn.active{color:var(--accent2);border-bottom-color:var(--accent);background:var(--nav-active-bg);}
+[data-theme="light"] .nav-btn{color:var(--text2);}
+[data-theme="light"] .nav-btn:hover{color:var(--text);}
+[data-theme="light"] .nav-btn.active{color:var(--accent);font-weight:600;}
+.theme-toggle{flex-shrink:0;margin-left:auto;padding:.5rem .8rem;background:var(--toggle-bg);border:1px solid var(--border);border-radius:2rem;cursor:pointer;font-size:14px;color:var(--toggle-icon);display:flex;align-items:center;gap:6px;transition:all .2s;margin-right:.5rem;touch-action:manipulation;}
 .theme-toggle:hover{border-color:var(--accent);}
+
+/* ===== HAMBURGER MENU (mobile) ===== */
+.hamburger{display:none;flex-shrink:0;padding:.7rem 1rem;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text);touch-action:manipulation;min-height:44px;min-width:44px;align-items:center;justify-content:center;}
+.nav-links{display:contents;}
+.mobile-overlay{display:none;}
 
 /* ===== PAGE ===== */
 .page{display:none;min-height:80vh;animation:fadeIn .3s ease;}
@@ -87,7 +99,7 @@ a:hover{text-decoration:underline;}
 .sec-desc{font-size:14px;color:var(--text2);max-width:560px;margin-bottom:1.5rem;}
 
 /* ===== CARDS ===== */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;transition:border-color .2s,background .3s;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;transition:border-color .2s,background .3s,box-shadow .3s;box-shadow:var(--card-shadow);}
 .card:hover{border-color:var(--card-hover-border);}
 .card-accent{border-left:3px solid var(--accent);}
 .card-title{font-size:14px;font-weight:700;margin-bottom:.5rem;}
@@ -131,10 +143,11 @@ a:hover{text-decoration:underline;}
 .safe{background:var(--safe-green-bg);border:1px solid var(--safe-green-border);border-left:3px solid var(--green);border-radius:6px;padding:.8rem 1rem;font-size:13px;color:var(--safe-green-text);margin-bottom:.8rem;}
 
 /* ===== BUDGET CARDS ===== */
-.bcard{background:linear-gradient(135deg,var(--accent) 0%,#4f46e5 100%);border-radius:10px;padding:1.1rem 1.3rem;}
+.bcard{background:linear-gradient(135deg,var(--accent) 0%,#4f46e5 100%);border-radius:10px;padding:1.1rem 1.3rem;box-shadow:var(--card-shadow);}
 .bcard-label{font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:3px;}
 .bcard-val{font-size:1.4rem;font-weight:800;color:#fff;}
 .bcard-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;}
+[data-theme="light"] .bcard{background:linear-gradient(135deg,#4f46e5 0%,#6366f1 100%);}
 
 /* ===== TABLE ===== */
 .tb-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:1rem;}
@@ -150,12 +163,25 @@ a:hover{text-decoration:underline;}
 
 /* ===== FOOD/RESTAURANT ===== */
 .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.7rem;margin-top:.7rem;}
-.fcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.8rem;text-align:center;transition:border-color .2s,transform .2s;}
+.fcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.8rem;text-align:center;transition:border-color .2s,transform .2s;box-shadow:var(--card-shadow);}
 .fcard:hover{border-color:var(--accent);transform:translateY(-2px);}
 .femoji{font-size:24px;display:block;margin-bottom:.3rem;}
 .fname{font-size:12px;font-weight:600;}
 .fplace{font-size:11px;color:var(--text3);margin-top:2px;}
 .fdist{font-size:10px;color:var(--accent2);margin-top:2px;}
+.fprice{font-size:10px;color:var(--amber);margin-top:2px;font-weight:500;}
+
+/* ===== SIGHTSEEING ===== */
+.sight-section{margin-bottom:2rem;}
+.sight-section h4{font-size:14px;font-weight:700;color:var(--accent2);margin-bottom:.5rem;}
+.sight-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem;transition:border-color .2s;box-shadow:var(--card-shadow);}
+.sight-item:hover{border-color:var(--accent);}
+.sight-name{font-size:13px;font-weight:600;margin-bottom:2px;}
+.sight-desc{font-size:12px;color:var(--text3);line-height:1.5;}
+.sight-cost{display:inline-block;font-size:10px;background:var(--accent-glow);color:var(--accent2);padding:1px 8px;border-radius:2rem;margin-top:3px;}
+.course-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin-bottom:.8rem;box-shadow:var(--card-shadow);}
+.course-card h4{font-size:13px;font-weight:700;color:var(--accent2);margin-bottom:.4rem;}
+.course-card p{font-size:12px;color:var(--text2);line-height:1.6;}
 
 /* ===== CHECKLIST ===== */
 .cklist{list-style:none;}
@@ -166,7 +192,7 @@ a:hover{text-decoration:underline;}
 .cbox.checked{background:var(--accent);border-color:var(--accent);color:#fff;}
 
 /* ===== KEYNOTE CARDS ===== */
-.keynote{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;transition:all .2s;}
+.keynote{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;transition:all .2s;box-shadow:var(--card-shadow);}
 .keynote:hover{border-color:var(--accent);}
 .keynote-name{font-size:15px;font-weight:700;color:var(--accent2);margin-bottom:.3rem;}
 .keynote-role{font-size:11px;color:var(--text3);margin-bottom:.4rem;}
@@ -175,10 +201,10 @@ a:hover{text-decoration:underline;}
 
 /* ===== ENGLISH PHRASES ===== */
 .filter-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
-.filter-btn{padding:.4rem .9rem;border-radius:2rem;border:1px solid var(--border);background:var(--surface);color:var(--text2);font-size:12px;cursor:pointer;transition:all .2s;font-family:inherit;}
+.filter-btn{padding:.4rem .9rem;border-radius:2rem;border:1px solid var(--border);background:var(--surface);color:var(--text2);font-size:12px;cursor:pointer;transition:all .2s;font-family:inherit;touch-action:manipulation;}
 .filter-btn:hover{border-color:var(--accent);}
 .filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
-.phrase{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:.6rem;transition:all .2s;}
+.phrase{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:.6rem;transition:all .2s;box-shadow:var(--card-shadow);}
 .phrase:hover{border-color:var(--accent);}
 .phrase-en{font-size:14px;font-weight:600;margin-bottom:.3rem;color:var(--text);}
 .phrase-ko{font-size:13px;color:var(--text2);}
@@ -192,16 +218,59 @@ a:hover{text-decoration:underline;}
 /* ===== FOOTER ===== */
 footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:2rem 1.5rem;font-size:12px;color:var(--text3);transition:all .3s;}
 
+/* ===== MAP LEGEND ===== */
+.map-legend{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem;}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3);}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:700px){
-  .nav-btn{padding:.6rem .7rem;font-size:11px;}
-  .theme-toggle{padding:.4rem .6rem;font-size:12px;}
-  .hero{min-height:auto;padding:4rem 1rem 3rem;}
-  .hero-title{font-size:2rem;}
-  .hero-stats{gap:1.2rem;}
+  /* Hamburger visible */
+  .hamburger{display:flex;}
+  .nav{flex-wrap:wrap;}
+  .nav-links{display:none;width:100%;flex-direction:column;background:var(--nav-bg);backdrop-filter:blur(12px);border-top:1px solid var(--border);}
+  .nav-links.open{display:flex;}
+  .nav-links .nav-btn{padding:.8rem 1.2rem;font-size:13px;min-height:44px;border-bottom:none;border-left:3px solid transparent;text-align:left;width:100%;}
+  .nav-links .nav-btn.active{border-left-color:var(--accent);border-bottom:none;background:var(--nav-active-bg);}
+  .theme-toggle{margin:0;padding:.6rem 1rem;font-size:13px;min-height:44px;border-radius:0;border:none;border-top:1px solid var(--border);width:100%;justify-content:center;}
+
+  /* Font scaling */
+  body{font-size:14px;}
+  .sec-title{font-size:1.3rem;}
+  .card-title{font-size:13px;}
+  .card-body{font-size:12px;}
+
+  /* Hero */
+  .hero{min-height:auto;padding:2.5rem 1rem 2rem;}
+  .hero-title{font-size:1.8rem;}
+  .hero-sub{font-size:.9rem;}
+  .hero-stats{gap:1rem;}
+  .stat-val{font-size:13px;}
+
+  /* Day header */
   .day-num{font-size:2rem;}
-  #map{height:350px;}
+
+  /* Map */
+  #map{height:300px;}
+
+  /* Poster */
   .poster-card{padding:1rem;}
+
+  /* Grids already handled above */
+
+  /* Food grid */
+  .food-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));}
+
+  /* Table scroll indicator */
+  .tb-wrap{position:relative;}
+  .tb-wrap::after{content:'← 스크롤 →';position:absolute;bottom:-18px;right:0;font-size:10px;color:var(--text3);opacity:.6;}
+}
+
+@media(max-width:400px){
+  .hero-title{font-size:1.5rem;}
+  .hero-chips{gap:.3rem;}
+  .chip{font-size:11px;padding:.25rem .6rem;}
+  .wrap{padding:0 1rem;}
 }
 </style>
 </head>
@@ -209,19 +278,23 @@ footer{background:var(--surface);border-top:1px solid var(--border);text-align:c
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <button class="nav-btn active" onclick="go('home')">🏠 홈</button>
-  <button class="nav-btn" onclick="go('map')">🗺 지도</button>
-  <button class="nav-btn" onclick="go('schedule')">📅 스케줄</button>
-  <button class="nav-btn" onclick="go('d1')">Day1 · 5/4</button>
-  <button class="nav-btn" onclick="go('d2')">Day2 · 5/5</button>
-  <button class="nav-btn" onclick="go('d3')">Day3 · 5/6</button>
-  <button class="nav-btn" onclick="go('d4')">Day4 · 5/7</button>
-  <button class="nav-btn" onclick="go('d5')">Day5 · 5/8</button>
-  <button class="nav-btn" onclick="go('food')">🍽 맛집·교통</button>
-  <button class="nav-btn" onclick="go('safety')">⚠️ 안전·긴급</button>
-  <button class="nav-btn" onclick="go('english')">🗣 영어 표현</button>
-  <button class="nav-btn" onclick="go('checklist')">✅ 체크리스트</button>
-  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="다크/라이트 모드"><i class="fas fa-moon"></i> <span id="themeLabel">Dark</span></button>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="메뉴">&#9776;</button>
+  <div class="nav-links" id="navLinks">
+    <button class="nav-btn active" onclick="go('home')">🏠 홈</button>
+    <button class="nav-btn" onclick="go('map')">🗺 지도</button>
+    <button class="nav-btn" onclick="go('schedule')">📅 스케줄</button>
+    <button class="nav-btn" onclick="go('d1')">Day1 · 5/4</button>
+    <button class="nav-btn" onclick="go('d2')">Day2 · 5/5</button>
+    <button class="nav-btn" onclick="go('d3')">Day3 · 5/6</button>
+    <button class="nav-btn" onclick="go('d4')">Day4 · 5/7</button>
+    <button class="nav-btn" onclick="go('d5')">Day5 · 5/8</button>
+    <button class="nav-btn" onclick="go('sight')">🏛 관광·볼거리</button>
+    <button class="nav-btn" onclick="go('food')">🍽 맛집·교통</button>
+    <button class="nav-btn" onclick="go('safety')">⚠️ 안전·긴급</button>
+    <button class="nav-btn" onclick="go('english')">🗣 영어 표현</button>
+    <button class="nav-btn" onclick="go('checklist')">✅ 체크리스트</button>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="다크/라이트 모드">☀️ <span id="themeLabel">Light</span></button>
+  </div>
 </nav>
 
 <!-- ========== HOME ========== -->
@@ -337,7 +410,15 @@ footer{background:var(--surface);border-top:1px solid var(--border);text-align:c
       <div class="sec-label">Location Map</div>
       <div class="sec-title" style="margin-bottom:1rem;">LA 출장 지도</div>
       <div id="map"></div>
-      <div style="margin-top:.8rem;font-size:12px;color:var(--text3);">마커를 클릭하면 상세 정보가 표시됩니다.</div>
+      <div class="map-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#06b6d4;"></div>공항/교통</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6;"></div>컨벤션센터</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div>호텔</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div>맛집</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ec4899;"></div>박물관/문화</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#22d3ee;"></div>관광명소</div>
+      </div>
+      <div style="margin-top:.4rem;font-size:12px;color:var(--text3);">마커를 클릭하면 상세 정보가 표시됩니다.</div>
     </div>
   </div>
 </div>
@@ -676,38 +757,184 @@ footer{background:var(--surface);border-top:1px solid var(--border);text-align:c
   </div>
 </div>
 
+<!-- ========== SIGHTSEEING ========== -->
+<div id="p-sight" class="page">
+  <div class="sec wrap">
+    <div class="sec-label">Sightseeing</div>
+    <div class="sec-title">🏛 관광 · 볼거리</div>
+    <div class="sec-desc">컨벤션센터 주변 도보 및 Uber/Lyft 이동 관광지 모음</div>
+
+    <!-- Walking: LA Live -->
+    <div class="sight-section">
+      <h3 style="font-size:16px;font-weight:700;margin:1.5rem 0 .5rem;">📍 도보 가능 (Walking Distance from Convention Center)</h3>
+
+      <h4>LA Live (도보 5분)</h4>
+      <div class="sight-item">
+        <div class="sight-name">🎵 GRAMMY Museum</div>
+        <div class="sight-desc">음악 역사 박물관 - 인터랙티브 전시, 아티스트 의상, 녹음 부스 체험</div>
+        <div class="sight-cost">성인 $18</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🎬 Regal Cinemas</div>
+        <div class="sight-desc">영화관 - 최신 할리우드 영화 상영</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🎳 Lucky Strike</div>
+        <div class="sight-desc">볼링장 + 바 - 저녁 시간 캐주얼하게 즐기기 좋음</div>
+      </div>
+    </div>
+
+    <!-- Walking: DTLA -->
+    <div class="sight-section">
+      <h4>DTLA 도보권 (15~25분)</h4>
+      <div class="sight-item">
+        <div class="sight-name">🎨 The Broad</div>
+        <div class="sight-desc">무료 현대미술관 (사전 예약 필수) - Warhol, Koons, Lichtenstein 등 세계적 현대미술 컬렉션</div>
+        <div class="sight-cost">무료 (사전 예약)</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🎵 Walt Disney Concert Hall</div>
+        <div class="sight-desc">Frank Gehry 설계 - 스테인리스 스틸 곡면 외관이 상징적. 외관 무료 관람, 가이드 투어 가능</div>
+        <div class="sight-cost">외관 무료</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🖼 MOCA (Museum of Contemporary Art)</div>
+        <div class="sight-desc">현대미술관 - The Broad 바로 옆, 다양한 기획전</div>
+        <div class="sight-cost">무료 입장</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🏛 LA City Hall 전망대</div>
+        <div class="sight-desc">26층 무료 전망 - DTLA 시내와 산 전경. 평일 9AM-5PM만 운영</div>
+        <div class="sight-cost">무료 (평일 9AM-5PM)</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">📚 The Last Bookstore</div>
+        <div class="sight-desc">은행 건물 개조한 서점 - 책으로 만든 터널 등 포토스팟으로 유명</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🍜 Grand Central Market</div>
+        <div class="sight-desc">1917년 개장 푸드홀 - Eggslut, Wexler's Deli 등 LA 맛집 밀집</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🚉 Union Station</div>
+        <div class="sight-desc">1939년 아르데코 건축 랜드마크 - 영화 촬영지로 유명한 아름다운 역사</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🏮 Little Tokyo</div>
+        <div class="sight-desc">일본타운 - 라멘, 우동, 일식, 일본 문화 체험. Japanese American National Museum</div>
+      </div>
+    </div>
+
+    <!-- Uber/Lyft -->
+    <div class="sight-section">
+      <h3 style="font-size:16px;font-weight:700;margin:1.5rem 0 .5rem;">🚗 Uber/Lyft 이동 (15~30분)</h3>
+      <div class="sight-item">
+        <div class="sight-name">🏖 Santa Monica Beach & Pier</div>
+        <div class="sight-desc">Route 66 끝점 - 피어 위 놀이기구, Third Street Promenade 쇼핑거리</div>
+        <div class="sight-cost">Uber $25-35 · 30-40분</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🔭 Griffith Observatory</div>
+        <div class="sight-desc">LA 전경 + 할리우드 사인 조망 - 일몰 시간대 강력 추천. 천문대 내부 전시 무료</div>
+        <div class="sight-cost">무료 입장 · Uber $20-30 · 25분</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">⭐ Hollywood Walk of Fame</div>
+        <div class="sight-desc">명예의 거리 - 2,700+ 스타 핸드프린트, TCL Chinese Theatre</div>
+        <div class="sight-cost">Uber $15-25 · 20분</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🎨 Getty Center</div>
+        <div class="sight-desc">무료 미술관 - 건축 명소 (Richard Meier 설계), 유럽 회화, 정원</div>
+        <div class="sight-cost">무료 입장 · 주차 $20 · Uber $20-30 · 25분</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🏛 Natural History Museum</div>
+        <div class="sight-desc">자연사 박물관 - 공룡 화석, 보석, Exposition Park 내 위치</div>
+        <div class="sight-cost">Uber $10 · 10분</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🌹 Huntington Library</div>
+        <div class="sight-desc">정원 + 미술 + 도서관 - 광대한 식물원과 Gutenberg 성경 소장</div>
+        <div class="sight-cost">Uber $25 · 30분</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🎢 Universal Studios Hollywood</div>
+        <div class="sight-desc">테마파크 - 스튜디오 투어, Harry Potter 월드, Jurassic World</div>
+        <div class="sight-cost">Uber $20 · 25분</div>
+      </div>
+      <div class="sight-item">
+        <div class="sight-name">🇰🇷 Koreatown</div>
+        <div class="sight-desc">한인타운 - 한식 BBQ, 카페, 노래방, 스파 등 한국 문화 밀집지역</div>
+        <div class="sight-cost">Uber $10-15 · 15분</div>
+      </div>
+    </div>
+
+    <!-- Recommended Courses -->
+    <h3 style="font-size:16px;font-weight:700;margin:2rem 0 .8rem;">🗓 추천 코스</h3>
+    <div class="grid-2">
+      <div>
+        <div class="course-card">
+          <h4>반나절 코스 A (문화)</h4>
+          <p>The Broad → Walt Disney Concert Hall → Grand Central Market (점심) → The Last Bookstore</p>
+        </div>
+        <div class="course-card">
+          <h4>반나절 코스 B (해변)</h4>
+          <p>Santa Monica Beach → Third Street Promenade (쇼핑/식사)</p>
+        </div>
+      </div>
+      <div>
+        <div class="course-card">
+          <h4>반나절 코스 C (전망)</h4>
+          <p>Griffith Observatory (일몰 추천) → Hollywood Walk of Fame</p>
+        </div>
+        <div class="course-card">
+          <h4>야간 코스</h4>
+          <p>LA Live (저녁) → GRAMMY Museum → Crypto.com Arena 주변 야경</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info" style="margin-top:1rem;">💡 <strong>포스터 발표일(5/7) 관광 시:</strong> 16:30까지 반드시 컨벤션센터 복귀! (포스터 세션 5 PM 시작)</div>
+  </div>
+</div>
+
 <!-- ========== FOOD & TRANSIT ========== -->
 <div id="p-food" class="page">
   <div class="sec wrap">
     <div class="sec-label">Food &amp; Transit</div>
     <div class="sec-title">🍽 맛집 · 교통 가이드</div>
 
-    <!-- Walking Distance -->
-    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;">📍 도보권 레스토랑 (LA Live / DTLA)</h3>
+    <!-- LA Live Walking -->
+    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;">📍 LA Live 도보권 (5분)</h3>
     <div class="food-grid">
-      <div class="fcard"><span class="femoji">🍔</span><div class="fname">Yard House</div><div class="fplace">American</div><div class="fdist">LA Live · 도보 5분</div></div>
-      <div class="fcard"><span class="femoji">🥩</span><div class="fname">Fleming's Prime</div><div class="fplace">스테이크</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🐟</span><div class="fname">Rock'N Fish</div><div class="fplace">시푸드</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🍗</span><div class="fname">Shaquille's</div><div class="fplace">Southern</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🌮</span><div class="fname">Sol Agave</div><div class="fplace">Mexican</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🌶</span><div class="fname">Javier's</div><div class="fplace">Mexican (Elevated)</div><div class="fdist">12th St</div></div>
-      <div class="fcard"><span class="femoji">🦞</span><div class="fname">Mastro's Ocean Club</div><div class="fplace">Fine Dining</div><div class="fdist">DTLA</div></div>
-      <div class="fcard"><span class="femoji">🍛</span><div class="fname">Baar Baar</div><div class="fplace">Modern Indian</div><div class="fdist">DTLA</div></div>
-      <div class="fcard"><span class="femoji">🍣</span><div class="fname">Sugarfish</div><div class="fplace">초밥</div><div class="fdist">DTLA</div></div>
+      <div class="fcard"><span class="femoji">🍔</span><div class="fname">Yard House</div><div class="fplace">미국식, 크래프트 맥주 130종</div><div class="fprice">$15-25</div><div class="fdist">LA Live · 도보 5분</div></div>
+      <div class="fcard"><span class="femoji">🥩</span><div class="fname">Fleming's</div><div class="fplace">프라임 스테이크</div><div class="fprice">$40-80</div><div class="fdist">LA Live</div></div>
+      <div class="fcard"><span class="femoji">🐟</span><div class="fname">Rock'N Fish</div><div class="fplace">시푸드</div><div class="fprice">$20-35</div><div class="fdist">LA Live</div></div>
+      <div class="fcard"><span class="femoji">🍗</span><div class="fname">Shaquille's</div><div class="fplace">남부식 프라이드치킨</div><div class="fprice">$15-25</div><div class="fdist">LA Live</div></div>
+      <div class="fcard"><span class="femoji">🌮</span><div class="fname">Sol Agave</div><div class="fplace">멕시칸</div><div class="fprice">$15-25</div><div class="fdist">LA Live</div></div>
+      <div class="fcard"><span class="femoji">🌮</span><div class="fname">Javier's</div><div class="fplace">고급 멕시칸, 테킬라 바</div><div class="fprice">$25-40</div><div class="fdist">LA Live</div></div>
+    </div>
+
+    <!-- DTLA Walking -->
+    <h3 style="font-size:15px;font-weight:700;margin:2rem 0 .8rem;">📍 DTLA 도보권 (10~20분)</h3>
+    <div class="food-grid">
+      <div class="fcard"><span class="femoji">🍜</span><div class="fname">Grand Central Market</div><div class="fplace">푸드홀, Eggslut/Wexler's 등</div><div class="fprice">$8-15</div><div class="fdist">DTLA · 도보 15분</div></div>
+      <div class="fcard"><span class="femoji">🍣</span><div class="fname">Sugarfish</div><div class="fplace">오마카세 초밥</div><div class="fprice">$30-50</div><div class="fdist">DTLA</div></div>
+      <div class="fcard"><span class="femoji">🍝</span><div class="fname">Bottega Louie</div><div class="fplace">이태리안, 마카롱 유명</div><div class="fprice">$20-35</div><div class="fdist">DTLA</div></div>
+      <div class="fcard"><span class="femoji">🥘</span><div class="fname">Baar Baar</div><div class="fplace">모던 인디안 (미슐랭 셰프)</div><div class="fprice">$20-35</div><div class="fdist">DTLA</div></div>
+      <div class="fcard"><span class="femoji">🦞</span><div class="fname">Mastro's Ocean Club</div><div class="fplace">파인다이닝 시푸드</div><div class="fprice">$50-100</div><div class="fdist">DTLA</div></div>
+      <div class="fcard"><span class="femoji">🍕</span><div class="fname">Pizzana</div><div class="fplace">나폴리 피자 맛집</div><div class="fprice">$15-25</div><div class="fdist">DTLA</div></div>
     </div>
 
     <!-- Korean Food -->
-    <h3 style="font-size:15px;font-weight:700;margin:2rem 0 .8rem;">🇰🇷 한식 (Uber 15분 · Koreatown)</h3>
+    <h3 style="font-size:15px;font-weight:700;margin:2rem 0 .8rem;">🇰🇷 Koreatown (Uber 15분)</h3>
     <div class="food-grid">
-      <div class="fcard"><span class="femoji">🥩</span><div class="fname">해장촌 (Hae Jang Chon)</div><div class="fplace">AYCE BBQ</div><div class="fdist">Koreatown</div></div>
-      <div class="fcard"><span class="femoji">🔥</span><div class="fname">백정 (Baekjeong)</div><div class="fplace">Korean BBQ</div><div class="fdist">Koreatown</div></div>
-      <div class="fcard"><span class="femoji">🥓</span><div class="fname">강남역 (Gangnam Station)</div><div class="fplace">AYCE BBQ</div><div class="fdist">Koreatown</div></div>
-    </div>
-
-    <!-- Quick/Casual -->
-    <h3 style="font-size:15px;font-weight:700;margin:2rem 0 .8rem;">🍴 캐주얼/간편식</h3>
-    <div class="food-grid">
-      <div class="fcard"><span class="femoji">🏬</span><div class="fname">Grand Central Market</div><div class="fplace">DTLA 푸드홀</div><div class="fdist">다양한 음식</div></div>
+      <div class="fcard"><span class="femoji">🥩</span><div class="fname">백정 Baekjeong</div><div class="fplace">한우급 BBQ</div><div class="fprice">$30-50</div><div class="fdist">Koreatown</div></div>
+      <div class="fcard"><span class="femoji">🥩</span><div class="fname">해장촌 Hae Jang Chon</div><div class="fplace">AYCE BBQ</div><div class="fprice">$30-40</div><div class="fdist">Koreatown</div></div>
+      <div class="fcard"><span class="femoji">🥩</span><div class="fname">강남역 Gangnam Station</div><div class="fplace">AYCE BBQ, 대형 그룹</div><div class="fprice">$25-35</div><div class="fdist">Koreatown</div></div>
+      <div class="fcard"><span class="femoji">🍜</span><div class="fname">신선로</div><div class="fplace">한식 정식</div><div class="fprice">$15-25</div><div class="fdist">Koreatown</div></div>
+      <div class="fcard"><span class="femoji">☕</span><div class="fname">Cafe Mak</div><div class="fplace">한국식 카페</div><div class="fprice">$5-10</div><div class="fdist">Koreatown</div></div>
     </div>
 
     <!-- TRANSIT -->
@@ -1024,18 +1251,27 @@ footer{background:var(--surface);border-top:1px solid var(--border);text-align:c
 <!-- ========== SCRIPTS ========== -->
 <script>
 /* === Tab Navigation === */
-var tabMap = {home:0,map:1,schedule:2,d1:3,d2:4,d3:5,d4:6,d5:7,food:8,safety:9,english:10,checklist:11};
+var tabMap = {home:0,map:1,schedule:2,d1:3,d2:4,d3:5,d4:6,d5:7,sight:8,food:9,safety:10,english:11,checklist:12};
 
 function go(id){
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
-  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.nav-links .nav-btn').forEach(function(b){b.classList.remove('active');});
   var page = document.getElementById('p-'+id);
   if(page) page.classList.add('active');
-  var btns = document.querySelectorAll('.nav-btn');
+  var btns = document.querySelectorAll('.nav-links .nav-btn');
   var idx = tabMap[id];
   if(idx !== undefined && btns[idx]) btns[idx].classList.add('active');
   window.scrollTo(0,0);
   if(id==='map' && !window._mapInit) initMap();
+  // Close mobile menu after navigation
+  var navLinks = document.getElementById('navLinks');
+  if(navLinks) navLinks.classList.remove('open');
+}
+
+/* === Hamburger Menu === */
+function toggleMenu(){
+  var navLinks = document.getElementById('navLinks');
+  navLinks.classList.toggle('open');
 }
 
 /* === Theme Toggle === */
@@ -1045,10 +1281,10 @@ function getTheme(){
 function applyTheme(theme){
   if(theme === 'light'){
     document.documentElement.setAttribute('data-theme','light');
-    document.getElementById('themeToggle').innerHTML = '<i class="fas fa-sun"></i> <span id="themeLabel">Light</span>';
+    document.getElementById('themeToggle').innerHTML = '\uD83C\uDF19 <span id="themeLabel">Dark</span>';
   } else {
     document.documentElement.removeAttribute('data-theme');
-    document.getElementById('themeToggle').innerHTML = '<i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>';
+    document.getElementById('themeToggle').innerHTML = '\u2600\uFE0F <span id="themeLabel">Light</span>';
   }
   // Update map tiles if map exists
   if(window._mapObj && window._tileLayer){
@@ -1134,17 +1370,36 @@ function initMap(){
     });
   }
 
+  // Color codes: Blue=#06b6d4 airports/transit, Purple=#8b5cf6 convention, Green=#22c55e hotel, Orange=#f59e0b food, Pink=#ec4899 museums, Cyan=#22d3ee attractions
   var spots=[
+    // Airports / Transit (Blue)
     {lat:33.9425,lng:-118.4081,name:'LAX 공항',desc:'입국/출국',c:'#06b6d4'},
-    {lat:34.0453,lng:-118.2655,name:'LA Convention Center',desc:'Display Week 2026 전시장',c:'#6366f1'},
+    {lat:34.0437,lng:-118.2660,name:'Pico Metro Station',desc:'A Line / E Line · 도보 1블록',c:'#06b6d4'},
+    {lat:34.0561,lng:-118.2365,name:'Union Station',desc:'1939년 아르데코 건축 랜드마크',c:'#06b6d4'},
+
+    // Convention Center (Purple)
+    {lat:34.0453,lng:-118.2655,name:'LA Convention Center',desc:'Display Week 2026 전시장',c:'#8b5cf6'},
+
+    // Hotel (Green)
     {lat:34.0448,lng:-118.2620,name:'Residence Inn LA Live',desc:'호텔 · 901 W. Olympic Blvd',c:'#22c55e'},
+
+    // Restaurants / Food (Orange)
     {lat:34.0407,lng:-118.2668,name:'LA Live',desc:'레스토랑 · 엔터테인먼트',c:'#f59e0b'},
-    {lat:34.0437,lng:-118.2660,name:'Pico Metro Station',desc:'A Line / E Line · 도보 1블록',c:'#818cf8'},
-    {lat:34.0522,lng:-118.2575,name:'Grand Central Market',desc:'DTLA 푸드홀',c:'#f59e0b'},
-    {lat:34.0635,lng:-118.3015,name:'Koreatown',desc:'한식 BBQ · Uber 15분',c:'#ef4444'},
-    {lat:34.0195,lng:-118.4912,name:'Santa Monica Beach',desc:'피어 · Route 66 끝점',c:'#06b6d4'},
-    {lat:34.1184,lng:-118.3004,name:'Griffith Observatory',desc:'LA 전경 · 할리우드 사인',c:'#22c55e'},
-    {lat:34.1013,lng:-118.3267,name:'Hollywood Walk of Fame',desc:'명예의 거리',c:'#f59e0b'},
+    {lat:34.0509,lng:-118.2488,name:'Grand Central Market',desc:'1917년 DTLA 푸드홀 · Eggslut 등',c:'#f59e0b'},
+    {lat:34.0635,lng:-118.3015,name:'Koreatown',desc:'한식 BBQ · 백정/해장촌/강남역',c:'#f59e0b'},
+
+    // Museums / Culture (Pink)
+    {lat:34.0544,lng:-118.2504,name:'The Broad',desc:'무료 현대미술관 · Warhol, Koons',c:'#ec4899'},
+    {lat:34.0553,lng:-118.2498,name:'Walt Disney Concert Hall',desc:'Frank Gehry 설계 · 외관 무료 관람',c:'#ec4899'},
+    {lat:34.0454,lng:-118.2637,name:'GRAMMY Museum',desc:'음악 역사 박물관 · 성인 $18',c:'#ec4899'},
+    {lat:34.0171,lng:-118.2888,name:'Natural History Museum',desc:'자연사 박물관 · Exposition Park',c:'#ec4899'},
+
+    // Attractions (Cyan)
+    {lat:34.0195,lng:-118.4912,name:'Santa Monica Beach',desc:'피어 · Route 66 끝점 · Uber $25-35',c:'#22d3ee'},
+    {lat:34.1184,lng:-118.3004,name:'Griffith Observatory',desc:'LA 전경 · 할리우드 사인 · 무료',c:'#22d3ee'},
+    {lat:34.1013,lng:-118.3267,name:'Hollywood Walk of Fame',desc:'명예의 거리 · TCL Chinese Theatre',c:'#22d3ee'},
+    {lat:34.0475,lng:-118.2511,name:'The Last Bookstore',desc:'은행 건물 개조 서점 · 포토스팟',c:'#22d3ee'},
+    {lat:34.0502,lng:-118.2399,name:'Little Tokyo',desc:'일본타운 · 라멘/우동/일식',c:'#22d3ee'},
   ];
 
   spots.forEach(function(s){
@@ -1153,7 +1408,7 @@ function initMap(){
   });
 
   // Hotel to Convention Center dashed line
-  L.polyline([[34.0448,-118.2620],[34.0453,-118.2655]],{color:'#6366f1',weight:3,dashArray:'6,4'}).addTo(map);
+  L.polyline([[34.0448,-118.2620],[34.0453,-118.2655]],{color:'#8b5cf6',weight:3,dashArray:'6,4'}).addTo(map);
 }
 </script>
 </body>
