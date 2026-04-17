@@ -13,17 +13,25 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);transition:background .3s,color .3s;overflow-x:hidden;min-height:100dvh;display:flex;flex-direction:column}
 
-/* Splash */
-#splash{position:fixed;inset:0;z-index:9999;background:#0a0a12;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+/* Splash — Water Genesis */
+#splash{position:fixed;inset:0;z-index:9999;background:radial-gradient(ellipse at 50% 80%,#0a1628 0%,#060a12 50%,#020206 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s;overflow:hidden}
 #splash.hide{opacity:0;visibility:hidden}
-.sp-ring{width:90px;height:90px;border-radius:50%;border:3px solid rgba(99,102,241,.15);border-top-color:var(--ac);animation:spin .8s linear infinite;margin-bottom:28px}
-@keyframes spin{to{transform:rotate(360deg)}}
-.sp-logo{font-size:32px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,#fff 30%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;opacity:0;animation:fadeUp .7s .3s forwards}
-.sp-sub{font-size:13px;color:#888898;letter-spacing:.15em;opacity:0;animation:fadeUp .7s .5s forwards}
-.sp-line{width:160px;height:2px;background:#1a1a2a;border-radius:2px;margin-top:24px;overflow:hidden;opacity:0;animation:fadeUp .5s .7s forwards}
-.sp-fill{width:0;height:100%;background:linear-gradient(90deg,#6366f1,#818cf8);border-radius:2px;animation:load 1.8s .8s ease-in-out forwards}
-.sp-date{font-size:11px;color:#555;margin-top:14px;letter-spacing:.1em;opacity:0;animation:fadeUp .5s .9s forwards}
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+#splash::before{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(56,189,248,.04),transparent);animation:waterGlow 3s ease-in-out infinite alternate}
+@keyframes waterGlow{0%{opacity:.3}100%{opacity:.8}}
+.sp-water{position:relative;width:120px;height:120px;margin-bottom:20px}
+.sp-drop{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0;animation:dropFall 1s .2s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes dropFall{0%{opacity:0;transform:translate(-50%,-120%) scale(.6)}60%{opacity:1;transform:translate(-50%,-50%) scale(1)}80%{transform:translate(-50%,-45%) scale(1.05,.95)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+.sp-ripple{position:absolute;left:50%;bottom:8px;width:10px;height:10px;border-radius:50%;transform:translateX(-50%);border:1.5px solid rgba(56,189,248,.5);opacity:0}
+.sp-ripple:nth-child(2){animation:ripple 2s 1.1s ease-out forwards}
+.sp-ripple:nth-child(3){animation:ripple 2s 1.4s ease-out forwards}
+.sp-ripple:nth-child(4){animation:ripple 2s 1.7s ease-out forwards}
+@keyframes ripple{0%{width:10px;height:6px;opacity:.8}100%{width:140px;height:30px;opacity:0;margin-left:-65px;bottom:2px}}
+.sp-logo{font-size:28px;font-weight:800;letter-spacing:-.01em;background:linear-gradient(135deg,#e0f2fe 0%,#38bdf8 40%,#818cf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;animation:fadeUp .8s 1.3s forwards}
+.sp-origin{font-size:11px;color:rgba(56,189,248,.5);letter-spacing:.3em;margin-top:2px;opacity:0;animation:fadeUp .6s 1.6s forwards}
+.sp-sub{font-size:13px;color:#64748b;letter-spacing:.15em;margin-top:16px;opacity:0;animation:fadeUp .7s 1.9s forwards}
+.sp-line{width:140px;height:2px;background:rgba(255,255,255,.06);border-radius:2px;margin-top:20px;overflow:hidden;opacity:0;animation:fadeUp .5s 2.1s forwards}
+.sp-fill{width:0;height:100%;background:linear-gradient(90deg,#0ea5e9,#38bdf8,#818cf8);border-radius:2px;animation:load 1.6s 2.2s ease-in-out forwards}
+.sp-date{font-size:10px;color:#475569;margin-top:12px;letter-spacing:.08em;opacity:0;animation:fadeUp .5s 2.4s forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes load{0%{width:0}70%{width:85%}100%{width:100%}}
 a{color:var(--ac);text-decoration:none}
@@ -125,8 +133,32 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </head>
 <body>
 <div id="splash">
-  <div class="sp-ring"></div>
+  <div class="sp-water">
+    <!-- Water Drop SVG -->
+    <svg class="sp-drop" width="60" height="80" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dropGrad" x1="30" y1="0" x2="30" y2="80" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#e0f2fe"/>
+          <stop offset="30%" stop-color="#38bdf8"/>
+          <stop offset="70%" stop-color="#0284c7"/>
+          <stop offset="100%" stop-color="#0c4a6e"/>
+        </linearGradient>
+        <radialGradient id="dropShine" cx="40%" cy="30%" r="50%">
+          <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </radialGradient>
+      </defs>
+      <path d="M30 4 C30 4 6 38 6 54 C6 67.2 16.8 78 30 78 C43.2 78 54 67.2 54 54 C54 38 30 4 30 4Z" fill="url(#dropGrad)"/>
+      <path d="M30 4 C30 4 6 38 6 54 C6 67.2 16.8 78 30 78 C43.2 78 54 67.2 54 54 C54 38 30 4 30 4Z" fill="url(#dropShine)"/>
+      <ellipse cx="22" cy="42" rx="6" ry="10" fill="rgba(255,255,255,.12)" transform="rotate(-15 22 42)"/>
+    </svg>
+    <!-- Ripples -->
+    <div class="sp-ripple"></div>
+    <div class="sp-ripple"></div>
+    <div class="sp-ripple"></div>
+  </div>
   <div class="sp-logo">Display Week 2026</div>
+  <div class="sp-origin">WATER · FIRST</div>
   <div class="sp-sub">LOS ANGELES</div>
   <div class="sp-line"><div class="sp-fill"></div></div>
   <div class="sp-date">May 3 – 8 · LA Convention Center</div>
@@ -478,7 +510,7 @@ function saveChk(k,v){const s=JSON.parse(localStorage.getItem('dw-chk')||'{}');s
 renderChk(docs,'chkD','d');renderChk(items,'chkI','i');
 
 // Splash
-setTimeout(()=>{const s=document.getElementById('splash');s.classList.add('hide');setTimeout(()=>s.remove(),600)},2800);
+setTimeout(()=>{const s=document.getElementById('splash');s.classList.add('hide');setTimeout(()=>s.remove(),800)},4200);
 
 // Phrases
 $('phr').innerHTML=[
