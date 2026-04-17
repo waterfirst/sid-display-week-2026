@@ -2,1414 +2,372 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SID Display Week 2026 · LA 출장 가이드</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Display Week 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
-/* ===== THEME VARIABLES ===== */
-:root{
-  --bg:#0a0a0f;--surface:#141420;--surface2:#1c1c2e;--border:#2a2a40;
-  --text:#e8e8f0;--text2:#9898b0;--text3:#686880;
-  --accent:#6366f1;--accent2:#818cf8;--accent-glow:rgba(99,102,241,.15);
-  --green:#22c55e;--red:#ef4444;--amber:#f59e0b;--cyan:#06b6d4;
-  --nav-bg:rgba(10,10,15,.92);--hero-gradient:rgba(99,102,241,.08);
-  --card-hover-border:var(--accent);--link-color:var(--accent2);
-  --warn-bg:rgba(239,68,68,.08);--warn-border:rgba(239,68,68,.2);--warn-text:#fca5a5;
-  --info-bg:rgba(99,102,241,.08);--info-border:rgba(99,102,241,.2);--info-text:var(--accent2);
-  --poster-bg:linear-gradient(135deg,rgba(99,102,241,.15),rgba(234,179,8,.1));
-  --poster-border:rgba(234,179,8,.4);
-  --poster-glow:rgba(234,179,8,.08);
-  --safe-green-bg:rgba(34,197,94,.08);--safe-green-border:rgba(34,197,94,.2);--safe-green-text:#86efac;
-  --toggle-bg:var(--surface2);--toggle-icon:var(--text2);
-  --card-shadow:none;
-  --nav-active-bg:rgba(99,102,241,.15);
-}
-[data-theme="light"]{
-  --bg:#f8fafc;--surface:#ffffff;--surface2:#f1f5f9;--border:#e2e8f0;
-  --text:#1a1b2e;--text2:#475569;--text3:#94a3b8;
-  --accent:#4f46e5;--accent2:#4338ca;--accent-glow:rgba(79,70,229,.1);
-  --nav-bg:rgba(248,250,252,.95);--hero-gradient:rgba(79,70,229,.06);
-  --card-hover-border:var(--accent);--link-color:#4338ca;
-  --warn-bg:rgba(239,68,68,.06);--warn-border:rgba(239,68,68,.15);--warn-text:#dc2626;
-  --info-bg:rgba(79,70,229,.06);--info-border:rgba(79,70,229,.15);--info-text:#4338ca;
-  --poster-bg:linear-gradient(135deg,rgba(79,70,229,.08),rgba(234,179,8,.06));
-  --poster-border:rgba(202,138,4,.4);
-  --poster-glow:rgba(234,179,8,.06);
-  --safe-green-bg:rgba(34,197,94,.06);--safe-green-border:rgba(34,197,94,.15);--safe-green-text:#16a34a;
-  --green:#16a34a;--red:#dc2626;--amber:#d97706;--cyan:#0891b2;
-  --toggle-bg:#e2e8f0;--toggle-icon:#475569;
-  --card-shadow:0 1px 3px rgba(0,0,0,.08);
-  --nav-active-bg:rgba(79,70,229,.1);
-}
+:root{--bg:#0f0f14;--sf:#1a1a24;--bd:#2a2a3a;--ac:#6366f1;--tx:#e4e4ec;--mt:#888898;--gn:#22c55e;--pk:#ec4899;--gd:#f59e0b;--cy:#06b6d4;--pp:#a78bfa}
+[data-theme="light"]{--bg:#f5f5f7;--sf:#ffffff;--bd:#e0e0e8;--ac:#4f46e5;--tx:#1a1a2e;--mt:#6b6b80}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--tx);transition:background .3s,color .3s;overflow-x:hidden;min-height:100dvh;display:flex;flex-direction:column}
+a{color:var(--ac);text-decoration:none}
 
-/* ===== RESET & BASE ===== */
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s;}
-a{color:var(--link-color);text-decoration:none;}
-a:hover{text-decoration:underline;}
+header{background:var(--sf);border-bottom:1px solid var(--bd);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+header h1{font-size:15px;font-weight:700}
+header h1 span{color:var(--ac)}
+.hdr-right{display:flex;gap:8px;align-items:center}
+.theme-btn,.menu-btn{background:none;border:1px solid var(--bd);color:var(--tx);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.menu-btn{display:none}
 
-/* ===== NAV ===== */
-.nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;transition:background .3s,border-color .3s;}
-.nav::-webkit-scrollbar{display:none;}
-.nav-btn{flex-shrink:0;padding:.7rem 1rem;color:var(--text2);font-size:12px;font-weight:500;border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;font-family:inherit;white-space:nowrap;touch-action:manipulation;}
-.nav-btn:hover{color:var(--text);}
-.nav-btn.active{color:var(--accent2);border-bottom-color:var(--accent);background:var(--nav-active-bg);}
-[data-theme="light"] .nav-btn{color:var(--text2);}
-[data-theme="light"] .nav-btn:hover{color:var(--text);}
-[data-theme="light"] .nav-btn.active{color:var(--accent);font-weight:600;}
-.theme-toggle{flex-shrink:0;margin-left:auto;padding:.5rem .8rem;background:var(--toggle-bg);border:1px solid var(--border);border-radius:2rem;cursor:pointer;font-size:14px;color:var(--toggle-icon);display:flex;align-items:center;gap:6px;transition:all .2s;margin-right:.5rem;touch-action:manipulation;}
-.theme-toggle:hover{border-color:var(--accent);}
+nav{background:var(--sf);border-bottom:1px solid var(--bd);display:flex;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex-shrink:0;background:none;border:none;color:var(--mt);padding:10px 14px;font:600 12px/1 'Noto Sans KR',sans-serif;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s}
+nav button.active{color:var(--ac);border-bottom-color:var(--ac)}
 
-/* ===== HAMBURGER MENU (mobile) ===== */
-.hamburger{display:none;flex-shrink:0;padding:.7rem 1rem;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text);touch-action:manipulation;min-height:44px;min-width:44px;align-items:center;justify-content:center;}
-.nav-links{display:contents;}
-.mobile-overlay{display:none;}
+main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
+.tab{display:none}.tab.active{display:block}
 
-/* ===== PAGE ===== */
-.page{display:none;min-height:80vh;animation:fadeIn .3s ease;}
-.page.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.day{background:var(--sf);border:1px solid var(--bd);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.day-hdr{padding:12px 14px;cursor:pointer;display:flex;align-items:center;font-weight:700;font-size:14px;user-select:none;gap:8px}
+.day-hdr .arrow{margin-left:auto;transition:transform .2s;font-size:12px;color:var(--mt)}
+.day.open .arrow{transform:rotate(180deg)}
+.day-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.day.open .day-body{max-height:2000px}
+.evt{display:flex;align-items:flex-start;gap:8px;padding:6px 14px;font-size:12.5px;line-height:1.5}
+.evt:last-child{padding-bottom:12px}
+.evt .time{color:var(--mt);min-width:88px;flex-shrink:0;font-size:11.5px;font-variant-numeric:tabular-nums}
+.dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.dot-gn{background:var(--gn)}.dot-pp{background:var(--pp)}.dot-pk{background:var(--pk)}.dot-gd{background:var(--gd)}.dot-cy{background:var(--cy)}.dot-mt{background:var(--mt)}
+.evt-gold{background:rgba(245,158,11,.08);border-radius:6px;margin:2px 8px;padding:6px 10px!important}
+.evt-poster{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:6px;margin:2px 8px;padding:6px 10px!important}
+.day-tag{font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600}
+.tag-ci{background:rgba(99,102,241,.15);color:var(--ac)}
+.tag-po{background:rgba(245,158,11,.2);color:var(--gd)}
+.tag-ex{background:rgba(6,182,212,.15);color:var(--cy)}
+.tag-out{background:rgba(236,72,153,.15);color:var(--pk)}
 
-/* ===== HERO ===== */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 1.5rem;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 50%,var(--hero-gradient) 0%,transparent 50%);animation:pulse 8s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:.5;transform:scale(1);}50%{opacity:1;transform:scale(1.05);}}
-.hero-badge{font-size:11px;letter-spacing:.3em;color:var(--accent2);font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;}
-.hero-title{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:800;line-height:1.05;margin-bottom:.5rem;background:linear-gradient(135deg,var(--text) 0%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:1rem;color:var(--text2);margin-bottom:2rem;}
-.hero-chips{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;}
-.chip{background:var(--surface2);border:1px solid var(--border);color:var(--text2);padding:.3rem .9rem;border-radius:2rem;font-size:12px;transition:all .2s;}
-.hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap;justify-content:center;}
-.stat{text-align:center;}
-.stat-label{display:block;font-size:10px;letter-spacing:.15em;color:var(--text3);text-transform:uppercase;margin-bottom:2px;}
-.stat-val{font-size:15px;font-weight:700;color:var(--text);}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:16px;margin-bottom:10px}
+.card h3{font-size:14px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.label{color:var(--mt);font-size:11.5px;margin-bottom:2px}
+.value{font-size:13.5px;font-weight:600;margin-bottom:10px}
+.value:last-child{margin-bottom:0}
+.hl{color:var(--gd);font-weight:700}
+.tip{background:rgba(99,102,241,.08);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.7}
+.tip li{margin-left:16px;margin-bottom:2px}
 
-/* ===== LAYOUT ===== */
-.wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem;}
-.sec{padding:3rem 0;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-@media(max-width:700px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+.chk{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:13px}
+.chk input{accent-color:var(--ac);width:16px;height:16px;cursor:pointer}
+.chk label{cursor:pointer}
+.chk-group{font-size:12px;font-weight:700;color:var(--mt);margin:12px 0 4px;text-transform:uppercase}
 
-/* ===== SECTION HEADERS ===== */
-.sec-label{font-size:11px;letter-spacing:.2em;color:var(--accent2);font-weight:600;text-transform:uppercase;margin-bottom:.4rem;}
-.sec-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:.3rem;}
-.sec-desc{font-size:14px;color:var(--text2);max-width:560px;margin-bottom:1.5rem;}
+.phrase{display:grid;gap:6px}
+.phrase-row{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.6}
+.phrase-en{font-weight:600;margin-bottom:2px}
+.phrase-kr{color:var(--mt);font-size:12px}
 
-/* ===== CARDS ===== */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;transition:border-color .2s,background .3s,box-shadow .3s;box-shadow:var(--card-shadow);}
-.card:hover{border-color:var(--card-hover-border);}
-.card-accent{border-left:3px solid var(--accent);}
-.card-title{font-size:14px;font-weight:700;margin-bottom:.5rem;}
-.card-body{font-size:13px;color:var(--text2);line-height:1.7;}
-.row{display:flex;align-items:baseline;gap:.7rem;padding:.4rem 0;border-bottom:1px solid var(--border);}
-.row:last-child{border-bottom:none;}
-.row-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;min-width:80px;letter-spacing:.05em;}
-.row-val{font-size:13px;color:var(--text2);}
+.area{margin-bottom:12px}
+.area h4{font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ac)}
+.spot{display:inline-flex;align-items:center;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:5px 10px;font-size:12px;margin:0 4px 6px 0}
+.spot .pr{color:var(--mt);margin-left:4px;font-size:11px}
 
-/* ===== POSTER HIGHLIGHT ===== */
-.poster-card{background:var(--poster-bg);border:2px solid var(--poster-border);border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;position:relative;overflow:hidden;}
-.poster-card::before{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:var(--poster-glow);border-radius:50%;filter:blur(30px);}
-.poster-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),#eab308);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:2rem;margin-bottom:.8rem;letter-spacing:.05em;}
-.poster-title{font-size:16px;font-weight:700;margin-bottom:.5rem;line-height:1.4;}
-.poster-meta{font-size:12px;color:var(--text2);line-height:1.8;}
-.poster-meta strong{color:var(--accent2);}
+.emergency{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:12px}
+.em-card{background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px;text-align:center;font-size:12.5px}
+.em-card .num{font-weight:700;font-size:14px;color:var(--ac);margin-top:4px}
+.warn{font-size:12.5px;line-height:1.8}
+.warn li{margin-left:16px}
 
-/* ===== DAY HEADER ===== */
-.day-hdr{background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);border-bottom:1px solid var(--border);padding:1.5rem 0;transition:all .3s;}
-.day-inner{max-width:1080px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-.day-num{font-size:3rem;font-weight:800;color:var(--accent);opacity:.3;line-height:1;}
-.day-info h2{font-size:1.2rem;font-weight:700;}
-.day-info p{font-size:12px;color:var(--text3);}
-.day-tags{display:flex;gap:.4rem;flex-wrap:wrap;}
-.dtag{background:var(--accent-glow);color:var(--accent2);border-radius:2rem;padding:.2rem .7rem;font-size:11px;border:1px solid rgba(99,102,241,.2);}
+#map{height:45vh;min-height:280px;border-radius:12px;border:1px solid var(--bd);margin-bottom:10px}
+.transit li{margin-left:16px;font-size:12.5px;line-height:1.8}
 
-/* ===== TIMELINE ===== */
-.tl{position:relative;padding-left:1.5rem;}
-.tl::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:var(--border);}
-.tl-item{position:relative;margin-bottom:1.3rem;padding-left:1.2rem;}
-.tl-item::before{content:'';position:absolute;left:-1.5rem;top:7px;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);}
-.tl-item.tl-highlight::before{background:#eab308;box-shadow:0 0 12px rgba(234,179,8,.5);width:12px;height:12px;left:calc(-1.5rem - 2px);top:5px;}
-.tl-time{font-size:11px;font-weight:700;color:var(--accent2);letter-spacing:.05em;}
-.tl-place{font-size:14px;font-weight:700;margin:1px 0;}
-.tl-desc{font-size:12px;color:var(--text3);line-height:1.6;}
-.tl-tip{display:inline-flex;align-items:center;gap:4px;font-size:11px;background:rgba(245,158,11,.1);color:var(--amber);padding:2px 8px;border-radius:3px;margin-top:3px;border:1px solid rgba(245,158,11,.15);}
+.price-total{font-size:18px;font-weight:700;color:var(--ac)}
 
-/* ===== ALERTS ===== */
-.warn{background:var(--warn-bg);border:1px solid var(--warn-border);border-left:3px solid var(--red);border-radius:6px;padding:.8rem 1rem;font-size:13px;color:var(--warn-text);margin-bottom:.8rem;transition:all .3s;}
-.info{background:var(--info-bg);border:1px solid var(--info-border);border-left:3px solid var(--accent);border-radius:6px;padding:.8rem 1rem;font-size:13px;color:var(--info-text);margin-bottom:.8rem;transition:all .3s;}
-.safe{background:var(--safe-green-bg);border:1px solid var(--safe-green-border);border-left:3px solid var(--green);border-radius:6px;padding:.8rem 1rem;font-size:13px;color:var(--safe-green-text);margin-bottom:.8rem;}
-
-/* ===== BUDGET CARDS ===== */
-.bcard{background:linear-gradient(135deg,var(--accent) 0%,#4f46e5 100%);border-radius:10px;padding:1.1rem 1.3rem;box-shadow:var(--card-shadow);}
-.bcard-label{font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:3px;}
-.bcard-val{font-size:1.4rem;font-weight:800;color:#fff;}
-.bcard-sub{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;}
-[data-theme="light"] .bcard{background:linear-gradient(135deg,#4f46e5 0%,#6366f1 100%);}
-
-/* ===== TABLE ===== */
-.tb-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:1rem;}
-.tb{width:100%;border-collapse:collapse;font-size:13px;min-width:600px;}
-.tb th{background:var(--surface2);color:var(--text2);padding:.5rem .8rem;text-align:left;font-size:11px;font-weight:600;letter-spacing:.05em;border-bottom:1px solid var(--border);position:sticky;top:0;}
-.tb td{padding:.5rem .8rem;border-bottom:1px solid var(--border);color:var(--text2);transition:background .2s;}
-.tb tr:hover td{background:var(--accent-glow);}
-.tb .hl{background:var(--poster-glow);font-weight:600;}
-.tb .hl td{color:var(--text);}
-
-/* ===== MAP ===== */
-#map{width:100%;height:500px;border-radius:10px;border:1px solid var(--border);}
-
-/* ===== FOOD/RESTAURANT ===== */
-.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.7rem;margin-top:.7rem;}
-.fcard{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.8rem;text-align:center;transition:border-color .2s,transform .2s;box-shadow:var(--card-shadow);}
-.fcard:hover{border-color:var(--accent);transform:translateY(-2px);}
-.femoji{font-size:24px;display:block;margin-bottom:.3rem;}
-.fname{font-size:12px;font-weight:600;}
-.fplace{font-size:11px;color:var(--text3);margin-top:2px;}
-.fdist{font-size:10px;color:var(--accent2);margin-top:2px;}
-.fprice{font-size:10px;color:var(--amber);margin-top:2px;font-weight:500;}
-
-/* ===== SIGHTSEEING ===== */
-.sight-section{margin-bottom:2rem;}
-.sight-section h4{font-size:14px;font-weight:700;color:var(--accent2);margin-bottom:.5rem;}
-.sight-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem;transition:border-color .2s;box-shadow:var(--card-shadow);}
-.sight-item:hover{border-color:var(--accent);}
-.sight-name{font-size:13px;font-weight:600;margin-bottom:2px;}
-.sight-desc{font-size:12px;color:var(--text3);line-height:1.5;}
-.sight-cost{display:inline-block;font-size:10px;background:var(--accent-glow);color:var(--accent2);padding:1px 8px;border-radius:2rem;margin-top:3px;}
-.course-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;margin-bottom:.8rem;box-shadow:var(--card-shadow);}
-.course-card h4{font-size:13px;font-weight:700;color:var(--accent2);margin-bottom:.4rem;}
-.course-card p{font-size:12px;color:var(--text2);line-height:1.6;}
-
-/* ===== CHECKLIST ===== */
-.cklist{list-style:none;}
-.cklist li{display:flex;align-items:flex-start;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text2);cursor:pointer;transition:opacity .2s;}
-.cklist li:last-child{border-bottom:none;}
-.cklist li.checked{opacity:.5;text-decoration:line-through;}
-.cbox{width:16px;height:16px;min-width:16px;border:1.5px solid var(--text3);border-radius:3px;margin-top:2px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;}
-.cbox.checked{background:var(--accent);border-color:var(--accent);color:#fff;}
-
-/* ===== KEYNOTE CARDS ===== */
-.keynote{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:1rem;transition:all .2s;box-shadow:var(--card-shadow);}
-.keynote:hover{border-color:var(--accent);}
-.keynote-name{font-size:15px;font-weight:700;color:var(--accent2);margin-bottom:.3rem;}
-.keynote-role{font-size:11px;color:var(--text3);margin-bottom:.4rem;}
-.keynote-topic{font-size:13px;font-weight:600;margin-bottom:.4rem;}
-.keynote-desc{font-size:12px;color:var(--text3);line-height:1.6;}
-
-/* ===== ENGLISH PHRASES ===== */
-.filter-bar{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem;}
-.filter-btn{padding:.4rem .9rem;border-radius:2rem;border:1px solid var(--border);background:var(--surface);color:var(--text2);font-size:12px;cursor:pointer;transition:all .2s;font-family:inherit;touch-action:manipulation;}
-.filter-btn:hover{border-color:var(--accent);}
-.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
-.phrase{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:.6rem;transition:all .2s;box-shadow:var(--card-shadow);}
-.phrase:hover{border-color:var(--accent);}
-.phrase-en{font-size:14px;font-weight:600;margin-bottom:.3rem;color:var(--text);}
-.phrase-ko{font-size:13px;color:var(--text2);}
-.phrase-cat{display:inline-block;font-size:10px;color:var(--accent2);background:var(--accent-glow);padding:1px 8px;border-radius:2rem;margin-bottom:.4rem;}
-
-/* ===== SAFETY ZONES ===== */
-.zone-danger{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem;font-size:13px;color:var(--warn-text);}
-.zone-caution{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem;font-size:13px;color:var(--amber);}
-.zone-safe{background:var(--safe-green-bg);border:1px solid var(--safe-green-border);border-radius:8px;padding:.8rem 1rem;margin-bottom:.5rem;font-size:13px;color:var(--safe-green-text);}
-
-/* ===== FOOTER ===== */
-footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:2rem 1.5rem;font-size:12px;color:var(--text3);transition:all .3s;}
-
-/* ===== MAP LEGEND ===== */
-.map-legend{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem;}
-.legend-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3);}
-.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
-
-/* ===== RESPONSIVE ===== */
 @media(max-width:700px){
-  /* Hamburger visible */
-  .hamburger{display:flex;}
-  .nav{flex-wrap:wrap;}
-  .nav-links{display:none;width:100%;flex-direction:column;background:var(--nav-bg);backdrop-filter:blur(12px);border-top:1px solid var(--border);}
-  .nav-links.open{display:flex;}
-  .nav-links .nav-btn{padding:.8rem 1.2rem;font-size:13px;min-height:44px;border-bottom:none;border-left:3px solid transparent;text-align:left;width:100%;}
-  .nav-links .nav-btn.active{border-left-color:var(--accent);border-bottom:none;background:var(--nav-active-bg);}
-  .theme-toggle{margin:0;padding:.6rem 1rem;font-size:13px;min-height:44px;border-radius:0;border:none;border-top:1px solid var(--border);width:100%;justify-content:center;}
-
-  /* Font scaling */
-  body{font-size:14px;}
-  .sec-title{font-size:1.3rem;}
-  .card-title{font-size:13px;}
-  .card-body{font-size:12px;}
-
-  /* Hero */
-  .hero{min-height:auto;padding:2.5rem 1rem 2rem;}
-  .hero-title{font-size:1.8rem;}
-  .hero-sub{font-size:.9rem;}
-  .hero-stats{gap:1rem;}
-  .stat-val{font-size:13px;}
-
-  /* Day header */
-  .day-num{font-size:2rem;}
-
-  /* Map */
-  #map{height:300px;}
-
-  /* Poster */
-  .poster-card{padding:1rem;}
-
-  /* Grids already handled above */
-
-  /* Food grid */
-  .food-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));}
-
-  /* Table scroll indicator */
-  .tb-wrap{position:relative;}
-  .tb-wrap::after{content:'← 스크롤 →';position:absolute;bottom:-18px;right:0;font-size:10px;color:var(--text3);opacity:.6;}
-}
-
-@media(max-width:400px){
-  .hero-title{font-size:1.5rem;}
-  .hero-chips{gap:.3rem;}
-  .chip{font-size:11px;padding:.25rem .6rem;}
-  .wrap{padding:0 1rem;}
+  .menu-btn{display:flex}
+  nav{position:fixed;top:55px;left:0;right:0;background:var(--sf);flex-direction:column;border-bottom:1px solid var(--bd);transform:translateY(-120%);transition:transform .25s;z-index:99}
+  nav.open{transform:translateY(0);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+  nav button{text-align:left;padding:14px 20px;font-size:14px;border-bottom:none;border-left:3px solid transparent}
+  nav button.active{border-left-color:var(--ac);border-bottom:none}
+  main{padding:10px 8px}
 }
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" aria-label="메뉴">&#9776;</button>
-  <div class="nav-links" id="navLinks">
-    <button class="nav-btn active" onclick="go('home')">🏠 홈</button>
-    <button class="nav-btn" onclick="go('map')">🗺 지도</button>
-    <button class="nav-btn" onclick="go('schedule')">📅 스케줄</button>
-    <button class="nav-btn" onclick="go('d1')">Day1 · 5/4</button>
-    <button class="nav-btn" onclick="go('d2')">Day2 · 5/5</button>
-    <button class="nav-btn" onclick="go('d3')">Day3 · 5/6</button>
-    <button class="nav-btn" onclick="go('d4')">Day4 · 5/7</button>
-    <button class="nav-btn" onclick="go('d5')">Day5 · 5/8</button>
-    <button class="nav-btn" onclick="go('sight')">🏛 관광·볼거리</button>
-    <button class="nav-btn" onclick="go('food')">🍽 맛집·교통</button>
-    <button class="nav-btn" onclick="go('safety')">⚠️ 안전·긴급</button>
-    <button class="nav-btn" onclick="go('english')">🗣 영어 표현</button>
-    <button class="nav-btn" onclick="go('checklist')">✅ 체크리스트</button>
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="다크/라이트 모드">☀️ <span id="themeLabel">Light</span></button>
+<header>
+  <h1>Display Week <span>2026</span></h1>
+  <div class="hdr-right">
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
   </div>
+</header>
+<nav id="nav">
+  <button class="active" onclick="openTab(0,this)">📋 일정</button>
+  <button onclick="openTab(1,this)">⭐ 내 발표</button>
+  <button onclick="openTab(2,this)">🗺 지도·교통</button>
+  <button onclick="openTab(3,this)">🍽 맛집·관광</button>
+  <button onclick="openTab(4,this)">⚠️ 안전·팁</button>
+  <button onclick="openTab(5,this)">🏨 호텔·항공</button>
 </nav>
+<main>
 
-<!-- ========== HOME ========== -->
-<div id="p-home" class="page active">
-  <div class="hero">
-    <div class="hero-badge">Business Trip · 2026</div>
-    <div class="hero-title">SID Display Week<br>2026 LA</div>
-    <div class="hero-sub">Los Angeles Convention Center · May 4-8</div>
-    <div class="hero-chips">
-      <span class="chip">✈ ICN → LAX</span>
-      <span class="chip">📍 LA Convention Center</span>
-      <span class="chip">🏨 Residence Inn LA Live</span>
-      <span class="chip">📅 5/4 출국 ~ 5/10 인천 도착</span>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-label">출국</span><span class="stat-val">5/4 (일)</span></div>
-      <div class="stat"><span class="stat-label">귀국편</span><span class="stat-val">5/8 (목)</span></div>
-      <div class="stat"><span class="stat-label">인천 도착</span><span class="stat-val">5/10 (토)</span></div>
-      <div class="stat"><span class="stat-label">숙박</span><span class="stat-val">4박</span></div>
-      <div class="stat"><span class="stat-label">호텔비</span><span class="stat-val">$1,555.60</span></div>
-    </div>
-  </div>
+<!-- TAB 0: Schedule -->
+<div class="tab active" id="t0">
+<div class="day" id="d0"><div class="day-hdr" onclick="tog(this)">Sun 5/3 — Short Courses<span class="arrow">▼</span></div>
+<div class="day-body">
+<div class="evt"><span class="time">9:00–1:00 PM</span><span class="dot dot-pp"></span>Short Courses (오전)</div>
+<div class="evt"><span class="time">2:30–6:30 PM</span><span class="dot dot-pp"></span>Short Courses (오후)</div>
+</div></div>
 
-  <div class="sec wrap">
-    <!-- MY POSTER -->
-    <div class="poster-card">
-      <div class="poster-badge">⭐ MY POSTER · P-99</div>
-      <div class="poster-title">Stress-Induced Birefringence Measurement for Crack Detection in Bessel Beam Laser-Drilled Glass</div>
-      <div class="poster-meta">
-        <strong>발표자:</strong> Nakcho Choi<br>
-        <strong>포스터 번호:</strong> P-99<br>
-        <strong>세션:</strong> Thursday, May 7 · 5:00 - 8:00 PM<br>
-        <strong>셋업:</strong> 11:00 AM부터 설치 가능<br>
-        <strong>위치:</strong> Concourse Hall, LA Convention Center
-      </div>
-    </div>
+<div class="day" id="d1"><div class="day-hdr" onclick="tog(this)">Mon 5/4 — Conference & Seminars<span class="day-tag tag-ci">체크인</span><span class="arrow">▼</span></div>
+<div class="day-body">
+<div class="evt"><span class="time">8:30–5:30 PM</span><span class="dot dot-gn"></span>Computer Vision & AI Conference</div>
+<div class="evt"><span class="time">8:30–5:30 PM</span><span class="dot dot-gn"></span>Business Conference</div>
+<div class="evt"><span class="time">9:00–5:30</span><span class="dot dot-pp"></span>Seminars (4세션: 9/11/2/4시)</div>
+<div class="evt"><span class="time">1:00–5:30 PM</span><span class="dot dot-pk"></span>Displays 101 & Happy Hour (4:30~)</div>
+<div class="evt"><span class="time">9:00–5:00 PM</span><span class="dot dot-mt"></span>ICDM Breakouts</div>
+<div class="evt"><span class="time">7:00–10:00 PM</span><span class="dot dot-mt"></span>ICDM Plenary Meeting</div>
+<div class="evt evt-gold"><span class="time">오후</span><span class="dot dot-gd"></span><b>✈️ 호텔 체크인 — Residence Inn LA Live</b></div>
+</div></div>
 
-    <!-- OVERVIEW -->
-    <div class="sec-label">Overview</div>
-    <div class="sec-title">출장 일정 요약</div>
-    <div class="grid-3" style="margin-bottom:1.5rem;">
-      <div class="bcard"><div class="bcard-label">호텔</div><div class="bcard-val">Residence Inn</div><div class="bcard-sub">LA Live · Check-in 5/4, Check-out 5/8</div></div>
-      <div class="bcard"><div class="bcard-label">총 숙박비</div><div class="bcard-val">$1,555.60</div><div class="bcard-sub">$335/night x 4 nights (세금 포함)</div></div>
-      <div class="bcard"><div class="bcard-label">예약번호</div><div class="bcard-val">S60JSV7K</div><div class="bcard-sub">One King Bed</div></div>
-    </div>
+<div class="day" id="d2"><div class="day-hdr" onclick="tog(this)">Tue 5/5 — Keynotes & Expo 첫날<span class="day-tag tag-ex">전시 시작</span><span class="arrow">▼</span></div>
+<div class="day-body">
+<div class="evt evt-gold"><span class="time">8:00–10:30</span><span class="dot dot-gn"></span><b>⭐ Welcome & Keynotes</b></div>
+<div class="evt"><span class="time"></span><span class="dot dot-mt" style="visibility:hidden"></span><span style="color:var(--mt);font-size:11.5px;line-height:1.6">Pablo Calamera (IMAX CTO) — Immersive Experiences<br>Julia Yan (Visionox) — Visual Experiences<br>Achin Bhowmik (Starkey/Stanford) — AI & Human</span></div>
+<div class="evt"><span class="time">11:00–5:30</span><span class="dot dot-pp"></span>Oral Sessions (3세션)</div>
+<div class="evt"><span class="time">2:00–5:30 PM</span><span class="dot dot-pp"></span>Author Interviews</div>
+<div class="evt"><span class="time">10:30–6:30</span><span class="dot dot-cy"></span>🏛 Expo Hall</div>
+<div class="evt"><span class="time">11:30–12:30</span><span class="dot dot-pk"></span>Laser Displays</div>
+<div class="evt"><span class="time">1:00–2:00 PM</span><span class="dot dot-pk"></span>Women in Tech</div>
+<div class="evt"><span class="time">2:00–3:00 PM</span><span class="dot dot-pk"></span>India Forum</div>
+<div class="evt"><span class="time">3:00–4:00 PM</span><span class="dot dot-pk"></span>CEO Forum</div>
+<div class="evt"><span class="time">5:00–6:30 PM</span><span class="dot dot-cy"></span>Exhibit Reception</div>
+<div class="evt"><span class="time">12:30–2:30</span><span class="dot dot-mt"></span>India Business Luncheon</div>
+<div class="evt"><span class="time">6:30–8:30 PM</span><span class="dot dot-gn"></span>SID Honors & Awards Banquet</div>
+</div></div>
 
-    <div class="tb-wrap">
-    <table class="tb">
-      <thead><tr><th>날짜</th><th>일정</th><th>핵심</th></tr></thead>
-      <tbody>
-        <tr><td><strong>5/4 (일)</strong></td><td>인천 출발 → LAX 도착 → 호텔 체크인</td><td>이동일 · 시차 적응</td></tr>
-        <tr><td><strong>5/5 (월)</strong></td><td>Exhibition Day 1 + Keynotes</td><td>전시 개막 · 기조연설</td></tr>
-        <tr><td><strong>5/6 (화)</strong></td><td>Symposium + Exhibition Day 2</td><td>심포지엄 · Awards Luncheon</td></tr>
-        <tr class="hl"><td><strong>5/7 (수)</strong></td><td>Exhibition Day 3 + ⭐ POSTER P-99</td><td>포스터 발표 5-8 PM</td></tr>
-        <tr><td><strong>5/8 (목)</strong></td><td>체크아웃 → LAX → 귀국편 출발</td><td>귀국 이동일</td></tr>
-        <tr><td><strong>5/10 (토)</strong></td><td>인천공항 도착</td><td>귀국</td></tr>
-      </tbody>
-    </table>
-    </div>
+<div class="day" id="d3"><div class="day-hdr" onclick="tog(this)">Wed 5/6 — Oral & Forums<span class="arrow">▼</span></div>
+<div class="day-body">
+<div class="evt"><span class="time">8:30–5:30</span><span class="dot dot-pp"></span>Oral Sessions (4세션)</div>
+<div class="evt"><span class="time">8:30–5:30</span><span class="dot dot-pp"></span>Author Interviews</div>
+<div class="evt"><span class="time">9:00–5:00</span><span class="dot dot-cy"></span>🏛 Expo Hall</div>
+<div class="evt"><span class="time">12:00–2:00</span><span class="dot dot-gn"></span>DIA Awards Luncheon (Joel Savitt)</div>
+<div class="evt"><span class="time">10:00–11:00</span><span class="dot dot-pk"></span>Future of XR</div>
+<div class="evt"><span class="time">11:00–12:00</span><span class="dot dot-pk"></span>XR & MicroLED</div>
+<div class="evt"><span class="time">1:00–2:00 PM</span><span class="dot dot-pk"></span>SMPTE Panel</div>
+<div class="evt evt-gold"><span class="time">2:00–3:00 PM</span><span class="dot dot-gd"></span><b>⭐ Auto Displays</b></div>
+<div class="evt"><span class="time">3:00–4:00 PM</span><span class="dot dot-pk"></span>MicroLED Roadmap</div>
+<div class="evt"><span class="time">6:00–9:00 PM</span><span class="dot dot-gn"></span>Display of the Future Dinner</div>
+</div></div>
 
-    <!-- KEYNOTES -->
-    <div class="sec-label" style="margin-top:2rem;">Keynote Speakers</div>
-    <div class="sec-title">기조연설 · Tuesday May 5, 8:30 AM</div>
-    <div class="sec-desc">South Hall, LA Convention Center</div>
-    <div class="grid-2">
-      <div class="keynote">
-        <div class="keynote-name">Pablo Calamera</div>
-        <div class="keynote-role">IMAX CTO</div>
-        <div class="keynote-topic">"How IMAX Thinks About Immersive Experiences"</div>
-        <div class="keynote-desc">IMAX의 몰입형 경험 철학과 디스플레이 혁신에 대한 관점</div>
-      </div>
-      <div class="keynote">
-        <div class="keynote-name">Julia Yan</div>
-        <div class="keynote-role">Visionox Co-President</div>
-        <div class="keynote-topic">"Creating High-Quality Visual Experiences"</div>
-        <div class="keynote-desc">고품질 시각 경험 창출을 위한 Visionox의 기술 전략</div>
-      </div>
-      <div class="keynote">
-        <div class="keynote-name">Achin Bhowmik</div>
-        <div class="keynote-role">Starkey CTO / Stanford 교수</div>
-        <div class="keynote-topic">"Enhancing Human Experience with AI"</div>
-        <div class="keynote-desc">AI를 통한 인간 경험 향상 - 센서와 디스플레이의 융합</div>
-      </div>
-      <div class="keynote">
-        <div class="keynote-name">Joel Savitt</div>
-        <div class="keynote-role">Display Industry Awards</div>
-        <div class="keynote-topic">Display Industry Awards Luncheon</div>
-        <div class="keynote-desc">수요일 5/6 · 12:00 - 2:00 PM · 디스플레이 산업 시상식 오찬</div>
-      </div>
-    </div>
+<div class="day" id="d4"><div class="day-hdr" onclick="tog(this)">Thu 5/7 — ⭐ 내 포스터 발표일!<span class="day-tag tag-po">P-99</span><span class="arrow">▼</span></div>
+<div class="day-body">
+<div class="evt"><span class="time">9:00–2:00 PM</span><span class="dot dot-cy"></span>🏛 Expo Hall (마지막)</div>
+<div class="evt"><span class="time">8:30–5:00</span><span class="dot dot-pp"></span>Oral Sessions (4세션)</div>
+<div class="evt"><span class="time">8:30–5:00</span><span class="dot dot-pp"></span>Author Interviews</div>
+<div class="evt"><span class="time">10:00–11:00</span><span class="dot dot-pk"></span>BT.2020 Color</div>
+<div class="evt"><span class="time">11:00–12:30</span><span class="dot dot-pk"></span>Supply Chains</div>
+<div class="evt evt-gold"><span class="time">11:00 AM</span><span class="dot dot-gd"></span><b>📌 포스터 셋업</b></div>
+<div class="evt evt-poster"><span class="time">5:00–7:30 PM</span><span class="dot dot-gd"></span><b>⭐⭐⭐ Poster Session & Reception — P-99 발표!</b></div>
+</div></div>
 
-    <!-- HOTEL INFO -->
-    <div class="sec-label" style="margin-top:2rem;">Accommodation</div>
-    <div class="sec-title">호텔 정보</div>
-    <div class="card card-accent">
-      <div class="card-title">🏨 Residence Inn Los Angeles L.A. Live</div>
-      <div class="card-body">
-        <div class="row"><span class="row-label">주소</span><span class="row-val">901 W. Olympic Blvd, Los Angeles, CA 90015</span></div>
-        <div class="row"><span class="row-label">체크인</span><span class="row-val">5/4 (일)</span></div>
-        <div class="row"><span class="row-label">체크아웃</span><span class="row-val">5/8 (목)</span></div>
-        <div class="row"><span class="row-label">예약번호</span><span class="row-val" style="color:var(--accent2);font-weight:700;">S60JSV7K</span></div>
-        <div class="row"><span class="row-label">객실</span><span class="row-val">One King Bed</span></div>
-        <div class="row"><span class="row-label">요금</span><span class="row-val">$335/night x 4 = $1,555.60 (세금 포함)</span></div>
-      </div>
-    </div>
-  </div>
+<div class="day" id="d5"><div class="day-hdr" onclick="tog(this)">Fri 5/8 — 체크아웃 & 귀국<span class="day-tag tag-out">귀국</span><span class="arrow">▼</span></div>
+<div class="day-body">
+<div class="evt"><span class="time">8:30–12:00</span><span class="dot dot-pp"></span>Author Interviews</div>
+<div class="evt"><span class="time">8:30–5:00</span><span class="dot dot-pp"></span>Oral Sessions (4세션)</div>
+<div class="evt evt-gold"><span class="time">오전</span><span class="dot dot-gd"></span><b>✈️ 호텔 체크아웃 → LAX → 귀국</b></div>
+</div></div>
 </div>
 
-<!-- ========== MAP ========== -->
-<div id="p-map" class="page">
-  <div style="background:var(--surface);padding:2rem 0;">
-    <div class="wrap">
-      <div class="sec-label">Location Map</div>
-      <div class="sec-title" style="margin-bottom:1rem;">LA 출장 지도</div>
-      <div id="map"></div>
-      <div class="map-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#06b6d4;"></div>공항/교통</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6;"></div>컨벤션센터</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#22c55e;"></div>호텔</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div>맛집</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#ec4899;"></div>박물관/문화</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#22d3ee;"></div>관광명소</div>
-      </div>
-      <div style="margin-top:.4rem;font-size:12px;color:var(--text3);">마커를 클릭하면 상세 정보가 표시됩니다.</div>
-    </div>
-  </div>
+<!-- TAB 1: My Poster -->
+<div class="tab" id="t1">
+<div class="card">
+  <h3>⭐ 내 포스터 발표</h3>
+  <div class="label">Poster Number</div><div class="value hl">P-99</div>
+  <div class="label">Abstract Number</div><div class="value">432</div>
+  <div class="label">Title</div><div class="value">Stress-Induced Birefringence Measurement for Crack Detection in Bessel Beam Laser-Drilled Glass</div>
+  <div class="label">Author</div><div class="value">Nakcho Choi</div>
+  <div class="label">Session</div><div class="value hl">Thursday, May 7 &nbsp;|&nbsp; 5:00 PM – 7:30 PM</div>
+  <div class="label">Setup Time</div><div class="value">11:00 AM on Thursday</div>
+  <div class="label">Location</div><div class="value">LA Convention Center</div>
+</div>
+<div class="card">
+  <h3>💡 발표 팁</h3>
+  <div class="tip"><ul>
+    <li>세션 동안 포스터 앞에서 질문 대기 필수</li>
+    <li>명함 충분히 준비</li>
+    <li>30초 엘리베이터 피치 준비</li>
+    <li>핵심 포인트 2~3가지 정리해두기</li>
+    <li>관련 논문/데이터 태블릿에 준비</li>
+  </ul></div>
+</div>
 </div>
 
-<!-- ========== SCHEDULE ========== -->
-<div id="p-schedule" class="page">
-  <div class="sec wrap">
-    <div class="sec-label">Full Schedule</div>
-    <div class="sec-title">전체 일정표</div>
-    <div class="sec-desc">SID Display Week 2026 전체 스케줄 (5/4 - 5/8)</div>
-
-    <!-- Day 1 Schedule -->
-    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;color:var(--accent2);">📌 Day 1 · 5/4 (일) — 출국/도착</h3>
-    <div class="tb-wrap">
-    <table class="tb">
-      <thead><tr><th>시간</th><th>일정</th><th>장소</th><th>비고</th></tr></thead>
-      <tbody>
-        <tr><td>오전</td><td>인천공항 출발</td><td>ICN</td><td>LAX 직항 ~11h</td></tr>
-        <tr><td>같은날 오전</td><td>LAX 도착 · 입국심사</td><td>LAX</td><td>날짜변경선 효과</td></tr>
-        <tr><td>오후</td><td>호텔 이동 · 체크인</td><td>Residence Inn LA Live</td><td>Uber 15-20분</td></tr>
-        <tr><td>저녁</td><td>LA Live 주변 저녁 식사</td><td>LA Live</td><td>시차 적응</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <!-- Day 2 Schedule -->
-    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;color:var(--accent2);">📌 Day 2 · 5/5 (월) — Exhibition + Keynotes</h3>
-    <div class="tb-wrap">
-    <table class="tb">
-      <thead><tr><th>시간</th><th>일정</th><th>장소</th><th>비고</th></tr></thead>
-      <tbody>
-        <tr><td>08:30 AM</td><td>🎤 Keynote: Pablo Calamera (IMAX CTO)</td><td>South Hall</td><td>Immersive Experiences</td></tr>
-        <tr><td>08:30 AM</td><td>🎤 Keynote: Julia Yan (Visionox)</td><td>South Hall</td><td>Visual Experiences</td></tr>
-        <tr><td>08:30 AM</td><td>🎤 Keynote: Achin Bhowmik (Starkey/Stanford)</td><td>South Hall</td><td>AI + Human Experience</td></tr>
-        <tr><td>10:00 AM</td><td>Exhibition Hall 개장 (Day 1)</td><td>South Hall HJK</td><td>200+ 전시사</td></tr>
-        <tr><td>10:00 AM~</td><td>Symposium 병렬 세션 시작</td><td>Meeting Rooms</td><td>8개 트랙 동시 진행</td></tr>
-        <tr><td>오후</td><td>I-Zone 관람</td><td>Exhibition Hall</td><td>스타트업/프로토타입</td></tr>
-        <tr><td>17:00</td><td>Networking Reception</td><td>Convention Center</td><td>명함 교환</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <!-- Day 3 Schedule -->
-    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;color:var(--accent2);">📌 Day 3 · 5/6 (화) — Symposium + Exhibition</h3>
-    <div class="tb-wrap">
-    <table class="tb">
-      <thead><tr><th>시간</th><th>일정</th><th>장소</th><th>비고</th></tr></thead>
-      <tbody>
-        <tr><td>08:30 AM</td><td>Technical Sessions 시작</td><td>Meeting Rooms 300</td><td>Symposium 병렬 세션</td></tr>
-        <tr><td>10:00 AM</td><td>Exhibition Hall 개장 (Day 2)</td><td>South Hall HJK</td><td>전시 관람 계속</td></tr>
-        <tr><td>10:00 AM</td><td>Automotive Displays &amp; HMI 세션 트랙</td><td>Meeting Rooms</td><td>AR-HUD, Transparent Display</td></tr>
-        <tr><td>12:00 PM</td><td>🏆 Display Industry Awards Luncheon</td><td>Convention Center</td><td>Joel Savitt · 12:00-2:00 PM</td></tr>
-        <tr><td>오후</td><td>Symposium 계속 · Exhibition 관람</td><td>South Hall</td><td>관심 부스 집중</td></tr>
-        <tr><td>저녁</td><td>네트워킹 디너 / 자유 식사</td><td>-</td><td>-</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <!-- Day 4 Schedule -->
-    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;color:var(--accent2);">📌 Day 4 · 5/7 (수) — Exhibition + ⭐ POSTER (P-99)</h3>
-    <div class="tb-wrap">
-    <table class="tb">
-      <thead><tr><th>시간</th><th>일정</th><th>장소</th><th>비고</th></tr></thead>
-      <tbody>
-        <tr><td>08:30 AM</td><td>Symposium 세션 계속</td><td>Meeting Rooms</td><td>병렬 세션</td></tr>
-        <tr><td>10:00 AM</td><td>Exhibition Hall 개장 (Day 3, 마지막)</td><td>South Hall HJK</td><td>전시 마지막날</td></tr>
-        <tr><td>10:00 AM</td><td>Automotive/Vehicular Display 세션</td><td>Meeting Rooms</td><td>Smart Vehicular, Automotive Panel</td></tr>
-        <tr class="hl"><td>11:00 AM</td><td>⭐ 포스터 셋업 시작</td><td>Concourse Hall</td><td>P-99 설치</td></tr>
-        <tr><td>오후</td><td>마지막 전시 관람 · 자료 수집</td><td>South Hall</td><td>카탈로그 확보</td></tr>
-        <tr class="hl"><td>5:00 - 8:00 PM</td><td>⭐ POSTER SESSION · P-99</td><td>Concourse Hall</td><td>내 포스터 발표!</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <!-- Day 5 Schedule -->
-    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;color:var(--accent2);">📌 Day 5 · 5/8 (목) — 귀국</h3>
-    <div class="tb-wrap">
-    <table class="tb">
-      <thead><tr><th>시간</th><th>일정</th><th>장소</th><th>비고</th></tr></thead>
-      <tbody>
-        <tr><td>오전</td><td>호텔 체크아웃</td><td>Residence Inn</td><td>짐 정리</td></tr>
-        <tr><td>오후~저녁</td><td>LAX 이동 → 귀국편 출발</td><td>LAX</td><td>국제선 3시간 전 도착</td></tr>
-        <tr><td>5/10 (토)</td><td>인천공항 도착</td><td>ICN</td><td>귀국</td></tr>
-      </tbody>
-    </table>
-    </div>
-
-    <!-- Automotive Track -->
-    <h3 style="font-size:15px;font-weight:700;margin:2rem 0 .8rem;color:var(--accent2);">🚗 Automotive Displays &amp; HMI 관심 트랙</h3>
-    <div class="info">💡 세부 세션 번호는 TBD - <a href="https://www.displayweek.org/programschedule/" style="color:var(--link-color);">displayweek.org/programschedule</a> 에서 확인</div>
-    <div class="tb-wrap">
-    <table class="tb">
-      <thead><tr><th>주제</th><th>서브토픽</th><th>관련 기술</th></tr></thead>
-      <tbody>
-        <tr><td>AR-HUD</td><td>Augmented Reality Head-Up Display</td><td>홀로그래픽, Waveguide, LCoS</td></tr>
-        <tr><td>Transparent Display</td><td>투명 디스플레이 자동차 적용</td><td>Transparent OLED, MicroLED</td></tr>
-        <tr><td>Automotive Panel</td><td>차량용 대형 패널/클러스터</td><td>LTPS, OLED, Local Dimming</td></tr>
-        <tr><td>Smart Vehicular Display</td><td>스마트 차량 디스플레이 인터페이스</td><td>Touch, Haptic, Flexible</td></tr>
-      </tbody>
-    </table>
-    </div>
-  </div>
+<!-- TAB 2: Map & Transit -->
+<div class="tab" id="t2">
+<div id="map"></div>
+<div class="card">
+  <h3>🚇 교통 정보</h3>
+  <ul class="transit">
+    <li><b>Pico Station</b> (A/E Line) — 호텔에서 도보 1블록</li>
+    <li><b>LAX ↔ Hotel:</b> Uber $15-25, 15~20분</li>
+    <li><b>Metro 운행:</b> 4:30 AM – 11:45 PM, 피크 8분 간격</li>
+    <li><b>TAP Card:</b> 1회 $1.75, 1일 $5 캡</li>
+  </ul>
+</div>
 </div>
 
-<!-- ========== DAY 1 ========== -->
-<div id="p-d1" class="page">
-  <div class="day-hdr"><div class="day-inner">
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="day-num">01</div>
-      <div class="day-info"><h2>출국 → LA 도착</h2><p>2026년 5월 4일 (일) · 인천 출발</p></div>
-    </div>
-    <div class="day-tags"><span class="dtag">ICN→LAX</span><span class="dtag">체크인</span><span class="dtag">시차 적응</span></div>
-  </div></div>
-  <div class="sec wrap">
-    <div class="grid-2">
-      <div>
-        <div class="sec-label">Day 1 타임라인</div>
-        <div class="sec-title">인천 → LA</div>
-        <div class="tl">
-          <div class="tl-item"><div class="tl-time">오전</div><div class="tl-place">✈ 인천공항 출발</div><div class="tl-desc">ICN → LAX 직항 · 약 11시간 비행</div></div>
-          <div class="tl-item"><div class="tl-time">같은 날 오전 (현지)</div><div class="tl-place">🛬 LAX 도착</div><div class="tl-desc">날짜변경선 효과로 같은 날 도착<br>입국심사 · 수하물 수취</div></div>
-          <div class="tl-item"><div class="tl-time">오후</div><div class="tl-place">🚗 LAX → 호텔 이동</div><div class="tl-desc">Uber/Lyft 약 15~20분 · $15~25 예상</div></div>
-          <div class="tl-item"><div class="tl-time">15:00~</div><div class="tl-place">🏨 Residence Inn LA Live 체크인</div><div class="tl-desc">901 W. Olympic Blvd, LA 90015<br>예약번호: S60JSV7K · One King Bed</div></div>
-          <div class="tl-item"><div class="tl-time">저녁</div><div class="tl-place">🍽 LA Live 주변 저녁</div><div class="tl-desc">Yard House, Rock'N Fish, Sol Agave 등<br>시차 적응을 위해 일찍 취침 권장</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="card card-accent">
-          <div class="card-title">🏨 호텔 정보</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">호텔</span><span class="row-val">Residence Inn Los Angeles L.A. Live</span></div>
-            <div class="row"><span class="row-label">주소</span><span class="row-val">901 W. Olympic Blvd, LA 90015</span></div>
-            <div class="row"><span class="row-label">체크인</span><span class="row-val">5/4 (일)</span></div>
-            <div class="row"><span class="row-label">체크아웃</span><span class="row-val">5/8 (목)</span></div>
-            <div class="row"><span class="row-label">예약번호</span><span class="row-val" style="color:var(--accent2);font-weight:700;">S60JSV7K</span></div>
-            <div class="row"><span class="row-label">객실</span><span class="row-val">One King Bed</span></div>
-            <div class="row"><span class="row-label">총액</span><span class="row-val" style="font-weight:700;">$1,555.60</span></div>
-          </div>
-        </div>
-        <div class="warn">⚠️ <strong>시차:</strong> LA는 한국보다 16시간 느림 (PDT). 5/4 오전 출발 → 같은 날 LA 오전 도착.</div>
-        <div class="info">💡 <strong>공항→호텔:</strong> Uber/Lyft $15-25 (15-20분). 또는 Metro E Line 이용 가능.</div>
-      </div>
-    </div>
-  </div>
+<!-- TAB 3: Food & Sights -->
+<div class="tab" id="t3">
+<div class="card">
+<div class="area"><h4>🚶 도보 5분 — LA Live</h4>
+<span class="spot">Yard House<span class="pr">$15-25</span></span>
+<span class="spot">Fleming's<span class="pr">$40-80</span></span>
+<span class="spot">Rock'N Fish<span class="pr">$20-35</span></span>
+<span class="spot">Shaquille's<span class="pr">$15-25</span></span>
+<span class="spot">Sol Agave<span class="pr">$15-25</span></span>
+</div>
+<div class="area"><h4>🚶 도보 15분 — DTLA</h4>
+<span class="spot">Grand Central Market<span class="pr">$8-15</span></span>
+<span class="spot">Sugarfish<span class="pr">$30-50</span></span>
+<span class="spot">Bottega Louie<span class="pr">$20-35</span></span>
+<span class="spot">The Broad<span class="pr">무료</span></span>
+<span class="spot">Disney Concert Hall<span class="pr">무료</span></span>
+<span class="spot">Last Bookstore<span class="pr">무료</span></span>
+<span class="spot">GRAMMY Museum<span class="pr">$18</span></span>
+</div>
+<div class="area"><h4>🚗 Uber 15분 — Koreatown</h4>
+<span class="spot">백정 KBBQ<span class="pr">$30-50</span></span>
+<span class="spot">해장촌<span class="pr">$30-40</span></span>
+<span class="spot">강남역<span class="pr">$25-35</span></span>
+</div>
+<div class="area"><h4>🚗 Uber 25-40분 — 관광지</h4>
+<span class="spot">Santa Monica Beach</span>
+<span class="spot">Griffith Observatory<span class="pr">무료</span></span>
+<span class="spot">Hollywood Sign</span>
+<span class="spot">Getty Center<span class="pr">무료</span></span>
+<span class="spot">Universal Studios</span>
+</div>
+</div>
 </div>
 
-<!-- ========== DAY 2 ========== -->
-<div id="p-d2" class="page">
-  <div class="day-hdr"><div class="day-inner">
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="day-num">02</div>
-      <div class="day-info"><h2>Exhibition Day 1 + Keynotes</h2><p>2026년 5월 5일 (월)</p></div>
-    </div>
-    <div class="day-tags"><span class="dtag">전시 개막</span><span class="dtag">기조연설</span><span class="dtag">200+ 전시사</span></div>
-  </div></div>
-  <div class="sec wrap">
-    <div class="grid-2">
-      <div>
-        <div class="sec-label">Day 2 타임라인</div>
-        <div class="sec-title">전시장 첫째 날</div>
-        <div class="tl">
-          <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-place">🌅 기상 · 호텔 조식</div><div class="tl-desc">Residence Inn 조식 포함 여부 확인</div></div>
-          <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-place">🎤 Opening Keynotes</div><div class="tl-desc">Pablo Calamera (IMAX) — Immersive Experiences<br>Julia Yan (Visionox) — Visual Experiences<br>Achin Bhowmik (Starkey/Stanford) — AI + Human</div><div class="tl-tip">📍 South Hall</div></div>
-          <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-place">🏛 Exhibition Hall 관람</div><div class="tl-desc">South Hall HJK · 200+ 전시사<br>LCD, OLED, MicroLED, QD, AR/VR, 자동차 디스플레이</div><div class="tl-tip">⏱ 3~4시간 소요</div></div>
-          <div class="tl-item"><div class="tl-time">12:30</div><div class="tl-place">🍽 점심</div><div class="tl-desc">컨벤션센터 내 또는 LA Live 레스토랑</div></div>
-          <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-place">🔬 I-Zone · Symposium 세션</div><div class="tl-desc">스타트업/프로토타입 전시 + 관심 심포지엄 세션</div></div>
-          <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-place">🍻 Networking Reception</div><div class="tl-desc">전시장 내 이벤트 · 명함 교환</div></div>
-          <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-place">🍽 저녁</div><div class="tl-desc">LA Live 또는 Koreatown (Uber 15분)</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="card card-accent">
-          <div class="card-title">🏛 전시 정보</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">장소</span><span class="row-val">LA Convention Center South Hall HJK</span></div>
-            <div class="row"><span class="row-label">전시 기간</span><span class="row-val">5/5 (월) ~ 5/7 (수)</span></div>
-            <div class="row"><span class="row-label">전시사</span><span class="row-val">200+ 기업</span></div>
-            <div class="row"><span class="row-label">주요 토픽</span><span class="row-val">AI, XR, MicroLED, QD, Automotive, OLED</span></div>
-          </div>
-        </div>
-        <div class="card card-accent">
-          <div class="card-title">🎤 기조연설 (8:30 AM)</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">IMAX</span><span class="row-val">Pablo Calamera — Immersive Experiences</span></div>
-            <div class="row"><span class="row-label">Visionox</span><span class="row-val">Julia Yan — Visual Experiences</span></div>
-            <div class="row"><span class="row-label">Starkey</span><span class="row-val">Achin Bhowmik — AI + Human</span></div>
-          </div>
-        </div>
-        <div class="info">💡 <strong>Symposium:</strong> 5/5~5/8 매일 병렬 세션 진행. 관심 트랙 사전 확인 필수.</div>
-      </div>
-    </div>
-  </div>
+<!-- TAB 4: Safety & Tips -->
+<div class="tab" id="t4">
+<div class="card">
+<h3>🚨 긴급 연락처</h3>
+<div class="emergency">
+  <div class="em-card">응급전화<div class="num">911</div></div>
+  <div class="em-card">LAPD<div class="num" style="font-size:11px">1-877-275-5273</div></div>
+  <div class="em-card">한국영사관<div class="num" style="font-size:11px">+1-213-385-9300</div></div>
+</div>
+</div>
+<div class="card">
+<h3>⚠️ 주의사항</h3>
+<ul class="warn">
+  <li><b>Skid Row 절대 접근 금지</b> (5th~7th, San Pedro~Alameda)</li>
+  <li>차량 내 물건 보이게 두지 말 것</li>
+  <li>야간 Westlake / Pico-Union 지역 피하기</li>
+  <li>팁 문화: 레스토랑 15-20%, Uber 팁 포함</li>
+  <li>jaywalking 벌금 주의 ($250!)</li>
+</ul>
+</div>
+<div class="card">
+<h3>✅ 체크리스트</h3>
+<div class="chk-group">서류</div><div id="chkD"></div>
+<div class="chk-group">소지품</div><div id="chkI"></div>
+</div>
+<div class="card">
+<h3>🗣 유용한 영어</h3>
+<div class="phrase" id="phr"></div>
+</div>
 </div>
 
-<!-- ========== DAY 3 ========== -->
-<div id="p-d3" class="page">
-  <div class="day-hdr"><div class="day-inner">
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="day-num">03</div>
-      <div class="day-info"><h2>Symposium + Exhibition Day 2</h2><p>2026년 5월 6일 (화)</p></div>
-    </div>
-    <div class="day-tags"><span class="dtag">기술 세션</span><span class="dtag">Awards Luncheon</span><span class="dtag">Automotive HMI</span></div>
-  </div></div>
-  <div class="sec wrap">
-    <div class="grid-2">
-      <div>
-        <div class="sec-label">Day 3 타임라인</div>
-        <div class="sec-title">심포지엄 + Awards</div>
-        <div class="tl">
-          <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-place">📚 Technical Sessions 시작</div><div class="tl-desc">8개 트랙 병렬 진행<br>Meeting Rooms 300 Series (South Building)</div></div>
-          <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-place">🏛 Exhibition Hall Day 2</div><div class="tl-desc">전시 관람 계속 · 못 본 부스 집중</div></div>
-          <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-place">🚗 Automotive Displays &amp; HMI 세션</div><div class="tl-desc">AR-HUD, Transparent Display, 차량용 패널<br>Smart Vehicular Display 인터페이스</div><div class="tl-tip">📍 관심 트랙!</div></div>
-          <div class="tl-item"><div class="tl-time">12:00 - 14:00</div><div class="tl-place">🏆 Display Industry Awards Luncheon</div><div class="tl-desc">Joel Savitt 주관 · 디스플레이 산업 시상식 오찬</div><div class="tl-tip">📍 Convention Center</div></div>
-          <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-place">🔬 오후 심포지엄 세션</div><div class="tl-desc">관심 분야 세션 참석 · 네트워킹</div></div>
-          <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-place">🍽 저녁 식사</div><div class="tl-desc">네트워킹 디너 또는 자유 식사</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="card card-accent">
-          <div class="card-title">📋 관심 세션 트랙</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">Track 1</span><span class="row-val">AI-Driven Imaging & Display</span></div>
-            <div class="row"><span class="row-label">Track 2</span><span class="row-val">MicroLED & Advanced Emissive</span></div>
-            <div class="row"><span class="row-label">Track 3</span><span class="row-val">Quantum Dots & Materials</span></div>
-            <div class="row"><span class="row-label">Track 4</span><span class="row-val">AR/VR/XR Displays</span></div>
-            <div class="row"><span class="row-label">Track 5</span><span class="row-val">Automotive & Vehicular HMI</span></div>
-            <div class="row"><span class="row-label">Track 6</span><span class="row-val">OLED Technology</span></div>
-            <div class="row"><span class="row-label">Track 7</span><span class="row-val">Display Manufacturing</span></div>
-            <div class="row"><span class="row-label">Track 8</span><span class="row-val">Measurement & Standards</span></div>
-          </div>
-        </div>
-        <div class="info">💡 내일 (5/7) ⭐ 포스터 발표! 셋업 11:00 AM · 세션 5:00-8:00 PM</div>
-        <div class="info">💡 <a href="https://www.displayweek.org/programschedule/" style="color:var(--link-color);">displayweek.org/programschedule</a> 에서 세부 시간표 확인</div>
-      </div>
-    </div>
-  </div>
+<!-- TAB 5: Hotel & Flight -->
+<div class="tab" id="t5">
+<div class="card">
+  <h3>🏨 호텔 정보</h3>
+  <div class="label">호텔명</div><div class="value">Residence Inn by Marriott LA L.A. LIVE</div>
+  <div class="label">주소</div><div class="value">901 W. Olympic Blvd, Los Angeles, CA 90015</div>
+  <div class="label">체크인 / 체크아웃</div><div class="value">5/4 (Mon) → 5/8 (Fri)</div>
+  <div class="label">확인번호</div><div class="value hl">S60JSV7K</div>
+  <div class="label">객실</div><div class="value">One King Bed</div>
+  <div class="label">요금</div>
+  <div class="value">$335/night × 4 = $1,340 + tax $215.60</div>
+  <div class="price-total">총 $1,555.60</div>
+  <div style="margin-top:8px;font-size:12px;color:var(--mt)">취소: 체크인 72시간 전까지 무료</div>
+</div>
+<div class="card">
+  <h3>✈️ 항공편</h3>
+  <div class="label">출국</div><div class="value">5/4 (Mon) ICN → LAX</div>
+  <div class="label">귀국</div><div class="value">5/8 (Fri) LAX → ICN</div>
+  <div class="label">인천 도착</div><div class="value">5/10 (Sun)</div>
+</div>
 </div>
 
-<!-- ========== DAY 4 ========== -->
-<div id="p-d4" class="page">
-  <div class="day-hdr"><div class="day-inner">
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="day-num">04</div>
-      <div class="day-info"><h2>Exhibition Day 3 + ⭐ POSTER P-99</h2><p>2026년 5월 7일 (수)</p></div>
-    </div>
-    <div class="day-tags"><span class="dtag">전시 마지막</span><span class="dtag">⭐ 포스터 P-99</span><span class="dtag">관광</span></div>
-  </div></div>
-  <div class="sec wrap">
-    <!-- POSTER HIGHLIGHT -->
-    <div class="poster-card" style="margin-top:1.5rem;">
-      <div class="poster-badge">⭐ MY POSTER SESSION · P-99</div>
-      <div class="poster-title">Stress-Induced Birefringence Measurement for Crack Detection in Bessel Beam Laser-Drilled Glass</div>
-      <div class="poster-meta">
-        <strong>발표자:</strong> Nakcho Choi<br>
-        <strong>셋업:</strong> 11:00 AM부터 설치<br>
-        <strong>세션:</strong> 5:00 PM - 8:00 PM<br>
-        <strong>장소:</strong> Concourse Hall, LA Convention Center
-      </div>
-    </div>
-    <div class="warn">⚠️ <strong>중요:</strong> 포스터 세션 5:00-8:00 PM 동안 반드시 포스터 앞에 대기하여 질문에 답변해야 합니다. (Must be present to answer questions throughout the session)</div>
-
-    <div class="grid-2">
-      <div>
-        <div class="sec-label">Day 4 타임라인</div>
-        <div class="sec-title">전시 + 포스터 발표</div>
-        <div class="tl">
-          <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-place">🏛 Exhibition Day 3 (마지막)</div><div class="tl-desc">오전에 마지막 관람 · 카탈로그/자료 수집</div></div>
-          <div class="tl-item tl-highlight"><div class="tl-time">11:00 AM</div><div class="tl-place">⭐ 포스터 셋업 시작</div><div class="tl-desc">P-99 포스터 설치<br>Concourse Hall에서 배정 위치 확인</div><div class="tl-tip">📍 Concourse Hall</div></div>
-          <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-place">🍽 점심</div><div class="tl-desc">셋업 후 간단히 식사</div></div>
-          <div class="tl-item"><div class="tl-time">13:00 - 16:00</div><div class="tl-place">🏛 전시/심포지엄 세션 또는 관광</div><div class="tl-desc">포스터 세션 전 자유 시간<br>산타모니카/그리피스 짧은 관광 가능</div></div>
-          <div class="tl-item tl-highlight"><div class="tl-time">5:00 PM - 8:00 PM</div><div class="tl-place">⭐ POSTER SESSION P-99</div><div class="tl-desc"><strong>"Stress-Induced Birefringence Measurement for Crack Detection in Bessel Beam Laser-Drilled Glass"</strong><br>3시간 동안 포스터 앞에서 발표 및 질의응답</div><div class="tl-tip">⭐ 가장 중요한 일정!</div></div>
-          <div class="tl-item"><div class="tl-time">20:00~</div><div class="tl-place">🍽 저녁 식사 · 축하!</div><div class="tl-desc">발표 끝난 후 DTLA 또는 LA Live에서 식사<br>내일 체크아웃 대비 짐 정리</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="card card-accent">
-          <div class="card-title">📍 LA 관광 (포스터 세션 전, 선택)</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">산타모니카</span><span class="row-val">비치 · 피어 · Route 66 끝점 (Uber 30분)</span></div>
-            <div class="row"><span class="row-label">그리피스</span><span class="row-val">천문대 · LA 전경 · 할리우드 사인 (Uber 25분)</span></div>
-            <div class="row"><span class="row-label">할리우드</span><span class="row-val">Walk of Fame · TCL 차이니즈 씨어터</span></div>
-            <div class="row"><span class="row-label">DTLA</span><span class="row-val">Grand Central Market · The Broad 미술관</span></div>
-          </div>
-        </div>
-        <div class="info">💡 <strong>시간 주의:</strong> 관광 시 16:30까지는 반드시 컨벤션센터에 복귀해야 합니다. (포스터 세션 5 PM 시작)</div>
-        <div class="card card-accent">
-          <div class="card-title">⭐ 포스터 발표 준비</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">포스터</span><span class="row-val">인쇄본 or 디지털 (USB + 클라우드 백업)</span></div>
-            <div class="row"><span class="row-label">명함</span><span class="row-val">충분히 준비 (네트워킹)</span></div>
-            <div class="row"><span class="row-label">요약</span><span class="row-val">1분 엘리베이터 피치 준비</span></div>
-            <div class="row"><span class="row-label">질문 대비</span><span class="row-val">측정 방법, 응용, 한계점 등</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== DAY 5 ========== -->
-<div id="p-d5" class="page">
-  <div class="day-hdr"><div class="day-inner">
-    <div style="display:flex;align-items:center;gap:1rem;">
-      <div class="day-num">05</div>
-      <div class="day-info"><h2>체크아웃 · 귀국</h2><p>2026년 5월 8일 (목) → 5/10 인천 도착</p></div>
-    </div>
-    <div class="day-tags"><span class="dtag">체크아웃</span><span class="dtag">LAX</span><span class="dtag">5/10 인천</span></div>
-  </div></div>
-  <div class="sec wrap">
-    <div class="grid-2">
-      <div>
-        <div class="sec-label">Day 5 타임라인</div>
-        <div class="sec-title">귀국</div>
-        <div class="warn">⚠️ <strong>비행 시간 확인:</strong> 귀국편 시간에 맞춰 역산하세요. 국제선은 3시간 전 공항 도착 권장.</div>
-        <div class="tl">
-          <div class="tl-item"><div class="tl-time">오전</div><div class="tl-place">🏨 Residence Inn 체크아웃</div><div class="tl-desc">체크아웃 시간 확인 (보통 11 AM) · 짐 정리</div></div>
-          <div class="tl-item"><div class="tl-time">비행 3시간 전</div><div class="tl-place">🚗 호텔 → LAX 이동</div><div class="tl-desc">Uber/Lyft $15~25 · 15~20분<br>LAX는 혼잡 — 넉넉히 출발</div></div>
-          <div class="tl-item"><div class="tl-time">오후~저녁</div><div class="tl-place">✈ LAX → ICN 출발</div><div class="tl-desc">약 13시간 비행 · 날짜변경선 통과</div></div>
-          <div class="tl-item"><div class="tl-time">5/10 (토)</div><div class="tl-place">🛬 인천공항 도착</div><div class="tl-desc">입국 · 수하물 · 귀가</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="card card-accent">
-          <div class="card-title">✈ 귀국 체크리스트</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">호텔</span><span class="row-val">체크아웃 시간 확인 (보통 11 AM)</span></div>
-            <div class="row"><span class="row-label">공항</span><span class="row-val">LAX · 국제선 3시간 전 도착</span></div>
-            <div class="row"><span class="row-label">교통</span><span class="row-val">Uber/Lyft · 15~20분 · $15~25</span></div>
-            <div class="row"><span class="row-label">면세</span><span class="row-val">LAX Tom Bradley 면세점</span></div>
-            <div class="row"><span class="row-label">인천 도착</span><span class="row-val">5/10 (토)</span></div>
-          </div>
-        </div>
-        <div class="info">💡 <strong>면세 쇼핑:</strong> LAX Tom Bradley 국제선 터미널에 DFS 면세점 있음.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== SIGHTSEEING ========== -->
-<div id="p-sight" class="page">
-  <div class="sec wrap">
-    <div class="sec-label">Sightseeing</div>
-    <div class="sec-title">🏛 관광 · 볼거리</div>
-    <div class="sec-desc">컨벤션센터 주변 도보 및 Uber/Lyft 이동 관광지 모음</div>
-
-    <!-- Walking: LA Live -->
-    <div class="sight-section">
-      <h3 style="font-size:16px;font-weight:700;margin:1.5rem 0 .5rem;">📍 도보 가능 (Walking Distance from Convention Center)</h3>
-
-      <h4>LA Live (도보 5분)</h4>
-      <div class="sight-item">
-        <div class="sight-name">🎵 GRAMMY Museum</div>
-        <div class="sight-desc">음악 역사 박물관 - 인터랙티브 전시, 아티스트 의상, 녹음 부스 체험</div>
-        <div class="sight-cost">성인 $18</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🎬 Regal Cinemas</div>
-        <div class="sight-desc">영화관 - 최신 할리우드 영화 상영</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🎳 Lucky Strike</div>
-        <div class="sight-desc">볼링장 + 바 - 저녁 시간 캐주얼하게 즐기기 좋음</div>
-      </div>
-    </div>
-
-    <!-- Walking: DTLA -->
-    <div class="sight-section">
-      <h4>DTLA 도보권 (15~25분)</h4>
-      <div class="sight-item">
-        <div class="sight-name">🎨 The Broad</div>
-        <div class="sight-desc">무료 현대미술관 (사전 예약 필수) - Warhol, Koons, Lichtenstein 등 세계적 현대미술 컬렉션</div>
-        <div class="sight-cost">무료 (사전 예약)</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🎵 Walt Disney Concert Hall</div>
-        <div class="sight-desc">Frank Gehry 설계 - 스테인리스 스틸 곡면 외관이 상징적. 외관 무료 관람, 가이드 투어 가능</div>
-        <div class="sight-cost">외관 무료</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🖼 MOCA (Museum of Contemporary Art)</div>
-        <div class="sight-desc">현대미술관 - The Broad 바로 옆, 다양한 기획전</div>
-        <div class="sight-cost">무료 입장</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🏛 LA City Hall 전망대</div>
-        <div class="sight-desc">26층 무료 전망 - DTLA 시내와 산 전경. 평일 9AM-5PM만 운영</div>
-        <div class="sight-cost">무료 (평일 9AM-5PM)</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">📚 The Last Bookstore</div>
-        <div class="sight-desc">은행 건물 개조한 서점 - 책으로 만든 터널 등 포토스팟으로 유명</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🍜 Grand Central Market</div>
-        <div class="sight-desc">1917년 개장 푸드홀 - Eggslut, Wexler's Deli 등 LA 맛집 밀집</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🚉 Union Station</div>
-        <div class="sight-desc">1939년 아르데코 건축 랜드마크 - 영화 촬영지로 유명한 아름다운 역사</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🏮 Little Tokyo</div>
-        <div class="sight-desc">일본타운 - 라멘, 우동, 일식, 일본 문화 체험. Japanese American National Museum</div>
-      </div>
-    </div>
-
-    <!-- Uber/Lyft -->
-    <div class="sight-section">
-      <h3 style="font-size:16px;font-weight:700;margin:1.5rem 0 .5rem;">🚗 Uber/Lyft 이동 (15~30분)</h3>
-      <div class="sight-item">
-        <div class="sight-name">🏖 Santa Monica Beach & Pier</div>
-        <div class="sight-desc">Route 66 끝점 - 피어 위 놀이기구, Third Street Promenade 쇼핑거리</div>
-        <div class="sight-cost">Uber $25-35 · 30-40분</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🔭 Griffith Observatory</div>
-        <div class="sight-desc">LA 전경 + 할리우드 사인 조망 - 일몰 시간대 강력 추천. 천문대 내부 전시 무료</div>
-        <div class="sight-cost">무료 입장 · Uber $20-30 · 25분</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">⭐ Hollywood Walk of Fame</div>
-        <div class="sight-desc">명예의 거리 - 2,700+ 스타 핸드프린트, TCL Chinese Theatre</div>
-        <div class="sight-cost">Uber $15-25 · 20분</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🎨 Getty Center</div>
-        <div class="sight-desc">무료 미술관 - 건축 명소 (Richard Meier 설계), 유럽 회화, 정원</div>
-        <div class="sight-cost">무료 입장 · 주차 $20 · Uber $20-30 · 25분</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🏛 Natural History Museum</div>
-        <div class="sight-desc">자연사 박물관 - 공룡 화석, 보석, Exposition Park 내 위치</div>
-        <div class="sight-cost">Uber $10 · 10분</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🌹 Huntington Library</div>
-        <div class="sight-desc">정원 + 미술 + 도서관 - 광대한 식물원과 Gutenberg 성경 소장</div>
-        <div class="sight-cost">Uber $25 · 30분</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🎢 Universal Studios Hollywood</div>
-        <div class="sight-desc">테마파크 - 스튜디오 투어, Harry Potter 월드, Jurassic World</div>
-        <div class="sight-cost">Uber $20 · 25분</div>
-      </div>
-      <div class="sight-item">
-        <div class="sight-name">🇰🇷 Koreatown</div>
-        <div class="sight-desc">한인타운 - 한식 BBQ, 카페, 노래방, 스파 등 한국 문화 밀집지역</div>
-        <div class="sight-cost">Uber $10-15 · 15분</div>
-      </div>
-    </div>
-
-    <!-- Recommended Courses -->
-    <h3 style="font-size:16px;font-weight:700;margin:2rem 0 .8rem;">🗓 추천 코스</h3>
-    <div class="grid-2">
-      <div>
-        <div class="course-card">
-          <h4>반나절 코스 A (문화)</h4>
-          <p>The Broad → Walt Disney Concert Hall → Grand Central Market (점심) → The Last Bookstore</p>
-        </div>
-        <div class="course-card">
-          <h4>반나절 코스 B (해변)</h4>
-          <p>Santa Monica Beach → Third Street Promenade (쇼핑/식사)</p>
-        </div>
-      </div>
-      <div>
-        <div class="course-card">
-          <h4>반나절 코스 C (전망)</h4>
-          <p>Griffith Observatory (일몰 추천) → Hollywood Walk of Fame</p>
-        </div>
-        <div class="course-card">
-          <h4>야간 코스</h4>
-          <p>LA Live (저녁) → GRAMMY Museum → Crypto.com Arena 주변 야경</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="info" style="margin-top:1rem;">💡 <strong>포스터 발표일(5/7) 관광 시:</strong> 16:30까지 반드시 컨벤션센터 복귀! (포스터 세션 5 PM 시작)</div>
-  </div>
-</div>
-
-<!-- ========== FOOD & TRANSIT ========== -->
-<div id="p-food" class="page">
-  <div class="sec wrap">
-    <div class="sec-label">Food &amp; Transit</div>
-    <div class="sec-title">🍽 맛집 · 교통 가이드</div>
-
-    <!-- LA Live Walking -->
-    <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;">📍 LA Live 도보권 (5분)</h3>
-    <div class="food-grid">
-      <div class="fcard"><span class="femoji">🍔</span><div class="fname">Yard House</div><div class="fplace">미국식, 크래프트 맥주 130종</div><div class="fprice">$15-25</div><div class="fdist">LA Live · 도보 5분</div></div>
-      <div class="fcard"><span class="femoji">🥩</span><div class="fname">Fleming's</div><div class="fplace">프라임 스테이크</div><div class="fprice">$40-80</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🐟</span><div class="fname">Rock'N Fish</div><div class="fplace">시푸드</div><div class="fprice">$20-35</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🍗</span><div class="fname">Shaquille's</div><div class="fplace">남부식 프라이드치킨</div><div class="fprice">$15-25</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🌮</span><div class="fname">Sol Agave</div><div class="fplace">멕시칸</div><div class="fprice">$15-25</div><div class="fdist">LA Live</div></div>
-      <div class="fcard"><span class="femoji">🌮</span><div class="fname">Javier's</div><div class="fplace">고급 멕시칸, 테킬라 바</div><div class="fprice">$25-40</div><div class="fdist">LA Live</div></div>
-    </div>
-
-    <!-- DTLA Walking -->
-    <h3 style="font-size:15px;font-weight:700;margin:2rem 0 .8rem;">📍 DTLA 도보권 (10~20분)</h3>
-    <div class="food-grid">
-      <div class="fcard"><span class="femoji">🍜</span><div class="fname">Grand Central Market</div><div class="fplace">푸드홀, Eggslut/Wexler's 등</div><div class="fprice">$8-15</div><div class="fdist">DTLA · 도보 15분</div></div>
-      <div class="fcard"><span class="femoji">🍣</span><div class="fname">Sugarfish</div><div class="fplace">오마카세 초밥</div><div class="fprice">$30-50</div><div class="fdist">DTLA</div></div>
-      <div class="fcard"><span class="femoji">🍝</span><div class="fname">Bottega Louie</div><div class="fplace">이태리안, 마카롱 유명</div><div class="fprice">$20-35</div><div class="fdist">DTLA</div></div>
-      <div class="fcard"><span class="femoji">🥘</span><div class="fname">Baar Baar</div><div class="fplace">모던 인디안 (미슐랭 셰프)</div><div class="fprice">$20-35</div><div class="fdist">DTLA</div></div>
-      <div class="fcard"><span class="femoji">🦞</span><div class="fname">Mastro's Ocean Club</div><div class="fplace">파인다이닝 시푸드</div><div class="fprice">$50-100</div><div class="fdist">DTLA</div></div>
-      <div class="fcard"><span class="femoji">🍕</span><div class="fname">Pizzana</div><div class="fplace">나폴리 피자 맛집</div><div class="fprice">$15-25</div><div class="fdist">DTLA</div></div>
-    </div>
-
-    <!-- Korean Food -->
-    <h3 style="font-size:15px;font-weight:700;margin:2rem 0 .8rem;">🇰🇷 Koreatown (Uber 15분)</h3>
-    <div class="food-grid">
-      <div class="fcard"><span class="femoji">🥩</span><div class="fname">백정 Baekjeong</div><div class="fplace">한우급 BBQ</div><div class="fprice">$30-50</div><div class="fdist">Koreatown</div></div>
-      <div class="fcard"><span class="femoji">🥩</span><div class="fname">해장촌 Hae Jang Chon</div><div class="fplace">AYCE BBQ</div><div class="fprice">$30-40</div><div class="fdist">Koreatown</div></div>
-      <div class="fcard"><span class="femoji">🥩</span><div class="fname">강남역 Gangnam Station</div><div class="fplace">AYCE BBQ, 대형 그룹</div><div class="fprice">$25-35</div><div class="fdist">Koreatown</div></div>
-      <div class="fcard"><span class="femoji">🍜</span><div class="fname">신선로</div><div class="fplace">한식 정식</div><div class="fprice">$15-25</div><div class="fdist">Koreatown</div></div>
-      <div class="fcard"><span class="femoji">☕</span><div class="fname">Cafe Mak</div><div class="fplace">한국식 카페</div><div class="fprice">$5-10</div><div class="fdist">Koreatown</div></div>
-    </div>
-
-    <!-- TRANSIT -->
-    <h3 style="font-size:15px;font-weight:700;margin:2.5rem 0 .8rem;">🚇 교통 정보</h3>
-    <div class="grid-2">
-      <div>
-        <div class="card card-accent">
-          <div class="card-title">🚇 Metro (지하철)</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">최근역</span><span class="row-val">Pico Station (A Line / E Line)</span></div>
-            <div class="row"><span class="row-label">거리</span><span class="row-val">호텔에서 도보 1블록, 컨벤션센터 바로 앞</span></div>
-            <div class="row"><span class="row-label">운행</span><span class="row-val">4:30 AM ~ 11:45 PM</span></div>
-            <div class="row"><span class="row-label">배차</span><span class="row-val">피크 시간 8분 간격</span></div>
-            <div class="row"><span class="row-label">결제</span><span class="row-val">Metro TAP card 또는 Apple Pay</span></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="card card-accent">
-          <div class="card-title">🚗 기타 교통</div>
-          <div class="card-body">
-            <div class="row"><span class="row-label">버스</span><span class="row-val">DASH Bus Route F · Figueroa St 정류장</span></div>
-            <div class="row"><span class="row-label">LAX↔호텔</span><span class="row-val">Uber/Lyft $15-25 · 15-20분</span></div>
-            <div class="row"><span class="row-label">팁</span><span class="row-val">Metro TAP card 또는 Apple Pay 가능</span></div>
-          </div>
-        </div>
-        <div class="info">💡 <strong>추천:</strong> 컨벤션센터 ↔ 호텔은 도보 10분. 코리아타운/관광지는 Uber 이용.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== SAFETY ========== -->
-<div id="p-safety" class="page">
-  <div class="sec wrap">
-    <div class="sec-label">Safety &amp; Emergency</div>
-    <div class="sec-title">⚠️ 안전 · 긴급 연락처</div>
-
-    <div class="grid-2">
-      <div>
-        <h3 style="font-size:15px;font-weight:700;margin:1rem 0 .8rem;">📞 긴급 연락처</h3>
-        <div class="card card-accent">
-          <div class="card-body">
-            <div class="row"><span class="row-label">긴급</span><span class="row-val" style="font-weight:700;color:var(--red);font-size:16px;">911</span></div>
-            <div class="row"><span class="row-label">설명</span><span class="row-val">경찰 / 소방 / 구급</span></div>
-            <div class="row"><span class="row-label">비긴급 LAPD</span><span class="row-val">1-877-275-5273</span></div>
-            <div class="row"><span class="row-label">시 서비스</span><span class="row-val">311</span></div>
-            <div class="row"><span class="row-label">주LA한국총영사관</span><span class="row-val" style="color:var(--accent2);">+1-213-385-9300</span></div>
-            <div class="row"><span class="row-label">호텔</span><span class="row-val">Residence Inn LA Live (번호 확인 필요)</span></div>
-          </div>
-        </div>
-
-        <h3 style="font-size:15px;font-weight:700;margin:1.5rem 0 .8rem;">🛡 안전 수칙</h3>
-        <div class="card">
-          <div class="card-body" style="line-height:2;">
-            🚗 차량 내 물건 절대 보이게 두지 마세요 (차량 파손 절도 #1)<br>
-            🌃 야간 Skid Row (5th~7th St, San Pedro~Alameda) 절대 접근 금지<br>
-            🚶 야간에 Boyle Heights, South Central, Westlake, Pico-Union 피하기<br>
-            💰 지갑은 앞주머니, 핸드폰/가방 주의<br>
-            🏨 LA Live/컨벤션센터 주변은 비교적 안전 (주간)<br>
-            🚇 Metro 이용 시 소지품 주의, 늦은 밤 이용 자제<br>
-            🚕 Uber/Lyft 이용 시 차량번호 확인 후 탑승
-          </div>
-        </div>
-      </div>
-      <div>
-        <h3 style="font-size:15px;font-weight:700;margin:1rem 0 .8rem;">🗺 주의 지역 (DTLA 기준)</h3>
-        <div class="zone-danger">
-          <strong>❌ Skid Row</strong> (6th~7th St, San Pedro~Alameda)<br>
-          절대 접근 금지 — 낮이든 밤이든 위험
-        </div>
-        <div class="zone-caution">
-          <strong>⚠️ Westlake / MacArthur Park</strong><br>
-          야간 위험 — 낮에도 주의 필요
-        </div>
-        <div class="zone-caution">
-          <strong>⚠️ Pico-Union</strong><br>
-          야간 주의 — 혼자 걷기 피하기
-        </div>
-        <div class="zone-safe">
-          <strong>✅ Financial District / Bunker Hill</strong><br>
-          비교적 안전 — 일반적인 주의만
-        </div>
-        <div class="zone-safe">
-          <strong>✅ LA Live / Convention Center</strong><br>
-          비교적 안전 — 출장 주변 활동 구역
-        </div>
-
-        <div class="warn" style="margin-top:1.5rem;">⚠️ <strong>총기 사고:</strong> 미국은 총기 합법. 총성이 들리면 즉시 엎드리고 단단한 물체 뒤로 대피. 911 신고.</div>
-        <div class="info">💡 <strong>의료:</strong> 미국 의료비 매우 높음. 해외여행자보험 반드시 가입. 가까운 응급실: California Hospital Medical Center (도보 15분)</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== ENGLISH PHRASES ========== -->
-<div id="p-english" class="page">
-  <div class="sec wrap">
-    <div class="sec-label">Travel English</div>
-    <div class="sec-title">🗣 여행 영어 표현</div>
-    <div class="sec-desc">상황별 필수 영어 표현 모음. 카테고리를 선택하세요.</div>
-
-    <div class="filter-bar" id="phraseFilter">
-      <button class="filter-btn active" onclick="filterPhrases('all',this)">전체</button>
-      <button class="filter-btn" onclick="filterPhrases('airport',this)">✈ 공항/입국</button>
-      <button class="filter-btn" onclick="filterPhrases('hotel',this)">🏨 호텔</button>
-      <button class="filter-btn" onclick="filterPhrases('conf',this)">🎤 컨퍼런스</button>
-      <button class="filter-btn" onclick="filterPhrases('food',this)">🍽 식당</button>
-      <button class="filter-btn" onclick="filterPhrases('transit',this)">🚇 교통</button>
-      <button class="filter-btn" onclick="filterPhrases('emergency',this)">🚨 긴급</button>
-    </div>
-
-    <div id="phraseList">
-      <!-- Airport -->
-      <div class="phrase" data-cat="airport">
-        <div class="phrase-cat">✈ 공항/입국</div>
-        <div class="phrase-en">"I'm here for a business conference."</div>
-        <div class="phrase-ko">출장으로 왔습니다.</div>
-      </div>
-      <div class="phrase" data-cat="airport">
-        <div class="phrase-cat">✈ 공항/입국</div>
-        <div class="phrase-en">"I'll be staying for 4 nights."</div>
-        <div class="phrase-ko">4박 합니다.</div>
-      </div>
-      <div class="phrase" data-cat="airport">
-        <div class="phrase-cat">✈ 공항/입국</div>
-        <div class="phrase-en">"Here's my hotel reservation."</div>
-        <div class="phrase-ko">호텔 예약 확인서입니다.</div>
-      </div>
-      <div class="phrase" data-cat="airport">
-        <div class="phrase-cat">✈ 공항/입국</div>
-        <div class="phrase-en">"Where is the baggage claim?"</div>
-        <div class="phrase-ko">수하물 찾는 곳이 어디인가요?</div>
-      </div>
-
-      <!-- Hotel -->
-      <div class="phrase" data-cat="hotel">
-        <div class="phrase-cat">🏨 호텔</div>
-        <div class="phrase-en">"I have a reservation under Choi."</div>
-        <div class="phrase-ko">최(Choi)로 예약했습니다.</div>
-      </div>
-      <div class="phrase" data-cat="hotel">
-        <div class="phrase-cat">🏨 호텔</div>
-        <div class="phrase-en">"My confirmation number is S60JSV7K."</div>
-        <div class="phrase-ko">예약번호는 S60JSV7K입니다.</div>
-      </div>
-      <div class="phrase" data-cat="hotel">
-        <div class="phrase-cat">🏨 호텔</div>
-        <div class="phrase-en">"Could I get a late checkout?"</div>
-        <div class="phrase-ko">레이트 체크아웃 가능한가요?</div>
-      </div>
-      <div class="phrase" data-cat="hotel">
-        <div class="phrase-cat">🏨 호텔</div>
-        <div class="phrase-en">"Is breakfast included?"</div>
-        <div class="phrase-ko">조식 포함인가요?</div>
-      </div>
-
-      <!-- Conference -->
-      <div class="phrase" data-cat="conf">
-        <div class="phrase-cat">🎤 컨퍼런스</div>
-        <div class="phrase-en">"I'm presenting a poster, number P-99."</div>
-        <div class="phrase-ko">포스터 발표자입니다, 번호 P-99.</div>
-      </div>
-      <div class="phrase" data-cat="conf">
-        <div class="phrase-cat">🎤 컨퍼런스</div>
-        <div class="phrase-en">"Where is the poster session area?"</div>
-        <div class="phrase-ko">포스터 세션 장소가 어디인가요?</div>
-      </div>
-      <div class="phrase" data-cat="conf">
-        <div class="phrase-cat">🎤 컨퍼런스</div>
-        <div class="phrase-en">"Could I have your business card?"</div>
-        <div class="phrase-ko">명함 교환 가능할까요?</div>
-      </div>
-      <div class="phrase" data-cat="conf">
-        <div class="phrase-cat">🎤 컨퍼런스</div>
-        <div class="phrase-en">"What company are you with?"</div>
-        <div class="phrase-ko">어느 회사에서 오셨나요?</div>
-      </div>
-      <div class="phrase" data-cat="conf">
-        <div class="phrase-cat">🎤 컨퍼런스</div>
-        <div class="phrase-en">"Very interesting research!"</div>
-        <div class="phrase-ko">매우 흥미로운 연구네요!</div>
-      </div>
-      <div class="phrase" data-cat="conf">
-        <div class="phrase-cat">🎤 컨퍼런스</div>
-        <div class="phrase-en">"I work on display manufacturing."</div>
-        <div class="phrase-ko">디스플레이 제조 분야에서 일합니다.</div>
-      </div>
-
-      <!-- Restaurant -->
-      <div class="phrase" data-cat="food">
-        <div class="phrase-cat">🍽 식당</div>
-        <div class="phrase-en">"Table for one, please."</div>
-        <div class="phrase-ko">1명입니다.</div>
-      </div>
-      <div class="phrase" data-cat="food">
-        <div class="phrase-cat">🍽 식당</div>
-        <div class="phrase-en">"Can I see the menu?"</div>
-        <div class="phrase-ko">메뉴 볼 수 있나요?</div>
-      </div>
-      <div class="phrase" data-cat="food">
-        <div class="phrase-cat">🍽 식당</div>
-        <div class="phrase-en">"Check, please."</div>
-        <div class="phrase-ko">계산서 주세요.</div>
-      </div>
-      <div class="phrase" data-cat="food">
-        <div class="phrase-cat">🍽 식당</div>
-        <div class="phrase-en">"Can I pay with card?"</div>
-        <div class="phrase-ko">카드로 결제 가능한가요?</div>
-      </div>
-      <div class="phrase" data-cat="food">
-        <div class="phrase-cat">🍽 식당</div>
-        <div class="phrase-en">"Could I get the bill split?"</div>
-        <div class="phrase-ko">따로 계산해주세요.</div>
-      </div>
-      <div class="phrase" data-cat="food">
-        <div class="phrase-cat">🍽 식당</div>
-        <div class="phrase-en">"No tip is needed for..." (참고: 미국 레스토랑 팁 15-20%)</div>
-        <div class="phrase-ko">팁은... (미국에서는 레스토랑 팁 15-20%가 관례입니다)</div>
-      </div>
-
-      <!-- Transportation -->
-      <div class="phrase" data-cat="transit">
-        <div class="phrase-cat">🚇 교통</div>
-        <div class="phrase-en">"How do I get to the Convention Center?"</div>
-        <div class="phrase-ko">컨벤션센터 어떻게 가나요?</div>
-      </div>
-      <div class="phrase" data-cat="transit">
-        <div class="phrase-cat">🚇 교통</div>
-        <div class="phrase-en">"Is this the right train to Pico station?"</div>
-        <div class="phrase-ko">피코역 가는 열차 맞나요?</div>
-      </div>
-      <div class="phrase" data-cat="transit">
-        <div class="phrase-cat">🚇 교통</div>
-        <div class="phrase-en">"How much is the fare?"</div>
-        <div class="phrase-ko">요금이 얼마인가요?</div>
-      </div>
-      <div class="phrase" data-cat="transit">
-        <div class="phrase-cat">🚇 교통</div>
-        <div class="phrase-en">"Keep the change."</div>
-        <div class="phrase-ko">거스름돈 가지세요.</div>
-      </div>
-
-      <!-- Emergency -->
-      <div class="phrase" data-cat="emergency">
-        <div class="phrase-cat">🚨 긴급</div>
-        <div class="phrase-en">"I need help!"</div>
-        <div class="phrase-ko">도움이 필요합니다!</div>
-      </div>
-      <div class="phrase" data-cat="emergency">
-        <div class="phrase-cat">🚨 긴급</div>
-        <div class="phrase-en">"Call 911, please."</div>
-        <div class="phrase-ko">911 불러주세요.</div>
-      </div>
-      <div class="phrase" data-cat="emergency">
-        <div class="phrase-cat">🚨 긴급</div>
-        <div class="phrase-en">"Where is the nearest hospital?"</div>
-        <div class="phrase-ko">가장 가까운 병원이 어디인가요?</div>
-      </div>
-      <div class="phrase" data-cat="emergency">
-        <div class="phrase-cat">🚨 긴급</div>
-        <div class="phrase-en">"I lost my wallet/passport."</div>
-        <div class="phrase-ko">지갑/여권을 잃어버렸습니다.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== CHECKLIST ========== -->
-<div id="p-checklist" class="page">
-  <div class="sec wrap">
-    <div class="sec-label">Checklist</div>
-    <div class="sec-title">✅ 출장 체크리스트</div>
-    <div class="sec-desc">항목을 클릭하면 체크됩니다. 진행 상황은 자동 저장됩니다.</div>
-
-    <div class="grid-2">
-      <div>
-        <h3 style="font-size:14px;font-weight:700;color:var(--accent2);margin-bottom:.8rem;">📄 서류</h3>
-        <ul class="cklist" id="ckDoc">
-          <li data-ck="ck-passport" onclick="toggleCheck(this)"><span class="cbox"></span>여권 (6개월 유효), ESTA 확인</li>
-          <li data-ck="ck-ticket" onclick="toggleCheck(this)"><span class="cbox"></span>항공권 확인서</li>
-          <li data-ck="ck-hotel" onclick="toggleCheck(this)"><span class="cbox"></span>호텔 예약 (S60JSV7K)</li>
-          <li data-ck="ck-badge" onclick="toggleCheck(this)"><span class="cbox"></span>Display Week 등록/배지</li>
-          <li data-ck="ck-poster" onclick="toggleCheck(this)"><span class="cbox"></span>포스터 P-99 파일 (USB + 클라우드)</li>
-          <li data-ck="ck-card" onclick="toggleCheck(this)"><span class="cbox"></span>해외 카드 (Visa/Master), 달러 현금</li>
-          <li data-ck="ck-insurance" onclick="toggleCheck(this)"><span class="cbox"></span>해외여행자보험</li>
-          <li data-ck="ck-esim" onclick="toggleCheck(this)"><span class="cbox"></span>미국 eSIM (T-Mobile)</li>
-          <li data-ck="ck-namecard" onclick="toggleCheck(this)"><span class="cbox"></span>명함</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="font-size:14px;font-weight:700;color:var(--accent2);margin-bottom:.8rem;">🎒 소지품</h3>
-        <ul class="cklist" id="ckItems">
-          <li data-ck="ck-laptop" onclick="toggleCheck(this)"><span class="cbox"></span>노트북 + 충전기</li>
-          <li data-ck="ck-battery" onclick="toggleCheck(this)"><span class="cbox"></span>보조배터리</li>
-          <li data-ck="ck-posterprint" onclick="toggleCheck(this)"><span class="cbox"></span>포스터 발표자료 (인쇄본 or 디지털)</li>
-          <li data-ck="ck-shoes" onclick="toggleCheck(this)"><span class="cbox"></span>편한 신발 (전시장용)</li>
-          <li data-ck="ck-jacket" onclick="toggleCheck(this)"><span class="cbox"></span>가벼운 겉옷 (에어컨 강함)</li>
-          <li data-ck="ck-sun" onclick="toggleCheck(this)"><span class="cbox"></span>선글라스, 자외선 차단제</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div style="font-size:16px;margin-bottom:.5rem;">🇺🇸</div>
-  <strong>SID Display Week 2026 · LA 출장 가이드</strong><br>
-  Los Angeles Convention Center · May 4-8, 2026<br>
-  <span style="font-size:11px;opacity:.5;">Residence Inn LA Live · S60JSV7K · Nakcho Choi · P-99</span>
-</footer>
-
-<!-- ========== SCRIPTS ========== -->
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-/* === Tab Navigation === */
-var tabMap = {home:0,map:1,schedule:2,d1:3,d2:4,d3:5,d4:6,d5:7,sight:8,food:9,safety:10,english:11,checklist:12};
+const $=s=>document.getElementById(s),html=document.documentElement;
 
-function go(id){
-  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
-  document.querySelectorAll('.nav-links .nav-btn').forEach(function(b){b.classList.remove('active');});
-  var page = document.getElementById('p-'+id);
-  if(page) page.classList.add('active');
-  var btns = document.querySelectorAll('.nav-links .nav-btn');
-  var idx = tabMap[id];
-  if(idx !== undefined && btns[idx]) btns[idx].classList.add('active');
-  window.scrollTo(0,0);
-  if(id==='map' && !window._mapInit) initMap();
-  // Close mobile menu after navigation
-  var navLinks = document.getElementById('navLinks');
-  if(navLinks) navLinks.classList.remove('open');
+// Theme
+function setTheme(t){html.dataset.theme=t;$('themeBtn').textContent=t==='dark'?'🌙':'☀️';localStorage.setItem('dw-th',t)}
+function toggleTheme(){setTheme(html.dataset.theme==='dark'?'light':'dark')}
+setTheme(localStorage.getItem('dw-th')||'dark');
+
+// Tabs
+function openTab(i,btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  $('t'+i).classList.add('active');btn.classList.add('active');
+  $('nav').classList.remove('open');
+  if(i===2)setTimeout(()=>{if(window._m)window._m.invalidateSize()},100);
 }
 
-/* === Hamburger Menu === */
-function toggleMenu(){
-  var navLinks = document.getElementById('navLinks');
-  navLinks.classList.toggle('open');
-}
+// Day cards
+function tog(el){el.parentElement.classList.toggle('open')}
+$('d4').classList.add('open');
 
-/* === Theme Toggle === */
-function getTheme(){
-  return localStorage.getItem('sid-theme') || 'dark';
-}
-function applyTheme(theme){
-  if(theme === 'light'){
-    document.documentElement.setAttribute('data-theme','light');
-    document.getElementById('themeToggle').innerHTML = '\uD83C\uDF19 <span id="themeLabel">Dark</span>';
-  } else {
-    document.documentElement.removeAttribute('data-theme');
-    document.getElementById('themeToggle').innerHTML = '\u2600\uFE0F <span id="themeLabel">Light</span>';
-  }
-  // Update map tiles if map exists
-  if(window._mapObj && window._tileLayer){
-    window._mapObj.removeLayer(window._tileLayer);
-    var tileUrl = theme === 'light'
-      ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-    window._tileLayer = L.tileLayer(tileUrl, {attribution:'&copy; OSM &copy; CARTO', maxZoom:19}).addTo(window._mapObj);
-  }
-}
-function toggleTheme(){
-  var current = getTheme();
-  var next = current === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('sid-theme', next);
-  applyTheme(next);
-}
-// Apply saved theme on load
-applyTheme(getTheme());
-
-/* === English Phrases Filter === */
-function filterPhrases(cat, btn){
-  document.querySelectorAll('#phraseFilter .filter-btn').forEach(function(b){b.classList.remove('active');});
-  btn.classList.add('active');
-  document.querySelectorAll('#phraseList .phrase').forEach(function(p){
-    if(cat === 'all' || p.getAttribute('data-cat') === cat){
-      p.style.display = '';
-    } else {
-      p.style.display = 'none';
-    }
-  });
-}
-
-/* === Checklist with localStorage === */
-function toggleCheck(li){
-  var key = li.getAttribute('data-ck');
-  li.classList.toggle('checked');
-  var cbox = li.querySelector('.cbox');
-  if(li.classList.contains('checked')){
-    cbox.classList.add('checked');
-    cbox.innerHTML = '<i class="fas fa-check" style="font-size:9px;"></i>';
-    localStorage.setItem(key, '1');
-  } else {
-    cbox.classList.remove('checked');
-    cbox.innerHTML = '';
-    localStorage.removeItem(key);
-  }
-}
-function restoreChecklist(){
-  document.querySelectorAll('.cklist li[data-ck]').forEach(function(li){
-    var key = li.getAttribute('data-ck');
-    if(localStorage.getItem(key) === '1'){
-      li.classList.add('checked');
-      var cbox = li.querySelector('.cbox');
-      cbox.classList.add('checked');
-      cbox.innerHTML = '<i class="fas fa-check" style="font-size:9px;"></i>';
-    }
-  });
-}
-restoreChecklist();
-</script>
-
-<!-- Leaflet -->
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
-<script>
+// Map (lazy)
+let mapDone=false;
 function initMap(){
-  window._mapInit = true;
-  var theme = getTheme();
-  var tileUrl = theme === 'light'
-    ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-    : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-
-  var map = L.map('map',{scrollWheelZoom:false}).setView([34.04,-118.27],12);
-  window._mapObj = map;
-  window._tileLayer = L.tileLayer(tileUrl, {
-    attribution:'&copy; OSM &copy; CARTO', maxZoom:19
-  }).addTo(map);
-
-  function mk(c){
-    return L.divIcon({
-      className:'',
-      html:'<div style="width:14px;height:14px;border-radius:50%;background:'+c+';border:2px solid #fff;box-shadow:0 0 8px rgba(0,0,0,.4);"></div>',
-      iconSize:[14,14],iconAnchor:[7,7]
-    });
-  }
-
-  // Color codes: Blue=#06b6d4 airports/transit, Purple=#8b5cf6 convention, Green=#22c55e hotel, Orange=#f59e0b food, Pink=#ec4899 museums, Cyan=#22d3ee attractions
-  var spots=[
-    // Airports / Transit (Blue)
-    {lat:33.9425,lng:-118.4081,name:'LAX 공항',desc:'입국/출국',c:'#06b6d4'},
-    {lat:34.0437,lng:-118.2660,name:'Pico Metro Station',desc:'A Line / E Line · 도보 1블록',c:'#06b6d4'},
-    {lat:34.0561,lng:-118.2365,name:'Union Station',desc:'1939년 아르데코 건축 랜드마크',c:'#06b6d4'},
-
-    // Convention Center (Purple)
-    {lat:34.0453,lng:-118.2655,name:'LA Convention Center',desc:'Display Week 2026 전시장',c:'#8b5cf6'},
-
-    // Hotel (Green)
-    {lat:34.0448,lng:-118.2620,name:'Residence Inn LA Live',desc:'호텔 · 901 W. Olympic Blvd',c:'#22c55e'},
-
-    // Restaurants / Food (Orange)
-    {lat:34.0407,lng:-118.2668,name:'LA Live',desc:'레스토랑 · 엔터테인먼트',c:'#f59e0b'},
-    {lat:34.0509,lng:-118.2488,name:'Grand Central Market',desc:'1917년 DTLA 푸드홀 · Eggslut 등',c:'#f59e0b'},
-    {lat:34.0635,lng:-118.3015,name:'Koreatown',desc:'한식 BBQ · 백정/해장촌/강남역',c:'#f59e0b'},
-
-    // Museums / Culture (Pink)
-    {lat:34.0544,lng:-118.2504,name:'The Broad',desc:'무료 현대미술관 · Warhol, Koons',c:'#ec4899'},
-    {lat:34.0553,lng:-118.2498,name:'Walt Disney Concert Hall',desc:'Frank Gehry 설계 · 외관 무료 관람',c:'#ec4899'},
-    {lat:34.0454,lng:-118.2637,name:'GRAMMY Museum',desc:'음악 역사 박물관 · 성인 $18',c:'#ec4899'},
-    {lat:34.0171,lng:-118.2888,name:'Natural History Museum',desc:'자연사 박물관 · Exposition Park',c:'#ec4899'},
-
-    // Attractions (Cyan)
-    {lat:34.0195,lng:-118.4912,name:'Santa Monica Beach',desc:'피어 · Route 66 끝점 · Uber $25-35',c:'#22d3ee'},
-    {lat:34.1184,lng:-118.3004,name:'Griffith Observatory',desc:'LA 전경 · 할리우드 사인 · 무료',c:'#22d3ee'},
-    {lat:34.1013,lng:-118.3267,name:'Hollywood Walk of Fame',desc:'명예의 거리 · TCL Chinese Theatre',c:'#22d3ee'},
-    {lat:34.0475,lng:-118.2511,name:'The Last Bookstore',desc:'은행 건물 개조 서점 · 포토스팟',c:'#22d3ee'},
-    {lat:34.0502,lng:-118.2399,name:'Little Tokyo',desc:'일본타운 · 라멘/우동/일식',c:'#22d3ee'},
-  ];
-
-  spots.forEach(function(s){
-    L.marker([s.lat,s.lng],{icon:mk(s.c)}).addTo(map)
-      .bindPopup('<div style="font-family:Inter,sans-serif;font-size:13px;"><strong>'+s.name+'</strong><br><span style="color:#888;">'+s.desc+'</span></div>');
-  });
-
-  // Hotel to Convention Center dashed line
-  L.polyline([[34.0448,-118.2620],[34.0453,-118.2655]],{color:'#8b5cf6',weight:3,dashArray:'6,4'}).addTo(map);
+  if(mapDone)return;mapDone=true;
+  const m=L.map('map',{zoomControl:false}).setView([34.0407,-118.2668],13);
+  L.control.zoom({position:'bottomright'}).addTo(m);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/'+(html.dataset.theme==='dark'?'dark_all':'light_all')+'/{z}/{x}/{y}{r}.png',{
+    attribution:'&copy;OSM &copy;CARTO',maxZoom:18}).addTo(m);
+  [[33.9425,-118.4081,'✈️ LAX'],[34.0407,-118.2668,'🏛 Convention Center'],[34.0395,-118.2653,'🏨 Residence Inn'],
+   [34.0408,-118.2662,'🚇 Pico Station'],[34.0430,-118.2650,'🎭 LA Live'],[34.0597,-118.3004,'🇰🇷 Koreatown'],
+   [34.0195,-118.4912,'🏖 Santa Monica'],[34.1184,-118.3004,'🔭 Griffith Observatory'],[34.0506,-118.2494,'🍽 Grand Central Market']
+  ].forEach(p=>L.marker([p[0],p[1]]).addTo(m).bindPopup('<b>'+p[2]+'</b>'));
+  window._m=m;
 }
+new MutationObserver((_,o)=>{if($('t2').classList.contains('active')){initMap();o.disconnect()}}).observe($('t2'),{attributes:true,attributeFilter:['class']});
+
+// Checklist
+const docs=['여권','ESTA','항공권 e-ticket','호텔 확인서 (S60JSV7K)','DW 배지/등록확인','포스터 P-99 파일','신용카드/현금','여행자보험','eSIM','명함'];
+const items=['노트북+충전기','보조배터리','편한 신발','겉옷 (냉방)','선글라스','우산','약 (소화제 등)'];
+function renderChk(arr,elId,pfx){
+  const sv=JSON.parse(localStorage.getItem('dw-chk')||'{}');
+  $(elId).innerHTML=arr.map((a,i)=>{const k=pfx+i;
+    return`<div class="chk"><input type="checkbox" id="${k}" ${sv[k]?'checked':''} onchange="saveChk('${k}',this.checked)"><label for="${k}">${a}</label></div>`;
+  }).join('');
+}
+function saveChk(k,v){const s=JSON.parse(localStorage.getItem('dw-chk')||'{}');s[k]=v;localStorage.setItem('dw-chk',JSON.stringify(s))}
+renderChk(docs,'chkD','d');renderChk(items,'chkI','i');
+
+// Phrases
+$('phr').innerHTML=[
+  ["I'm presenting poster P-99.","포스터 P-99 발표자입니다"],
+  ["Table for one, please.","1명입니다"],
+  ["Check, please.","계산서 주세요"],
+  ["Where is the poster session?","포스터 세션 어디인가요?"],
+  ["Could I have your business card?","명함 교환할까요?"],
+  ["I work in display manufacturing.","디스플레이 제조 분야입니다"],
+  ["Very interesting research!","매우 흥미로운 연구네요"],
+  ["How do I get to Pico station?","피코역 어떻게 가나요?"],
+  ["I need help!","도움이 필요합니다"],
+  ["I lost my wallet.","지갑을 잃어버렸습니다"]
+].map(p=>`<div class="phrase-row"><div class="phrase-en">${p[0]}</div><div class="phrase-kr">${p[1]}</div></div>`).join('');
 </script>
 </body>
 </html>
