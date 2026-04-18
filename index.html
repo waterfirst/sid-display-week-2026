@@ -173,7 +173,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <nav id="nav">
   <button class="active" onclick="openTab(0,this)">📋 일정</button>
   <button onclick="openTab(1,this)">⭐ 내 발표</button>
-  <button onclick="openTab(2,this)">🔬 BM 시뮬</button>
+  <button onclick="openTab(2,this)">💡 지식·IP</button>
   <button onclick="openTab(3,this)">🚗 이동수단</button>
   <button onclick="openTab(4,this)">🗺 지도</button>
   <button onclick="openTab(5,this)">🍽 맛집·관광</button>
@@ -315,53 +315,35 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div></div>
 </div>
 
-<!-- TAB 2: BM Diffraction Simulator Results -->
+<!-- TAB 2: Knowledge & IP Context -->
 <div class="tab" id="t2">
-<div class="card"><h3>🔬 BM 반사회절 억제 — 10가지 모드 시뮬레이션</h3>
-<div class="label">원편광판 없는 OLED에서 BM 슬릿 반사회절을 억제하는 10가지 구조를 시뮬레이션 비교</div></div>
+<div class="card"><h3>💡 지식 · IP 분석 (Memory Context)</h3>
+<div class="label">HBM4 설계 변경 및 Netlist 특허 분쟁 분석</div></div>
 
-<div class="day open"><div class="day-hdr" onclick="tog(this)">📊 성능 순위 요약<span class="arrow">▼</span></div>
-<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:2">
-<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:12px;min-width:500px">
-<tr style="border-bottom:1px solid var(--bd)"><th style="text-align:left;padding:6px">순위</th><th style="text-align:left">모드</th><th>가로(dB)</th><th>세로(dB)</th><th>피크(dB)</th><th style="text-align:left">특징</th></tr>
-<tr style="background:rgba(234,179,8,.1)"><td>🥇1</td><td><strong>Checkerboard ⭐</strong></td><td>-51.1</td><td>-32.7</td><td>-7.9</td><td>양축 최강, 분리가능 2D</td></tr>
-<tr style="background:rgba(234,179,8,.1)"><td>🥇1</td><td><strong>2D-Checker 🆕</strong></td><td>-51.1</td><td>-32.7</td><td>-5.7</td><td>바둑판 = 동일 원리</td></tr>
-<tr><td>🥉3</td><td><strong>Combo</strong></td><td>-28.3</td><td>-11.4</td><td><strong>-12.5</strong></td><td>피크 억제 최강</td></tr>
-<tr><td>4</td><td><strong>Nano-Diffuser 🆕</strong></td><td>-15.1</td><td>-5.1</td><td>-11.3</td><td>회절→Haze 변환</td></tr>
-<tr><td>5</td><td>Phase-Gradient 🆕</td><td>-13.3</td><td>-3.6</td><td>-0.9</td><td>빔 편향</td></tr>
-<tr><td>6</td><td>Horizontal</td><td>-51.1</td><td>0.0</td><td>-4.0</td><td>가로만 (1D)</td></tr>
-<tr><td>7</td><td>Apodization</td><td>-2.5</td><td>-3.4</td><td>-2.8</td><td>에지 연속 전이</td></tr>
-<tr><td>8</td><td>Jitter</td><td>-0.9</td><td>-0.3</td><td>-0.7</td><td>위치 지터</td></tr>
-<tr><td>9</td><td>ZigZag-Edge 🆕</td><td>-0.8</td><td>+0.1</td><td>-0.4</td><td>경계 변조 (미미)</td></tr>
-</table></div>
+<div class="day open"><div class="day-hdr" onclick="tog(this)">🛡️ HBM4 특허 회피 전략<span class="day-tag tag-ci">Strategic</span><span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
+<p><strong>주요 대응 사항:</strong></p>
+<p>· Netlist의 기존 <strong>DRAM 모듈 기반 특허 포트폴리오</strong>를 우회하기 위한 HBM4 설계 변경 진행 중</p>
+<p>· <strong>핵심 분석 타겟:</strong> Samsung Electronics (HQ & US Entities), Google (TPU), Super Micro</p>
+<p style="margin-top:8px"><strong>기술적 유사성 분석 (Technical Closeness):</strong></p>
+<p>· <strong>40%의 유사성 확인:</strong> Netlist 특허 청구항(Signal Correction, Power Management)과 HBM4 4nm Logic Die 설계 간 구조적 유사성 존재</p>
 </div></div>
 
-<div class="day"><div class="day-hdr" onclick="tog(this)">기존 6모드 설명<span class="arrow">▼</span></div>
-<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.8">
-<p><strong>1. Baseline</strong> — 원본 BM 슬릿 (기준). sinc(kx·a/2)×sinc(ky·b/2) 회절</p>
-<p><strong>2. Horizontal</strong> — 가로 유기막 패치 (1D). 가로 -51dB 억제 but 세로 효과 없음</p>
-<p><strong>3. Checkerboard ⭐</strong> — φ(x,y) = φx(x) + φy(y) 분리가능 2D 위상. 양축 독립 제어. 최적: cb_wx=a/2, cb_hy=b/2, φ=π</p>
-<p><strong>4. Apodization</strong> — Raised-cosine 에지. sinc 꼬리 1/k² → 1/k⁴ 감쇠</p>
-<p><strong>5. Jitter</strong> — 유사랜덤 위치 지터. 이산 차수 → 확산 스캐터. σ/P=0.05~0.15 권장</p>
-<p><strong>6. Combo</strong> — 체크보드 + 아포다이제이션. 양축 cardinal 소멸 + 고차 억제. 이론적 최상위</p>
+<div class="day open"><div class="day-hdr" onclick="tog(this)">⚖️ 법적 리스크 및 손해배상 규모<span class="day-tag tag-out">Risk</span><span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
+<p><strong>손해배상 산정 기준:</strong></p>
+<p>· (일평균 판매량 × 단위 이익)의 <strong>20% 규모</strong>로 산정</p>
+<p>· 과거 판례: 삼성전자는 Netlist와의 분쟁에서 이미 <strong>$4억 2,000만 이상</strong>의 배상 확정 사례 존재</p>
+<p style="margin-top:8px"><strong>가중치 및 고의성 (Willfulness):</strong></p>
+<p>· Impact Score 산정 시 <strong>고의적 침해(Willfulness) 가중치 10%</strong> 적용</p>
+<p>· 고의적 침해 인정 시 손해액의 최대 3배까지 징벌적 배상 가능성 상존</p>
 </div></div>
 
-<div class="day"><div class="day-hdr" onclick="tog(this)">🆕 신규 4모드 — 혁신적 회절 제어<span class="day-tag tag-po">NEW</span><span class="arrow">▼</span></div>
-<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.8">
-<p><strong>7. 2D-Checker</strong> — 바둑판 위상 상쇄 간섭. 슬릿 내부를 NxM 격자로 분할, (i+j)%2 기반 0/π 교차. 가로+세로 축 에너지를 대각선으로 발산. Checkerboard와 수학적 동치 확인.</p>
-<p><strong>8. Nano-Diffuser 🔥</strong> — 나노 크기 패치에 랜덤 위상 [0,2π) 부여. 날카로운 회절선 → 부드러운 Haze(연무)로 변환. 총 에너지 보존, 피크 휘도 -11.3dB 대폭 감소. <span style="color:var(--gd)">실용적으로 가장 유망</span></p>
-<p><strong>9. Phase-Gradient</strong> — φ(x)=slope·x 선형 위상 경사 (프리즘 효과). 0차 회절을 정면에서 편향. 그러나 에너지 재집중으로 피크 억제 약함 (-0.9dB)</p>
-<p><strong>10. ZigZag-Edge</strong> — BM 경계를 사인파로 변조. 직선 edge의 sinc 분산 의도. 결과: 변조 효과 미미 (-0.8dB). 직선 edge 기여가 dominant.</p>
-</div></div>
-
-<div class="day"><div class="day-hdr" onclick="tog(this)">💡 핵심 인사이트<span class="arrow">▼</span></div>
-<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.8">
-<p>✅ <strong>최적 전략 1위: Combo</strong> — 양축 억제 + 피크 -12.5dB 최강</p>
-<p>✅ <strong>실용 전략: Nano-Diffuser</strong> — 제조 가능하다면 Haze 방식이 시인성 측면 최고</p>
-<p>✅ <strong>단순 구현: Checkerboard</strong> — 구현 쉽고 양축 균형 최고</p>
-<p>❌ <strong>ZigZag-Edge</strong> — 경계 변조만으로는 부족, 위상 제어 필요</p>
-<p>❌ <strong>Phase-Gradient</strong> — 빔 편향만으로는 피크 억제 어려움</p>
-<p style="margin-top:8px;color:var(--mt)">시뮬레이션 파라미터: BM 10×60μm, Pitch 30×90μm, λ=550nm, Grid 512×512</p>
+<div class="day"><div class="day-hdr" onclick="tog(this)">🎯 분석 범위 (Scope)<span class="arrow">▼</span></div>
+<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
+<p>1. <strong>Samsung Electronics:</strong> 본사 및 미국 법인 전체 대상 IP 분석</p>
+<p>2. <strong>Google:</strong> TPU(Tensor Processing Unit) 관련 HBM 채용 구조 분석</p>
+<p>3. <strong>Super Micro:</strong> AI 서버 모듈 내 HBM 공급망 및 특허 리스크 분석</p>
 </div></div>
 </div>
 
