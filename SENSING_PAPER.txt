@@ -1,0 +1,18 @@
+Oral/Poster	시간	Session	Title	소속	기술센싱 담당자
+oral	5/6(수) 16:00-17:30	Session 54: Automotive Liquid Crystal Displays	54.1 Dual View Display Technology for Enhanced Cockpit Usability	Sharp	최낙초
+oral	5/6(수) 16:00-17:30	Session 54: Automotive Liquid Crystal Displays	54.2 Novel P-polarized Light Reflection Screen for AR-HUD with Wide Field of View	FUJIFILM	최낙초
+oral	5/6(수) 16:00-17:30	Session 54: Automotive Liquid Crystal Displays	54.3 Ultra Low Specular Reflection LCD with High Visibility for Next Generation Automotive Applications	Tohoku University	최낙초
+oral	5/7(목) 08:30-10:00	Session 61: Automotive Display Design and Manufacturing	61.1 OLEDs for Automotive Lighting	OLEDWorks	최낙초, 정우현
+oral	5/7(목) 08:30-10:00	Session 61: Automotive Display Design and Manufacturing	61.2 Driving Visual Innovation: GMSL’s Contribution to State-of-the-Art Automotive Displays	Analog Devices	최낙초, 정우현
+oral	5/7(목) 08:30-10:00	Session 61: Automotive Display Design and Manufacturing	61.3 Hidden Display Structure Utilizing Micro-LEDs	LGD	최낙초, 정우현
+oral	5/7(목) 08:30-10:00	Session 61: Automotive Display Design and Manufacturing	61.4 Luminance Boosted MicroLED Head-up Display By “Smart Micro-lens” Design	TCL CSOT	최낙초, 정우현
+oral	5/7(목) 10:30-12:00	Session 69: Automotive Display Human Factors	69.1 Comparison of Perceived Brightness and Colorfulness for Different (Automotive) Display Technologies by Helmholtz-Kohlrausch Effect	Pforzheim University	김태웅, 최낙초
+oral	5/7(목) 10:30-12:00	Session 69: Automotive Display Human Factors	69.2 Display Simulation Model-based Backlight Optimization and Compensation for Enhanced Picture Quality FALD Displays	Forvia Faurecia	김태웅, 최낙초
+oral	5/7(목) 10:30-12:00	Session 69: Automotive Display Human Factors	69.3 Polarization Accurate Simulations of Complex Multilayer Optical Films for Automotive Display Systems	3M	김태웅, 최낙초
+oral	5/7(목) 10:30-12:00	Session 69: Automotive Display Human Factors	69.4 Eliminating Sunlight Backflow in AR-HUDs Through a Faraday Rotator Under the Étendue Constraint	Sun Yat-Sen University	김태웅, 최낙초
+oral	5/7(목) 14:00-15:30	Session 77: Automotive HUDs I	77.2 High-Resolution Automotive Light-Field Head-Up Display with Eye-Tracking	Medical University of South Carolina	최낙초
+oral	5/7(목) 14:00-15:30	Session 77: Automotive HUDs I	77.3 A Two-Stage Optical Design Methodology for an Eyebox-Expanded 3D AR-HUD	TCL CSOT	최낙초
+oral	5/7(목) 14:00-15:30	Session 77: Automotive HUDs I	77.4 Dual-SLM Tiled Holographic HUD with Dammann Grating for Wide Eye-box	ETRI	최낙초
+oral	5/7(목) 16:00-17:30	Session 85: Automotive HUDs II	85.1 Holographic Augment Reality Head Up Display Utilising Computer Generated Holography	Envisics	최낙초
+oral	5/7(목) 16:00-17:30	Session 85: Automotive HUDs II	85.3 Lens-Based CGEI Algorithm with GPU Acceleration for Integral Imaging Light-Field Displays System	National Taiwan University	최낙초
+oral	5/7(목) 16:00-17:30	Session 85: Automotive HUDs II	85.4 Accelerated CGH Generation for AR Head-Up Display Based on DeepCGH and YOLO	National Taiwan University	최낙초
