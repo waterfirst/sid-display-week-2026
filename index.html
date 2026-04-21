@@ -173,12 +173,11 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <nav id="nav">
   <button class="active" onclick="openTab(0,this)">📋 일정</button>
   <button onclick="openTab(1,this)">⭐ 내 발표</button>
-  <button onclick="openTab(2,this)">💡 지식·IP</button>
-  <button onclick="openTab(3,this)">🚗 이동수단</button>
-  <button onclick="openTab(4,this)">🗺 지도</button>
-  <button onclick="openTab(5,this)">🍽 맛집·관광</button>
-  <button onclick="openTab(6,this)">⚠️ 안전·팁</button>
-  <button onclick="openTab(7,this)">🏨 호텔·항공</button>
+  <button onclick="openTab(2,this)">🚗 이동수단</button>
+  <button onclick="openTab(3,this)">🗺 지도</button>
+  <button onclick="openTab(4,this)">🍽 맛집·관광</button>
+  <button onclick="openTab(5,this)">⚠️ 안전·팁</button>
+  <button onclick="openTab(6,this)">🏨 호텔·항공</button>
 </nav>
 <main>
 
@@ -315,40 +314,8 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div></div>
 </div>
 
-<!-- TAB 2: Knowledge & IP Context -->
-<div class="tab" id="t2">
-<div class="card"><h3>💡 지식 · IP 분석 (Memory Context)</h3>
-<div class="label">HBM4 설계 변경 및 Netlist 특허 분쟁 분석</div></div>
-
-<div class="day open"><div class="day-hdr" onclick="tog(this)">🛡️ HBM4 특허 회피 전략<span class="day-tag tag-ci">Strategic</span><span class="arrow">▼</span></div>
-<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
-<p><strong>주요 대응 사항:</strong></p>
-<p>· Netlist의 기존 <strong>DRAM 모듈 기반 특허 포트폴리오</strong>를 우회하기 위한 HBM4 설계 변경 진행 중</p>
-<p>· <strong>핵심 분석 타겟:</strong> Samsung Electronics (HQ & US Entities), Google (TPU), Super Micro</p>
-<p style="margin-top:8px"><strong>기술적 유사성 분석 (Technical Closeness):</strong></p>
-<p>· <strong>40%의 유사성 확인:</strong> Netlist 특허 청구항(Signal Correction, Power Management)과 HBM4 4nm Logic Die 설계 간 구조적 유사성 존재</p>
-</div></div>
-
-<div class="day open"><div class="day-hdr" onclick="tog(this)">⚖️ 법적 리스크 및 손해배상 규모<span class="day-tag tag-out">Risk</span><span class="arrow">▼</span></div>
-<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
-<p><strong>손해배상 산정 기준:</strong></p>
-<p>· (일평균 판매량 × 단위 이익)의 <strong>20% 규모</strong>로 산정</p>
-<p>· 과거 판례: 삼성전자는 Netlist와의 분쟁에서 이미 <strong>$4억 2,000만 이상</strong>의 배상 확정 사례 존재</p>
-<p style="margin-top:8px"><strong>가중치 및 고의성 (Willfulness):</strong></p>
-<p>· Impact Score 산정 시 <strong>고의적 침해(Willfulness) 가중치 10%</strong> 적용</p>
-<p>· 고의적 침해 인정 시 손해액의 최대 3배까지 징벌적 배상 가능성 상존</p>
-</div></div>
-
-<div class="day"><div class="day-hdr" onclick="tog(this)">🎯 분석 범위 (Scope)<span class="arrow">▼</span></div>
-<div class="day-body" style="padding:10px 14px;font-size:12.5px;line-height:1.9">
-<p>1. <strong>Samsung Electronics:</strong> 본사 및 미국 법인 전체 대상 IP 분석</p>
-<p>2. <strong>Google:</strong> TPU(Tensor Processing Unit) 관련 HBM 채용 구조 분석</p>
-<p>3. <strong>Super Micro:</strong> AI 서버 모듈 내 HBM 공급망 및 특허 리스크 분석</p>
-</div></div>
-</div>
-
 <!-- TAB 3: Transportation Guide -->
-<div class="tab" id="t3">
+<div class="tab" id="t2">
 <div class="card"><h3>🚗 LA 이동수단 완전 가이드</h3>
 <div class="label">Waymo · Uber · Lyft · Metro — 사전 준비부터 탑승까지</div></div>
 
@@ -444,7 +411,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 
 <!-- TAB 4: Map & Transit -->
-<div class="tab" id="t4">
+<div class="tab" id="t3">
 
 <div class="route-card">
   <h3>🛬 LAX → 호텔 이동</h3>
@@ -499,7 +466,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 
 <!-- TAB 3: Food & Sights -->
-<div class="tab" id="t5">
+<div class="tab" id="t4">
 <div class="card">
 <div class="area"><h4>🚶 도보 5분 — LA Live</h4>
 <span class="spot"><a href="https://www.google.com/maps/search/Yard+House+LA+Live" target="_blank" rel="noopener">Yard House</a><span class="pr">$15-25</span></span>
@@ -533,7 +500,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 
 <!-- TAB 4: Safety & Tips -->
-<div class="tab" id="t6">
+<div class="tab" id="t5">
 <div class="card">
 <h3>🚨 긴급 연락처</h3>
 <div class="emergency">
@@ -564,7 +531,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 
 <!-- TAB 5: Hotel & Flight -->
-<div class="tab" id="t7">
+<div class="tab" id="t6">
 <div class="card">
   <h3>🏨 호텔 정보</h3>
   <div class="label">호텔명</div><div class="value"><a href="https://www.marriott.com/en-us/hotels/laxri-residence-inn-los-angeles-l-a-live/overview/" target="_blank" rel="noopener">Residence Inn by Marriott LA L.A. LIVE</a></div>
@@ -581,10 +548,30 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   </div>
 </div>
 <div class="card">
-  <h3>✈️ 항공편</h3>
-  <div class="label">출국</div><div class="value">5/4 (Mon) ICN → LAX</div>
-  <div class="label">귀국</div><div class="value">5/8 (Fri) LAX → ICN</div>
-  <div class="label">인천 도착</div><div class="value">5/10 (Sun)</div>
+  <h3>✈️ 항공편 — 아시아나항공</h3>
+  <div class="label">예약번호</div><div class="value hl">CSFZHE (아시아나) / A20260329902-1-1</div>
+  <div class="label">좌석</div><div class="value">비즈니스석 (J)</div>
+  <div class="label">상태</div><div class="value">출국편 예약확정 / 귀국편 대기</div>
+  <div style="margin-top:12px;padding:12px;background:var(--bg);border:1px solid var(--bd);border-radius:8px">
+    <div style="font-weight:700;font-size:13px;margin-bottom:8px">🛫 출국 — OZ0204</div>
+    <div class="label">출발</div><div class="value">5/4 (월) 21:20 — 인천국제공항 Terminal 2</div>
+    <div class="label">도착</div><div class="value">5/4 (월) 16:50 — LAX Terminal B (같은 날!)</div>
+    <div class="label">소요</div><div class="value">11시간 30분</div>
+  </div>
+  <div style="margin-top:8px;padding:12px;background:var(--bg);border:1px solid var(--bd);border-radius:8px">
+    <div style="font-weight:700;font-size:13px;margin-bottom:8px">🛬 귀국 — OZ0203</div>
+    <div class="label">출발</div><div class="value">5/8 (금) 23:30 — LAX Terminal B</div>
+    <div class="label">도착</div><div class="value">5/10 (일) 05:00 — 인천국제공항 Terminal 2</div>
+    <div class="label">소요</div><div class="value">13시간 30분</div>
+  </div>
+  <div style="margin-top:10px" class="tip">
+    <ul>
+      <li>발권마감: <b>2026-04-27(월) 14:00</b> — 반드시 그 전에 발권!</li>
+      <li>귀국편 <b>대기 상태</b> — 좌석 확정되면 별도 안내 예정</li>
+      <li>LAX 도착 후 → Terminal B에서 나와 LAXit 픽업존으로 이동</li>
+      <li>귀국일(5/8) 23:30 출발이니 <b>호텔 체크아웃 후 학회 마지막 세션 참석 가능</b></li>
+    </ul>
+  </div>
 </div>
 </div>
 
@@ -604,7 +591,7 @@ function openTab(i,btn){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   $('t'+i).classList.add('active');btn.classList.add('active');
   $('nav').classList.remove('open');
-  if(i===4)setTimeout(()=>{if(window._m)window._m.invalidateSize()},100);
+  if(i===3)setTimeout(()=>{if(window._m)window._m.invalidateSize()},100);
 }
 
 // Day cards (collapsibles)
@@ -625,7 +612,7 @@ function initMap(){
   ].forEach(p=>L.marker([p[0],p[1]]).addTo(m).bindPopup('<b>'+p[2]+'</b>'));
   window._m=m;
 }
-new MutationObserver((_,o)=>{if($('t4').classList.contains('active')){initMap();o.disconnect()}}).observe($('t4'),{attributes:true,attributeFilter:['class']});
+new MutationObserver((_,o)=>{if($('t3').classList.contains('active')){initMap();o.disconnect()}}).observe($('t3'),{attributes:true,attributeFilter:['class']});
 
 // Checklist
 const docs=['여권','ESTA','항공권 e-ticket','호텔 확인서 (S60JSV7K)','DW 배지/등록확인','포스터 P-99 파일','신용카드/현금','여행자보험','eSIM','명함'];
