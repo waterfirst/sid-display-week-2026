@@ -1227,7 +1227,7 @@ function initMap(){
 new MutationObserver((_,o)=>{if($('t3').classList.contains('active')){initMap();o.disconnect()}}).observe($('t3'),{attributes:true,attributeFilter:['class']});
 
 // Checklist
-const docs=['여권','ESTA','Travel Order (출장명령서)','항공권 e-ticket','호텔 확인서 (S60JSV7K)','DW 배지/등록확인','포스터 P-99 파일','신용카드/현금','여행자보험','📶 와이파이도시락 수령 (T2 1층 3번출구)','명함'];
+const docs=['여권','ESTA','Travel Order (출장명령서)','항공권 e-ticket ✅','호텔 확인서 (S60JSV7K)','DW 배지 (현장 Registration Desk → QR→배지 수령)','포스터 P-99 인쇄 ✅','신용카드/현금','여행자보험','📶 와이파이도시락 수령 (T2 1층 3번출구)','명함'];
 const items=['노트북+충전기','보조배터리','편한 신발','겉옷 (냉방)','선글라스','우산','약 (소화제 등)','⚽ 손흥민 티셔츠 (아들 선물)'];
 function renderChk(arr,elId,pfx){
   const sv=JSON.parse(localStorage.getItem('dw-chk')||'{}');
