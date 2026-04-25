@@ -278,6 +278,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="evt evt-gold"><span class="time">~11:00 AM</span><span class="dot dot-gd"></span><b>🏨 호텔 체크아웃 (짐 보관 요청)</b></div>
 <div class="evt"><span class="time">8:30–12:00</span><span class="dot dot-pp"></span>Author Interviews (선택)</div>
 <div class="evt"><span class="time">12:00~</span><span class="dot dot-pk"></span>🎨 Getty Center (무료, Uber 25분) or Santa Monica Beach</div>
+<div class="evt"><span class="time">14:00~</span><span class="dot dot-pk"></span>⚽ 손흥민 티셔츠 쇼핑 (아들 선물) — Koreatown or DTLA Nike/Adidas</div>
 <div class="evt"><span class="time">17:00~</span><span class="dot dot-pk"></span>🍽 Koreatown 삼겹살 or DTLA 저녁</div>
 <div class="evt"><span class="time">19:30~</span><span class="dot dot-gd"></span>호텔 짐 픽업 → LAX (Uber 20분)</div>
 <div class="evt evt-gold"><span class="time">23:00</span><span class="dot dot-gd"></span><b>🛬 OZ203 출발 LAX T-B → ICN (5/10 04:10 도착)</b></div>
@@ -1206,7 +1207,7 @@ new MutationObserver((_,o)=>{if($('t3').classList.contains('active')){initMap();
 
 // Checklist
 const docs=['여권','ESTA','Travel Order (출장명령서)','항공권 e-ticket','호텔 확인서 (S60JSV7K)','DW 배지/등록확인','포스터 P-99 파일','신용카드/현금','여행자보험','eSIM','명함'];
-const items=['노트북+충전기','보조배터리','편한 신발','겉옷 (냉방)','선글라스','우산','약 (소화제 등)'];
+const items=['노트북+충전기','보조배터리','편한 신발','겉옷 (냉방)','선글라스','우산','약 (소화제 등)','⚽ 손흥민 티셔츠 (아들 선물)'];
 function renderChk(arr,elId,pfx){
   const sv=JSON.parse(localStorage.getItem('dw-chk')||'{}');
   $(elId).innerHTML=arr.map((a,i)=>{const k=pfx+i;
