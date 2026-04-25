@@ -121,6 +121,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 
 .price-total{font-size:18px;font-weight:700;color:var(--ac)}
 
+.essay-item{background:var(--bg);border:1px solid var(--bd);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.essay-item[open]{border-color:var(--ac)}
+.essay-item summary::-webkit-details-marker{display:none}
+.essay-item summary::before{content:'';display:inline-block;width:0;height:0;border-left:5px solid var(--mt);border-top:4px solid transparent;border-bottom:4px solid transparent;margin-right:4px;transition:transform .2s}
+.essay-item[open] summary::before{transform:rotate(90deg)}
+
 @media(max-width:700px){
   .menu-btn{display:flex}
   nav{position:fixed;top:55px;left:0;right:0;background:var(--sf);flex-direction:column;border-bottom:1px solid var(--bd);transform:translateY(-120%);transition:transform .25s;z-index:99}
@@ -178,6 +184,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <button onclick="openTab(4,this)">🍽 맛집·관광</button>
   <button onclick="openTab(5,this)">⚠️ 안전·팁</button>
   <button onclick="openTab(6,this)">🏨 호텔·항공</button>
+  <button onclick="openTab(7,this)">📝 에세이</button>
 </nav>
 <main>
 
@@ -189,15 +196,13 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="evt"><span class="time">2:30–6:30 PM</span><span class="dot dot-pp"></span>Short Courses (오후)</div>
 </div></div>
 
-<div class="day" id="d1"><div class="day-hdr" onclick="tog(this)">Mon 5/4 — Conference & Seminars<span class="day-tag tag-ci">체크인</span><span class="arrow">▼</span></div>
+<div class="day" id="d1"><div class="day-hdr" onclick="tog(this)">Mon 5/4 — 도착일 (ICN→LAX)<span class="day-tag tag-ci">체크인</span><span class="arrow">▼</span></div>
 <div class="day-body">
-<div class="evt"><span class="time">8:30–5:30 PM</span><span class="dot dot-gn"></span>Computer Vision & AI Conference</div>
-<div class="evt"><span class="time">8:30–5:30 PM</span><span class="dot dot-gn"></span>Business Conference</div>
-<div class="evt"><span class="time">9:00–5:30</span><span class="dot dot-pp"></span>Seminars (4세션: 9/11/2/4시)</div>
-<div class="evt"><span class="time">1:00–5:30 PM</span><span class="dot dot-pk"></span>Displays 101 & Happy Hour (4:30~)</div>
-<div class="evt"><span class="time">9:00–5:00 PM</span><span class="dot dot-mt"></span>ICDM Breakouts</div>
-<div class="evt"><span class="time">7:00–10:00 PM</span><span class="dot dot-mt"></span>ICDM Plenary Meeting</div>
-<div class="evt evt-gold"><span class="time">오후</span><span class="dot dot-gd"></span><b>✈️ 호텔 체크인 — Residence Inn LA Live</b></div>
+<div class="evt evt-gold"><span class="time">21:40 ICN</span><span class="dot dot-gd"></span><b>🛫 OZ204 출발 (T2, A380 비즈니스)</b></div>
+<div class="evt evt-gold"><span class="time">17:10 LAX</span><span class="dot dot-gd"></span><b>✈️ LAX 도착 → LAXit → Uber → 호텔</b></div>
+<div class="evt evt-gold"><span class="time">18:30~</span><span class="dot dot-gd"></span><b>🏨 Residence Inn 체크인</b></div>
+<div class="evt"><span class="time">19:30~</span><span class="dot dot-pk"></span>🍽 LA Live 저녁 (Yard House or Rock'N Fish)</div>
+<div class="evt"><span class="time">저녁</span><span class="dot dot-mt"></span>시차 적응 — 일찍 취침 권장</div>
 </div></div>
 
 <div class="day" id="d2"><div class="day-hdr" onclick="tog(this)">Tue 5/5 — Keynotes & Expo 첫날<span class="day-tag tag-ex">전시 시작</span><span class="arrow">▼</span></div>
@@ -214,6 +219,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="evt"><span class="time">5:00–6:30 PM</span><span class="dot dot-cy"></span>Exhibit Reception</div>
 <div class="evt"><span class="time">12:30–2:30</span><span class="dot dot-mt"></span>India Business Luncheon</div>
 <div class="evt"><span class="time">6:30–8:30 PM</span><span class="dot dot-gn"></span>SID Honors & Awards Banquet</div>
+<div class="evt"><span class="time">저녁</span><span class="dot dot-pk"></span>🍽 Grand Central Market or Sugarfish 추천</div>
 </div></div>
 
 <div class="day" id="d3"><div class="day-hdr" onclick="tog(this)">Wed 5/6 — Oral & Forums<span class="arrow">▼</span></div>
@@ -228,6 +234,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="evt evt-gold"><span class="time">2:00–3:00 PM</span><span class="dot dot-gd"></span><b>⭐ Auto Displays</b></div>
 <div class="evt"><span class="time">3:00–4:00 PM</span><span class="dot dot-pk"></span>MicroLED Roadmap</div>
 <div class="evt"><span class="time">6:00–9:00 PM</span><span class="dot dot-gn"></span>Display of the Future Dinner</div>
+<div class="evt"><span class="time">저녁</span><span class="dot dot-pk"></span>🌃 Griffith Observatory 야경 (Uber 25분) 추천</div>
 </div></div>
 
 <div class="day" id="d4"><div class="day-hdr" onclick="tog(this)">Thu 5/7 — ⭐ 내 포스터 발표일!<span class="day-tag tag-po">P-99</span><span class="arrow">▼</span></div>
@@ -239,13 +246,17 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="evt"><span class="time">11:00–12:30</span><span class="dot dot-pk"></span>Supply Chains</div>
 <div class="evt evt-gold"><span class="time">11:00 AM</span><span class="dot dot-gd"></span><b>📌 포스터 셋업</b></div>
 <div class="evt evt-poster"><span class="time">5:00–7:30 PM</span><span class="dot dot-gd"></span><b>⭐⭐⭐ Poster Session & Reception — P-99 발표!</b></div>
+<div class="evt"><span class="time">7:30~ PM</span><span class="dot dot-pk"></span>🍽 Matt Smith 미팅? / Koreatown 백정 KBBQ 추천</div>
 </div></div>
 
-<div class="day" id="d5"><div class="day-hdr" onclick="tog(this)">Fri 5/8 — 체크아웃 & 귀국<span class="day-tag tag-out">귀국</span><span class="arrow">▼</span></div>
+<div class="day" id="d5"><div class="day-hdr" onclick="tog(this)">Fri 5/8 — 자유시간 & 귀국<span class="day-tag tag-out">귀국</span><span class="arrow">▼</span></div>
 <div class="day-body">
-<div class="evt"><span class="time">8:30–12:00</span><span class="dot dot-pp"></span>Author Interviews</div>
-<div class="evt"><span class="time">8:30–5:00</span><span class="dot dot-pp"></span>Oral Sessions (4세션)</div>
-<div class="evt evt-gold"><span class="time">오전</span><span class="dot dot-gd"></span><b>✈️ 호텔 체크아웃 → LAX → 귀국</b></div>
+<div class="evt evt-gold"><span class="time">~11:00 AM</span><span class="dot dot-gd"></span><b>🏨 호텔 체크아웃 (짐 보관 요청)</b></div>
+<div class="evt"><span class="time">8:30–12:00</span><span class="dot dot-pp"></span>Author Interviews (선택)</div>
+<div class="evt"><span class="time">12:00~</span><span class="dot dot-pk"></span>🎨 Getty Center (무료, Uber 25분) or Santa Monica Beach</div>
+<div class="evt"><span class="time">17:00~</span><span class="dot dot-pk"></span>🍽 Koreatown 삼겹살 or DTLA 저녁</div>
+<div class="evt"><span class="time">19:30~</span><span class="dot dot-gd"></span>호텔 짐 픽업 → LAX (Uber 20분)</div>
+<div class="evt evt-gold"><span class="time">23:00</span><span class="dot dot-gd"></span><b>🛬 OZ203 출발 LAX T-B → ICN (5/10 04:10 도착)</b></div>
 </div></div>
 </div>
 
@@ -634,6 +645,45 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 </div>
 
+<!-- TAB 7: Essay -->
+<div class="tab" id="t7">
+<div class="card">
+  <h3>📝 미국의 실상 — 관찰 에세이</h3>
+  <div style="font-size:12.5px;color:var(--mt);margin-bottom:12px;line-height:1.6">LA에서 보고 느낀 것을 기록하는 공간. 주제를 탭하면 메모장이 열립니다. 자동 저장됩니다.</div>
+</div>
+
+<div class="card" id="essayList"></div>
+
+<div class="card">
+  <h3>+ 새 주제 추가</h3>
+  <div style="display:flex;gap:8px">
+    <input type="text" id="newTopic" placeholder="주제 입력 (예: 노숙자 현실)" style="flex:1;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;color:var(--tx);font-size:13px;font-family:inherit">
+    <button onclick="addTopic()" style="background:var(--ac);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap">추가</button>
+  </div>
+</div>
+
+<div class="card">
+  <h3>💡 에세이 주제 아이디어</h3>
+  <div style="font-size:12.5px;line-height:2">
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🤖 AI — 실리콘밸리 vs 현실의 괴리</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🏛 트럼프 — 거리에서 느끼는 분열</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">💊 마약 — Skid Row와 펜타닐 위기</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🔒 안전 — LA 치안의 명암</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">💰 투자 — 미국 주식·부동산 체감</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🚀 기회 — 스타트업·창업 생태계</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">👦 청년 — MZ세대의 삶</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🌏 이민자 — 한인타운·다문화</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🏠 노숙자 — 텐트촌과 복지</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🚗 교통 — 차 없으면 불가능한 도시</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🍔 음식 — 미국 식문화 체험</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">📱 디스플레이 — 전시장에서 본 미래</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🎓 교육 — 미국 대학·취업 현실</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🏥 의료 — 미국 의료비의 충격</span>
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🇺🇸 한미 비교 — 한국인 눈에 비친 미국</span>
+  </div>
+</div>
+</div>
+
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -684,6 +734,78 @@ function renderChk(arr,elId,pfx){
 }
 function saveChk(k,v){const s=JSON.parse(localStorage.getItem('dw-chk')||'{}');s[k]=v;localStorage.setItem('dw-chk',JSON.stringify(s))}
 renderChk(docs,'chkD','d');renderChk(items,'chkI','i');
+
+// === Essay System ===
+function getEssays(){return JSON.parse(localStorage.getItem('dw-essays')||'[]')}
+function saveEssays(e){localStorage.setItem('dw-essays',JSON.stringify(e))}
+
+function renderEssays(){
+  const essays=getEssays(),el=$('essayList');
+  if(!essays.length){el.innerHTML='<div style="text-align:center;color:var(--mt);padding:20px;font-size:13px">아직 작성된 에세이가 없습니다.<br>아래 주제를 탭하거나 직접 추가해보세요.</div>';return}
+  el.innerHTML=essays.map((e,i)=>{
+    const preview=e.content?e.content.substring(0,60)+'...':'(빈 메모)';
+    const date=e.date||'';
+    const expanded=e.expanded?'open':'';
+    return`<details class="essay-item" ${expanded} ontoggle="essayToggle(${i},this.open)">
+      <summary style="padding:12px 14px;cursor:pointer;font-weight:600;font-size:13.5px;display:flex;align-items:center;gap:8px;list-style:none">
+        <span style="font-size:16px">${e.icon||'📝'}</span>
+        <span style="flex:1">${e.topic}</span>
+        <span style="font-size:11px;color:var(--mt)">${date}</span>
+        <button onclick="event.stopPropagation();deleteEssay(${i})" style="background:none;border:none;color:var(--mt);cursor:pointer;font-size:14px" title="삭제">×</button>
+      </summary>
+      <div style="padding:0 14px 14px">
+        <textarea id="essay${i}" oninput="autoSaveEssay(${i},this.value)" placeholder="여기에 관찰, 생각, 느낌을 자유롭게 적어보세요...&#10;&#10;- 보고 느낀 것&#10;- 한국과 다른 점&#10;- 인사이트" style="width:100%;min-height:200px;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:12px;color:var(--tx);font-size:13px;font-family:'Noto Sans KR',sans-serif;line-height:1.8;resize:vertical">${e.content||''}</textarea>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+          <span style="font-size:11px;color:var(--mt)" id="wc${i}">${(e.content||'').length}자</span>
+          <button onclick="exportEssay(${i})" style="background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:6px;padding:4px 12px;font-size:11px;cursor:pointer">복사</button>
+        </div>
+      </div>
+    </details>`}).join('');
+}
+
+function essayToggle(i,open){const e=getEssays();e[i].expanded=open;saveEssays(e)}
+
+let saveTimer=null;
+function autoSaveEssay(i,val){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>{
+    const e=getEssays();
+    e[i].content=val;
+    e[i].date=new Date().toLocaleDateString('ko-KR',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    saveEssays(e);
+    const wc=$('wc'+i);if(wc)wc.textContent=val.length+'자';
+  },500);
+}
+
+function addTopic(){
+  const inp=$('newTopic'),t=inp.value.trim();
+  if(!t)return;
+  const e=getEssays();
+  e.push({topic:t,content:'',icon:'📝',date:'',expanded:true});
+  saveEssays(e);inp.value='';renderEssays();
+}
+
+function addTopicDirect(el){
+  const txt=el.textContent.trim(),icon=txt.substring(0,2),topic=txt.substring(2).trim().split('—')[0].trim();
+  const e=getEssays();
+  if(e.some(x=>x.topic===topic))return;
+  e.push({topic:topic,content:'',icon:icon,date:'',expanded:false});
+  saveEssays(e);renderEssays();
+  el.style.opacity='0.4';el.style.pointerEvents='none';
+}
+
+function deleteEssay(i){
+  if(!confirm('이 에세이를 삭제할까요?'))return;
+  const e=getEssays();e.splice(i,1);saveEssays(e);renderEssays();
+}
+
+function exportEssay(i){
+  const e=getEssays()[i];
+  const txt=`# ${e.topic}\n${e.date}\n\n${e.content}`;
+  navigator.clipboard.writeText(txt).then(()=>alert('클립보드에 복사됨!'));
+}
+
+renderEssays();
 
 // ESTA & Travel Order fullscreen toggle
 function toggleEsta(){const el=$('estaFull');el.style.display=el.style.display==='flex'?'none':'flex'}
