@@ -529,6 +529,13 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <div class="label">유효기간</div><div class="value">~ 2027. 04. 13</div>
   <div class="label">여권번호</div><div class="value">M898Y0121 (만료: 2033. 04. 10)</div>
   <div class="label">결제일</div><div class="value">2025. 04. 13 — Tracking: 27N8PQVR</div>
+  <div style="margin-top:12px;position:relative">
+    <div style="font-size:11.5px;color:var(--mt);margin-bottom:6px;font-weight:600">승인 화면 (탭하여 확대)</div>
+    <img id="estaImg" src="esta_preview.png" alt="ESTA Approval" style="width:100%;border-radius:8px;border:1px solid var(--bd);cursor:pointer" onclick="toggleEsta()">
+    <div id="estaFull" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);justify-content:center;align-items:center;cursor:pointer" onclick="toggleEsta()">
+      <img src="esta_preview.png" alt="ESTA Full" style="max-width:95%;max-height:90%;border-radius:8px">
+    </div>
+  </div>
   <div style="margin-top:10px" class="tip">
     <ul>
       <li>ESTA는 <b>입국 허가가 아닌 탑승 허가</b> — 최종 입국은 CBP 오피서 판단</li>
@@ -644,6 +651,9 @@ function renderChk(arr,elId,pfx){
 }
 function saveChk(k,v){const s=JSON.parse(localStorage.getItem('dw-chk')||'{}');s[k]=v;localStorage.setItem('dw-chk',JSON.stringify(s))}
 renderChk(docs,'chkD','d');renderChk(items,'chkI','i');
+
+// ESTA fullscreen toggle
+function toggleEsta(){const el=$('estaFull');el.style.display=el.style.display==='flex'?'none':'flex'}
 
 // Splash
 setTimeout(()=>{const s=document.getElementById('splash');s.classList.add('hide');setTimeout(()=>s.remove(),800)},4200);
