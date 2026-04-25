@@ -89,6 +89,22 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 .phrase-en{font-weight:600;margin-bottom:2px}
 .phrase-kr{color:var(--mt);font-size:12px}
 
+/* D-day Banner */
+.dday-banner{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 30%,#4338ca 60%,#6366f1 100%);border-radius:16px;padding:20px;margin-bottom:12px;text-align:center;position:relative;overflow:hidden;border:1px solid rgba(99,102,241,.3)}
+.dday-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(129,140,248,.2),transparent 60%);pointer-events:none}
+.dday-badge{display:inline-block;background:rgba(245,158,11,.9);color:#1a1a2e;font-weight:800;font-size:13px;padding:4px 14px;border-radius:20px;margin-bottom:10px;letter-spacing:.5px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.dday-title{font-size:22px;font-weight:800;color:#fff;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.dday-sub{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:14px}
+.dday-grid{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.dday-unit{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:10px;padding:8px 14px;min-width:60px}
+.dday-num{font-size:26px;font-weight:800;color:#f59e0b;line-height:1}
+.dday-label{font-size:10px;color:rgba(255,255,255,.6);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+.dday-presenting{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px}
+.dday-presenting img{width:36px;height:36px;border-radius:50%;border:2px solid var(--gd)}
+.dday-presenting span{font-size:13px;color:rgba(255,255,255,.85);font-weight:600}
+.dday-poster-info{margin-top:6px;font-size:11px;color:rgba(245,158,11,.8);font-weight:600}
+
 .area{margin-bottom:12px}
 .area h4{font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ac)}
 .spot{display:inline-flex;align-items:center;background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:5px 10px;font-size:12px;margin:0 4px 6px 0}
@@ -208,6 +224,24 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 
 <!-- TAB 0: Schedule -->
 <div class="tab active" id="t0">
+
+<!-- D-day Countdown Banner -->
+<div class="dday-banner" id="ddayBanner">
+  <div class="dday-badge">I'M PRESENTING!</div>
+  <div class="dday-title" id="ddayTitle">D-7</div>
+  <div class="dday-sub">Display Week 2026 · Los Angeles</div>
+  <div class="dday-grid">
+    <div class="dday-unit"><div class="dday-num" id="ddDays">7</div><div class="dday-label">Days</div></div>
+    <div class="dday-unit"><div class="dday-num" id="ddHours">0</div><div class="dday-label">Hours</div></div>
+    <div class="dday-unit"><div class="dday-num" id="ddMins">0</div><div class="dday-label">Mins</div></div>
+    <div class="dday-unit"><div class="dday-num" id="ddSecs">0</div><div class="dday-label">Secs</div></div>
+  </div>
+  <div class="dday-presenting">
+    <span>📌 Nakcho Choi · Samsung Display · Poster P-99</span>
+  </div>
+  <div class="dday-poster-info">Thu 5/7 · 5:00–7:30 PM · Stress-Induced Birefringence</div>
+</div>
+
 <div class="day" id="d0"><div class="day-hdr" onclick="tog(this)">Sun 5/3 — Short Courses<span class="arrow">▼</span></div>
 <div class="day-body">
 <div class="evt"><span class="time">9:00–1:00 PM</span><span class="dot dot-pp"></span>Short Courses (오전)</div>
@@ -1368,6 +1402,33 @@ loadSenData();
 // ESTA & Travel Order fullscreen toggle
 function toggleEsta(){const el=$('estaFull');el.style.display=el.style.display==='flex'?'none':'flex'}
 function toggleTO(){const el=$('toFull');el.style.display=el.style.display==='flex'?'none':'flex'}
+
+// D-day Countdown
+function updateCountdown(){
+  const poster=new Date('2026-05-07T17:00:00-07:00');// PDT
+  const now=new Date();
+  const diff=poster-now;
+  if(diff<=0){
+    document.getElementById('ddayTitle').textContent='🎉 NOW PRESENTING!';
+    document.getElementById('ddDays').textContent='0';
+    document.getElementById('ddHours').textContent='0';
+    document.getElementById('ddMins').textContent='0';
+    document.getElementById('ddSecs').textContent='0';
+    document.querySelector('.dday-badge').textContent='LIVE NOW!';
+    document.querySelector('.dday-badge').style.background='#22c55e';
+    return;
+  }
+  const d=Math.floor(diff/864e5);
+  const h=Math.floor(diff%864e5/36e5);
+  const m=Math.floor(diff%36e5/6e4);
+  const s=Math.floor(diff%6e4/1e3);
+  document.getElementById('ddayTitle').textContent=d>0?`D-${d}`:'TODAY!';
+  document.getElementById('ddDays').textContent=d;
+  document.getElementById('ddHours').textContent=h;
+  document.getElementById('ddMins').textContent=m;
+  document.getElementById('ddSecs').textContent=s;
+}
+updateCountdown();setInterval(updateCountdown,1000);
 
 // Splash
 setTimeout(()=>{const s=document.getElementById('splash');s.classList.add('hide');setTimeout(()=>s.remove(),800)},4200);
