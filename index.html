@@ -127,6 +127,23 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 .essay-item summary::before{content:'';display:inline-block;width:0;height:0;border-left:5px solid var(--mt);border-top:4px solid transparent;border-bottom:4px solid transparent;margin-right:4px;transition:transform .2s}
 .essay-item[open] summary::before{transform:rotate(90deg)}
 
+.sen-fbtn{background:var(--bg);border:1px solid var(--bd);color:var(--mt);border-radius:16px;padding:4px 12px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit}
+.sen-fbtn.sen-active{background:var(--ac);color:#fff;border-color:var(--ac)}
+.sen-summary{font-size:12px;color:var(--mt);padding:0 0 10px;border-bottom:1px solid var(--bd);margin-bottom:8px;line-height:1.6}
+.sen-item{border-bottom:1px solid rgba(255,255,255,.04);margin-bottom:2px}
+.sen-item:last-child{border-bottom:none}
+.sen-hdr{display:flex;align-items:center;gap:8px;padding:8px 4px;cursor:pointer;font-size:12.5px;line-height:1.5}
+.sen-chk{accent-color:var(--gn);width:16px;height:16px;cursor:pointer;flex-shrink:0}
+.sen-co{color:var(--ac);font-weight:700;font-size:11.5px;flex-shrink:0}
+.sen-body{max-height:0;overflow:hidden;transition:max-height .3s;padding:0 4px}
+.sen-item.sen-open .sen-body{max-height:500px;padding:4px 4px 10px 28px}
+.sen-item.sen-open .arrow{transform:rotate(180deg)}
+.sen-detail{font-size:12px;color:var(--mt);line-height:1.7;margin-bottom:6px}
+.sen-resp{font-size:12px;line-height:1.7;margin-bottom:8px;padding:6px 10px;background:rgba(34,197,94,.06);border-radius:6px;border-left:3px solid var(--gn)}
+.sen-memo{width:100%;min-height:60px;background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:8px;color:var(--tx);font-size:12px;font-family:inherit;line-height:1.6;resize:vertical}
+.sen-progress-bar{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:4px 0}
+.sen-progress-fill{height:100%;background:var(--gn);border-radius:3px;transition:width .3s}
+
 @media(max-width:700px){
   .menu-btn{display:flex}
   nav{position:fixed;top:55px;left:0;right:0;background:var(--sf);flex-direction:column;border-bottom:1px solid var(--bd);transform:translateY(-120%);transition:transform .25s;z-index:99}
@@ -185,6 +202,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <button onclick="openTab(5,this)">⚠️ 안전·팁</button>
   <button onclick="openTab(6,this)">🏨 호텔·항공</button>
   <button onclick="openTab(7,this)">📝 에세이</button>
+  <button onclick="openTab(8,this)">🔬 논문센싱</button>
 </nav>
 <main>
 
@@ -684,6 +702,300 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 </div>
 </div>
 
+<!-- TAB 8: Paper Sensing -->
+<div class="tab" id="t8">
+<div class="card">
+  <h3>🔬 SID 2026 논문 센싱 시트</h3>
+  <div style="font-size:12.5px;color:var(--mt);margin-bottom:8px;line-height:1.6">기술별 주요 논문과 대응 현황. 체크하고 메모를 남기세요. 자동 저장됩니다.</div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px" id="senFilter">
+    <button class="sen-fbtn sen-active" onclick="filterSen('all',this)">전체</button>
+    <button class="sen-fbtn" onclick="filterSen('glasspkg',this)">Glass PKG</button>
+    <button class="sen-fbtn" onclick="filterSen('sensor',this)">Sensor</button>
+    <button class="sen-fbtn" onclick="filterSen('module',this)">Module</button>
+    <button class="sen-fbtn" onclick="filterSen('oxide',this)">Oxide</button>
+    <button class="sen-fbtn" onclick="filterSen('color',this)">Color</button>
+    <button class="sen-fbtn" onclick="filterSen('ai',this)">AI</button>
+    <button class="sen-fbtn" onclick="filterSen('bt2020',this)">BT2020</button>
+  </div>
+</div>
+
+<div id="senCards">
+
+<!-- Glass PKG -->
+<div class="card sen-card" data-cat="glasspkg">
+  <h3 style="color:var(--cy)">📦 Glass PKG</h3>
+  <div class="sen-summary">BOE는 당사 유사컨셉 개발, AUO는 Display 적용 시도 및 SPL 구현</div>
+  <div class="sen-item" data-id="gp1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="gp1">
+      <span class="sen-co">[BOE]</span> Glass Core + 유기 RDL 공정 개발
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">LIDE-TGV(50um) 구현 + 유기 RDL 공정 개발 (L/S: 각 2um)</div>
+      <div class="sen-resp"><b>대응:</b> Glass Core 관련 Outsourcing 검토, 병행하여 자사 요소 기술 확보</div>
+      <textarea class="sen-memo" data-key="gp1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="gp2">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="gp2">
+      <span class="sen-co">[AUO]</span> Glass Core + RDL 응용 (CPO/Antenna/투명 uLED)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">Via Hole Pitch 200um, L/S = 5.5/7.5um<br>CPO 모듈向 / Antenna 구현 / 양면 투명 u-LED Display</div>
+      <div class="sen-resp"><b>대응:</b> Fab, 모듈 COG 공정 보유 기술 활용해 유기막 Interposer RDL 공정 개발</div>
+      <textarea class="sen-memo" data-key="gp2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="gp3">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="gp3">
+      <span class="sen-co">[DNP]</span> Glass Core用 다양한 TGV 구현 방법
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">LASER 개질 + 식각<br>TGV Hole 형상: Filled / Conformal / Bridge</div>
+      <textarea class="sen-memo" data-key="gp3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- Sensor -->
+<div class="card sen-card" data-cat="sensor">
+  <h3 style="color:var(--gn)">📡 Sensor</h3>
+  <div class="sen-summary">패널내장 센서 연구 활발, 응용분야 모색</div>
+  <div class="sen-item" data-id="s1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="s1">
+      <span class="sen-co">[Tianma]</span> PIN 지문 센서 성능향상 + 조도/색온도 확대
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> 現 지문센서 지속 성능 향상 (@ARCG OK), 센서 응용범위 확대 (Bio, 조도, 색온도)</div>
+      <textarea class="sen-memo" data-key="s1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="s2">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="s2">
+      <span class="sen-co">[BOE]</span> Glass 기반 초음파 지문센서 (부착형)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> NIR센서 소자/소재(산학), PA 기술 확보</div>
+      <textarea class="sen-memo" data-key="s2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="s3">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="s3">
+      <span class="sen-co">[TCL/CSOT]</span> OLED 수송층 겸 NIR 센싱 융합형 센서
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">효율 Risk 높음</div>
+      <textarea class="sen-memo" data-key="s3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- Module -->
+<div class="card sen-card" data-cat="module">
+  <h3 style="color:var(--pk)">📱 Module</h3>
+  <div class="sen-summary">당사와 유사한 방식의 다양한 모듈 기술개발로 기술수준 격차 微</div>
+  <div class="sen-item" data-id="m1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="m1">
+      <span class="sen-co">[CSOT]</span> Foldable UFG (iHTG 유사) + L10 Lattice 구조
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> Slim 및 Crease 개선: P-Film 삭제, G-/M-Film 적용, 박형 PSA 개발중</div>
+      <textarea class="sen-memo" data-key="m1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="m2">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="m2">
+      <span class="sen-co">[Tianma]</span> 내충격 低Modulus PSA 개발
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> 폴딩부 내충격성 강화</div>
+      <textarea class="sen-memo" data-key="m2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="m3">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="m3">
+      <span class="sen-co">[Yungu/Visionox]</span> 배면 내충격 다층적층구조 (Ball Drop 56%↑)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">L10 Ti Plate 적용</div>
+      <textarea class="sen-memo" data-key="m3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- Oxide -->
+<div class="card sen-card" data-cat="oxide">
+  <h3 style="color:var(--pp)">⚛️ Oxide TFT</h3>
+  <div class="sen-summary">결정질 고이동도 연구 활발, ALD 증착 Layer 활용을 GI까지 확대</div>
+  <div class="sen-item" data-id="o1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="o1">
+      <span class="sen-co">[Visionox]</span> 4.5G ALD 결정질 IGZO HMO (33.5→52 cm2/Vs)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> 결정질 IGO 소자개발 (現 u>=40), ALD 산화물 성막 기술 강화 (SCM 협업)</div>
+      <textarea class="sen-memo" data-key="o1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="o2">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="o2">
+      <span class="sen-co">[SEL]</span> SPT 결정질 InOx (L 2→1.5um, u 50→70 cm2/Vs)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">grain size와 수소량 제어</div>
+      <div class="sen-resp"><b>대응:</b> SPT 및 ALD 활용 신규 조성 평가</div>
+      <textarea class="sen-memo" data-key="o2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="o3">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="o3">
+      <span class="sen-co">[B社]</span> PECVD/ALD 2중 GI (Vth Shift 40% 개선)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">산소/수소 독립 제어로 소자 신뢰성 향상</div>
+      <textarea class="sen-memo" data-key="o3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="o4">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="o4">
+      <span class="sen-co">[CSOT]</span> 비정질 고이동도 oxide (18.5→33 cm2/Vs) + 8.6G IJ OLED
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <textarea class="sen-memo" data-key="o4" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- Color Patterning -->
+<div class="card sen-card" data-cat="color">
+  <h3 style="color:var(--gd)">🎨 Color Patterning</h3>
+  <div class="sen-summary">Vi社 ViP기술 완성도 어필, 초고해상도向 So社의 MML기술 활용</div>
+  <div class="sen-item" data-id="c1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="c1">
+      <span class="sen-co">[Visionox]</span> Gen6 양산검증, ViP 특화 기술 (픽셀별 공진+ELVSS)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> [MPO] AMAT社 증착기 A2 셋업, 개발</div>
+      <textarea class="sen-memo" data-key="c1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="c2">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="c2">
+      <span class="sen-co">[SONY]</span> 포토패터닝 초고해상도 WOLED (4980ppi) Leakage 개선
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> [RMPO] 패널 신뢰성 검증</div>
+      <textarea class="sen-memo" data-key="c2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="c3">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="c3">
+      <span class="sen-co">[SEL]</span> Indium n-CGL Tandem, FMM-less 5,009ppi
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> [ELDP] SEL社 협력 불발로 자체 개발</div>
+      <textarea class="sen-memo" data-key="c3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- AI -->
+<div class="card sen-card" data-cat="ai">
+  <h3 style="color:var(--ac)">🤖 AI</h3>
+  <div class="sen-summary">Defect 검출 다양한 모델 개발 + IGD/외곽 설계 AI 방법론</div>
+  <div class="sen-item" data-id="a1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="a1">
+      <span class="sen-co">[B社]</span> Segmentation-based Defect 모델 (7종, 정확도 96%)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> 단위기능 모듈화기반 통합분석 Tool 개발</div>
+      <textarea class="sen-memo" data-key="a1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="a2">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="a2">
+      <span class="sen-co">[BOE]</span> PCB-OSR 알고리즘 (Unknown Defect 미검출 44.9→1.8%)
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-resp"><b>대응:</b> 패널 全영역 설계 최적화 모델 개발 (화소/IGD/외곽)</div>
+      <textarea class="sen-memo" data-key="a2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="a3">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="a3">
+      <span class="sen-co">[CSOT]</span> GIP Layout 최적화 / <span class="sen-co">[Tianma]</span> CF Parameter 최적화
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <textarea class="sen-memo" data-key="a3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- BT2020 -->
+<div class="card sen-card" data-cat="bt2020">
+  <h3 style="color:var(--red, #E63946)">🌈 BT2020 (TADF/COE)</h3>
+  <div class="sen-summary">S/P BT2020 대응을 위한 독자적 Green/Blue 소재연구 활발</div>
+  <div class="sen-item" data-id="b1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="b1">
+      <span class="sen-co">[Visionox]</span> 재료/구조 최적화로 BT2020 98.6% 달성
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">2T+B(HTL↓)+G(pTSF 적용)+R(CPL↑)</div>
+      <div class="sen-resp"><b>대응:</b> BT 96% 고효율 고색 PSF/PST ('26)</div>
+      <textarea class="sen-memo" data-key="b1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- Sensing Progress -->
+<div class="card">
+  <h3>📊 센싱 진행률</h3>
+  <div id="senProgress" style="margin-top:8px"></div>
+  <div style="margin-top:12px;display:flex;gap:8px">
+    <button onclick="exportSensing()" style="background:var(--ac);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:600;cursor:pointer">전체 복사 (보고서用)</button>
+  </div>
+</div>
+
+</div>
+
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -806,6 +1118,61 @@ function exportEssay(i){
 }
 
 renderEssays();
+
+// === Paper Sensing ===
+function togSen(el){el.closest('.sen-item').classList.toggle('sen-open')}
+
+function getSenData(){return JSON.parse(localStorage.getItem('dw-sen')||'{}')}
+function setSenData(d){localStorage.setItem('dw-sen',JSON.stringify(d));updateSenProgress()}
+
+function saveSenChk(cb){const d=getSenData();d[cb.dataset.key+'_chk']=cb.checked;setSenData(d)}
+function saveSenMemo(ta){const d=getSenData();d[ta.dataset.key+'_memo']=ta.value;setSenData(d)}
+
+function loadSenData(){
+  const d=getSenData();
+  document.querySelectorAll('.sen-chk').forEach(cb=>{cb.checked=!!d[cb.dataset.key+'_chk']});
+  document.querySelectorAll('.sen-memo').forEach(ta=>{ta.value=d[ta.dataset.key+'_memo']||''});
+  updateSenProgress();
+}
+
+function updateSenProgress(){
+  const all=document.querySelectorAll('.sen-chk'),checked=document.querySelectorAll('.sen-chk:checked');
+  const pct=all.length?Math.round(checked.length/all.length*100):0;
+  const el=$('senProgress');
+  if(el)el.innerHTML=`<div style="font-size:13px;font-weight:600">${checked.length}/${all.length} 완료 (${pct}%)</div><div class="sen-progress-bar"><div class="sen-progress-fill" style="width:${pct}%"></div></div>`;
+}
+
+function filterSen(cat,btn){
+  document.querySelectorAll('.sen-fbtn').forEach(b=>b.classList.remove('sen-active'));
+  btn.classList.add('sen-active');
+  document.querySelectorAll('.sen-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+  });
+}
+
+function exportSensing(){
+  const d=getSenData();let txt='# SID 2026 논문 센싱 보고서\n생성: '+new Date().toLocaleString('ko-KR')+'\n\n';
+  document.querySelectorAll('.sen-card').forEach(card=>{
+    txt+='\n## '+card.querySelector('h3').textContent+'\n';
+    txt+=card.querySelector('.sen-summary').textContent+'\n\n';
+    card.querySelectorAll('.sen-item').forEach(item=>{
+      const key=item.dataset.id;
+      const chk=d[key+'_chk']?'[x]':'[ ]';
+      const title=item.querySelector('.sen-hdr').textContent.replace(/▼/g,'').trim();
+      const detail=item.querySelector('.sen-detail');
+      const resp=item.querySelector('.sen-resp');
+      const memo=d[key+'_memo'];
+      txt+=chk+' '+title+'\n';
+      if(detail)txt+'   '+detail.textContent+'\n';
+      if(resp)txt+='   '+resp.textContent+'\n';
+      if(memo)txt+='   [메모] '+memo+'\n';
+      txt+='\n';
+    });
+  });
+  navigator.clipboard.writeText(txt).then(()=>alert('센싱 보고서가 클립보드에 복사되었습니다!'));
+}
+
+loadSenData();
 
 // ESTA & Travel Order fullscreen toggle
 function toggleEsta(){const el=$('estaFull');el.style.display=el.style.display==='flex'?'none':'flex'}
