@@ -251,18 +251,24 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="evt"><span class="time">1:00–2:00 PM</span><span class="dot dot-pk"></span>SMPTE Panel</div>
 <div class="evt evt-gold"><span class="time">2:00–3:00 PM</span><span class="dot dot-gd"></span><b>⭐ Auto Displays</b></div>
 <div class="evt"><span class="time">3:00–4:00 PM</span><span class="dot dot-pk"></span>MicroLED Roadmap</div>
+<div class="evt evt-gold"><span class="time">4:00–5:30 PM</span><span class="dot dot-gd"></span><b>🔬 S54: Automotive LCD (센싱)</b></div>
+<div class="evt"><span class="time"></span><span class="dot dot-mt" style="visibility:hidden"></span><span style="color:var(--mt);font-size:11px;line-height:1.5">54.1 Dual View Display — Sharp<br>54.2 P-pol AR-HUD — FUJIFILM<br>54.3 Ultra Low Reflection LCD — Tohoku Univ</span></div>
 <div class="evt"><span class="time">6:00–9:00 PM</span><span class="dot dot-gn"></span>Display of the Future Dinner</div>
 <div class="evt"><span class="time">저녁</span><span class="dot dot-pk"></span>🌃 Griffith Observatory 야경 (Uber 25분) 추천</div>
 </div></div>
 
 <div class="day" id="d4"><div class="day-hdr" onclick="tog(this)">Thu 5/7 — ⭐ 내 포스터 발표일!<span class="day-tag tag-po">P-99</span><span class="arrow">▼</span></div>
 <div class="day-body">
+<div class="evt evt-gold"><span class="time">8:30–10:00</span><span class="dot dot-gd"></span><b>🔬 S61: Auto Design & Mfg (센싱)</b></div>
+<div class="evt"><span class="time"></span><span class="dot dot-mt" style="visibility:hidden"></span><span style="color:var(--mt);font-size:11px;line-height:1.5">61.1 OLEDs Automotive Lighting — OLEDWorks<br>61.2 GMSL Auto Displays — Analog Devices<br>61.3 Hidden MicroLED — <b>LGD</b><br>61.4 MicroLED HUD Smart Microlens — TCL CSOT</span></div>
 <div class="evt"><span class="time">9:00–2:00 PM</span><span class="dot dot-cy"></span>🏛 Expo Hall (마지막)</div>
-<div class="evt"><span class="time">8:30–5:00</span><span class="dot dot-pp"></span>Oral Sessions (4세션)</div>
-<div class="evt"><span class="time">8:30–5:00</span><span class="dot dot-pp"></span>Author Interviews</div>
-<div class="evt"><span class="time">10:00–11:00</span><span class="dot dot-pk"></span>BT.2020 Color</div>
-<div class="evt"><span class="time">11:00–12:30</span><span class="dot dot-pk"></span>Supply Chains</div>
+<div class="evt evt-gold"><span class="time">10:30–12:00</span><span class="dot dot-gd"></span><b>🔬 S69: Auto Human Factors (김태웅+최낙초)</b></div>
+<div class="evt"><span class="time"></span><span class="dot dot-mt" style="visibility:hidden"></span><span style="color:var(--mt);font-size:11px;line-height:1.5">69.1 HK Effect Brightness — Pforzheim Univ<br>69.2 FALD Backlight Optim — Faurecia<br>69.3 <b>Polarization Multilayer Films — 3M</b><br>69.4 Faraday Rotator AR-HUD — Sun Yat-Sen Univ</span></div>
 <div class="evt evt-gold"><span class="time">11:00 AM</span><span class="dot dot-gd"></span><b>📌 포스터 셋업</b></div>
+<div class="evt evt-gold"><span class="time">2:00–3:30 PM</span><span class="dot dot-gd"></span><b>🔬 S77: Auto HUDs I (센싱)</b></div>
+<div class="evt"><span class="time"></span><span class="dot dot-mt" style="visibility:hidden"></span><span style="color:var(--mt);font-size:11px;line-height:1.5">77.2 Light-Field HUD + Eye-Tracking — MUSC<br>77.3 Eyebox-Expanded 3D AR-HUD — TCL CSOT<br>77.4 Dual-SLM Holographic HUD — <b>ETRI</b></span></div>
+<div class="evt evt-gold"><span class="time">4:00–5:00 PM</span><span class="dot dot-gd"></span><b>🔬 S85: Auto HUDs II (센싱)</b></div>
+<div class="evt"><span class="time"></span><span class="dot dot-mt" style="visibility:hidden"></span><span style="color:var(--mt);font-size:11px;line-height:1.5">85.1 Holographic AR-HUD CGH — Envisics<br>85.3 Lens CGEI + GPU — NTU<br>85.4 DeepCGH + YOLO AR-HUD — NTU</span></div>
 <div class="evt evt-poster"><span class="time">5:00–7:30 PM</span><span class="dot dot-gd"></span><b>⭐⭐⭐ Poster Session & Reception — P-99 발표!</b></div>
 <div class="evt"><span class="time">7:30~ PM</span><span class="dot dot-pk"></span>🍽 Matt Smith 미팅? / Koreatown 백정 KBBQ 추천</div>
 </div></div>
@@ -716,6 +722,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <button class="sen-fbtn" onclick="filterSen('color',this)">Color</button>
     <button class="sen-fbtn" onclick="filterSen('ai',this)">AI</button>
     <button class="sen-fbtn" onclick="filterSen('bt2020',this)">BT2020</button>
+    <button class="sen-fbtn" onclick="filterSen('auto',this)">🚗 Automotive</button>
   </div>
 </div>
 
@@ -982,6 +989,168 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
       <div class="sen-resp"><b>대응:</b> BT 96% 고효율 고색 PSF/PST ('26)</div>
       <textarea class="sen-memo" data-key="b1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
+  </div>
+</div>
+
+<!-- Automotive Oral Sessions (최낙초 센싱 담당) -->
+<div class="card sen-card" data-cat="auto">
+  <h3 style="color:var(--gd)">🚗 Automotive Display (Oral 센싱)</h3>
+  <div class="sen-summary">최낙초 센싱 담당 17편 | S54(5/6) + S61·S69·S77·S85(5/7)</div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--cy);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">S54: Automotive LCD — 5/6(수) 16:00-17:30</div>
+  <div class="sen-item" data-id="au1">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au1">
+      <span class="sen-co">[Sharp]</span> 54.1 Dual View Display for Cockpit
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au2">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au2">
+      <span class="sen-co">[FUJIFILM]</span> 54.2 P-pol Reflection Screen for AR-HUD
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au3">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au3">
+      <span class="sen-co">[Tohoku Univ]</span> 54.3 Ultra Low Specular Reflection LCD
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--cy);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">S61: Auto Design & Manufacturing — 5/7(목) 08:30-10:00</div>
+  <div class="sen-item" data-id="au4">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au4">
+      <span class="sen-co">[OLEDWorks]</span> 61.1 OLEDs for Automotive Lighting
+      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au4" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au5">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au5">
+      <span class="sen-co">[Analog Devices]</span> 61.2 GMSL for Auto Displays
+      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au5" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au6">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au6">
+      <span class="sen-co">[LGD]</span> 61.3 Hidden Display MicroLEDs
+      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au6" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au7">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au7">
+      <span class="sen-co">[TCL CSOT]</span> 61.4 MicroLED HUD Smart Microlens
+      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au7" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--cy);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">S69: Auto Human Factors — 5/7(목) 10:30-12:00 (김태웅+최낙초)</div>
+  <div class="sen-item" data-id="au8">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au8">
+      <span class="sen-co">[Pforzheim]</span> 69.1 HK Effect Brightness/Colorfulness
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au8" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au9">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au9">
+      <span class="sen-co">[Faurecia]</span> 69.2 FALD Backlight Optimization
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au9" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au10">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au10">
+      <span class="sen-co">[3M]</span> 69.3 Polarization Multilayer Films for Auto
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">편광 정밀 시뮬레이션 — 형 전문분야와 직결!</div>
+      <textarea class="sen-memo" data-key="au10" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="au11">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au11">
+      <span class="sen-co">[Sun Yat-Sen]</span> 69.4 Faraday Rotator AR-HUD
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au11" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--cy);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">S77: Automotive HUDs I — 5/7(목) 14:00-15:30</div>
+  <div class="sen-item" data-id="au12">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au12">
+      <span class="sen-co">[MUSC]</span> 77.2 Light-Field HUD + Eye-Tracking
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au12" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au13">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au13">
+      <span class="sen-co">[TCL CSOT]</span> 77.3 Eyebox-Expanded 3D AR-HUD
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au13" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au14">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au14">
+      <span class="sen-co">[ETRI]</span> 77.4 Dual-SLM Holographic HUD + Dammann Grating
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">한국 ETRI — 국내 기관 동향 체크</div>
+      <textarea class="sen-memo" data-key="au14" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--cy);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">S85: Automotive HUDs II — 5/7(목) 16:00-17:30</div>
+  <div class="sen-item" data-id="au15">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au15">
+      <span class="sen-co">[Envisics]</span> 85.1 Holographic AR-HUD using CGH
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au15" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au16">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au16">
+      <span class="sen-co">[NTU]</span> 85.3 Lens CGEI + GPU Accel for Light-Field
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au16" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
+  </div>
+  <div class="sen-item" data-id="au17">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au17">
+      <span class="sen-co">[NTU]</span> 85.4 DeepCGH + YOLO for AR-HUD
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body"><textarea class="sen-memo" data-key="au17" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea></div>
   </div>
 </div>
 
