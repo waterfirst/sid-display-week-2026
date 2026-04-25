@@ -216,6 +216,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 
 <div class="day" id="d1"><div class="day-hdr" onclick="tog(this)">Mon 5/4 — 도착일 (ICN→LAX)<span class="day-tag tag-ci">체크인</span><span class="arrow">▼</span></div>
 <div class="day-body">
+<div class="evt"><span class="time">~19:00</span><span class="dot dot-cy"></span>📶 와이파이도시락 수령 (T2 1층 3번 출구)</div>
 <div class="evt evt-gold"><span class="time">21:40 ICN</span><span class="dot dot-gd"></span><b>🛫 OZ204 출발 (T2, A380 비즈니스)</b></div>
 <div class="evt evt-gold"><span class="time">17:10 LAX</span><span class="dot dot-gd"></span><b>✈️ LAX 도착 → LAXit → Uber → 호텔</b></div>
 <div class="evt evt-gold"><span class="time">18:30~</span><span class="dot dot-gd"></span><b>🏨 Residence Inn 체크인</b></div>
@@ -665,6 +666,26 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
       <li>LAX 도착 후 → Terminal B에서 나와 <b>LAXit 픽업존</b>으로 이동</li>
       <li>귀국일(5/8) 23:00 출발이니 <b>호텔 체크아웃 후 학회 마지막 세션 + 자유시간</b></li>
       <li>인천 제2여객터미널 · <b>최소 2시간 전 도착</b> 권장</li>
+    </ul>
+  </div>
+</div>
+<div class="card" style="border:1px solid rgba(6,182,212,.3);background:linear-gradient(135deg,rgba(6,182,212,.05),var(--sf))">
+  <h3>📶 와이파이도시락 (포켓 Wi-Fi)</h3>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+    <span style="background:var(--cy);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px">예약완료</span>
+    <span style="font-size:12px;color:var(--mt)">미국/하와이 무제한용</span>
+  </div>
+  <div class="label">임대기간</div><div class="value">2026-05-04 ~ 05-10 (7일)</div>
+  <div class="label">수령장소</div><div class="value hl">인천공항 제2여객터미널 1층 3번 출구 옆</div>
+  <div class="label">운영시간</div><div class="value">06:00~22:00 (시간 외 수령 불가!)</div>
+  <div class="label">수령방법</div><div class="value">예약자 휴대폰번호 확인 후 수령</div>
+  <div class="label">반납</div><div class="value">모든 와이파이도시락 로밍센터 반납함 (24시간)</div>
+  <div class="label">고객센터</div><div class="value">1566-9070 / 카카오톡 @도시락통</div>
+  <div style="margin-top:10px" class="tip">
+    <ul>
+      <li>출국 당일 <b>T2 1층 3번 출구</b>에서 수령 — 체크인 전에 먼저!</li>
+      <li>반납: 귀국 후 인천공항 <a href="https://bit.ly/roamingcenter" target="_blank" rel="noopener">로밍센터 위치 →</a></li>
+      <li><a href="https://bit.ly/wifi-orderlist" target="_blank" rel="noopener">예약 조회 →</a> · <a href="https://bit.ly/wifi-FAQ" target="_blank" rel="noopener">FAQ →</a></li>
     </ul>
   </div>
 </div>
@@ -1206,7 +1227,7 @@ function initMap(){
 new MutationObserver((_,o)=>{if($('t3').classList.contains('active')){initMap();o.disconnect()}}).observe($('t3'),{attributes:true,attributeFilter:['class']});
 
 // Checklist
-const docs=['여권','ESTA','Travel Order (출장명령서)','항공권 e-ticket','호텔 확인서 (S60JSV7K)','DW 배지/등록확인','포스터 P-99 파일','신용카드/현금','여행자보험','eSIM','명함'];
+const docs=['여권','ESTA','Travel Order (출장명령서)','항공권 e-ticket','호텔 확인서 (S60JSV7K)','DW 배지/등록확인','포스터 P-99 파일','신용카드/현금','여행자보험','📶 와이파이도시락 수령 (T2 1층 3번출구)','명함'];
 const items=['노트북+충전기','보조배터리','편한 신발','겉옷 (냉방)','선글라스','우산','약 (소화제 등)','⚽ 손흥민 티셔츠 (아들 선물)'];
 function renderChk(arr,elId,pfx){
   const sv=JSON.parse(localStorage.getItem('dw-chk')||'{}');
