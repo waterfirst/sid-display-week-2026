@@ -36,10 +36,19 @@
 - 준비물 체크리스트
 - 예상 경비
 
+## 실시간 출장 기록 (텔레그램 → GitHub Pages)
+
+출장 중 텔레그램으로 글/사진을 보내면 AI 에이전트가 웹앱에 반영합니다.
+
+| 유형 | 내용 | 반영 위치 |
+|------|------|-----------|
+| 📝 에세이 | 관찰, 느낀 점, 사진 | 에세이 탭 |
+| 🔬 센싱 리포트 | 전시/발표 기술 메모, 사진 | 센싱 리포트 탭 |
+
 ## 라이브 데모
 
 [GitHub Pages](https://waterfirst.github.io/sid-display-week-2026/)
 
 ---
 
-*© 2026 Nakcho Choi*
+*© 2026 Nakcho Choi · AI Agent: Claude Opus 4.6*
