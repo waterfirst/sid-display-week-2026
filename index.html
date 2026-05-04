@@ -869,6 +869,11 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="card">
   <h3>📝 미국의 실상 — 관찰 에세이</h3>
   <div style="font-size:12.5px;color:var(--mt);margin-bottom:12px;line-height:1.6">LA에서 보고 느낀 것을 기록하는 공간. 주제를 탭하면 메모장이 열립니다. 자동 저장됩니다.</div>
+  <div style="background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:8px;padding:10px 12px;font-size:12px;line-height:1.7;margin-bottom:8px">
+    <b style="color:var(--gd)">🧳 이번 출장의 특별한 점:</b> AI 에이전트와 함께하는 첫 해외출장.<br>
+    포트폴리오 리밸런싱, 호텔 혜택 분석, 공항 동선, 수영복 매장 검색까지 — 구글링이었으면 반나절 걸릴 일을 실시간으로 처리하며 출장을 준비했다.<br>
+    <b>"구글링은 정보를 찾는 것, AI 에이전트는 일을 시키는 것"</b> — 이 차이를 기록하자.
+  </div>
 </div>
 
 <div class="card" id="essayList"></div>
@@ -884,6 +889,7 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 <div class="card">
   <h3>💡 에세이 주제 아이디어</h3>
   <div style="font-size:12.5px;line-height:2">
+    <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer;border:1px solid var(--gd);background:rgba(245,158,11,.1)">🧳 AI 에이전트와 첫 해외출장 — 구글링 여행 vs AI 여행의 차이</span>
     <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🤖 AI — 실리콘밸리 vs 현실의 괴리</span>
     <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">🏛 트럼프 — 거리에서 느끼는 분열</span>
     <span class="spot" onclick="addTopicDirect(this)" style="cursor:pointer">💊 마약 — Skid Row와 펜타닐 위기</span>
