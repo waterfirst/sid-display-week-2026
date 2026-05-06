@@ -1,0 +1,303 @@
+47-3 / H. Abe
+
+Technological Development of Next-Generation 2.5D/2.xD Packages, PanelLevel Interposers, and Related Materials through JOINT2 Activities
+Hidenori Abe
+Resonac Corporation, Tokyo, Japan
+Abstract
+Resonac has established the semiconductor advanced packages
+evaluation platform "JOINT2" to promote technological
+development for next-generation 2.5D/2.xD packages and
+interposer. In this study, we evaluated the issues and the impact
+of various material properties on 1) fine bump interconnection, 2)
+fine wiring formation, and 3) high-reliability large-scale
+substrates through the prototyping of interposers and large
+packages. Based on these findings, we present the latest trends
+and prospects in material development that supports advanced
+packaging technology.
+
+Author Keywords
+advanced package; packaging; interposer; 2.5D; 2.xD; 2.3D;
+interconnection; micro bump; flip chip, underfill; redistribution
+layer; fine wiring; glass carrier; chip embedded; large body; large
+substrate; electrical reliability; crack resistance;
+
+C is examining large, high-reliability packages, aiming to expand
+to 140 mm square. The concrete results of JOINT2 so far include
+the establishment of a 10μm-pitch fine bump connection in WGA using a test vehicle. We designed and fabricated these
+interposers and demonstrated underfill filling performance. In
+WG-B, we prototyped multilayer RDL interposers and dieembedded interposers using a panel process. In WG-C, we
+prototyped a 120 x 120 mm 2.5D large-scale package substrate
+and achieved 1,000 cycles in a motherboard-level reliability
+evaluation. Through these co-creation activities, we are
+accelerating the development of next-generation packaging
+technologies. This paper summarizes JOINT2's key technical
+achievements, and discusses remaining challenges and directions
+for future work.
+
+1. Introduction
+In 2018, Resonac established the Packaging Solution Center as a
+new research and development hub aimed at providing one-stop
+solutions for customers. In October 2021, the company launched
+JOINT2, a co-creation-based package evaluation platform in
+collaboration with leading industry partners, to accelerate the
+development of advanced materials, equipment, and substrates
+for 2.xD and 3D packages. In recent years, 2.xD and 3D
+packaging technologies have required increasingly dense
+interconnections between chips and components, driving the need
+for further miniaturization of wiring pitch and vertical
+interconnect dimensions[1]. At the same time, to achieve higher
+performance, the level of chip integration has increased, resulting
+in a trend toward larger package sizes. To address these demands,
+Resonac has been developing fine-pitch vertical and horizontal
+interconnect technologies, as well as conducting research on the
+manufacturing processes and reliability of ultra-large 2.5D
+advanced packages. In the area of interconnect technology, our
+efforts have focused on micro-bump formation and bonding
+processes, fluxless bonding techniques, and encapsulation
+materials capable of filling narrow gaps[2-4]. In the following
+sections, we present a comprehensive overview of the JOINT2
+project, including its objectives, technical approaches, and recent
+achievements.
+
+2. Project introduction
+"JOINT2" co-creation platform for advanced package evaluation,
+led by Resonac, 14 major material, equipment, and substrate
+companies are collaborating to promote the technological
+development of 2.5D/2.xD packages. Fig.1 shows a list of
+companies participating in JOINT2. JOINT2 is active in three
+working groups. WG-A is verifying fine bump interconnection
+and evaluating the limits of micro-bumps with a target bump pitch
+of 10 microns. WG-B aims to demonstrate 1 micron level line and
+space in the formation of fine wiring on organic interposers. WG-
+
+Fig. 1 List of “JOINT2” participating companies
+
+3. Experiment and equipment
+The processes were carried out under the following equipment
+and conditions: flip-chip thermo-compression bonding of dies to
+a silicon interposer with electroplated Cu/Ni/SnAg microbumps;
+capillary underfill dispensing with the stage maintained at 100°C;
+EMC compression molding (WCM330, Yamaha Robotics); postmold surface grinding (DAG810, DISCO) and temporary
+bonding of a TBA-coated glass carrier using a wafer bonder
+(AIMECHATEC). With carrier support, the interposer was
+backside-thinned by grinding to the target thickness, followed by
+dielectric formation. Panel-level RDL was fabricated via SAP:
+coating a photo-imageable dielectric (PID) with a panel-capable
+coater (viscosity controlled) and curing; Ti/Cu seed deposition
+(25 nm/150 nm); resist patterning considering seed side-etch; Cu
+electroplating, resist stripping, and seed etching. Fine Cu lines
+with L/S = 1.5/1.5 µm and three RDL layers were achieved
+without delamination. Cu/SnAg bumps were formed by SAP in
+the same module. Debonding from the glass carrier was
+performed with a laser debonding tool (AIMECHATEC), and
+final singulation used a dicing saw (DAD3360, DISCO). Key
+process parameters (temperature, time, thickness, pitch) were
+controlled to ensure repeatability and stability. For panel-level
+die-embedded interposers, a laser-releasable temporary layer was
+
+SID 2026 DIGEST • 657
+ISSN 0097-996X/26/5701-0657-$1.00 © 2026
+
+47-3 / H. Abe
+formed on a glass carrier, followed by coating a PID. Cu pillars
+were electroformed on the dielectric. Dies were mounted using a
+panel-level flip-chip bonder with die-attach film (DAF), and DAF
+was cured in a pressure oven. Panel-size compression molding
+and planarization of the molding compound, Si, and Cu pillars
+were followed by dielectric formation. Ti/Cu seed layers (25
+nm/150 nm) were deposited, and Cu wirings with L/S = 5/5–
+10/10 µm were fabricated by SAP. Debonding and singulation
+were performed as above. Electrical reliability was evaluated on
+fine HBM–logic Cu lines (L/S = 1.5/1.5 µm) with and without an
+inorganic protection layer using comb structures (≥150 lines per
+anode/cathode). Biased-HAST was conducted at 130°C, 85%
+RH, and 3.3 V with continuous resistance monitoring; failure was
+defined as <1 × 10^6 Ω. Temperature cycling per JESD22-A104F
+(−55°C to 125°C, 15 min dwells) was performed on 120 × 120
+mm² 2.5D packages mounted on motherboards to assess the
+effects of CTE mismatch and crack resistance due to
+structural/material selections.
+
+4. Fine bump interconnection (WG-A)
+In 2.xD packages designed to enable high-speed inter-chip
+communication, the demand for high I/O counts is increasing,
+driving further miniaturization of interconnections. WG‑A has
+targeted a minimum bump pitch of 10 μm and conducted bonding
+trials at 20 μm and 15 μm pitches, comparing two molding
+approaches: (1) conventional capillary underfill (CUF) injection
+combined with solid epoxy molding compound (EMC) molding,
+and (2) liquid compression mold underfill (LCMUF) molding. In
+both processes, setting the average filler particle size to below
+1 μm enabled successful filling of 15 μm‑pitch bumps, and
+ultimately made 10 μm‑pitch filling possible. Fig.1 shows an
+example of filler particle size and filling defects. This suggests
+that as gaps become narrower in the future, it will be necessary to
+further reduce the filler particle size. While CUF relies on
+capillary action and is therefore more difficult to control, LCMUF
+allows pressure-assisted filling using a molding machine.
+Generally, reducing filler particle size and content improves
+flowability for fine-pitch bump gap filling, but this also increases
+the coefficient of thermal expansion (CTE) and shrinkage,
+potentially worsening wafer warpage. Thus, achieving an optimal
+balance between filling performance and wafer warpage is critical
+for fine-pitch bumps. In this study, we evaluated the filling
+capability and warpage performance of LCMUF molding and
+CUF + EMC molding for fine-pitch bumps, and investigated
+optimal process conditions. Fig.2 shows the results of 20-10 μm
+pitch filling for the CUF process. Through these WG‑A activities,
+we demonstrated that addressing interconnection pitch
+miniaturization requires not only modifying material properties,
+but also validating processes at the wafer or interposer level,
+thereby highlighting the effectiveness of the co‑creation platform
+in supplying optimized materials.
+
+Fig. 1 Effect of filler size on filling properties
+
+Fig. 2 Fine bump interconnection using the CUF process
+
+5. Fine circuitry interconnection (WG-B)
+WG-B conducted the fabrication of two types of interposers with
+the aim of verifying fine wiring formation technology. The first
+type was a redistribution layer (RDL) interposer utilizing
+multilayer Cu wiring, fabricated on a panel with dimensions of
+320 mm × 320 mm. The second type was a chip-embedded
+interposer, fabricated on a panel with dimensions of 515 mm ×
+510 mm. Fig. 1 illustrates the fabrication of the RDL interposer,
+which consists of three layers of redistribution wiring. In the
+fabrication process, a PID was applied onto a glass carrier using
+a spin coating method, followed by the formation of opening
+patterns. Cu wiring was then formed using the semi-additive
+process (SAP). The appearance of the fabricated panels, SEM
+images of the fine wiring sections, and the yield results for each
+layer are summarized in Table 1. Under optimized process
+conditions, a minimum wiring pitch of 3 μm was achieved.
+
+Fig.3 Panel level semi-additive multi-layer wiring process
+
+SID 2026 DIGEST • 658
+
+47-3 / H. Abe
+bridge chip mounting. Cu pillars were formed using Resonac’s
+dry film resist with a thickness of 112 µm. The bridge chips were
+thermocompression-bonded using die-attach film, achieving
+accuracy of less than 2.5µm. Alignment between the Cu pillars
+after grinding and the vias of the RDL wiring was significantly
+improved by performing die-by-die alignment during exposure.
+As a result, we successfully fabricated a chip-embedded
+interposer with a minimum wiring pitch of 10µm at the panel size.
+
+Fig.4 Appearance of panel level multi-layer interposer
+To achieve further miniaturization, we considered the damascene
+process in addition to SAP. In the damascene process, we used a
+positive type PID. As shown in Fig.5, a trench pattern was formed
+using the PID damascene method, followed by a seed layer
+formed by sputtering, and a wiring pattern formed by copper
+plating, after which CMP was performed. Fig.5 shows crosssectional photographs of 2 μm pitch wiring patterns after
+surface polishing by CMP. By using the trench process, we were
+able to achieve 1 μm-level wiring using a PID damascene process.
+
+Fig.6 Chip embedded after the process of bridge chip bonding
+
+PID pattern for trench damascene process
+
+Fig.5 Cross section image of trench process (2μm pitch)
+Next, we show the results of a prototype chip-embedded
+interposer with a panel size of 515mm x 510mm. The interposer
+size was 5.9 reticle size, and 20 chips were embedded in one
+interposer. Fig.5 shows the panel appearance after the process and
+
+Fig.7 Panel level chip embedded interposer (510 x 515mm size)
+
+SID 2026 DIGEST • 659
+
+47-3 / H. Abe
+6. High reliability large package (WG-C)
+Integration of chips using interposers has accelerated the trend
+toward increasingly large package sizes. As a result, modern
+substrates are expected to deliver not only high-density
+interconnections and superior electrical performance, but also
+effective mitigation of warpage arising from mismatches in the
+coefficient of thermal expansion (CTE) among the chip,
+interposer, and substrate. With the continued scaling of package
+dimensions, warpage induced by the CTE gap between the
+interposer and substrate has become more pronounced, making its
+minimization a critical requirement for ensuring package-level
+reliability. Addressing this issue demands a comprehensive
+approach that combines design optimization with process
+innovation. In the work of WG-C, we aim to experimentally
+assess the impact of warpage in ultra-large advanced packages.
+To this end, we designed and fabricated two 2.5D advanced
+packages with dimensions of 100 mm × 100 mm and 120 mm
+× 120 mm, respectively. And then these packages were mounted
+on a 150 x 150 mm² motherboard. Reliability evaluations were
+conducted through temperature cycling tests, enabling a
+systematic investigation of how the CTE of the substrate core
+material and the solder joint structure influence both thermal
+reliability and warpage behavior.
+
+Fig.10 Interposer process for 120 x 120mm size 2.5D-package
+
+7. Conclusion
+Through the JOINT2 evaluation platform, we verified key
+technologies for next-generation packaging. WG-A demonstrated
+10 μm-pitch interconnections using the CoW process and
+identified material properties essential for miniaturization. WGB fabricated multi-layer RDL and die-embedded interposers at
+the panel level, and evaluated the applicability of a PID-based
+damascene process for L/S = 1/1 μm wiring. WG-C developed a
+120 mm-square 2.5D package that achieved 1,000 cycles in
+reliability testing. These achievements provide valuable
+guidelines for advancing equipment, process technologies, and
+material properties. As next steps, ensuring the reliability of large
+packages with panel-level interposers and optimizing overall
+structural systems—including thermal management and warpage
+control—are priorities. To address these challenges, we will
+accelerate the provision of suitable materials and processes by
+strengthening collaboration across design, equipment, and
+materials, and by creating new opportunities for co-creation,
+thereby promoting technology dissemination and innovation
+across the industry.
+
+8. Acknowledgement
+This research is based on results obtained from "Research and
+Development Project of the Enhanced Infrastructures for Post-5G
+Information and Communication Systems" (JPNP20017),
+subsidized by the New Energy and Industrial Technology
+Development Organization (NEDO).
+
+9. References
+1.
+
+F. Sheikh, R. Nagisetty, T. Karnik and D. Kehlet, "2.5D
+and 3D Heterogeneous Integration: Emerging applications
+" in IEEE Solid-State Circuits Magazine, vol. 13, no. 4, pp.
+77-87, Fall 2021
+
+2.
+
+T. Saito, K. Ueno, et al. “Development of two different
+molding methods in 2.5D package with 20 μm or less fine
+bump pitch CoW structure” in 2024 IEEE 74th Electronic
+Components and Technology Conference, pp. 1905-1910
+
+3.
+
+M. Minami, S. Matsushita, et al. “Fabrication of PanelLevel Redistribution Interposerwith 1.5/1.5 μm Multilayer
+Fine Wiring and Solutions to Issues of Miniaturization” in
+2025 IEEE 75th Electronic Components and Technology
+Conference, pp. 1915-1919
+
+4.
+
+K. Hirano, D. Kang, et al. “Process development and
+reliability investigation of 120 mm x 120 mm large 2.5D
+package with low melting temperature solder” in 2025
+IEEE 75th Electronic Components and Technology
+Conference, pp. 122-128
+
+Fig.8 Specification of 100 x 100mm size 2.5D-package
+
+Fig.9 TCT (-55oC/125oC) after mounting on motherboard
+
+SID 2026 DIGEST • 660
+
+

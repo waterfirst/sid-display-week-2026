@@ -1,0 +1,431 @@
+61-4 / Y. Guan
+
+Head-up Display Based on Micro-lens to Improve Micro-LED Brightness
+Yantao Guan*, Guowei Zha*, Fancheng Liu*, Huanli Yang*, Jianfeng Yuan*, Jingfeng Xue*
+*TCL China Star Optoelectronics Technology Co., Ltd., Wuhan, Hubei, China
+
+Abstract
+
+We have studied the technology of preparing micro-lens on
+micro-LED display. Through appropriate pixel arrangement and
+the design of each sub-pixel corresponding to each micro-lens, we
+can narrow the near-Lambertian light distribution of micro-LED
+and make the maximum brightness of the panel four times that
+without micro-lens. Then, according to the misalignment
+relationship between the center positions of the micro-lens and
+micro-LED, the main viewing angle directions of different
+positions on a display are different to meet the main viewing angle
+requirements of AR-HUD for the panel. Finally, based on the
+optical design, an AR-HUD with a large FOV of about 15.4°*7.7°
+was prepared. The peak eye brightness is >18000nit, the NTSC
+exceeds 110%, and the eye box brightness uniformity is >70%. It
+fully meets the viewing angle required by the optical and
+mechanical design, which greatly promotes the application scope
+of Micro-LED.
+
+2. Simulation design
+2.1 Opto-mechanical design and its requirements for
+Micro-LED display
+In the AR-HUD optical-mechanical design, a two-piece reflector
+design is used, simulated and optimized with zemax optical
+simulation software, to accurately match the eye box with a range
+of 130mm*50mm, and optimize the curvature, spacing and other
+parameters of the reflector, resulting in an optical-mechanical
+system with good imaging quality, with distortion controlled
+within 3%. The light requirements for Micro-LED are shown in
+Figure 1 and Table 1: ① The panel is in the H direction, and as
+the position of the panel changes, the main viewing angle
+gradually changes; the same is true in the V direction; ② The
+maximum required viewing angle width is about 23°.
+
+Author Keywords
+
+Micro-LED, Micro-lens, heads up display(HUD), FOV
+
+1. Introduction
+
+With the upgrade of smart cockpits, AR-HUD has become the
+core interactive device to improve driving safety, and the market
+size is increasing year by year [1-2]. The application of large-scale
+AR-HUD will bring about technological updates and iterations.
+The display effect of AR-HUD is obviously restricted by light
+source technology. Current mainstream light sources such as LCD
+have insufficient brightness, DLP has a complex structure, and
+laser costs are high, making it difficult to balance strong light
+adaptability, miniaturization, and energy
+consumption
+requirements. Micro-LED technology provides a solution to this
+dilemma[3].
+First of all, micro-LED can achieve very high brightness, can
+resist sunlight interference, and has a high contrast, which
+effectively solves the problem of graying of the display. Secondly,
+micro-LED light source has a high color gamut, NTSC>110%.
+During driving, the high-color gamut warning icon can attract the
+driver's attention and provide safety guarantee. Finally, the long
+life of the micro-LED display, wider operating temperature range
+and better stability [3-4] are undoubtedly another better choice for
+vehicle display. As the industry continues to upgrade to high
+brightness, high safety, high stability, wide operating temperature
+range, and full-scenario adaptability, Micro-LED has become a
+key direction for breakthroughs in AR-HUD technology.
+This research is based on LTPS glass-based Micro-LED. It mainly
+completes the substrate pixel design and optical structure design
+to increase the display brightness by 3 times, and the main
+viewing angles are different at different panel positions. Through
+process and process development such as driver debugging and
+opto-mechanical design, an AR-HUD device using glass-based
+micro-LED as the image source was successfully prepared. Its
+FOV is as high as 15.4°*7.7°, NTSC>110%, and eye
+brightness>18000nit.
+
+Figure 1. (a) Schematic diagram of the viewing angle
+requirements in the H direction (b) Schematic diagram of
+the viewing angle requirements in the V direction
+Table 1. Main viewing angle and viewing angle width at
+different positions of the panel
+H direction (left is
+
+left
+
+middle
+
+right
+
+-16°/23°
+
+-1.5°/19°
+
+13°/21°
+
+V direction
+
+up
+
+middle
+
+down
+
+Main Angle/Angle of View
+
+10°/7°
+
+15°/7°
+
+22°/7°
+
+negative)
+Main Angle/Angle of View
+Width
+
+Width
+
+2.2 Micro-LED display test and problem:
+1、Micro-LED has high luminous efficiency, but because MicroLED is a volume light source, the light distribution is relatively
+divergent, similar to a Lambert body, as shown in Figure 2 (blue
+is the H direction, green is the V direction). In the design of ARHUD, the brightness of the panel is very high, but the viewing
+angle width of the panel is not high. It only needs about 23° to
+meet the viewing needs. Therefore, as the display light source of
+AR-HUD, Micro-LED has a light distribution that is too wide,
+which will cause a lot of waste of light energy;
+
+SID 2026 DIGEST • 860
+ISSN 0097-996X/26/5701-0860-$1.00 © 2026
+
+61-4 / Y. Guan
+in Figure 3(b), but the corresponding viewing angle width is
+narrower. According to this analysis, the light-emitting area of
+​ ​ the RGB three-color chip must be consistent, because if the
+RGB light-emitting area is inconsistent, the viewing angle width
+will be different, which will cause serious color shift. So we
+choose 15μm×25μm chip.
+
+Figure 2. Cutaway view of Micro-LED light emission angle
+2 、 The viewing angle of the Micro-LED panel will not change
+with the change of different positions of the panel. When tested at
+different panel positions, the viewing angle remains basically the
+same. However, according to the simulation design of AR-HUD,
+the requirements for the panel are that the main viewing angle
+requirements are different at different panel positions. Although
+this can be solved by a Fresnel lens, adding a Fresnel lens will not
+only increase the cost, but also cause a loss of brightness due to
+the transmittance of the Fresnel lens;
+2.3 simulation design
+
+Figure 3. (a) Micro-lens design diagram (b) Relationship
+between brightness improvement and MQW
+The Micro-lens simulation results show that, as shown in Figure 4
+(blue is the H direction, green is the V direction), the brightness is
+about 4 times the brightness without Micro-lens;
+
+The glass-based Micro-LED display studied in this article has a
+size of 4.6 inches, a resolution of 1280*720, and a pitch of 80μm.
+Micro-LED chip sizes are available in a variety of options,
+including 15μm×25μm(MQW size 15μm×13μm), 15μm×30μm
+(MQW size 23μm × 13μm), 25μm×30μm (MQW size
+23μm×18μm).
+Optical narrowing can
+calculations are as follows:
+2��
+
+�
+2
+
+0
+
+improve
+
+��� � ��� � d� = 2��
+
+brightness.
+�
+2
+
+0
+
+Theoretical
+
+��� � ��� � d�
+
+� is the brightness, � is the brightness after light shaping, y is the
+narrowed viewing angle width, considering that the alignment
+accuracy y is 30° (in line with the half-width of the viewing angle
+of AR-HUD), � / � ≈14.9 is calculated. That is to say, if all the
+light energy is received at available angles, the brightness will be
+increased by at least 14 times. However, Micro-LED is small in
+size and it is almost impossible to use reflective cups or TIR
+lenses to collect light. Therefore, no matter what the design, a
+large part of the light energy will be wasted.
+We use Micro-lens, which has low brightness improvement and
+feasible process, as the structure to gather light energy. According
+to analysis, the larger the radius of the Micro-lens, the higher the
+brightness improvement, but there are two limitations: 1. The
+pitch size of the panel. The size of the Micro-lens is limited by the
+panel pitch size and cannot be infinitely large; 2. AR-HUD
+requires the viewing angle width of the display module.
+According to analysis, making the lens as large as possible under
+80μm pitch will still not be lower than the required viewing angle
+width. Our glyph pixel arrangement design can maximize the
+diameter of the Micro-lens and improve the utilization of MicroLED light. The design radius of the Micro-lens is 22μm, the
+thickness is 17.5μm, and the distance between the lens and the
+LED is about 30um, as shown in Figure 3(a).
+For the selection of chip size, we conducted simulation research.
+It is found that after fixing the size of the Micro-lens, the
+brightness improvement is mainly related to the effective lightemitting area of ​ ​ the chip, that is, to the MQW area. The
+smaller the area, the higher the brightness improvement, as shown
+
+Figure 4. Cutaway view of light distribution after adding
+Micro-lens
+After encapsulation without micro-lens, the light distribution is
+close to Lambertian. As shown in Figure 2, the visible light
+distribution is divergent. This distribution causes a great waste of
+light energy. After adding micro-lens, the emitted light
+distribution is greatly narrowed (Figure 4). The main viewing
+angle light energy is enhanced, and the brightness is about 4 times
+the original. And its half viewing angle width is narrowed to
+about 30° in the H direction, and the viewing angle in the V
+direction is narrowed to about 25°.
+The design of Micro-Lens basically confirmed the brightness
+improvement through simulation. Then we confirmed the design
+method of different main viewing angles at different positions of
+the panel based on the positional relationship between Micro-lens
+and Micro-LED;
+The basic principle is to confirm the main viewing angle of the
+position based on the position offset of the Micro-lens and MicroLED, as shown in Figure 5(a) below. This figure is a schematic
+diagram of the principle of simulating different panel positions to
+have different viewing angles. we design different viewing angles
+at different positions of the panel based on the offset of the center
+positions of the Micro-lens and Micro-LED. Through simulation,
+the viewing angles of the left, middle and right positions in the H
+direction of the panel and the upper, middle and lower positions in
+the V direction are simulated respectively, as shown in Figure
+5(b), to confirm their offset positions, and then design the pitch of
+the micro-lens based on calculation (which is slightly different
+from the pitch of the panel pixels) to achieve the purpose of
+continuous changes in the viewing angles at different positions on
+the panel;
+
+SID 2026 DIGEST • 861
+
+61-4 / Y. Guan
+Figure 7. Brightness changes before and after micro-lens
+
+L
+
+L
+
+L
+
+L
+
+L
+
+Figure 5(a). Design diagram of different viewing angles at
+different panel positions
+
+Figure 5(b). Simulation magnification data of viewing
+angles at different positions on the panel
+
+3. results
+3.1 Micro-lens preparation:
+We prepared micro-lens by imprinting based on the 4.63-inch
+panel. The difference between the actual effect and the design is
+very small. The diameter of the actual test lens is about 42um and
+the radius is about 22um. According to the actual test, the effect
+of the actual preparation of the micro-lens is in line with the
+design;
+
+This test point is the center point of the panel. The main viewing
+angle in the H direction is about -1.5°, and the main viewing angle
+in the V direction is about 15°, which is consistent with the main
+viewing angle design. After adding micro-lens, the performance is
+about 4 times that without micro-lens, which is very different
+from the simulation estimate. It can be seen from the figure that
+the brightness without micro-lens changes very little with the
+angle. After adding micro-lens, the light energy in the H direction
+is mainly concentrated between -17°~14°, and the viewing angle
+width is about 31°. The light energy in the V direction is mainly
+concentrated between 2°~27°, and the viewing angle width is
+about 25°. The actual viewing angle width exceeds the required
+23° in the H direction and 7° in the V direction. This design is
+actually to prevent alignment deviation when preparing the lens,
+so the viewing angle range is intentionally expanded.
+The simulation and actual brightness improvements are
+comparable, but there are still some deviations in the overlap of
+the light distribution curves. The main reason is that the surface
+brightness of the micro-LED is uneven.
+3.2.2 The simulated brightness and viewing angle width have
+been experimentally verified, and the test of the main viewing
+angle at different positions of the panel also reflects the success of
+the overall panel micro-lens design. We tested three points from
+left to right according to the H direction of the panel. The left,
+midpoint and right sides, the main viewing angles are -16°, -1.5°
+and 13° respectively, that is, the H direction should gradually
+increase from negative angle to positive angle. The actual test is
+shown in Figure 8 below. It can be seen that the angle well
+illustrates the different main viewing angles at different panel
+positions, and the main viewing angle position is consistent with
+the actual simulation design.
+
+Figure 6. (a) Lens radius test (b) Lens caliber microscope
+test chart
+3.2 Analysis of brightness improvement and viewing
+angle test results:
+
+Figure 8. Test cloud images at different positions in the H
+direction
+
+3.2.1 The actual test brightness improvement data is shown in
+Figure 7 below:
+
+3.4 Optical system and display module:
+This 4.63-inch (1280*720 pixels) full-color display module uses a
+TFT glass-based substrate to integrate a Micro-LED array. It is
+specially designed for automotive head-up display (AR-HUD)
+applications. It runs at a 120Hz refresh rate and has a peak
+brightness of up to 140,000nit, ensuring visibility in strong light
+environments. Its color gamut reaches 110% (the traditional
+display module is about 70% of the AR-HUD color gamut of
+LCD), which enriches the display colors of AR-HUD. Its highpurity colors can better catch the eye when displaying navigation
+and display warnings, adding a solid guarantee for driving safety.
+Micro-LED's pixel-level light emission and 0 grayscale almost
+black display mode increase display contrast;
+Opto-mechanical design achieves a super large FOV of
+15.4°*7.7°, a downward viewing angle of about 2°, a contrast
+
+SID 2026 DIGEST • 862
+
+61-4 / Y. Guan
+ratio of over 100,000:1, and a virtual image design of about 10m
+to better integrate with the road. With the help of Micro-LED
+ultra-high brightness and high color gamut display module, core
+information such as navigation and vehicle speed can be displayed
+in real time, reducing the need for drivers to deviate from the
+road. By projecting key data into the driver's line of sight, it
+improves the driver's environmental perception and supports more
+accurate judgments of road conditions, thereby potentially
+improving driving safety.
+Table 2. AR-HUD specific parameters
+AR-HUD parameter
+
+4. Conclusion
+In this study, by designing micro-lens, the near-Lambertian light
+distribution of micro-LED is narrowed, achieving an effect of
+increasing the brightness by about 3 times. And through the
+deviation of the center alignment of the micro-lens and microLED, different main viewing angles at different positions of the
+panel are achieved to meet the AR-HUD's requirements for panel
+viewing angles. Optical simulation is used to design the specific
+parameters of the micro-lens, and estimate the brightness
+improvement and main viewing angle shift, and then verify the
+simulation based on actual preparation.
+The design and preparation of Micro-lens has successfully
+improved the brightness of Micro-LED displays by about 4 times.
+Using this technology, we successfully developed a glass-based
+4.6-inch (1280*720 pixels) AR-HUD display module with ultrahigh brightness and 110% color gamut. Based on this highbrightness and high color gamut display module, we further
+designed and developed an AR-HUD opto-mechanical system,
+providing more valuable experience for glass-based micro-LED
+applications in AR-HUD.
+
+resolution
+
+1280*720
+
+PPI
+
+317
+
+Eye brightness
+
+>18000nit
+
+Contrast
+
+100000：1
+
+Color gamut /NTSC
+
+112%
+
+downward perspective
+
+2°
+
+FOV(H*V)
+
+15.4°*7.7°
+
+exit pupil distance
+
+800mm
+
+Eyebox（H*V）
+
+130mm*50mm
+
+virtual image distance
+
+10±1m
+
+5. References
+
+1.Pauzie, A. (2015). Head Up Display in Automotive: A New
+Reality for the Driver. Cham: Springer International Publishing.
+p. 505-516.
+2.Gabbard, J.L., G.M. Fitch and H. Kim, (2014). Behind the
+Glass: Driver Challenges and Opportunities for AR Automotive
+Applications. Proceedings of the IEEE. 102(2), p. 124-136.
+doi:10.1109/JPROC.2013.2294642
+3.Liu M , Nie J , Liu Y ,et al.Research on the reliability of Micro
+LED high-density solder joints under thermal cycling
+conditions[J].IOP Publishing Ltd, 2022.
+4.Yang Q , Yang Z , Lan Y F ,et al.Low-diffraction transparent
+micro light-emitting diode displays with optimized pixel
+structure[J].Journal of the Society for Information Display,
+2022(4/6):30
+
+Figure 9 (a). Display module information
+
+Figure 9(b). Optical system structure diagram
+
+SID 2026 DIGEST • 863
+
+

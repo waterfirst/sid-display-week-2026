@@ -1,0 +1,623 @@
+26-3 / C. A. Annis
+
+A Comparative Analysis of Inkjet-Printed and Fine Metal Mask Patterned
+OLED Notebook Panels: Benefits, Challenges, and Costs
+Charles A. Annis
+Omdia, Kyoto, Japan
+Abstract
+This paper evaluates the benefits and challenges of inkjet-printed
+(IJP) versus conventional fine metal mask (FMM) patterned
+OLED panels. It analyzes the manufacturing total costs of 16.3inch notebook panels by comparing materials, equipment
+depreciation, yield rates, and other parameters to evaluate the
+trade-offs between the two fabrication approaches.
+
+Author Keywords
+RGB; OLED; Fine Metal Mask (FMM); Inkjet Printing (IJP);
+notebook; hybrid; Gen 8.6; Vacuum Thermal Evaporation (VTE);
+yield
+
+1. Introduction
+Panel manufacturers and their suppliers have been developing
+industrial IJP processes, equipment, and materials for a variety of
+applications for much of the flat panel display (FPD) industry’s
+history. After all, in theory at least, it is an eloquent approach. IJP
+is very efficient; it directly prints precise patterns of only the
+required amount of material, it operates in an ambient environment,
+without vacuum chambers and often without an inert gas chamber,
+and it does not require photomasks, expensive photolithography
+tools, related equipment, or processes. These characteristics create
+the opportunity for significant cost reduction compared to
+conventional manufacturing approaches.
+In practice, though, IJP has proven very difficult to implement in
+mass production applications. Printing on large, non-absorbent,
+glass substrates, at high speeds, with high drop location and size
+accuracy, and high uniformity requires a complicated mix of
+hardware and software expertise. It is, by many magnitudes, more
+difficult than printing ink on paper. Additionally, formulating
+required functional materials into low-viscosity “jettable” inks
+often negatively affects the material’s performance.
+There are some success stories, notably, printing of polyimide
+alignment films in LCDs and organic passivation layers for thin
+film encapsulation (TFE) on flexible OLEDs. However, it is in the
+area of fine patterning applications that IJP offers the greatest
+potential value add, and which is much more challenging.
+LCD color filter (CF) patterning was the focus of IJP development
+for many years. Eventually, a couple of makers did commercialize
+the application, but IJP failed to become the standard approach
+because the trade-offs required to commercialize IJP CF led to
+higher cost and lower quality than originally expected.
+In many ways, the inkjet printing of OLEDs, to date, has been a
+similar story to that of LCD CFs. However, continuous
+technological improvements and considerably greater benefits in
+the case of RGB OLEDs have kept the promise alive. Now, with
+one of the leading FPD manufacturers building the world’s first
+Gen 8.6 mass production factory, IJP is closer to delivering on its
+promises than ever. If successful, it could potentially disrupt the
+status quo of FMM-based manufacturing, reduce OLED panel
+costs, and expand the market for OLED-based FPDs.
+
+2. Methodology
+In this study, the total manufacturing cost for a 16.3”, 3456 x 2234,
+hybrid IJP OLED, oxide TFT OLED panel for notebook
+applications was analyzed and compared to a similar, conventional
+OLED fabricated using FMM patterning of subpixels.
+Table 1. Key cost modeling parameters
+Parameter
+IJP
+FMM
+Substrate size
+2290 x 2620 mm
+2290 x 1310 mm
+Time range
+2025-2028
+2025-2028
+Fab operation
+90%
+90%
+Capacity (TFT
+30,000 substrates
+30,000 substrates per
+equivalents)
+per month
+month
+Depreciation
+5 years
+5 years
+Oxide TFT only
+Oxide TFT only
+Capital costs
+process + IJP
+process + FMM
+related equipment
+related equipment
+frontplane +
+frontplane + module
+module
+OLED inks, IJP
+Evaporated OLED
+Material costs
+heads, other
+materials, FMM,
+other
+Yield curve
+74%-84 over range 74%-84 over range
+The difference in the capital cost requirements for the two
+technologies is the key parameter in this comparison.
+At the same time, evaluating the cost of consumables, including
+lifetime and material use efficiency, the frontplane process flow,
+and panel cutting efficiency, is also required to accurately model
+manufacturing total costs.
+Similar yield rates, production time ranges, fab operation, capacity,
+TFT backplane process flows and equipment, depreciation periods,
+etc., are applied to both panel types to provide a “likes”
+comparison. In reality, these parameters may vary between the
+technologies, but by applying similar values, the OLED patterning
+technology-specific cost variations are manifested.
+A wide variety of other assumptions and parameters are used to
+model costs. These are not discussed in detail here as they do not
+substantially influence the variations in the manufacturing of IJP
+and FMM-type OLED panels.
+Price, cost, yield, and other data are regularly collected through
+systematic, in-person interview-type surveys of flat panel display
+(FPD) supply chain companies by a team of analysts based in the
+regions where FPDs are primarily manufactured. Survey
+participants include material and component makers, equipment
+makers, panel makers, set makers/brands, and other relevant
+companies.
+Information gathered is data-based and checked every quarter to
+validate and track changes over time. These databases enable
+bottom-up modeling of panel costs.
+
+SID 2026 DIGEST • 365
+ISSN 0097-996X/26/5701-0365-$1.00 © 2026
+
+26-3 / C. A. Annis
+This standard methodology was used to model conventional FMM
+OLED panel manufacturing costs.
+
+various other parts of the chamber. So, FMM material utilization is
+much lower than IJP, typically less than 20%.
+
+To model IJP panel costs, targeted surveys were conducted to
+gather pertinent data and confirm parameters related to IJP OLED
+manufacturing and costs. This IJP-specific information was used to
+adjust and expand the standard model to cover IJP OLED panels.
+
+For similar reasons, direct printing enables larger subpixel aperture
+ratios than shadow effect-constrained FMM. This facilitates sideby-side RGB subpixels, which are preferable for displaying text
+compared to sub-pixel rendering techniques commonly applied in
+FMM OLEDs. It also mitigates some of the IJP OLED ink's
+relatively lower performance specifications.
+
+After the model was complete, a second round of surveys was
+conducted to validate and adjust the results before finalizing the
+conclusions reported here.
+
+3. Results
+IJP RGB OLEDs offer many potential benefits (Table 2). However,
+up until now, the IJP challenges (Table 3) have limited mass
+production to low volumes.
+Table 2. Advantages of IJP compared to FMM OLED
+Detail
+Comments
+Flexible “digital”
+Reduced development time, no need
+production
+for FMM, FMM cleaning, FMM
+tension, and so on. Can change print
+parameters. Fast development &
+changeover. Small lot production.
+Relatively low
+Compared with an FMM line.
+equipment costs
+Significantly lower patterning
+equipment costs
+High material
+500% more efficient than FMM
+utilization
+Relatively lower
+Compared with an FMM line
+maintenance costs
+Relatively higher
+Compared with an FMM line
+uptime
+2x or greater
+Compared with an FMM patterns
+aperture ratio
+Smaller factory
+Compared with an FMM line
+footprint
+Process and
+Continuous incremental
+equipment
+improvement and learning from
+improvement
+previous mistakes enable high yield.
+Improved
+Full-size Gen 8.6 vs. Half cut FMM,
+panelization
+but varies by panel size. Also, multimodel glass (MMG) compatibility
+Material
+If Chinese material makers are
+improvement and
+aggressive in pursuing, they will
+new development
+expand small molecule development.
+Long-term hope for
+Transition IJP processes and knowQDEL material
+how to QDEL production in the long
+improvements
+run
+Printing RGB subpixels substantially simplifies the color
+patterning compared with conventional FMM processes. This is
+due to fewer vacuum steps, a smaller clean room footprint, no
+FMM handling and cleaning systems, rapid product development
+and production changeovers, and so on.
+Also, OLED ink utilization is well above 90% as inks are dropped
+directly into line trenches or pixel wells. Only a small amount of
+the expensive organic materials is wasted.
+On the other hand, in the FMM process, metal masks screen where
+organic materials are deposited onto the substrate. This means that
+at least two-thirds of the material lands on the mask. Organic
+material vapor evaporating up from the source also deposits on
+
+Half-cut frontplane processing is an inherent disadvantage of FMM
+OLED manufacturing. In the TFT process, substrates are handled
+at native size. However, owing to FMM sagging and alignment
+issues, glass is cut in half for the evaporation process. Glass cutting
+generates particles, reduces process efficiency, induces glass strain,
+and wastes valuable glass area.
+In IJP, even with the few open mask evaporation steps, sagging is
+irrelevant; substrate alignment can be effectively managed by the
+printer. Full-size substrate processing is possible, which increases
+efficiency. The extent of the advantage depends on the substrate
+size, panel size, aspect ratio, panel orientation, and whether MMG
+is adopted.
+In the 16.3-inch example analyzed in this study, 66 panels up were
+assumed for IJP, while only 60-up were used for FMM. By not
+having to cut the mother glass substrate in half for the frontplane
+process, an economical panel layout is achieved. IJP’s 10%
+efficiency improvement translates directly to lower manufacturing
+total costs.
+Table 3. Disadvantages of IJP compared to FMM OLED
+Detail
+Comments
+Inks must be compatible with print
+Ink compatibility
+heads, which defines viscosity and
+what type of solvents can be used.
+Solvents can negatively affect
+OLED material performance. Must
+be thoroughly purified.
+Ink incompatibility
+ETL, electron injection layer (EIL),
+and the remaining
+cathode, capping layer (CPL), and
+requirement of open
+charge generation layer (CGL) are
+mask evaporation
+currently incompatible with
+solution printing. Although being
+developed, commercial viability is
+unclear.
+Material lifetime and Particularly blue. Much lower than
+efficiency
+evaporated blue. Large pixel
+aperture compensates for this, but
+cannot compete with tandem FMM.
+Tandem is not
+Lack of printable and robust CGL
+currently feasible
+material
+Limited by drop size, etc. Recent
+High resolution
+technology advancements may
+enable 350 PPI, but with trade-offs.
+Various print/dry
+Equipment and process technology
+mura
+are evolving to mitigate.
+Technology
+Unproven in high-volume,
+immaturity
+competitive market segments
+Not all frontplane process materials and steps are compatible with
+inkjet yet. Despite ongoing development, current ETL, cathode,
+CGL, and CPL ink materials do not offer sufficient performance.
+Thus, even in the IJP process, these critical materials are deposited
+
+SID 2026 DIGEST • 366
+
+26-3 / C. A. Annis
+by open mask VTE.
+This evaporator is smaller, simple in configuration, has high
+productivity, and is low in price compared with FMM VTE tools.
+Even so, it does complicate the IJP process and represents a
+substantial capital cost.
+Material efficiency and thickness requirements may cause higher
+power consumption, particularly at higher resolutions.
+
+Both examples assume that a circular polarizer is applied to reduce
+ambient light reflections. That is, these assumptions are held
+constant in both examples and do not affect the manufacturing total
+cost comparison.
+Table 5. 16.3” 3456x2234 hybrid FMM OLED for NB, 60up on half G8.6 glass, circular polarizer, no color filter
+Details
+
+2025
+
+2026
+
+2027
+
+2028
+
+Similarly, no IJP-appropriate CGL materials are yet commercially
+available. Evaporated CGL films will degrade rapidly if exposed to
+an ambient environment and subsequent process steps. Without
+printable CGL materials, tandem architectures are not feasible.
+
+Yielded Array Material Cost
+
+$2.8
+
+$2.6
+
+$2.4
+
+$2.3
+
+RGB OLED
+
+$6.3
+
+$5.9
+
+$5.6
+
+$5.2
+
+IJP head replacement
+
+$0.0
+
+$0.0
+
+$0.0
+
+$0.0
+
+Yielded OLED Color Patterning Materials $11.0
+
+$9.9
+
+$9.0
+
+$8.1
+
+Like any new technology, there is considerable risk involved in
+scaling the process from R&D/pilot production to high-volume
+mass production. Even though IJP OLED has been in development
+for many years, only small volumes of high-end monitors have
+been commercialized to date. The material systems are rapidly
+evolving, and the supply chain remains unproven. This contrasts
+with the long history of FMM OLED production, even with its
+known challenges. In the case of IJP, a variety of issues may only
+become obvious after a new Gen 8.6 factory is ramped up.
+
+Yielded Encapsulation Material Cost
+
+$0.4
+
+$0.4
+
+$0.4
+
+$0.3
+
+Yielded Module Component Total
+
+$25.8 $24.2 $22.8 $21.4
+
+Cost comparison of IJP to FMM OLED
+Detailed surveys of OLED supply chain companies, panel makers,
+and brands are useful research techniques to gather data, create lists
+of relevant information, and generate qualitative assumptions.
+Such interviews return a widely accepted belief that IJP OLEDs
+should be lower cost than FMM OLEDs. These types of opinions,
+however, are typically not applied to specific examples and do not
+provide clear comparisons.
+To confirm the validity of assumptions, put them in an appropriate
+context, and quantify the detailed cost differences, dedicated
+research and cost modeling were performed.
+Results of this modeling are shown in Tables 4 and 5 below.
+Table 4. 16.3” 3456x2234 hybrid IJP OLED for NB, 66-up
+on full G8.6 glass, circular polarizer, no color filter
+Category
+
+Subtotals
+
+Details
+
+Yielded Array Material Cost
+
+2025
+
+2026
+
+2027
+
+2028
+
+$2.5
+
+$2.4
+
+$2.2
+
+$2.1
+
+RGB OLED
+
+$3.8
+
+$3.7
+
+$3.7
+
+$3.7
+
+IJP head replacement
+
+$0.2
+
+$0.2
+
+$0.2
+
+$0.2
+
+$7.6
+
+$7.2
+
+$6.7
+
+$6.3
+
+Yielded Encapsulation Material Cost
+
+$0.4
+
+$0.4
+
+$0.3
+
+$0.3
+
+Yielded Module Component Total
+
+$25.7 $24.1 $22.7 $21.3
+
+Yielded OLED Color Patterning Materials
+
+Labor Cost
+
+$4.7
+
+$5.0
+
+Depreciation Cost (5 year example)
+
+$19.2 $18.9 $18.6 $18.3
+$3.2
+
+$5.2
+
+Indirect Expense Total
+
+$3.4
+
+Manufacturing Total Cost
+
+$63.6 $61.1 $58.8 $56.7
+
+Total Yield
+
+75%
+
+78%
+
+$3.1
+
+$5.5
+
+81%
+
+$2.9
+84%
+
+“Hybrid” refers to panels fabricated on glass substrates, with thin
+film encapsulation (TFE).
+Even though, in some cases, it is advantageous to use a color filter
+to widen the color gamut, increase the viewing angle, and
+brightness, particularly for IJP OLEDs, “Circular polarizer, no
+color filter” means that neither of the panels analyzed includes a
+CF.
+
+Category
+
+Subtotals
+
+Labor Cost
+
+$5.5
+
+Depreciation Cost (5 year example)
+
+$43.6 $43.6 $43.6 $43.6
+
+$5.7
+$3.6
+
+$6.0
+
+Indirect Expense Total
+
+$3.8
+
+Manufacturing Total Cost
+
+$90.7 $88.8 $87.1 $85.5
+
+Total Yield
+
+75%
+
+78%
+
+$3.4
+
+$6.3
+
+81%
+
+$3.2
+84%
+
+FMM mask, cleaning, and other related costs are integrated into the
+RGB OLED material cost line of the example in Table 5.
+IJP print heads are consumable parts. Full replacement of heads is
+expensive, but depreciated over the large number of panels
+manufactured every year, the cost per panel is low.
+IJP material utilization is much higher than FMM VTE, but IJP
+materials are still comparatively expensive. Material prices tend to
+decline as volume increases. Even so, it will take a substantial
+amount of time for IJP material demand to reach the volume
+required to push continuous price declines.
+Chinese panel makers are rapidly expanding the domestic supply
+base of OLED organic materials and IJP inks to increase their
+material selection flexibility, to improve material supplier support
+and responsiveness, and to accelerate price reductions.
+In the examples analyzed here, OLED materials account for a
+relatively smaller portion of the total manufacturing costs than
+depreciation.
+IJP machines and the required open mask evaporator have high
+productivity and are relatively lower priced than FMM VTE
+equipment.
+This means that the large majority of IJP’s cost savings versus
+FMM OLED are from lower depreciation costs.
+This analysis applies a five-year straight-line depreciation
+assumption. Different depreciation approaches may be used by
+various companies. Chinese FPD makers often use a seven-year
+depreciation schedule.
+After depreciation is complete, the cost advantage of IJP will
+decline considerably, but will remain positive if all other
+parameters remain equal.
+Finally, improved panelization —six additional 16.3-inch panels in
+this study— reduces IJP manufacturing total costs by about 10%.
+
+SID 2026 DIGEST • 367
+
+26-3 / C. A. Annis
+
+4. Conclusion
+Forecast to grow from 11.6 million units in 2025 to 54.1 million
+units in 2030, OLED notebook PC panels are currently one of the
+most promising segments of the display industry.
+The excellent image quality and the thin, narrow bezel profile of
+OLED panels are highly attractive to PC brands. However, to
+displace LCDs and to meet, and then exceed, forecast market
+penetration, competitive cost performance is important.
+This study found that 16.3-inch IJP OLED notebook panel
+manufacturing total costs will fall to $56.7 by 2028. That is 34%
+lower than the $85.5 modeled for a similar panel fabricated using
+VTE.
+With the world’s first Gen 8.6, high-volume IJP OLED factory
+under construction from the second half of 2025, the significant
+potential cost savings from IJP OLED manufacturing may finally
+be confirmed, as well as enable the further expansion of the OLED
+display market.
+
+5. References
+[1] Cao W, IJP OLED Status and Future Prospects, TCL China
+Star. Omdia Korea Display Conference, October 2024.
+[2] Kwan HC, Noh, Y, Hwang JY. Control of Vacuum Pressure
+in Vacuum Drying Process for Uniform Film Formation of
+Inkjet-Printed OLEDs. Korea Institute of Industrial
+Technology. SID 2024 Digest; 1772-1774.
+[3] Yoshida H, Nakatani S, Inoue T, Usui Y, Ohtsuka F. 1pL
+Inkjet Head and G8.5 Equipment Development for 350ppi
+OLED Display Panels. Panasonic Production Engineering
+Corporation. SID 2025 Digest; 114-117.
+[4] Kim S, Kang T, Kim H, Mun H, Koo Y, Ha J, Lee C. AllInkjet-printed AMOLED Display with Improved Efficiency
+and Lifetime. Display Research Center, Samsung Display Co.,
+Ltd. SID 2022 Digest; 391-394.
+[5] Park R. Display Long-Term Demand Forecast Tracker.
+Omdia. October 2025.
+[6] Kim J, Uno T, Heo I. OLED Display Cost Model. Omdia.
+February 2025.
+
+SID 2026 DIGEST • 368
+
+

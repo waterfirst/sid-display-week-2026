@@ -1,0 +1,273 @@
+69-4 / Y. Liu
+
+Eliminating sunlight backflow in AR-HUDs through a Faraday rotator under
+the étendue constraint
+Yi Liu*, Yifan Ding*, Feiyi Wu*, Haoteng Liu*, Bo-Ru Yang*, and Zong Qin*
+
+*School of Electronics and Information Technology, Guangdong Province Key Laboratory of Display
+Material and Technology, State Key Laboratory of Optoelectronic Materials and Technologies, Sun YatSen University, Guangzhou, 510006 China
+Abstract
+
+This paper proposes an AR-HUD architecture incorporating a
+Faraday rotator to eliminate sunlight backflow, achieving a
+sunlight isolation of 2.39% across the visible spectrum.
+Furthermore, a time-multiplexing scheme doubles the effective
+étendue, enabling two virtual image distances while fully utilizing
+the étendue of the aperture-limited Faraday rotator.
+
+Author Keywords
+
+Head-up display; sunlight backflow; Faraday rotator; étendue.
+
+1. Introduction
+
+Head-up displays (HUDs) serve as in-vehicle human-machine
+interfaces by projecting driving information into a driver’s eyes.
+Thus, HUDs allow drivers to access information without diverting
+their gaze downward, thereby significantly enhancing driving
+safety [1, 2]. A crucial reliability challenge stems from exposure to
+direct sunlight. The windshield, acting as a partial reflector with a
+higher transmittance than reflectance, allows sunlight to propagate
+backward along the imaging path. As shown in Fig. 1, the primary
+freeform mirror focuses incident sunlight onto the display panel,
+causing a rapid temperature rise that leads to permanent damage.
+Sunlight backflow detection and thermal management are
+compromising solutions that increase costs and system complexity
+[3, 4]. Furthermore, augmented reality (AR) HUDs feature a long
+virtual image distance (VID) and a wide field of view (FOV),
+causing the freeform mirror to collect sunlight over a wider angular
+range and focus the sunlight from infinity precisely onto the display
+panel [3, 5]. Consequently, the sunlight backflow issue is more
+severe in AR-HUDs.
+To suppress sunlight backflow, commercial products primarily
+adopt specialized optical filters to remove the infrared spectrum or
+attenuate the P-polarized component of sunlight [3]. Those
+methods can reduce incident solar energy by approximately 50%,
+thereby protecting the display panel to some extent. Alternatively,
+projection-type display engines, such as digital light processing,
+laser beam scanning, and liquid crystal on silicon, can alleviate the
+backflow by employing a diffuser on the screen [5]. The diffuser’s
+Lambertian properties scatter the concentrated sunlight, preventing
+it from being focused back onto the light engine. However, the
+micro-structured, non-planar diffuser introduces irregular
+scattering of the focused sunlight, degrading the contrast ratio
+under ambient illumination and potentially generating glare.
+Furthermore, projection-type engines incur higher costs and a
+bulky form factor.
+Existing solutions only partially mitigate sunlight backflow,
+without fundamentally addressing the underlying degradation in
+display panel reliability, particularly in LCDs preferred for
+practical HUDs. To overcome this limitation, this study proposes
+using a Faraday rotator to block the concentrated sunlight
+propagating backward along the imaging path while maintaining
+display quality and efficiency.
+
+Fig. 1 Schematic optical path of sunlight backflow.
+Recently, Ding et al. also incorporated a Faraday rotator into
+Pancake optics, enhancing the optical efficiency via a
+nonreciprocal path [6]. Despite the demonstrated potential of
+Faraday rotators for near-eye displays, HUDs have a much larger
+étendue than near-eye ones, namely a larger product of eyebox and
+FOV. The application of Faraday rotators in HUDs is constrained
+by the intrinsically small aperture of the magneto-optical crystal—
+the core component of a Faraday rotator—and the uniformity of the
+magnetic field. To address this limitation, we developed a timemultiplexing scheme to effectively increase the Faraday rotator’s
+étendue in addition to geometric and polarization optical design. In
+our experiment, a Faraday rotator module (40 mm by 20 mm
+transversely) achieved excellent sunlight isolation (transmittance:
+2.39%) across the visible spectrum. Integrated it into an AR-HUD
+prototype, this system projects virtual images with satisfactory light
+efficiency (87.1%) at two VIDs: a far image of 6° by 3° at 7.5 m
+and a near one of 5° by 2.5° at 2 m.
+
+2. Method
+2.1 Principle of the Faraday Rotator
+Fig. 2 illustrates the principle of the Faraday rotator [7]. The
+rotation angle θ is governed by Eq. (1), while its direction depends
+solely on the magnetic field’s orientation, independent of the light
+propagation direction. This nonreciprocal behavior contrasts with
+conventional reciprocal optical elements used in displays. The
+nonreciprocity of the Faraday rotator creates an irreversible optical
+path, providing the fundamental mechanism for eliminating
+sunlight backflow.
+(1)
+=
+θ ( λ ) v ( λ ) B ( l ) ⋅ dl ,
+
+∫
+
+where v(λ) denotes the Verdet constant of the crystal material,
+characterizing its wavelength-dependent magneto-optical
+properties, and B(l) represents the magnetic flux density along the
+
+SID 2026 DIGEST • 960
+ISSN 0097-996X/26/5701-0960-$1.00 © 2026
+
+69-4 / Y. Liu
+propagation direction, which varies with the placement l of the
+light-magnetic field interaction.
+
+Fig. 2. Schematic of a Faraday rotator.
+2.2 Proposed Design
+Based on the Faraday rotator’s principle, a 45° Faraday rotator is
+positioned between two linear polarizers whose transmission axes
+form a 45° angle. The operating principle of this optical isolator is
+depicted schematically in Fig. 3. In our study, the input polarizer’s
+transmission axis is aligned at 45°, which matches the polarization
+direction of the light from the display panel. This configuration
+ensures minimal loss of display light. Conversely, sunlight
+propagating in reverse through the system is, in principle,
+completely blocked.
+
+limitation poses a significant challenge for AR-HUDs, which
+demand an extended FOV, enlarged eyebox, and far VIDs. To
+overcome this étendue constraint, we propose a time-multiplexing
+scheme [8]. This approach effectively doubles the usable étendue,
+enabling a dual-focal AR-HUD with excellent sunlight isolation.
+Fig. 4 illustrates the proposed AR-HUD, leveraging the
+Faraday rotator principle to effectively suppress sunlight backflow
+while introducing negligible impact on the forward display path. A
+polarization-multiplexing unit, comprising a polarization converter
+using TN LC and a reflective polarizer, is positioned on the Faraday
+rotator’s output side to face the display system. This configuration
+ensures compatibility between the polarization-dependent Faraday
+rotator and the polarization-multiplexing scheme, preventing
+polarization-state conflicts.
+
+3. Experimental Verification
+In the experiment, we chose TG28 as the magneto-optical crystal
+and NdFeB permanent magnets to provide sufficient, stable
+magnetic fields without ancillary cooling. Specifications of the
+proposed AR-HUD are summarized in Table 1. Based on the
+proposed configuration, an AR-HUD system was designed using
+Zemax OpticStudio. Its imaging quality was subsequently verified
+through optimization in LightTools.
+Table 1. Specifications of the proposed AR-HUD.
+
+Fig. 3. The principle of the Faraday rotator-based optical
+isolator. Light propagates from the display panel to the
+display system and from the sun to the display panel. FR:
+Faraday rotator; LP: linear polarizer.
+
+Fig. 4. Configuration of the proposed AR-HUD featuring an
+extended-étendue design and a Faraday rotator to eliminate
+sunlight backflow. PRF: polarizing reflective film; TN: TN LC;
+M1: plane mirror, P1: linear polarizer at 45°; P2: linear
+polarizer at 90°; L: display panel; L’: equivalent display panel
+of S-polarized light.
+However, the aperture size of the magneto-optical crystal and
+the magnetic field uniformity fundamentally constrain the system
+étendue, consequently limiting FOV and eyebox of the HUD. This
+
+VID
+FOV
+Eyebox
+Windshield
+Eye-relief (driver to
+windshield)
+Faraday rotator aperture
+
+Far focal plane
+
+Near focal plane
+
+7.5 m
+2m
+6° by 3°
+5° by 2.5°
+70 mm by 30 mm
+Windshield compatible with HUDs
+800 mm
+40 mm by 20 mm
+
+Fig. 5. (a) AR-HUD prototype with the proposed Faraday
+rotator and the actual isolation result. Captured virtual image
+at the (b) far (7.5 m) and (c) near (2 m) focal planes. FOVs
+are delineated by yellow rectangles.
+
+SID 2026 DIGEST • 961
+
+69-4 / Y. Liu
+Next, we built the AR-HUD system, assembled all components
+into a customized housing, and measured the optical isolation
+performance of the proposed Faraday rotator, as shown in Fig. 5(a).
+The freeform mirror spans 182 mm by 160 mm. A TFT-LCD that
+emits 45° polarized light serves as the picture generation unit.
+When driven by a ±24 V square wave at 50% duty cycle with zero
+bias, the TN LC cell switches the polarization state between P- and
+S-polarization, corresponding to the near and far virtual images,
+respectively. At switching frequencies above the critical flicker
+fusion threshold (~60 Hz), dual focal planes are merged.
+For experimental validation, a camera (Fujifilm X-A7 with a
+65 mm, f/2.8 lens) was positioned within the eyebox to capture
+virtual images. Virtual images at 7.5 m and 2 m are shown in Figs.
+5(b) and (c), respectively. Real markers were placed at 7.5 m and 2
+m in the background to demonstrate the different VIDs. The blurred
+one in either subfigure is out of the camera’s focus.
+Fig. 6 characterizes the key performance metrics of the
+proposed optical isolator: forward display transmission and
+backward sunlight rejection efficiency, the latter being the most
+critical parameter for suppressing backflow. The optical isolator
+exhibits a backward transmittance of 2.39% while maintaining a
+forward transmittance of 87.1%. At 485 nm, the transmittance
+decreases to 13.2% due to the magneto-optical crystal’s intrinsic
+absorption, which corresponds to a region of low spectral intensity
+in the LCD output, thus minimizing the negative impact on the
+overall transmitted display spectrum. Consequently, the color
+performance is well preserved (see Fig. 5 for the high-fidelity
+colors). Combined with an infrared filter that can be simply added
+to an HUD product, this configuration offers decent sunlight
+backflow suppression.
+
+Fig. 6. Spectral response characterization of the proposed
+optical isolator: transmission spectrum and transmittance of
+the (a) forward path and (b) backward path. SP:
+spectrophotometer.
+
+4. Conclusion
+Sunlight backflow imposes a significant challenge on the display
+panel in AR-HUDs. This study presents a novel AR-HUD
+architecture incorporating a Faraday rotator to eliminate sunlight
+backflow. To overcome the constraint imposed by the Faraday
+rotator’s limited aperture, we developed a time-multiplexing
+scheme that effectively doubles the étendue and enables two VIDs.
+Experimental results demonstrate effective optical isolation of
+2.39% from sunlight backflow and satisfactory image quality at
+two focal planes: 6° by 3° at 7.5 m and 5° by 2.5° at 2 m, with a
+reasonable transmittance (87.1%)
+
+5. References
+[1]
+[2]
+[3]
+[4]
+[5]
+
+[6]
+[7]
+[8]
+
+Liu Yi, et al. “A varifocal augmented reality head-up
+display using Alvarez freeform lenses,” J. Soc. Inf. Display
+32(5), 226 (2024).
+Wei Ran, et al. “Large-size PVG-based waveguide
+simulation and uniformity optimization for AR-HUD,” Opt.
+Express 32(14), 25362 (2024).
+Wan Fushun, et al. “The challenge and development in ARHUD,” SID Symp. Dig. Tech. 55(S1), 134 (2024).
+Xu Yang, et al. “Sun-focused spot detection method for ARHUD,” Proc. SPIE 13559, 1699 (2025).
+Fan Chengxiang, et al. “Design of dual-focal-plane ARHUD optical system based on a single picture generation
+unit and two freeform mirrors,” Photonics 10(11), 1192
+(2023).
+Ding Yuqiang, et al. “Breaking the optical efficiency limit
+of virtual reality with a nonreciprocal polarization rotator,”
+Opto-Electron. Adv. 7(3), 230178 (2024).
+Carothers Kyle J., et al. “High Verdet constant materials for
+magneto-optical Faraday rotation: a review,” Chem. Mater.
+34(6), 2531 (2022).
+Liu Yi, et al. “Compact dual-focal augmented reality headup display using a single picture generation unit with
+polarization multiplexing,” Opt. Express 31(22), 35922
+(2023).
+
+SID 2026 DIGEST • 962
+
+

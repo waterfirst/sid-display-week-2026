@@ -1,0 +1,542 @@
+77-4 / J. Lee
+
+Dual-SLM Tiled Holographic HUD with Dammann Grating for Wide Eye-box
+Jinsu Lee, Han-Ju Yeom, and KeeHoon Hong
+* Digital Holography Research Section, Electronics and Telecommunications Research Institute,
+218 Gajeong-ro, Yuseong-gu, Daejeon, Republic of Korea
+
+Abstract
+We propose a binocular holographic automotive head-up display
+(HUD) architecture designed to overcome the limited spacebandwidth product of spatial light modulators (SLMs). The
+proposed system utilizes dual-SLM tiling to double the horizontal
+spatial bandwidth and a custom-optimized 5×5 Dammann grating
+to achieve a 25-fold expansion of the eye-box area. The feasibility
+of the optical design was verified through comprehensive
+simulations. Geometric optical analysis using Zemax OpticStudio
+confirmed that the projection optics achieve near-diffractionlimited performance with minimal distortion. Furthermore, waveoptical simulations based on the angular spectrum method
+demonstrated that the Dammann grating generates highly uniform
+pupil replicas with a root-mean-square (RMS) uniformity error of
+1.5%, even under realistic 8-bit phase quantization constraints.
+This study presents a scalable and robust optical design framework
+for next-generation wide-field-of-view augmented reality HUDs.
+
+Author Keywords
+Automotive Head-Up Display; Holographic Display; ComputerGenerated Holography; Eye-box Expansion; Dammann Grating;
+Dual-SLM Tiling.
+
+1. Introduction
+
+which limits horizontal expansion and complicates binocular
+separation. This is a significant bottleneck for automotive
+scenarios, where a large eye-box and robust binocular isolation are
+requisite for safety and viewing comfort. In this work, we propose
+a holographic automotive display architecture that achieves
+substantial eye-box expansion by horizontally tiling two phaseonly SLMs and integrating them with a custom-designed 5×5
+Dammann grating. Each SLM independently modulates the left- or
+right-eye hologram, ensuring robust binocular separation with
+minimal crosstalk. The 5×5 Dammann grating generates 25
+uniform pupil replicas, extending the eye-box in both horizontal
+and vertical directions. This hybrid approach—combining dualSLM tiling for bandwidth enhancement and diffractive optics for
+pupil replication—significantly enlarges the usable eye-box while
+maintaining the system's compactness and optical efficiency.
+
+2. Optical Configuration
+The proposed system employs a hybrid optical architecture
+combining dual-SLM tiling, bandwidth scaling via 4-f optics, and
+diffractive pupil replication. The schematic configuration is
+designed to maximize the angular bandwidth while maintaining a
+compact volume suitable for automotive integration.
+
+2.1.
+
+Head-up displays (HUDs) have become essential in modern
+vehicles, enhancing situational awareness and reducing cognitive
+load by projecting critical information directly into the driver’s
+forward field of view [1]. Conventional HUDs based on TFT-LCD
+or DLP projection typically rely on bulky freeform combiners and
+fixed-focus optics. Consequently, their field of view (FOV), eyebox size, and depth reproduction capabilities are fundamentally
+constrained by the geometric limitations of refractive optics. As
+demand grows for augmented reality (AR) in advanced driverassistance systems (ADAS), next-generation HUDs require
+significantly wider eye-boxes and flexible 3D visualization
+capabilities that traditional architectures cannot support.
+Holographic displays have emerged as a promising alternative,
+offering direct wavefront control to reconstruct depth-varying
+virtual content within compact optical architectures [2]. Computergenerated holography (CGH) using phase-only spatial light
+modulators (SLMs) enables dynamic focusing and optical
+distortion compensation, making it a compelling approach for
+automotive applications. However, a critical challenge remains: the
+limited space-bandwidth product (SBP) of current SLMs results in
+inherently narrow eye-boxes, severely restricting the driver’s head
+movement range. To address this, various pupil-replication
+methods have been proposed, primarily for near-eye displays. Choi
+et al. demonstrated a two-dimensional eye-box replication
+technique using holographic optical elements (HOEs) and angularspectrum wrapping. Similarly, computational Maxwellian displays
+have employed multiplexed off-axis plane-wave encoding to form
+pupil arrays while maintaining compactness. Recent studies have
+also explored multi-angle illumination with pupil-aware
+optimization to expand the eye-box without filters, improving
+motion tolerance. Despite these advances, most prior work targets
+wearable near-eye displays rather than automotive HUDs.
+Furthermore, existing approaches typically rely on a single SLM,
+
+Dual-SLM Optical Tiling
+
+To overcome the limited active area of a single SLM, two phaseonly SLMs are arranged horizontally and optically combined using
+a polarizing cube beam splitter and tilted mirror as shown in Fig. 1.
+This configuration allows the left and right SLMs to function as a
+single continuous aperture with doubled horizontal width.
+Specifically, the left SLM encodes the hologram for the left eye,
+and the right SLM for the right eye, ensuring physical separation of
+the binocular channels at the source. This tiling method effectively
+doubles the space-bandwidth product (SBP) without introducing
+polarization-dependent imbalances.
+
+2.2.
+
+4-f Relay and Bandwidth Scaling
+
+The optical field from the tiled SLMs is relayed through a 4-f
+optical system consisting of a front lens (𝑓1 = 100 𝑚𝑚) and a
+rear lens (𝑓2 = 50 𝑚𝑚 ). This configuration results in a
+demagnification factor M:
+𝑀 =
+
+𝑓2
+𝑓1
+
+= 0.5
+
+(1)
+
+This 0.5x demagnification reduces the pixel pitch of the tiled SLMs
+at the virtual SLM plane but inversely doubles the diffraction angle
+range. Consequently, the achievable field of view (FoV) is
+significantly expanded, which is critical for covering the driver's
+wide viewing angle.
+
+2.3.
+
+Intermediate Projection and Eye-Box
+Expansion
+
+The demagnified wavefront is reimaged by an achromatic
+projection lens with a focal length of 𝑓𝑝𝑟𝑜𝑗 = 250 𝑚𝑚. This lens
+provides quadratic phase to the CGH for making an intermediate
+hologram and the hologram passes through the polarization
+reflection folding optics for provide sufficient optical path length.
+Then, the eye-box expansion is achieved by a 5×5 Dammann
+
+SID 2026 DIGEST • 1067
+ISSN 0097-996X/26/5701-1067-$1.00 © 2026
+
+77-4 / J. Lee
+grating paired with a free-form field lens (𝑓𝑓𝑖𝑒𝑙𝑑 = 300𝑚𝑚). The
+form lens collimates the chief rays towards the driver’s eye
+position, correcting for field curvature and off-axis aberrations
+inherent in the wide-aperture system. The Dammann grating
+replicates the exit pupil into a 5×5 array, effectively increasing the
+usable eye-box area by a factor of 25 compared to a single-SLM
+system. The overall optical layout, including the folded path for
+compactness and expanded eye-box footprint, is illustrated in Fig.
+1.
+
+Figure 2. Image simulation results of chromatic aberration
+
+2.4.3.
+
+Distortion and Ray Aberration Analysis
+
+At the reference plane (705 mm), we analyzed grid distortion and
+ray aberrations.
+
+Figure 1. 3D optical layout of the proposed holographic HUD
+and expanded eye-boxes footprint with Dammann Grating
+
+2.4.
+
+Numerical Evaluation of optical
+system
+
+To validate the optical performance of the designed system, we
+conducted a comprehensive numerical evaluation using Zemax
+OpticStudio based on the specifications of the fabricated prototype.
+
+Grid Distortion: The maximum distortion was measured to be
+1.73% at the center (0°, 0°) and increased to 12.27% at the
+maximum field angles ( ±2.5° horizontal/vertical). Although
+distortion increases at the periphery, a maximum value of 12.27%
+is not considered acceptable for holographic viewing, but it could
+be calibrated with the CGH, hence it does not significantly impede
+visual recognition.
+Table 1. Maximum Distortion depending on Field Position
+Distortion (%)
+
+Note
+
+Simulation Conditions and Constraints
+
+(0∘,
+
+0∘)
+
+1.73 %
+
+Center
+
+The simulation wavelengths were set to 450 nm (Blue), 520 nm
+(Green), and 650 nm (Red) to match the laser sources used in the
+experiment. The entrance pupil diameter was set to 15 mm,
+corresponding to the typical daytime pupil size of an adult.
+Although the projection optics were originally designed to achieve
+a field of view (FOV) of 15°, the effective FOV in this simulation
+was limited to ±2.5°(horizontal and vertical). This restriction is
+due to the fabrication limit of the Dammann grating aperture
+(95mm x 95mm), which acts as the system stop. While all refractive
+lenses in the system are achromatic, the diffractive Dammann
+grating was optimized specifically for the red wavelength (650
+nm). Consequently, this design choice induces inevitable
+longitudinal chromatic aberration for other wavelengths.
+
+(±2.5∘,
+
+0∘)
+
+5.42 %
+
+Horizontal Edge
+
+(0∘,
+
+±2.5∘)
+
+5.42 %
+
+Vertical Edge
+
+(±2.5∘, ±2.5∘)
+
+12.27 %
+
+Corner (Max Field)
+
+2.4.1.
+
+2.4.2.
+
+Field Position (H, V)
+
+Ray Aberration: As illustrated in Fig. 3, the ray aberration plots
+demonstrate excellent aberration correction at the field center.
+While aberrations tend to increase towards the field edges, the
+overall performance remains within a functional range.
+Field Curvature: Consistent with the longitudinal chromatic
+aberration, the field curvature plot reveals a chromatic
+displacement of approximately 2% at the maximum field position.
+
+Chromatic Aberration and Eye-Relief Shift
+
+A significant result of the grating's dispersion is the wavelengthdependent shift in the eye-relief distance (eye-box location). As
+shown in Fig. 2, the optimal eye-relief is located at 680 nm for the
+blue wavelength and 730 mm for the red wavelength as shown in
+Fig. 2. Due to the chromatic dispersion of the Dammann grating,
+the reconstructed image exhibits a distinct color shift as the
+observation position moves from 680 mm to 720 mm, transitioning
+from a bluish to a reddish tint. This confirms that the focal planes
+for the RGB channels are spatially separated along the optical axis.
+Hence, to evaluate the static optical performance, we established a
+reference observation plane at the intermediate distance of 705 mm.
+
+Figure 2. (a) Ray aberration plot and (b) chromatic field
+curvature plot chromatic aberration
+It is important to note that the Dammann grating was modeled using
+a multi-configuration setup in Zemax OpticStudio to handle
+diffractive orders. Consequently, the standard ray aberration
+analysis presented here primarily reflects the performance of the
+refractive relay and projection lenses, potentially excluding the full
+dispersive effects of the grating itself. Therefore, the actual optical
+
+SID 2026 DIGEST • 1068
+
+77-4 / J. Lee
+system is expected to exhibit higher chromatic aberrations than
+those simulated in the ray plots. However, since the dominant
+chromatic effect—the longitudinal eye-relief shift—has been
+identified, the residual lateral chromatic aberration can be further
+mitigated through digital compensation in the CGH generation
+stage
+
+3. Dammann Grating Design
+The core component enabling the 25-fold eye-box expansion is the
+Dammann grating, a binary or multi-level phase grating designed
+to distribute incident optical power uniformly into a specific array
+of diffraction orders. In this work, we targeted a 5x5 array
+corresponding to diffraction orders (𝑚, 𝑛) where 𝑚, 𝑛 in
+{−2, −1, 0, +1, +2}.
+
+3.1.
+
+Design Algorithm
+
+The phase profile was optimized using an Iterative Fourier
+Transform Algorithm (IFTA) adapted for equal-power generation.
+To ensure computational efficiency and fabrication simplicity, we
+adopted a separable design approach. Independent 1D phase
+profiles, 𝜙𝑥 (𝑥) and 𝜙𝑦 (𝑦) , were first optimized to generate 5
+uniform orders in each direction. The final 2D phase map Φ(x, y)
+was then constructed by superimposing the two orthogonal
+profiles:
+Φ(x, y) = [𝜙𝑥 (𝑥) + 𝜙𝑦 (𝑦)] mod 2𝜋
+
+(2)
+
+The optimization constraints were set to minimize the uniformity
+error among the target orders while maximizing diffraction
+efficiency. To match the aspect ratio of the automotive eye-box
+requirements, the spatial frequencies were set to 𝑁𝑥 = 49 𝑙𝑖𝑛𝑒𝑠/
+𝑚𝑚 and 𝑁𝑦 = 14 𝑙𝑖𝑛𝑒𝑠/𝑚𝑚, corresponding to grating periods of
+approximately 20.4𝜇𝑚 and 71.4𝜇𝑚, respectively.
+
+3.2.
+
+Numerical Verification
+
+The performance of the designed grating was rigorously verified
+using wave-optical simulations based on the angular spectrum
+method (ASM). Fig. 3 shows the resulting far-field intensity
+distribution and the cross-section plot at 𝑦 = 0. The simulation
+confirmed that the 25 diffracted spots are generated with high
+contrast and uniform intensity. The quantitative analysis yielded an
+RMS uniformity error of 15.52% and a Peak-to-Valley (PV)
+deviation of 40.2% at the design wavelength ( 𝜆 = 650𝑛𝑚 ).
+Furthermore, multi-wavelength simulations (RGB) demonstrated
+that while the diffraction angles scale with wavelength, the 5x5
+array structure remains intact, supporting full-color operation
+within the expanded eye-box. It is worth noting that the observed
+intensity roll-off is primarily attributed to the sinc-envelope effect
+caused by the discrete pixel structure of the SLM relative to the
+grating period. Since the high-order diffraction efficiency naturally
+decays due to the finite pixel fill factor, the central order exhibits
+higher intensity than the peripheral orders. However, unlike
+random speckle noise, this non-uniformity is spatially continuous
+and deterministic. Therefore, it can be effectively compensated
+numerically by applying an inverse-intensity mask during the
+hologram generation process. By pre-calibrating the target intensity
+of the CGH, the system can deliver a perceptually uniform
+luminance across the entire expanded eye-box in practical
+implementation.
+
+Figure 3. (a) Far-field intensity distribution and (b) crosssection 1D intensity profile at 𝒚 = 𝟎
+
+3.3.
+
+Experimental Verification
+
+To experimentally validate the proposed Dammann grating design,
+we fabricated a master stamp using photolithography and evaluated
+its optical diffraction performance. The fabrication aimed to realize
+the optimized phase profile derived in Section 3 on a physical
+substrate. A 95𝑚𝑚 𝑥 95𝑚𝑚 aperture area was patterned on a
+photoresist layer spin-coated on a glass substrate. The phase depth
+was controlled by the exposure time and development process,
+targeting a 𝜙 phase shift at the design wavelength (𝜆 = 650𝑛𝑚).
+While nano-imprint lithography was considered for mass
+production, initial trials indicated that the replication process
+introduced significant handling errors and etch-depth mismatches
+(shrinkage), which distorted the zero-order intensity. Therefore, to
+accurately assess the validity of the optical design itself,
+independent of replication artifacts, we performed the optical
+evaluation directly on the PR master stamp. The optical
+reconstruction was analyzed using a collimated laser source (𝜆 =
+650𝑛𝑚). Fig. 4 shows the diffraction pattern captured from the
+fabricated PR master. The measured relative intensities of the 5x5
+diffraction orders are summarized in Table 2. The measurement
+shows a mean intensity of 2.45 with a standard deviation of 0.74.
+The zero-order intensity was measured at 4.4, which is higher than
+the average. However, the overall energy distribution demonstrates
+a clear 5x5 grid structure with sufficient uniformity for holographic
+imaging.
+
+SID 2026 DIGEST • 1069
+
+77-4 / J. Lee
+
+Figure 4. The diffracted light distribution with the designed
+wavelength(𝝀 = 𝟔𝟓𝟎𝒏𝒎) from the fabricated PR master
+Table 2. Measured relative intensity distribution of the
+diffraction orders from the Dammann grating.
+Orders (n\m)
+
+-2
+
+-1
+
+0
+
++1
+
++2
+
+-2
+
+2.5
+
+2.3
+
+2.9
+
+2.9
+
+2.7
+
+-1
+
+1.4
+
+2.7
+
+1.8
+
+1
+
+2.4
+
+0
+
+2.2
+
+3
+
+4.4
+
+3.3
+
+2.6
+
++1
+
+3.5
+
+2
+
+2.4
+
+1.5
+
+2.1
+
++2
+
+1
+
+2.8
+
+2.3
+
+1.8
+
+2.7
+
+4. Hologram Generation Stage
+To validate the proposed optical architecture and ensure highquality 3D image reconstruction within the expanded eye-box, we
+developed a comprehensive wave-optical simulation framework.
+This framework integrates a Fourier-domain hologram synthesis
+with a rigorous ABCD ray-matrix analysis to verify the wavefront
+curvature and ensure precise retinal focusing.
+
+4.1.
+
+Fourier Hologram Synthesis and
+Virtual Source Control
+
+The holographic signal generation is based on the Fresnel
+diffraction model. The spatial light modulator (SLM) is illuminated
+by a complex field generated from the target image. To compensate
+for the strong refractive power of the subsequent 4-lens relay
+system and to form a virtual image at a comfortable viewing
+distance, a specific Virtual Source Distance is applied at the SLM
+plane. The complex field on the SLM, 𝑈𝑠𝑙𝑚 , is synthesized by
+transforming the target image 𝐼𝑡𝑎𝑟𝑔𝑒𝑡 and modulating it with a
+quadratic phase term:
+𝑈𝑆𝐿𝑀 (𝑥, 𝑦) = 𝑭{𝐼𝑡𝑎𝑟𝑔𝑒𝑡 (𝑥, 𝑦)} ∙ exp (−𝑖
+
+𝜋
+𝜆𝑧𝑣𝑖𝑟𝑡𝑢𝑎𝑙
+
+(𝑥 2 + 𝑦 2 )) (3)
+
+where 𝜆 is the wavelength, and (𝑥, 𝑦) are the spatial coordinates. In
+our simulation, a positive 𝑧𝑣𝑖𝑟𝑡𝑢𝑎𝑙 is employed. This creates a
+converging wavefront at the source, which counteracts the
+cumulative positive power of the projection optics, ensuring that
+the final wavefront arriving at the eye is divergent (virtual image)
+and falls within the accommodation range of the driver. The optical
+propagation through the multi-lens system is numerically modeled
+using the angular spectrum method and Fresnel transfer functions.
+
+4.2.
+
+Optimization of Superimposed CGHs
+with Nested Eye-box
+
+The final stage of the pipeline addresses the signal integrity within
+the "nested" eye-box structure created by the overlapping
+
+diffraction orders. Since the Dammann grating generates a 5x5
+array of replicated viewing zones, the driver's pupil often captures
+a superposition of adjacent diffraction orders rather than a single
+isolated order. To maximize image quality under these conditions,
+our algorithm performs a wavelength-specific signal optimization
+at the detected pupil coordinates. The total optical field entering the
+eye is modeled as the sum of the shifted wavefields from the
+contributing diffraction orders. The simulation analyzes this
+superimposed signal intensity for each RGB wavelength
+independently. By evaluating the constructive and destructive
+interference patterns within the pupil, the system iteratively adjusts
+the initial hologram amplitude to ensure that the reconstructed
+image intensity matches the target distribution. This process
+effectively minimizes the non-uniformity caused by the discrete
+diffraction envelop and ensures consistent color balance and
+brightness even when the eye traverses the boundaries between
+replicated view zones.
+
+Figure 5. Numerical simulation results of (a) Before and (b)
+after optimization
+
+5. Conclusion
+In this study, we proposed a dual-SLM holographic HUD
+architecture integrated with a 5x5 Dammann grating, successfully
+achieving a 25-fold expansion of the eye-box while overcoming the
+space-bandwidth product limitations. Both geometric and waveoptical simulations verified the system's optical feasibility,
+demonstrating near-diffraction-limited performance and high
+uniformity of the replicated pupils. Although inherent chromatic
+aberrations and distortions were observed, they were effectively
+mitigated through our proposed pupil-adaptive CGH calibration
+scheme, ensuring clear and color-balanced 3D visualization.
+Consequently, this scalable architecture offers a practical and
+robust solution for next-generation wide-field-of-view automotive
+AR HUDs.
+
+6. Acknowledgements
+This work was supported by Institute of Information &
+communications Technology Planning & Evaluation (IITP) grant
+funded by the Korea government (MSIT) (No. 2019-0-00001,
+Development of Holo-TV Core Technologies for Hologram Media
+Services)
+
+7. References
+1.
+
+Skirnewskaja J, Wilkinson TD. Automotive holographic
+head-up displays. Adv Mater. 2022;34(19):2110463.
+
+2.
+
+Wang W, Zhu X, Chan K, Tsang P, et al. Digital holographic
+system for automotive augmented reality head-up-display.
+In: 2018 IEEE 27th International Symposium on Industrial
+Electronics (ISIE); 2018 Jun 13-15; Cairns, Australia. IEEE;
+2018. p. 1327-30.
+
+SID 2026 DIGEST • 1070
+
+

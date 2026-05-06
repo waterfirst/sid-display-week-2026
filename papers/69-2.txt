@@ -1,0 +1,430 @@
+69-2 / S. Ryu
+
+Display Simulation Model-based Backlight Optimization and Compensation
+for Enhanced Picture Quality FALD Displays
+Seungchul Ryu*, Hyunjin Yoo, and Jean Lorchat
+Forvia Faurecia, QC, Canada
+aiden.ryu@forvia.com*
+
+Abstract
+Full-array local dimming displays have been considered highly
+desirable and promising across diverse applications, such as automotive digital clusters, cockpit displays, home appliances, and
+advertisements. However, despite the high potential to deliver a
+high dynamic range of picture quality, previous local dimming
+optimization and compensation algorithms limit the picture quality of full-array local dimming displays mainly due to halo artifacts. This paper proposes the display simulation model-based
+compensation algorithm as well as the backlight optimization algorithms for full-array local dimming displays. Experimental results on three full-array local dimming displays show that the
+proposed method outperforms the compared methods in qualitative/quantitative picture quality and power saving.
+
+Author Keywords
+full-array local dimming; display simulation model; halo artifacts;
+high contrast; high dynamic range display; backlight optimization
+
+1. Introduction
+Full array local dimming displays (FALD) have been considered
+highly desirable and promising in diverse applications: automotive cockpit displays, digital clusters, infotainment displays, advertisement, and home appliances [1]. FALDs are capable of delivering high contrast by selectively dimming backlight zones in
+darker areas, resulting in significantly enhanced, deeper blacks and
+improved overall picture quality. Despite high contrast and superior picture quality, FALDs suffer from undesirable artifacts such
+as halos and luminance non-uniformity. Several studies have been
+conducted to improve the viewing experience and deal with the artifacts, including backlight optimization algorithms [2, 3, 4, 5, 6, 7, 8]
+and compensation algorithms [9, 10].
+Picture quality of FALDs is affected by the combination of the backlight optimization algorithm, the displayed image, and the backlight
+characteristics [11, 12]. Despite its promising potential to deliver
+high dynamic range picture quality, there is a lack of compensation methods for FALDs to address halo artifacts and inconsistent
+luminance values across different content and backlight zones [11].
+Thus, it is crucial to develop effective compensation methods for
+practical FALD systems to be successful.
+This paper proposes an effective and efficient framework to obtain high picture quality while reducing the power consumption of
+FALD systems. The main contributions of this paper are summarized as follows.
+•
+
+This paper proposes a content-adaptive and luminanceconsistent backlight optimization method, which provides
+high contrast and brightness consistency across different
+images.
+
+•
+
+This paper proposes a display simulation model-based
+
+Figure 1: The block diagram of the proposed method
+compensation algorithm, which effectively compensate
+halo artifacts and increases luminance uniformity.
+•
+
+Qualitative and quantitative experimental results prove that
+the proposed method achieves high picture quality while
+significantly reducing power consumption in FALD systems.
+
+The remainder of this paper is organized as follows. Section 2 describes the proposed display simulation model-based backlight optimization and compensation algorithm in detail. Experimental results are analyzed in Section 3. Lastly, Section 4 concludes this
+paper with some future works.
+
+2. Proposed Method: Display Model-based Backlight Optimization and Compensation
+The backlight optimization and compensation algorithms play a
+crucial role in delivering high-quality pictures in an FALD system.
+This paper presents a display simulation model-based backlight optimization and compensation algorithm as an advanced variant of
+[1, 9, 11].
+As illustrated in Fig. 1, the proposed method mainly consists of two
+modules: the backlight optimization module and the compensation
+module. The proposed method takes an image, I, and a display
+profile, P, as input. The display profile, P, includes the dimensions
+of the backlight and the point spread function (PSF) profile of one
+backlight LED.
+Backlight Optimization Module: The backlight optimization
+module generates a backlight control index, b, based on the luminance of the input image I. The input image, I, is first divided into
+grids, with each grid, gi∈Nz , centered at the location of a backlight
+LED, where i indicates the ith backlight zone and Nz indicates the
+number of zones. The maximum luminance value is selected as
+the backlight control index for each grid, bi . The generated backlight control index is normalized into (0 - 1) to obtain bn . Then,
+bn is multiplied by the brightness consistency control value, sc ,
+to generate the backlight control index, b, which delivers consis-
+
+SID 2026 DIGEST • 953
+ISSN 0097-996X/26/5701-0953-$1.00 © 2026
+
+69-2 / S. Ryu
+
+(a) I
+
+(b) B
+
+(c) IL
+
+(d) II
+
+(e) IP
+
+(f) Ic
+
+Figure 2: Examples of intermediate results. (a): input image, I, (b): diffused backlight map, B, (c): perceptual image for the
+FALD display, IL , (d): perceptual image for the ideal display, II , (e): perceptual image for the compensated image on the
+FALD display, IP , (f): compensated image, Ic
+tent brightness across different images. The brightness consistency
+control value, sc is defined as sc = bt /max bn , where bt represents
+the target brightness of the display.
+Compensation Module: Display Models and Compensation Algorithm: The compensation module takes an image (I),
+display profile (P), and the generated backlight control index (b)
+as input and generates the compensation layer (C). The compensation layer, C, is combined with the input image, I, to compensate
+for potential halo artifacts and inconsistent luminance/color in different zones. In the compensation module, the diffused backlight
+map, B, is first generated as follows:
+Bp =
+
+∑
+
+bi · P(|p − zi |2 )
+
+(1)
+
+i∈Nz
+
+where Bp is the diffused backlight map value at the pixel, p, and P
+represents the PSF of each LED. bi and zi represent the ith backlight control index and the center location of the ith backlight LED
+zone, respectively. ||2 indicates the L2 norm. The diffused backlight map, B, is then used to generate the perceptual image for the
+FALD display, IL , based on the FALD display model as follows:
+IL,k = Ik γ · B + Lbl + κ · ((1 − Ik γ ) · B + Lbl )
+
+(2)
+
+where the subscript k ∈ (R, G, B) represents the color channel. γ
+is the sRGB transfer parameter, determined by the display characteristic (2.2 as the default). Lbl and κ indicate the black level luminance of the FALD display in cd/m2 and the display light leakage,
+respectively. Then, the perceptual image for the ideal display, II ,
+is generated as follows:
+II,k = Ik γ · 1 + Lbi
+
+(3)
+
+where 1 indicates an all-one matrix, and Lbi indicates the black
+level luminance of the ideal display in cd/m2 . Note that the ideal
+display model, (3), can be derived from the FALD display model,
+(2), by setting the display light leakage, κ, to zero, and the resolution of the backlight, b to be the same as the display resolution.
+Based on the FALD perceptual image and the ideal perceptual image, the compensation layer, C is computed as follows:
+C=
+
+II
+IL + ε
+
+(4)
+
+where ε is an adopted small constant value to mitigate potential
+divide-by-zero errors. Then, the computation layer, C, is combined
+with the input image, I, to generate the compensated image Ic , as
+follows:
+
+Ic = I · C = I ·
+
+II
+IL + ε
+
+(5)
+
+The compensated image, Ic , is displayed on FALD displays where
+the generated backlight control index, b, controls backlight LEDs.
+Examples of intermediate results from the proposed algorithm are
+shown in Fig. 2.
+
+3. Experimental Results
+Experimental Setups : In order to evaluate the performance
+of the proposed method, it is compared with five different algorithms: backlight optimization and compensation, on three FALD
+displays: FALD#1 with 252 zones and 2560x1440 image resolution, FALD#2 with 200 zones and 3840x2160 image resolution, and
+FALD#3 with 270 zones and 1920x720 image resolution.
+In the experiments, 26 original images were adopted and processed with different local dimming algorithms (LDA). The proposed method is compared with 5 different LADs. LAD1 is a highcontrast backlight optimization with a pixel-wise compensation,
+and LDA2 is a low-contrast backlight optimization with a pixelwise compensation. LDA3 is a medium-contrast backlight optimization without a compensation algorithm, and LDA4 is a highcontrast backlight optimization without a compensation algorithm.
+LDA5 is full-backlight-on backlight optimization without a compensation algorithm. Due to high-contrast backlight optimization,
+LDA1 and LDA4 suffer severe halo artifacts. The quantitative picture quality is evaluated in terms of the perceptual contrast, halo
+artifacts, luminance uniformity, and brightness consistency. In addition, power consumption is also analyzed. Radiant ProMetric I29
+Imaging Photometer [13] and XRite i1Pro [14] were used to capture
+the luminance of the displayed image on FALD displays.
+Quantitative Evaluation - Metrics : As recommended in [11],
+the global contrast ratio, Cg , and local contrast ratio, Cl , are used
+to measure the perceptual contrast of FALD displays, which are
+defined as follows:
+Lmax + ε
+(6)
+Cg =
+Lmin + ε
+1 ∑ Lb + ε
+N r j Ld + ε
+Nr
+
+Cl =
+
+(7)
+
+where Lmax and Lmin represent the maximum and minimum luminance values within the entire image, respectively. Nr represents
+the number of selected regions. Lb and Ld represent the brightest
+and darkest luminance values within each region, respectively.
+For halo artifact evaluation, the halo size and halo luminance are
+used, which are measured on a specifically designed pattern image,
+
+SID 2026 DIGEST • 954
+
+69-2 / S. Ryu
+Table 1: Evaluation of the proposed method compared with different LDAs on FALD#1, FALD#2, and FALD#3. P represents
+power consumption. Higher values indicate better for Cg and Cl while lower values indicate better for ξ, Λ, Uz , Uz , and P.
+Cg
+
+Cl
+
+ξ
+
+LDA1
+LDA2
+ours
+
+1201.6
+670.9
+1501.7
+
+41.3
+21.2
+56.1
+
+LDA3
+LDA4
+Ours
+
+367.9
+481.1
+534.5
+
+24.5
+25.1
+30.5
+
+LDA5
+Ours
+
+841.1
+2237.2
+
+58.5
+80.6
+
+Λ
+Uz
+FALD#1
+1.72 0.20%
+8.6%
+1.70 0.10% 10.3%
+0.85 0.06% 4.4%
+FALD#2
+FALD#3
+-
+
+where the white square of the backlight zone size spans two different zones [11]. The halo size, ξ, is defined as the relative size of the
+halo to the backlight zone size as follows:
+ξ=
+
+dH
+X
+
+(8)
+
+where X and dH represent the size of the backlight zone and the
+size of the halo, respectively. The halo luminance, Λ, is defined
+as the relative luminance of the halo to the peak luminance at the
+center of the zone, which is defined as follows:
+Λ=
+
+Lzb
+Lp
+
+(9)
+
+where Lzb and Lp represent the luminance of the halo at the zone
+boundary and the peak luminance within the backlight zone, respectively. Please refer to [11] for more details.
+In order to measure the luminance uniformity across different zones
+within an image, Uz is employed, defined as:
+√∑
+Nx
+2
+x (Lx − Lm )
+Uz = 100%
+(10)
+Lm
+1 ∑
+Lx
+Nx x
+
+Uc
+
+P (mW/nit)
+
+-
+
+17
+21
+12
+
+15.6%
+20.1%
+6.5%
+
+93
+62
+58
+
+-
+
+27
+12
+
+Quantitative Evaluation - Results : Table 1 shows the analysis comparison of the proposed method with other algorithms on
+three FALDs: FALD#1, FALD#2, FALD#3. As shown in Table 1,
+the proposed method shows higher contrast on all three different
+FALDs. On average, 72% of the local contrast and 126% of the
+global contrast were increased. Also, the proposed method significantly reduced the halo size and the halo luminance compared to
+LDA-1 and LDA-2 on FALD#1. On average, 70% of halo size,
+ξ, and 50% of halo luminance, Λ, were reduced. Further, the proposed method decreases Uz by 5% and Uc by 11.3% on FALD#1
+and FALD#2, respectively, demonstrating that it provides higher
+brightness and greater luminance consistency.
+In addition to the picture quality measurements, we also analyzed
+the power consumption of different algorithms. As shown in Table
+1, the proposed method consumed the least power, achieving an average of 35% power savings compared to the compared algorithms.
+In summary, the proposed method provides superior picture quality
+compared to other algorithms in terms of contrast, halos, luminance
+uniformity, and brightness consistency, while reducing power consumption.
+
+Nx
+
+Lm =
+
+(11)
+
+where Lx and Lm represent the luminance value for each measured point, x, and the average luminance value of all the measured
+points. Nx is the number of the measured points.
+The content across luminance uniformity, Uc , is used to evaluate the
+brightness consistency, which measures how the maximum brightness varies across different contents.
+√∑
+Ny
+2
+y (L̂y − L̂m )
+Uc = 100%
+(12)
+L̂m
+1 ∑
+L̂y
+Ny y
+Ny
+
+L̂m =
+
+(13)
+
+where L̂y and L̂m represent the max-luminance value for each image, y, and the average max-luminance value of all the images. Ny
+is the number of images.
+
+Qualitative Evaluation : In addition to the quantitative evaluation, this paper qualitatively compares the picture quality of the
+proposed method. Fig. 3 depicts the luminance image of the proposed method and the compared algorithm captured by the Radiant
+imaging sensor [13] on FALD#1 display, showing that the perceptual quality of the proposed method is superior to the compared
+algorithm.
+
+4. Conclusion
+This paper proposes display simulation-based backlight optimization and compensation algorithms. Quantitative and qualitative
+analysis on diverse FALD displays showed outperforming results
+of the proposed method in contrast ratio, halo artifact reduction,
+brightness consistency, luminance consistency, and power consumption. Future works will include color space compensation and
+an on-the-fly display profiling algorithm for enhanced practical usage.
+
+SID 2026 DIGEST • 955
+
+69-2 / S. Ryu
+
+(a) LAD2
+
+(b) Ours
+
+Figure 3: Qualitative evaluation of the proposed method. Luminance images are captured by the imaging sensor, which was
+displayed on FALD#1. (a) The left columns are LAD2, and (b) the right columns are the proposed method.
+References
+[1] Phillips J, Tarabay N, Okon A, Yoo H, Lorchat J. Balancing
+Cost and Quality Goals with Full-Array Local Dimming
+Displays. Information Display. 2025;41(1):12-6.
+[2] Zhang XB, Wang R, Dong D, Han JH, Wu HX. Dynamic
+backlight adaptation based on the details of image for liquid
+crystal displays. Journal of Display Technology.
+2012;8(2):108-11.
+[3] Narwaria M, Da Silva MP, Le Callet P. Dual modulation for
+LED-backlit HDR displays. In: High Dynamic Range
+Video. Elsevier; 2016. p. 371-88.
+[4] Lin FC, Huang YP, Liao LY, Liao CY, Shieh HPD, Wang
+TM, et al. Dynamic backlight gamma on high dynamic
+range LCD TVs. Journal of Display Technology.
+2008;4(2):139-46.
+[5] Zhang T, Wang Y, Wu H, Li M, Lei Z. High-performance
+local-dimming algorithm based on image characteristic and
+logarithmic function. Journal of the Society for Information
+Display. 2019;27(2):85-100.
+[6] Zhang T, Zhao X, Pan X, Li X, Lei Z. Optimal local
+dimming based on an improved shuffled frog leaping
+algorithm. IEEE Access. 2018;6:40472-84.
+[7] Cha S, Choi T, Lee H, Sull S. An optimized backlight local
+dimming algorithm for edge-lit LED backlight LCDs.
+Journal of Display Technology. 2015;11(4):378-85.
+
+[8] Chung H, Tarabay N, Okon A, Yoo H. 79-4: Efficient Deep
+Learning-based Backlight Extraction for Local Dimming
+Display. In: SID Symposium Digest of Technical Papers.
+vol. 55. Wiley Online Library; 2024. p. 1104-7.
+[9] Tarabay N, Yoo H, Akhavan T. Simulation tool and pixel
+compensation methods for local and global dimming
+displays. In: Proceedings of Electronic Displays
+Conference. Nuremberg, Germany; 2022. .
+[10] Song SJ, Kim YI, Bae J, Nam H. Deep-learning-based pixel
+compensation algorithm for local dimming liquid crystal
+displays of quantum-dot backlights. Optics express.
+2019;27(11):15907-17.
+[11] Ryu S, Yoo H, Lorchat J, Hermann DS. Objective Picture
+Quality Measurements of Local Dimming Displays:
+Methods and Comparison. In: Proceedings of the Vehicle
+Displays and Interfaces Symposium. Detroit, MI, US; 2025. .
+[12] Blankenbach K, Bhatti F. 35-1: Halo Mura of OLED and
+FALD LCD: Measurements and Perception for Automotive
+Displays. In: SID Symposium Digest of Technical Papers.
+vol. 53. Wiley Online Library; 2022. p. 424-7.
+[13] Radiant I29;. Available from: https://www.
+radiantvisionsystems.com/about-us/news/
+radiant-introduces-prometric-i29-ultra-high-resolutionimaging[14] i1Pro;. Available from:
+https://vpixx.com/products/x-rite-i1pro/.
+
+SID 2026 DIGEST • 956
+
+

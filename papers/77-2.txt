@@ -1,0 +1,297 @@
+77-2 / K. Jin
+
+High-resolution Automotive Light-field Head-Up Display with Eye-Tracking
+Kang Jin, Xinwei Shu, Han-Tsung Hsueh, Qing Zhong, Yunfan Wang
+Zhejiang Chief Technology Co.,Ltd, Shanghai, China
+
+Abstract
+A high-resolution head-up display for automotive applications
+has been developed. Light field display technology with eye tracking is employed for extended virtual image distance and 3D augmented perception. A field of view of 15° × 5° and an angular
+resolution of 76.8 pixels per degree is obtained, with a crosstalk
+as low as 1.7 %, yielding an broader potential for automotive applications.
+
+Author Keywords
+Head-Up Display; 3D Display; Automotive; Eye tracking.
+
+Figure 1. Comparison of typical HUD (left) and 3D-HUD
+(right).
+
+1. Introduction
+The head-up display (HUD) technology has evolved from Combiner HUD and Windshield HUD to Augmented Reality (AR)
+HUD [1], achieving an increasingly wider field of view (FOV) and
+the capability to deliver more information, thereby raising higher
+demands for AR-HUD capabilities. The requirement of integrating information with real-world driving scenarios cannot be adequately met by traditional HUD systems with a single fixed virtual
+image distance (VID). When the VID of displayed information does
+not align with the actual distance of the corresponding real-world
+scene, the human eye is forced to continuously adjust convergence
+between the two distances, causing driving fatigue and ultimately
+compromising road safety. Research has attempted to establish the
+relationship between VID and human visual comfort, aiming to optimize HUD display performance [2]. These efforts have indeed derived some design constraints for AR-HUD systems, contributing
+to more comfortable viewing experiences. However, this approach
+does not fundamentally resolve the core issue.
+On the other hand, autostereoscopic 3D display technology has
+gradually advanced, evolving from multi-view displays to lightfield displays and further to more promising holographic display
+technologies [3]. The primary goal of autostereoscopic 3D displays
+is to present three-dimensional effects, inherently addressing the
+issue of convergence. Consequently, integrated solutions combining 3D display technology with AR-HUD systems have emerged.
+Moreover, the problem of accommodation-convergence conflict
+(AC conflict) encountered in most 3D displays is reduced in HUD
+applications with further VID [4], making the two technologies a
+natural fit.
+Given that the more viewpoints autostereoscopic 3D displays provide, the fewer pixels can be allocated to a single position, in the
+context of driving applications, since the HUD only needs to be
+viewed by the driver alone, the optimal choice is to add eye-tracking
+functionality, which enables real-time allocation of more information directly to the driver’s eyes.
+Lee etc. integrate autostereoscopic 3D display technology with
+HUD systems, proposing a comprehensive framework encompassing cylindrical lens arrays, projection optics, eye-tracking, and fusion algorithms [5]. This type of system that offers 3D information,
+shall it be called 3D-HUD, addresses the convergence conflict between real and virtual scenes, alleviating driver fatigue [6] while
+
+Windshield
+
+Eyebox
+
+Camera
+Virtual Image
+
+Mirror2
+
+Mirror1
+
+Light Field Display
+
+Figure 2. A general illustration of a 3D-HUD system, with a
+light-field display as the image source.
+
+enhancing the immersion of virtual scenes, thereby further improving driving safety comparing to conventional AR-HUD systems, as
+illustrated in Figure 1.
+Higher performance metrics, such as a larger field of view and
+higher angular resolution, are critical factors for the successful market adoption of a HUD system. In this paper, a high-resolution 3DHUD system that utilizes light field display technology is proposed.
+With eye-tracking, the driver sees accurate 3D scenes. An angular
+resolution of 76.8 PPD allows the driver to view a clear, grain-free
+image, while a 15° horizontal field of view that partially covers 3
+lanes ahead enables richer interactive content.
+
+2. System Design
+A LCD panel with 3840 × 2160 resolution is reflected by two freeform surface mirrors and the windshield, yielding an eye-box zone
+of 130 mm × 50 mm. The VID is optimized for automotive applications [2], with a field of view of 15° × 5°, yielding a virtual image
+with width greater than 1 m. An eye-tracking system is attached on
+the windshield to monitor the positions of the driver’s eyes. The
+optical layout is shown in Figure 2.
+Micro-structures are laminated on the LCD panel to form a lightfield display, with a slanted angle to avoid Moiré patterns. The
+design parameters of the lens such as the radius, thickness, sag and
+pitch is carefully optimized to match the properties of the 4K panel
+and the viewing angle, which will be discussed later, and reduce the
+crosstalk at the eye-box zone.
+The eye-tracking system contains a camera and a structured light
+
+SID 2026 DIGEST • 1059
+ISSN 0097-996X/26/5701-1059-$1.00 © 2026
+
+77-2 / K. Jin
+Polarizer
+
+Pixel Mapping A total latency, from the exposure of the eyetracking camera to the refresh of the LCD panel, of approximate 60 ms is attained after optimization. A light-field mapping
+algorithm that correlates viewpoint positions, the locations of the
+micro-structures on the panel surface, and panel pixel coordinates
+is employed. The algorithm treats the two free-form lenses and the
+windshield as an effective lens, helping reducing the complexity of
+the ray-tracing relationship. This approach enables precise allocation of information to the left and right eyes.
+
+Micro-structures
+OCA
+
+CF Glass
+
+Figure 3. Illustration of stacked layers of LCD panel.
+eyebox
+
+1
+0.8
+
+As a result of optical aberrations and machining errors, The HUD
+system suffers from significant imaging distortion, both statically
+and dynamically. Dynamic distortion is defined in the paper as the
+different distortion distributions, which deviate from the designed
+image plane, observed at different positions within the eye-box, as
+shown in Figure 7. The dynamic distortion causes different distributions between the two eyes and unexpected movement of the
+image plane when the head moves, leading to visual fatigue and
+failure of augmented reality.
+
+0.6
+0.4
+0.2
+4.7%
+
+0
+-85 -75 -65 -55 -45 -35 -25 -15 -5
+LKRW
+
+5
+
+LWRK
+
+15
+
+25
+
+crosstalk
+
+35
+
+45
+
+55
+
+65
+
+75
+
+85
+
+W4.7%=20.6mm
+
+Figure 4. Crosstalk chart of the display.
+
+source with a rapid pupil-detecting algorithm outputting positions
+of the driver’s eyes. The 3D position of the two eyes will be sent
+to the light-field mapping algorithm to allocate the corresponding
+pixels for both eyes.
+
+3. Experiments
+Micro-structures An optimal pitch size is chosen, with a total
+thickness less than 500 µm. In this case, we had to remove the polarizer and thin the color filter (CF) glass of the liquid crystal (LC)
+box to achieve our required total optical thickness. After that, the
+polarizer was adhered on the top of the micro-structures to recover
+the function of the LCD panel. The illustration of the final structure
+is shown in Figure 3.
+Crosstalk The result of the ray-tracing simulation shows a
+crosstalk in the eye-box of as low as 1.7 % and high-crosstalk slope
+width of 20.6 mm based on a additional crosstalk of 3 %, based on
+the measurement method of Lee etc. [5]. The distribution of the
+crosstalk is shown in Figure 4.
+Resolution A comparison of the viewing experience between 2K
+and 4K panels under the same sub-pixel configuration is simulated.
+Both configurations are optimized according to the panels’ properties. The zoomed areas show significant difference between the
+two virtual images, as shown in Figure 5.
+The angular resolution is defined as
+AR =
+
+3 × PR
+p × FOV
+
+(1)
+
+where AR denotes the angular resolution, PR denotes the pixel resolution of the LCD panel, p denotes the number of sub-pixels under a
+single structure, and FOV denotes the horizontal FOV correspondingly. Based on Equation (1), the angular resolution of the system
+is 76.8 PPD.
+We also separate the whole display area into two parts: an AR area
+with angular resolution of 76.8 PPD providing 3D augmented experience over real scenes and an indicator area with angular resolution
+of 256 PPD providing higher resolution for detailed information.
+The combination of the two different areas provides flexible configuration for automotive applications. The shape of the two areas
+are shown in Figure 6.
+
+To reduce the dynamic distortion, a calibration algorithm that correlates distributions of images planes at multiple eye positions is
+employed. It helps reducing the root mean square error (RMSE) of
+the grid to approximately 2.2 arcmin in vertical direction, which is
+lower than the 5 arcmin level of the vertical disparity that is free of
+visual comfort proposed by Tyler etc. [7], yielding a comfort viewing experience in the calibration zone.
+Demonstration The system is installed in a BMW iX, as shown
+in Figure. 8. A captured picture of the displayed content in the
+optimized eye-box position is shown in Figure 9.
+
+4. Discussion
+Resolution Generally, the total thickness of the micro-structures
+decreases as the pitch decreases. For the 4K panel, it is almost impossible to further decrease the pitch size as it is limited by the
+thickness of the top glass of the LC box. As a result, the angular
+resolution of the display is also limited as it is closely related to the
+pitch size.
+Uniformity The system has relatively low uniformity. The disuniformity is generally caused by two main factors:
+1. The crosstalk caused by the aberrations of the system. It is
+hard to control the aberrations of the whole system with such
+large viewing angle. System aberrations not only affect the
+shape of the virtual image but also influence the distribution
+of crosstalk, disrupting the ideal pixel mapping relationship
+and resulting in localized crosstalk.
+2. The rearrangement of the layers of the LCD causes decrement
+of the display contrast, which further amplifies the disuniformity.
+
+5. Conclusion
+A high-resolution 3D-HUD system is proposed. A 4K LCD panel
+with micro-structures is employed, offering 3D experience utilizing eye-tracking technology. Crosstalk as low as 1.7 % and angular
+resolution of 76.8 PPD are attained. Some defects such as disuniformity are to be further solved.
+Through this system we explore the feasibility of applying highresolution 3D-HUDs in actual vehicles and aim to gradually address
+their existing issues in subsequent stages.
+
+SID 2026 DIGEST • 1060
+
+77-2 / K. Jin
+
+(a)
+
+(b)
+
+Figure 5. Comparison of simulation of virtual images of the same optical layout with (a) 4K and (b) 2K panel and corresponding
+lens arrays.
+
+Virtual Image
+AR area
+76.8 PPD
+
+Camera
+HUD
+
+indicator area
+256 PPD
+
+Figure 6. Illustration of two areas for different application.
+
+Figure 8. A view of the HUD system installed in a BMW iX.
+
+Figure 7. Illustration of the dynamic distortion. Dot grids in
+different colors represent distributions of a standard dot grid
+captured at different eye positions. The green and red rectangle shows the largest inscribed and smallest circumscribed
+rectangles of the visible areas.
+
+6. References
+References
+[1] Zhou C, Qiao W, Hua J, Chen L. Automotive Augmented
+Reality Head-Up Displays. Micromachines. 2024
+
+Figure 9. A demonstration picture displayed and captured on
+a BMW iX. Ghost images can be seen due to the reflection of
+the other layer of the windshield glass.
+
+Mar;15(4):442.
+[2] Broy N, Höckh S, Frederiksen A, Gilowski M, Eichhorn J,
+Naser F, et al. Exploring Design Parameters for a 3D
+Head-Up Display. In: Proceedings of The International
+Symposium on Pervasive Displays. Copenhagen Denmark:
+ACM; 2014. p. 38-43.
+
+SID 2026 DIGEST • 1061
+
+77-2 / K. Jin
+[3] Holliman NS, Dodgson NA, Favalora GE, Pockett L.
+Three-Dimensional Displays: A Review and Applications
+Analysis. IEEE Transactions on Broadcasting. 2011
+Jun;57(2):362-71.
+[4] Soomro SR, Urey H. Visual Acuity Response When Using
+the 3D Head-up Display in the Presence of an
+Accommodation-Convergence Conflict. Journal of
+Information Display. 2020 Apr;21(2):93-101.
+[5] Lee Jh, Yanusik I, Choi Y, Kang B, Hwang C, Park J, et al.
+Automotive Augmented Reality 3D Head-up Display Based
+
+on Light-Field Rendering with Eye-Tracking. Optics Express.
+2020 Sep;28(20):29788.
+[6] Lee TH, Jeong YJ. Visual Perception of Distance in
+3D-augmented Reality Head-up Displays. Journal of the
+Society for Information Display. 2024 Aug;32(8):592-604.
+[7] Tyler CW, Likova LT, Atanassov K, Ramachandra V, Goma S.
+3D Discomfort from Vertical and Torsional Disparities in
+Natural Images. In: IS&T/SPIE Electronic Imaging.
+Burlingame, California, USA; 2012. p. 82910Q.
+
+SID 2026 DIGEST • 1062
+
+

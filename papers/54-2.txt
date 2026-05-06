@@ -1,0 +1,221 @@
+54-2 / S. Watanabe
+
+Novel P-polarized Light Reflection Screen
+for AR-HUD with Wide Field of View
+Shinya Watanabe, Shusuke Arita, Akihiro Anzai, Katsuyuki Takada and Yoji Ito
+Advanced Functional Materials Development Center and Electronic Strategy Headquarters,
+FUJIFILM Corporation
+210, Nakamura, Minamiashigara-shi, Kanagawa 250-0193, JAPAN
+E-mail: shinya.a.watanabe@fujifilm.com
+Abstract
+We have developed a P-polarized reflection screen for automotive
+windshields that suppresses ghost images in a multi-focal, wide
+field of view (FOV) augmented reality head-up display (ARHUD). By incorporating a novel polarization conversion layer
+that compensates for polarization changes induced by phase
+differences across a wide FOV, the proposed technology achieves
+effective ghost suppression. This advancement facilitates the
+development of clearer AR displays in HUD, enhancing both
+driver safety and user convenience.
+
+Author Keywords
+Liquid crystals; Cholesteric liquid crystals; Head-up displays;
+Wide FOV; Reflection screen.
+
+1. Objective and Background
+Recent developments in augmented reality (AR) display
+technologies, including AR glasses and smart helmets, have
+accelerated the demand for intuitive information presentations
+within diverse environments. In the automotive field, AR head‑up
+displays (AR‑HUDs) that superimpose virtual content onto the
+windshield are rapidly advancing. Key technical requirements
+include expansion of the field of view (FOV), improved depth
+rendering through multi‑focal projection, and enhanced visual
+clarity under varying driver’s viewpoints (Figure1).
+
+Figure 1. Conceptual image of the future AR-HUD
+
+Wedge-shaped PVB is currently used in automotive HUD screens.
+Ghost images are eliminated by adjusting the wedge angle to
+superimpose the virtual images created by reflections from the
+inner and outer surfaces of the windshield. However, if the focal
+length of the virtual image or the driver’s viewpoint shifts, the
+superimposition of the virtual images becomes misaligned,
+leading to the occurrence of ghost images [1]. Additionally, since
+S-polarized light reflection at the glass surface is utilized, HUD
+images become invisible when the driver wears polarized
+sunglasses [2].
+To address these issues, solutions using P-polarized light have
+been proposed to suppress ghost images and ensure visibility
+when wearing polarized sunglasses [1,2]. Setting the angle of
+incidence θ of the light from the imager to the windshield to 56–
+65°, and using P-polarized output, the surface reflectance of glass
+(n=1.5) can be suppressed to 0–1.3% [3], thus reducing ghost
+images.
+A P-polarized reflection screen is designed to achieve high
+reflectivity for P-polarized light while still maintaining the level
+of transmittance required by automotive windshield regulations. A
+common method of P-polarized reflection is to deposit thin films
+of inorganic and metallic materials onto the windshield [4].
+However, metallic layers inherently absorb visible light, making it
+challenging to simultaneously achieve both high transmittance
+and high reflectance.
+Linear polarization reflection technologies that do not absorb
+visible light include polymer-based multilayer films composed of
+alternating layers with different refractive index anisotropies [5],
+and cholesteric liquid crystals combined with quarter wave plates
+(QWP) [6]. Although these approaches do not absorb visible light,
+they exhibit a different limitation: The phase difference inherent
+in the reflective screen itself alters the polarization state of light
+transmitted through it. Particularly for wide-FOV HUDs, this
+phase-difference effect can also vary depending on the azimuth
+angle (φ) of the incident light. Consequently, the transmitted light
+may contain undesirable S-polarized components (Figure 2),
+potentially leading to the generation of ghost images.
+
+Figure 2. Requirements and issues for P-Polarized Reflection Screens
+
+SID 2026 DIGEST • 751
+ISSN 0097-996X/26/5701-0751-$1.00 © 2026
+
+54-2 / S. Watanabe
+This S-polarized light increases reflection at the outer surface of
+the windshield, resulting in ghost images. Therefore, suppressing
+ghost images requires ensuring that the light transmitted through
+the reflective screen remains P-polarized.
+
+Therefore, we devised a concept in which a PCL is incorporated
+to convert the transmitted light into P-polarized light across a
+wide FOV, thereby suppressing ghost images (Figure 5).
+
+Given this background, we developed a P-polarized light
+reflection screen that can suppress ghost images over a wide FOV.
+This performance was achieved through a newly designed
+polarization‑conversion layer (PCL) that utilizes liquid‑crystal
+alignment technology to control light transmitted through the
+reflective layer into P-polarization not only in the driver's front
+direction but also across a wide FOV. This paper details our
+reflection screen.
+
+2. Results
+2-1. Design of the Polarization Conversion Layer
+To validate the design of the polarization conversion layer (PCL),
+a linear polarization reflection screen with a QWP/CLC
+configuration was used as a reference structure. This
+configuration combines a quarter-wave plate (QWP) that converts
+P-polarized light to circularly polarized light and a cholesteric
+liquid crystal layer (CLC) that reflects circularly polarized light.
+PCL was applied to the side opposite QWP of CLC, forming the
+new configuration (Figure 3).
+
+Figure 5. Concept for ghost suppression using PCL
+We designed a new PCL using liquid crystal alignment
+technology to control the liquid crystal's Δn・d and alignment
+state. Figure 6 shows the simulation results for the azimuthal
+dependence of the P-polarized light ratio in the reference
+configuration (QWP/CLC) and the new configuration
+(QWP/CLC/new PCL). Light incident on the screen was set with
+a polar angle θ = 65° and an azimuth angle φ = 0 ± 10°, assuming
+a wide FOV HUD. The CLC was designed such that the average
+P-polarized reflectance at 450 nm to 650 nm with θ = 65° is 26%.
+
+Figure.3 Sample configuration for PCL
+verification
+The polarization state of light transmitted through the reference
+configuration screen is shown in Figure 4. Light transmitted
+through the screen becomes a mixed polarization state containing
+S-polarized light, which causes ghost images. To suppress ghost
+images, it is necessary to convert the polarization state of this
+transmitted light to P-polarized light.
+Figure 6. Simulation results of azimuth dependence
+of the P-polarization ratio in transmitted light.
+While the reference configuration showed a decrease in the Ppolarization ratio with an increasing azimuth angle, the new
+configuration exhibited reduced azimuth dependence. This
+achieved a P-polarization ratio of over 97% in calculations.
+2-2. Verification of the Polarization Conversion Layer
+
+Figure 4. Image of the polarization state of
+transmitted light in the reference configuration.
+
+P-polarized reflection screens were fabricated for both the
+reference configuration and the new configuration. The HUD
+image was observed by varying the azimuth angle (Figure 7). To
+estimate the ghost image caused by light reflecting off the outer
+surface of the glass after light passing through the screen, the
+reflection screen was laminated onto the viewing side of the glass.
+While the ghost images were visible with the reference
+configuration, no ghost images were visible with the new
+configuration, even as the azimuth angle changed.
+
+SID 2026 DIGEST • 752
+
+54-2 / S. Watanabe
+
+Figure 7. Verification of the ghost suppression effect with new PCL.
+Furthermore, Table 1 shows the performance of a sample in which
+a P-polarized reflection screen was laminated inside the laminated
+glass. It was confirmed that the new configuration showed no
+difference in performance compared to the reference
+configuration in terms of transmittance and appearance color.
+Furthermore, durability evaluation showed minimal changes in Ppolarized light reflectance and haze, making it suitable for
+automotive applications. Additionally, the P-polarized reflection
+screen in the new configuration can be manufactured using rollto-roll processing and is applicable to windshield sizes (Figure 8).
+Table 1. Performance of the reflective screen
+with new PCL.
+
+1340mm
+width
+
+3. Conclusion
+We designed a novel PCL that controls the polarization state of
+light passing through the reflection layer into P-polarized light.
+This demonstrates its ability to suppress the ghost images over a
+wide FOV. As AR-HUD technology evolves to enable virtual
+images to be superimposed over a wide area based on background
+position, we believe that applying this technology will enable
+clearer AR displays, expand the expressive freedom of AR-HUD,
+and contribute to further improvements in driver safety and
+convenience.
+
+4. References
+1.
+
+S. Pankratz, W. Diepholz, J. V. Derlofske. “Investigating
+Human Perception of Head-Up Display Ghosting”.
+Information Display. 37, 1, 30 (2021)
+
+2.
+
+J. V. Derlofske, S. Pankratz, E. Franey. “New film
+technologies to address limitations in vehicle display
+ecosystems”. J Soc Inf Display. 28, 917 (2020)
+
+3.
+
+E. Hecht, Optics 5th edition (2015)
+
+4.
+
+L. Schemadtke, S. Gillessen, J. Dorosario, J. Hagen.
+“Projection Assembly For A Head-up Display (HUD) with
+P-polarized Radiation”. U.S. Patent US2024/0269965 A1.
+
+5.
+
+M. F. Weber, C. A. Stover, L. R. Gilbert, T. J. Nevitt, A. J.
+Ouderkrik." Giant Birefringent Optics in Multilayer Polymer
+Mirrors". Science, 287, 2451 (2000)
+
+6.
+
+J. C. Kralik, B. Fan, H. Vithana, L. Li, S. M. Faris, "
+Backlight Output Enhancement Using Cholesteric Liquid
+Crystal Films". Mol. Cryst. Liq.Cryst., 301, 249 (1997)
+
+Wind shield shape
+
+Figure 8. Photograph of reflective screen bulk roll and
+sampling image for application to the windscreen.
+
+SID 2026 DIGEST • 753
+
+

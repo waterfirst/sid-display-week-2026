@@ -1,0 +1,230 @@
+26-1 / W. Cao
+
+TCL CSOT First 14inch 2.8K Inkjet Printing OLED Display
+Weiran Cao*, Baixiang Han*, Jinchaun Li*, Yunpeng Luo*, Liying Zhang*, Jingchun Guo*
+*Wuhan China Star Optoelectronics Technology Co. Ltd., Wuhan, China
+caowr@tcl.com
+Abstract
+
+These all ensure the application of products.
+
+IJP AMOLED, as for the convenient and high-output ability, holds
+the demission tickets for next generation mass production. Printing
+process has high requirement on OLED stack-up, which will affect
+the cavity of OLED device. However, the flatness control inside
+device is more difficult compared with FMM. TCL CSOT tackles
+this through process flow optimization, and achieves R-shape
+printing for the first time. In this paper, we delivered 14-inch IJP
+high-resolution AMOLED display fabricated on G5.5 factory.
+
+2. Results and Discussion
+
+Figure 1. PDL design in IJP OLED.
+
+Author Keywords
+OLED; Inkjet printing; R-shape printing; Uniformity.
+
+1. Introduction
+Display technology has evolved from backlight-dependent Liquid
+Crystal Display (LCD) to self-emissive and high-contrast Organic
+Light Emitting Diode (OLED). Currently, the mainstream OLED
+process is based on high-precision fine metal mask (FMM)
+evaporation, but challenges such as low material utilization and
+large-size production confinement still exist and contradict
+development trends. The industry is expected to usher in a new
+chapter by new OLED technology. Ink-jetting printing (IJP)
+OLED, as newly technology, has been developed and iterated for
+over decades [1-2]. The feasible manufacturing process made it
+capable on different size of panels, range from smart-size phone to
+medium-size monitor. Up to now, TCL CSOT is the only
+manufacturer of inkjet printing OLED technology in the world. For
+past 12 years, TCL CSOT has been investigating in this field and
+has realized mass production in 2024.
+The structure of AMOLED devices greatly affects their efficiency,
+unavoidably resulting in excessively high voltage (ELVDDELVSS) across the circuit and corresponding high energy
+consumption. Printed layers are sensitive to the down-side
+substrate, which means the effect will be amplified inside IJP
+OLED structure. Specifically, the flatness of film layer beneath the
+light-emitting layer (EML) in thin-film devices greatly affects the
+final printed EML, which cannot be directly improved through
+Vacuum Drying (VCD) manufacturing process. For daily portable
+notebook, the usage of rounded corner display represents an
+optimal balance between engineering reliability, user-friendly
+human-computer interaction, and modern aesthetics, achieved as
+the consumer electronics industry matures. Like traditional OLED
+evaporation fabrication process, such as FMM, IJP OLED meet
+problems during R-shape corner printing as well.
+In this paper, we present a 14inch AMOLED LTPS display, which
+features with a 2880 x 1800 high resolution. Confined by two-type
+pixel definition layer (PDL, bank), the aperture ratio of our panel
+can reach larger than 40%. To reduce segment inside stack-up, this
+paper proposes first time that organic layer (PLNS) fills the gaps
+inner metal layer (SD) for circuit metal traces during array process
+flow, thereby to reduce the segment caused by film accumulation.
+The R-shape printing design was achieved by improving pixel
+arrangement design and corresponding compensation algorithm.
+
+Essentially, the array substrate and driving system are common to
+different OLED technologies, while the manufacturing processes
+of the OLED devices vary among them. Different from traditional
+OLED, IJP OLED has 2 banks to define the pixel area. Bank1 and
+Bank2 will be manufactured as PDL, featuring with different
+material properties and functionalities. Bank1 with hydrophilic
+property is utilized to separate pixel of the same color that align
+with vertical side of panel, ensuring the ink material uniformly
+flowing over the pixels in the later stage. For the layer of Bank2,
+hydrophobic material is used to separate pixel of different adjacent
+color, preventing the pixels with different color from mixing to
+each other. Figure 1 shows the details of pixel bank design.
+
+Figure 2. Four steps in IJP OLED process: (1) Pretreatment,
+(2) Ink-Jet Printing, (3) Vacuum Dry and (4) Bake.
+After the preparation of previous process, glass substrate will be
+transferred to Electro luminance (EL) line to start the OLED device
+fabrication. The main IJP technology will be employed to fabricate
+OLED device layers of HIL, HTL and EML, comprising four key
+steps: pre-treatment, ink-jet printing, vacuum dry and bake, as
+illustrated in Figure 2. The pre-treatment procedure aims at
+enhancing the anode surface energy and lowering OLED device
+driving voltage. During the process of inkjet printing, precise
+control over droplet position and ink volume uniformity is
+achieved, permitting high patterning accuracy. Once the pixels are
+filled with the desired amount of ink, the substrate is transferred to
+a vacuum chamber for drying. This vacuum dry process helps
+
+SID 2026 DIGEST • 358
+ISSN 0097-996X/26/5701-0358-$1.00 © 2026
+
+26-1 / W. Cao
+suppress the coffee ring effect and ensures uniform film formation
+by promoting homogeneous solvent evaporation. Finally, the
+substrate undergoes a bake step to complete solvent removal,
+thereby optimizing the film's morphological and electrical
+properties.
+
+The R-corner shape design on the panel is one of the product
+specifications driven by marketing requirements. For IJP OLED,
+however, there is no prior experience in R-corner printing. Due to
+the limitations in current software capabilities, the R-corner recipe
+is manually edited and designed with rectangular blocks, leading to
+incomplete printing of certain pixel columns. As a result, during
+panel illumination, mura issue appears in the R-corner region due
+to the inconsistencies in film thickness compared to the central
+area.
+To break through the challenge, TCL CSOT has developed the
+unique shape printing technology with the equipment vendor to
+fulfill the product spec. The software has been developed with
+following steps and realize through: automatically reading of
+printing area patterns from CAD drawings, corresponding
+coordinate information identification, setting the cell pattern design
+and creating the recipe to realize the target patterns.
+
+Figure 3. Cross-sectional comparison between (a) original
+design and PLNS-applied Design.
+Since IJP process is highly sensitive to the morphology beneath
+printed layers, we were trying to decrease segment through array
+process. Due to the differences existed inside the metal stacking
+structure between capacitor and trace regions, low-temperature
+poly-silicon (LTPS) circuits inevitably exhibit significant segment
+differences along the vertical data line direction. Figure 3(a) shows
+the cross-sectional view of this original design. These minute
+fluctuations bring disadvantages on subsequent IJP films formation
+control. Organic PLN layer working as compensation layer, same
+height as SD layer, are applied to fill the gap. Combined with
+exchanged exposure model and bank process flow, the impact of
+segment is further reduced and related design is shown in Figure
+3(b). Compared with original design, PLN thickness in
+compensated structure is decreased 50% and the depth of anode
+hole was further narrowed. The benefits finally realized through
+improved efficiency and pixel uniformity. For the benefits on green
+and blue, the efficiency increases for 20% and 40%, respectively.
+
+Figure 5. Performance of 14inch 2.8K IJP AMOLED Display.
+High resolution based on IJP technology was then further evaluated
+on LTPS AMOLED backplanes. Figure 5 shows the real
+performance of 14inch 2.8K IJP AMOLED display. Attributed to
+the unique strip pixel design, the display shows no color clarity and
+nature frame transition. With further improvement of printing
+accuracy, the limitation of PPI will be broken in the very next
+future. The successful product fabrication demonstrates that G5.5
+line has indeed the capability to achieve high resolution display
+mass production.
+The detailed specification of 14inch 2.8K panel is listed inside
+Table 1. Higher refresh rate and TED design based on oxide
+internal circuit [3] are still undergoing since this type of demand
+from market is increasing rapidly.
+Table 1. The Specification of 14inch Panel
+Panel Specification
+
+Figure 4. R-shape design in 14inch IJP OLED.
+
+Panel Type
+
+AMOLED
+
+Panel Size
+
+14inch
+
+Backplane
+
+LTPS TFT
+
+Resolution
+
+2880 x RGB x 1800
+
+Pixel Pitch
+
+240 PPI (Strip Real RGB)
+
+Refresh Rate
+
+60~120 Hz
+
+SID 2026 DIGEST • 359
+
+26-1 / W. Cao
+
+4. References
+
+3. Conclusion
+With a pixel pitch of 240, the 14inch panel we discussed here
+demonstrated a high-quality performance and varied the feasibility
+of mass production for IJP Process. The segment caused efficiency
+loss has been improved through array process optimization and
+additional PLN mask, segment inside the device stack-up now
+decreased smaller than 100nm. Besides, R-shape printing was
+achieved for the first time through overcoming process and printing
+difficulties, the 14inch display based on that shows better visual
+performance. More importantly, TCL CSOT based on IJP OLED
+are trying to deliver high quality and various size products in an
+environmental-friendly and low-carbon way, and the further mass
+production rely on IJP technology and oxide backplane will also be
+delivered based on our G8.6 factory.
+
+1.
+
+Suzuki M, Fukagawa H, Nakajima Y, Tsuzuki T, Takei T,
+Yamamoto T, et al. A 5.8‐in. phosphorescent color
+AMOLED display fabricated by ink‐jet printing on plastic
+substrate. Journal of the Society for Information Display.
+2009 Dec;17(12):1037-42.
+
+2.
+
+Kant C, Shukla A, McGregor SK, Lo SC, Namdas EB,
+Katiyar M. Large area inkjet-printed OLED fabrication with
+solution-processed TADF ink. Nature Communications.
+2023 Nov 9;14(1):7220.
+
+3.
+
+Cao W, Li J, Li XL, Liu Y, Hsu YJ, Wu YC, et al. 33‐2:
+Invited Paper: Flexible OLED Displays with Ink‐Jet Printing
+Technology. InSID Symposium Digest of Technical Papers
+2022 Jun (Vol. 53, No. 1, pp. 395-397)
+
+SID 2026 DIGEST • 360
+
+
