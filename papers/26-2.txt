@@ -1,0 +1,710 @@
+26-2 / S. Suemasu
+
+Improving Printing Stability of 1pL Inkjet Head
+for Mass Production of High-Resolution Display Panels
+Satoshi Suemasu, Shuhei Nakatani, Futoshi Ohtsuka, Hidehiro Yoshida
+Panasonic Production Engineering Corporation, Osaka, Japan
+Abstract
+This paper reports on the technology for improving printing
+stability. We focused on 1pL printhead design to suppress nozzle
+drying and misting. We confirmed that landing accuracy of 1pL
+head didn’t deteriorate over 16days without any recovery work
+and the 1pL head could successfully print on a 400ppi pixel bank.
+
+Flow Resistance
+
+Common
+Chamber
+
+Flow Resistance
+
+Actuator
+
+Common
+Chamber
+
+Chamber
+
+diffusion (Chapter 3)
+
+Author Keywords
+1pL inkjet head; printing stability; nozzle drying; misting; ink
+diffusion; single-drop ejection velocity; resonance period
+
+drying
+
+(Chapter 2)
+
+misting
+
+(Chapter 4)
+
+Figure 1. Internal Structural Model of the Inkjet Head
+
+1. Introduction
+Display panels require higher resolution when the panel size is
+medium and small [1][2][3]. At SID2025, Panasonic reported on
+the technology for printing G8.5 350ppi OLED panels using
+inkjet printing [4]. This year’s report describes technologies for
+improving the printing stability of 1pL inkjet head. Inkjet heads
+with small droplet size such as 1pL have a risk in printing stability
+since the small nozzles can promote the nozzle drying, and the
+lightweight of droplet can promote misting. It indicates that
+printing stability is the key technology to success in mass
+production of high-resolution display panels.
+To improve printing stability, we focused on the printhead design
+to apply critical issues shown in Figure 1. The main issue is to
+prevent nozzle drying by expanding the nozzle size through the
+printhead design to shorten the resonance period. The others are to
+promote ink diffusion and to prevent misting. Although these
+issues can be approached from multiple angles, including printing
+process and ink formulation, we believe the foundational
+performance is governed by the printhead design. Therefore, we
+focused on printhead design, especially on the nozzle, flow
+structure and PZT actuator.
+
+2. Design to Expand the Nozzle
+
+2.1. Nozzle Expansion via Resonance Shortening
+The volume ejected from the nozzles of the inkjet head is
+estimated by the relationship in equation (1).
+V= (S × v ) × T/2 ×α
+
+(1)
+
+V: droplet volume S: nozzle cross section
+T：resonance period α：coefficient
+
+v：ejection velocity
+
+To achieve droplet miniaturization, four approaches can be
+considered. [A] reducing the ejection velocity can deteriorate
+landing accuracy due to the influence of airflow. [B] decreasing
+the nozzle size can increase the risk of nozzle drying and particle
+adhesion. [C] adjusting the ink properties to shorten the ligament
+is effective, but relying too much on ink properties alone may lead
+to performance degradation. Consequently, we thought [D]
+shortening the resonance period is considered the most efficient
+approach, to achieve small droplet ejection while expanding the
+nozzle size.
+
+Bending mode
+(D31)
+
+Shear mode
+(D15)
+
+Pushing mode
+(D33)
+
+Figure 2. Representative Actuation Methods
+To shorten the resonance period of the inkjet head, it is well
+known that reducing the compliance of the chamber shown in
+Figure 1 is the most effective method [5]. To lower the
+compliance of the chamber, Reducing the size and increasing the
+rigidity of the chamber is also known to be effective, and many
+solutions are invented [6]. However, reducing the size of the
+chamber decreases the pressing area of the actuator, requiring a
+larger displacement from the actuator. Increasing the rigidity of
+the chamber walls requires stronger force from actuator. To
+accomplish them at the same time, printhead design in a
+comprehensive manner including the flow structure and the
+actuator mechanism is needed. Figure 2 shows a representative
+actuating mechanism of an inkjet head. The bending mode (D31)
+can generate relatively large displacement, but there is difficulty
+to generate strong force. The shear mode (D15) can produce
+stronger force, but it has limitations to simultaneous ejection. We
+adopted pushing mode (D33) as a method that can generate both
+large displacement and strong force with extended durability.
+Although the displacement is not as large as the bending mode, it
+can be amplified by stacked PZT while maintaining stiffness and
+high density,
+with advanced fabrication technologies. By
+utilizing these features, we aimed for a design of small and rigid
+chambers to shorten the resonance period.
+Figure 3 shows the experimental result about relative changes in
+nozzle diameter against the resonance period as a parameter,
+under the condition of 1pL droplets ejection. It was confirmed that
+the resonance period and nozzle diameter exhibit an inverse
+proportional relationship, almost consistent with theoretical
+predictions. Even with the same type of ink, the nozzle diameter
+could be expanded by 30%, and by applying it to a different type
+of ink, the nozzle diameter could be expanded by 40%.
+
+SID 2026 DIGEST • 361
+ISSN 0097-996X/26/5701-0361-$1.00 © 2026
+
+Experimental value
+
+●
+
+Experimental value
+
+Ink type Ⅱ
+
++30% +40%
+Ink type Ⅰ
+
+Resistance
+
+Resistance
+
+Middle
+Chamber
+
+Common
+Chamber
+
+Resistance
+
+Middle
+Chamber
+
+Chamber
+
+Common
+Chamber
+
+Figure 5. Flow Model to Suppress Fluidal Crosstalk
+Large
+
+Theorical value
+
+◆
+
+Resistance
+
+displacement
+
+Theorical value
+
+Nozzle Diameter
+Diameter
+Nozzle
+
+Large
+
+26-2 / S. Suemasu
+
+Small
+
+Base plate
+
+Long
+
+Resonance Period
+Resonance
+Period
+
+Flow plate
+
+Short
+
+Figure 3. Correlation between nozzle and resonance
+40
+
+Figure 6. Structural Model to Suppress Structural Crosstalk
+Nozzle1
+Nozzle2
+
+Inkjet head
+
+・
+・
+・
+
+20
+
+Evaluation nozzle
+(Center position)
+
+0
+Evaluation nozzle
+
+-20
+-40
+
+Measuring velocity
+of jetting droplets
+
+・
+・
+・
+
+0
+
+4.2 8.4 12.6 16.8 21 25.2 29.4
+Jetting timing [µs]
+
+Figure 7. Experimental condition
+Nozzle No
+
+Figure 4. Trajectory variation
+Figure 4 shows an experimental result that compares the trajectory
+variation before and after nozzle diameter expansion. It can be
+observed that expanding the nozzle diameter significantly reduces
+the trajectory variation. This is a ripple effect of nozzle diameter
+expansion, attributed to the reduced sensitivity to inevitable
+physical variations in nozzle fabrication.
+
+Velocity Variation [m/s]
+
+Trajectory Variation [mrad]
+
+PZT
+
+Small
+
+ー40%
+
+2
+
+0
+-2
+
+● Conventional
+● Developed A
+● Developed B
+
+-4
+0
+
+2.2. Suppression of crosstalk
+Short resonance period is achieved by reducing the compliance of
+the chamber and lowering the flow resistance. However, these
+approaches can promote pressure transmission to neighboring
+nozzles, inducing “fluidic crosstalk”. Large displacement against
+narrow pushing area with the D33 pushing mode is achieved by
+the more stacked PZT layers. It can weaken the stiffness of the
+printhead, which can enhance structural interactions during
+droplet ejection called “structural crosstalk”. It has a significant
+impact since droplets as small as 1pL are easily affected by even
+minimal deformation. Therefore, to achieve the inkjet head design
+with enlarged nozzle through the approach of shortening
+resonance period, we needed to address the trade-off: the shorter
+the resonance period, the more severe the crosstalk becomes.
+Fluidic crosstalk was suppressed by design of segmented twostage orifice structure (Figure 5). The short resonance utilized for
+ejection is formed by the inner, softer flow resistance, while
+pressure transmission to other nozzles is suppressed by the outer,
+stiffer flow resistance. Structural crosstalk was suppressed by
+preventing deformation, warping and distortion of each element
+during ejection. These are achieved by enhancing stiffness by
+treating the base plate, PZT, and flow plate as a single rigid body
+and by optimizing each dimension and bonding methods for
+minimal deformation through analysis (Figure 6).
+
+5
+
+10
+15
+20
+25
+Delay of jetting timing [μs]
+
+30
+
+35
+
+Figure 8. Experimental result
+Figure 7 shows the evaluation method for fluidic and structural
+crosstalk. Droplets were ejected from all nozzles simultaneously,
+while the ejection timing of the target nozzle was incrementally
+delayed. The corresponding changes in ejection velocity were
+monitored to assess the influence of crosstalk. The velocity
+variation at 0μs indicates structural crosstalk, while the variation
+observed afterward reflects fluidic crosstalk. Figure 8 shows the
+evaluation result. Compared to Conventional, Developed A is a
+printhead with fluidic crosstalk countermeasures implemented.
+Although a significant change in ejection velocity was observed at
+a delay time of 0µs, subsequent variations were suppressed. It
+indicates that although structural crosstalk remains unchanged,
+fluidic crosstalk has been improved. And the Developed B, which
+was implemented both structural and further fluidic crosstalk
+countermeasures, exhibits few variations at a delay time of 0μs
+and thereafter.
+By successfully suppressing crosstalk, which is a critical side
+effect of short resonance design, it was demonstrated that
+practical-level ejection accuracy can be achieved while shortening
+the resonance period and expanding the nozzle diameter.
+
+SID 2026 DIGEST • 362
+
+26-2 / S. Suemasu
+3. Design to Enhance the Ink Diffusion
+Drying from the nozzle tip leads to a localized increase in ink
+concentration, causing film formation or partial solidification and
+adhesion to the nozzle. These phenomena are governed by not
+only "drying rate" but also "diffusion rate". To promote the
+diffusion rate, printing processes like ink circulation and ink
+oscillation are effective [7]. In addition to that, we focused on the
+inkjet printhead design to enhance these printing process effects.
+Figure 9 presents the analysis of ink circulation velocity near the
+nozzle under the same circulation flow rate. It indicates the ink
+circulation velocity near the nozzle varies depending on the flow
+structure. It means optimizing the flow structure can enhance the
+effectiveness of ink circulation process. In this study, although
+(C), (D) showed significantly improved circulation velocity near
+the nozzle, they also showed crucial side effects. Therefore,
+configuration (B), which achieved three times the flow velocity
+near the nozzle compared to conventional (A), was adopted.
+
+Figure 12 shows the relative single-drop ejection velocity to the
+target value on the vertical axis, and the parameter for
+waveform(T4/T1) on the horizontal axis. Plots A through E
+represent the same structural head as Figure 11. Across all plots,
+single-drop ejection velocity is lowest near T4/T1 ≈ 2, where the
+damping function becomes theoretically maximized. Although the
+ejection becomes unstable and useless when the damping function
+is insufficient, this result supports the validity of the hypothesis
+that the second resonant wave contributes to enhancing singledrop ejection velocity. It was also observed that printheads with
+higher resonant purity tend to exhibit an overall improvement in
+single-drop ejection velocity like plot A, even within the range of
+stable along the horizontal axis. As a result, by employing the
+design that enhances resonance purity, we were able to improve
+single-drop ejection velocity by approximately 10%.
+Figure 13 shows the droplet ejection behavior of a 1pL printhead
+designed to enhance single-drop ejection velocity by increasing
+resonance purity. The ligament catches up with the leading
+droplet quickly before landing, resulting in mist-free ejection.
+
+Slow
+
+Fast
+
+Oscillation effect can be also enhanced through resonance period
+design. By slightly delaying the resonance period on the upstream
+relative to that on the downstream, the components diffused by
+oscillation can be effectively driven downstream. To achieve this,
+to set the upstream middle chamber and common chamber to be
+larger or softer, or to increase the flow resistance on the upstream
+side, shown as Figure 10 are effective.
+
+E to A. When the resonance is pure and its peak is strong, it is
+theoretically expected that velocity peak will appear at T2/T1 = 1,
+3, 5, ..., and that these peaks gradually diminish. This result
+indicates that the head type is approaching the theoretical value as
+it moves from type E to type A. It means increasing the
+compliance of the middle chamber can enhance the purity of the
+resonance, creating a function of a buffer to the middle chamber
+and allowing resonance to be confined within the inner region.
+
+(A)Conventional
+
+(B)Triangle
+
+(C)Vertical
+
+(D)Parallel
+
+Figure 9. Flow structure to maximize ink circulation process
+
+P2’
+
+P1’
+
+P1
+
+P2
+
+jetting
+
+2
+
+Velocity Ratio
+
+(near the nozzle)
+
+A B C D E
+
+1.5
+
+T1 T2
+
+T4
+
+T3
+
+1
+0.5
+
+0
+0
+
+0.5
+
+1
+
+1.5
+
+2
+
+2.5
+
+3
+
+3.5
+
+4
+
+parameter for waveform (T2 / T1)
+
+P3
+
+V２
+
+P1(P1’) , second wave
+
+V1
+
+P1(P1’), first wave
+
+Figure 11. Ejection velocity and T2 (/T1)
+
+4. Design to Suppress Misting
+A droplet ejected from the nozzle may become mist if it is
+overcome by air resistance or airflow energy. Mist can adhere to
+the nozzle surface, leading to deterioration in ejection stability. To
+prevent them, ejecting ink faster as a single drop is effective [8].
+Although the velocity of single-drop formation is mainly
+determined by ink properties and the ejection waveform, we
+found inkjet head design itself can also contribute. Figure 10
+shows the hypothetical model for improving single-drop ejection
+velocity by giving sufficient energy to the ligament from the
+energy of the second wave of resonance. To transfer the resonance
+energy to the ligament, the design to enhance the spectral peak of
+the resonance by preventing dispersion of the wave is thought to
+be important. Figures 11 and 12 present the experimental results,
+aimed at validating the hypothesis.
+Figure 11 shows the relative ejection velocity on the vertical axis,
+and the parameter for waveform (T2/T1) on the horizontal axis.
+Plots A through E represent different head structures, with the
+compliance of the middle chamber progressively increased from
+
+Single-drop ejection velocity ratio
+
+jetting
+
+Figure 10. Hypothesis Model
+
+1.4
+
+A
+T1 T2
+
+T3
+
+B
+
+C
+
+D
+
+E
+
+T4
+
+1.2
+
+1.0
+
+0.8
+
+instable
+
+1.5
+
+2
+
+stable
+
+instable
+
+2.5
+
+3
+
+3.5
+
+4
+
+parameter for waveform (T4 / T1)
+
+Figure 12. Single-Drop ejection velocity and T4 (/T1)
+Nozzle Position
+
+Time
+
+Figure 13. Image of single-drop ejection
+
+SID 2026 DIGEST • 363
+
+26-2 / S. Suemasu
+5. Printing Evaluation
+5.1. Printing Stability Verification
+An evaluation of ejection stability of the 1pL inkjet head over
+time was conducted using a drop watcher system. Ink circulation
+was maintained with a flow rate of 3 mL/min and a nozzle
+internal pressure of -0.5 kPa. A process that constantly oscillates
+the meniscus near the nozzle is applied to stabilize the ejection.
+This oscillation is called “Tickle”. The tickle frequency was set to
+1 kHz. The drop watcher system measured the droplet ejection
+velocity and the variation in ejection trajectory.
+If solid remains such as dried ink adhere to the nozzle lip, the
+effective nozzle diameter becomes smaller, resulting in an
+increase in ejection velocity and greater variation in ejection
+trajectory. In this study, no increase in ejection velocity or
+variation in ejection trajectory was observed over a four-week
+period, and no clogged nozzles were detected as shown in Figure
+14. During the four-week period, no maintenance such as pressure
+purging or nozzle wiping was performed, only ink circulation and
+tickle operation were used. The ability to operate without
+maintenance is a critical factor when applying inkjet technology
+to mass production, as it contributes to reducing panel
+manufacturing costs by lowering ink consumption and increasing
+equipment uptime. In other words, the highly stable results under
+maintenance-free conditions indicate that the technology is at a
+practical level for implementation in mass production processes.
+We also conducted an evaluation of droplet landing position
+accuracy using our printing system. Figure.15 shows the timedependent variation in the repeatability of droplet landing
+positions along the printing scan direction. Over the 16-day
+period, droplet landing repeatability remained within 2.0μm,
+confirming stable printing performance.
+
+5.2. Printing Evaluation on a 400ppi Pixel Bank
+
+20
+1Week
+
+2Week
+
+3Week
+
+6
+4
+
+2
+0
+
+4Week
+
+Angle Variation 3σ [mrad]
+
+8
+
+1Week
+
+2Week
+
+3Week
+
+4Week
+
+Figure.16 shows the printed result. As seen in the image, printing
+was successfully performed without any color mixing into
+neighboring pixels. In other words, the 1pL printhead was
+confirmed not only to have printing stability, but also to achieve
+printing accuracy for high-resolution panel at the 400ppi level.
+
+6. Conclusion
+We developed technologies to enhance the printing stability of
+1pL inkjet head, focusing on printhead design for suppressing
+nozzle drying and misting. Specifically, the printhead design to
+expand nozzle by 40%, to accelerate the flow velocity near the
+nozzle by 3times, and to improve single-drop ejection velocity by
+10% were developed. In evaluations using the developed 1pL
+inkjet head, no variation of ejection velocity and trajectory over
+4weeks and no deterioration in landing accuracy over 16days
+were confirmed without any recovery operations. We also
+successfully confirmed that the 1pL inkjet head can print onto a
+400ppi pixel bank without any color mixing.
+As a result, we could confirm the possible feasibility of applying
+inkjet printing systems with 1pL head to mass production of highresolution display panels. Furthermore, building on this
+advancement and insight in printhead design, we will aim to
+develop inkjet technologies for ejecting even smaller droplets for
+higher resolution displays.
+
+7. Reference
+1.
+
+Jaekook Ha et al., All-Inkjet-printed EL-QD Display with
+Improved Efficiency and Lifetime, 61-4, SID 2023 Digest
+
+2.
+
+Ting Shi, Xuebin C, Xianglong L, Guangyao L, Baixiang H,
+Zhaosong L, Jinchuan L, Weiran C, Realization of High PPI
+Notebook using inkjet Printing Technology and IGZO
+Backplate, SID 2024 Digest
+
+3.
+
+Ying-Tsang L,Yun-Li L, Development of MicroLED
+Display Technology and Applications, 50-4, SID2022 Digest
+
+4.
+
+Hidehiro Y, Shuhei N, Takashi I, Yukiya U, Futoshi O, 1pL
+Inkjet Head and G8.5 Equipment Development for 350ppi
+OLED Display Panels, 11-1, SID 2025 Digest
+
+5.
+
+Shinri S, Numerical Simulation of Inkjet Process, The
+Imaging Society of Japan,2010,49(3),205-213
+
+6.
+
+Takafumi S, Liquid dispenser head, Liquid dispensing unit
+using same, and image forming apparatus using same, US
+8,042,911 B2, 2011
+
+7.
+
+Masami K, Yoshinori B, Manabu S, Numerical Study of
+Nozzle Evaporation and Increasing Ink Viscosity, The
+Imaging Society of Japan, 2023, 62(6), 26-34
+
+8.
+
+Masafumi S, Kenichi S, Naoki M, Research on Ink
+Properties, Primally Dynamic Surface Tension to Control Jet
+Length, The Imaging Society of Japan, 2023,62(3),208-217
+
+15
+10
+5
+0
+
+Figure 14. Evaluation Results of Ejection Stability
+5
+
+Repeatability (μm)
+
+Average of velocity [m/s]
+
+Using the 1pL inkjet head previously evaluated for printing
+stability, we conducted a printing evaluation on custom-fabricated
+400ppi pixel bank patterns shown in Figure.16. The ejected
+volume was adjusted to 0.94pL ±1.7%. The 400ppi resolution
+pattern had pixel dimensions of 13.0μm × 53.0μm-56.0μm, a bank
+width of 8.1μm, a bank height of 1μm, and a pixel pitch of
+63.3μm. This printing evaluation utilized ink containing dissolved
+polymer materials and a hydrophobic bank both made by
+Mitsubishi Chemical Corporation. Printing was performed by
+repeating the ejection of one drop per scan twice.
+
+Figure 16. Printing Image of 400ppi Pixel Pattern
+
+16days
+
+4
+3
+2
+1
+0
+
+Figure 15. Evaluation Results of Printing Repeatability
+
+SID 2026 DIGEST • 364
+
+

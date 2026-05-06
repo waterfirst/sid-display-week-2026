@@ -1,0 +1,289 @@
+61-1 / M. Kondakova
+
+OLEDs for Automotive Lighting
+Marina Kondakova1, Evgeny Pakhomenko1, John Mohanraj 2, Michael Boroson1,
+Joerg Knipping2, Michael Buechel2
+1
+
+OLEDWorks LLC, 1645 Lyell Avenue Suite 140, Rochester NY 14606, USA
+2
+OLEDWorks GmbH, Philipsstrasse 8, 52068 Aachen, Germany
+
+Abstract
+In this work we describe automotive OLED lighting panel
+development for various functions. New red-emitting
+panels with high brightness and long operational stability
+for turn, stop and V2X communication are described. High
+brightness, high efficiency cyan-emitting panels have been
+demonstrated for self-driving car modes. Highly
+segmented bendable panels for curved surfaces are
+presented.
+Author Keywords
+OLED; automotive lighting; stacked OLED; efficacy;
+thermal stability; V2X; cyan; bendable.
+1. Objective and Background
+Automotive lighting technology has been evolving from
+simple road illumination for driving safety into functional,
+specialized, and customizable lighting solutions.
+Automotive manufacturers are increasingly integrating
+OLED panels into their vehicles. Currently, red panels are
+used in taillight functions with plans for higher brightness
+panels to be incorporated for vehicle-to-everything (V2X)
+communication, turn and stop signals. High brightness
+cyan, amber and white OLED panels are also being
+developed for self-driving modes, turn indicators and lit
+logos. The thinness of OLEDs facilitates their seamless
+integration into compact spaces and, with bendable panels,
+enables lighting of curved surfaces. The intrinsic capability
+to combine segmentation and uniform lit surfaces creates
+opportunities for unique branding and personalization.
+OLED automotive lighting technology paves the way for
+new form factors, new functional uses and superior safety
+systems. [1]
+
+Figure 1. Atala Wave segmented automotive OLED panels
+shown at CES2025.
+
+2. Results
+OLEDWorks’ Atala automotive OLED technology
+includes many attributes, such as stacked device
+architecture with charge generation layers for high
+luminance and long lifetime, proprietary thin film
+encapsulation, metallization layer on top of the ITO for
+current distribution and improved uniformity and rigid or
+flexible substrates. For red OLED lighting panels there are
+strict color requirements. The OLED panels must have
+CIEx,y coordinates of (0.7, 0.3) or deeper red, dominant
+wavelength >627 nm and minimal color change with
+viewing angle. The panels also must meet automotive
+reliability standards. Environmental testing includes high
+temperature (85℃ and 105℃), high humidity
+(85℃/85%RH), sun light exposure and other tests. Typical
+temperature conditions for automotive exterior
+applications are between -40℃ to 105°C. [2] Performance
+of commercial red panels is shown in Table 1.
+Table 1: Performance of commercial red taillight OLEDs
+Brightness @ 25℃
+Peak wavelength
+Dominant wavelength
+CIEx,y
+Operating Lifetime at 60℃@ 2000 cd/m2
+Storage lifetime
+OLED Stacks
+Panel thickness
+
+2,000 cd/ m2
+643 nm
+627 nm
+0.703, 0.297
+20,000 hours
+15 years
+2
+0.9 mm
+
+Table 2: Performance of next generation of high
+brightness red OLEDs. Data at 13 mA/cm2.
+
+Brightness of the commercial panels is 2,000 cd/m2 (Table
+1) but the next generation of red OLEDs must produce
+luminance in the range of 5,000 - 15,000 cd/m2. To achieve
+the required high luminance from a panel, we have
+developed an improved OLED formulation and, for some
+applications, increased the number of stacks. However,
+multi-stack OLEDs exhibit significant self-heating that
+
+SID 2026 DIGEST • 851
+ISSN 0097-996X/26/5701-0851-$1.00 © 2026
+
+61-1 / M. Kondakova
+might accelerate degradation processes. To minimize such
+effects each stack is optimized on thermal stability.
+To better understand the mechanisms of OLED
+degradation when the device is operated at elevated
+temperatures, we developed a fast stability testing
+procedure. In this test, the OLED panel is fixed on a
+hotplate (Thotplate can varied from 65ºC to 105 ºC) via
+thermally conductive adhesive tape. OLED emission
+intensity is monitored as a function of time with the
+photodetector situated about 2 cm above the panel to
+minimize heat transfer.
+
+Figure 2. Thermal stability test with single segment on.
+The segment is driven at 26 mA/cm2.
+The results of the stability tests at 105ºC and at 26 mA/cm²
+are shown in Figure 3. The 2 stack and 4 stack red OLEDs
+age significantly differently under these conditions. These
+data show that luminance decays more slowly in 4 stack
+OLEDs compared to 2 stack devices despite higher
+electrical power during operation. Because both types of
+devices age at the same constant current, we can conclude
+that 4 stack devices exhibit higher thermal stability
+compared to the commercial 2 stack panels. Thus, the 4
+stack devices can be used in applications at higher
+brightness while still providing the required long lifetime.
+
+Figure 3. Normalized light output as a function of aging
+time for 2 stack (2U) and 4 stack (4U) red OLEDs at 105ºC
+and 26 mA/cm2.
+
+Cyan illumination is an emerging technology in
+automotive lighting for certain driver assistance modes and
+for fully autonomous cars. This technology allows for
+seamless communication between the vehicle and its
+surroundings and is employed to communicate a switch
+from human to system control. With the number of vehicles
+with advanced driver assistance modes and with the
+number of autonomous vehicles on the rise, it is crucial to
+develop a reliable cyan lighting technology that complies
+with the brightness, efficiency, color, and stability
+specifications defined by automotive standards and car
+manufacturers. OLEDWorks has utilized its multi-stack
+OLED technology to develop high-brightness (>10,000
+cd/m2 at 10 mA/cm2), high-efficiency (>50% EQE at
+10,000 cd/m2) cyan OLED panels.
+To predict accurately performance of a multi-stack cyan
+OLED, it is important to understand the recombination
+zone (RZ) position within the stack. This problem is
+commonly solved by introducing a low-energy
+probe/sensitizer in different locations throughout the
+emissive layer (EML) and tracking the sensitizer emission
+strength as a function of its location. The spatial resolution
+of such method is dictated by Förster energy transfer radius
+between the emitter and sensitizer, which can be on the
+order of 1-5 nm, depending on the exact donor-acceptor
+pairing [3]. However, the shortcoming is the assumption
+that the sensitizer itself has no impact on charge transport
+and exciton density distribution. Herein, a sensitizer-free
+method with lower spatial accuracy (5-10 nm) is employed
+to get an understanding of the RZ position in cyan OLEDs.
+The advantage of such method is simplicity in data
+interpretation, as only 5 different devices with unaltered
+emissive layer concentrations are required to draw
+conclusions about the RZ position.
+These single-stack devices are shown in Error! Reference
+source not found. 4 (a), where the device of interest with
+EML thickness of 40 nm is compared to four control
+devices 1-4 with 10 nm EML each placed at certain regions
+within the EML. Additionally, emitter location within the
+cavity in control devices is chosen to be close to the optical
+node. Contrary to the common practice of placing an
+emitter in the optical anti-node to maximize emission
+intensity, such choice is motivated by obtaining control
+device spectra with significant variations in both shape
+(Error! Reference source not found.(b)) and intensity
+(Error! Reference source not found.(c)). Device of
+interest spectrum, denoted by black line in Error!
+Reference source not found.(c), is subsequently
+compared to the control devices. Its shape and intensity
+closely match the “Device 2” control, suggesting that
+exciton recombination takes place not far (within 10 nm)
+from the EML center, but on the side closer to the
+EML/HBL interface. The spatial accuracy of this method
+can be further improved by having the control device EML
+thickness thinner than 10 nm. [4]
+
+SID 2026 DIGEST • 852
+
+61-1 / M. Kondakova
+
+Figure 5. Atala Wave bendable panel with a 200 mm
+minimum bend radius.
+
+Figure 4. (a) Schematic illustration of the device of
+interest and 4 controls. All layers, except for the EML, are
+not drawn to scale. (b) Normalized spectral radiance of
+the 4 control devices. (c) Spectral radiance of the device
+of interest (solid black line) compared against the spectra
+of control devices.
+Using the understanding of RZ position in the single-stack
+cyan OLED, a series of multi-stack cyan OLED panels
+were fabricated. The brightnesses of >10,000 cd/m2 and
+>20,000 cd/m2 are reached at current densities of 10
+mA/cm2 and 30 mA/cm2, respectively, thus satisfying
+automotive requirements for both night and day-time
+illumination.
+
+Because of uniform emission profile, Atala OLED panels
+are well suited for enhanced communication through
+rendering of sharp icons and other symbols as well as
+dynamic lighting animations. Atala OLED panels can be
+divided into segments/pixels with sharp contrast edges and
+narrow/invisible gaps. Atala Digital OLED panels with up
+to 60 segments (see Figure 6) have been commercialized
+and panels with 500 and more segments have been
+demonstrated. OLED segment sizes as small as 3 mm2 and
+unlit gaps as small as 40 µm have also been demonstrated.
+Each segment is individually controlled, enabling each
+panel to display a variety of symbols. With these features
+
+Beyond the performance of the OLED formulations in
+automotive lighting applications, the types and design of
+the substrates used to create our Atala automotive lighting
+panels are major factors in the benefits of OLED
+technology for automotive lighting. Initial applications
+used only rigid glass substrates (0.7 mm glass) with less
+than 10 separately addressable segments per panel. To
+expand the application space, thin bendable glass
+substrates and higher levels of segmentation (60-500
+segments per panel) have been developed.
+Use of flexible substrates for Atala Wave automotive
+panels allows light to follow vehicle curves for greater
+visibility and design freedom. Thin (0.1 mm) flexible Atala
+Wave OLED panels have been commercialized recently.
+These commercial bendable OLED lighting panels have
+been tested and validated at a minimum bending radius of
+200 mm (see Figure 5). Panel performance is the same as
+that of our Atala Digital rigid glass OLEDs; the flexible
+panels passed all strict automotive tests and are designed to
+last 15+ years in exterior automotive use.
+
+Figure 6. Atala Digital panels with 60 individually
+controlled segments
+the Atala OLED panel becomes a highly pixelated
+automotive exterior light source/display. Dimming effects
+in combination with pixelation enables 3-D visual effects
+on a thin 2-D surface.
+
+SID 2026 DIGEST • 853
+
+61-1 / M. Kondakova
+3. Impact
+OLEDWorks is developing high brightness multi-stack
+Atala OLED panels qualified for automotive applications.
+The lighting technology enables designers to customize the
+size and shape of rigid and bendable automotive panels
+with custom designed segmentation (size, shape and count)
+and different luminance requirements for each location and
+function on the vehicle. Red-emitting devices with up to
+15,000 cd/m2 luminance for stop, turn, and daylight V2X
+communication have been demonstrated. Efficient high
+brightness cyan-emitting panels with >10,000 cd/m2 have
+been developed for self-driving modes and autonomous car
+applications. High brightness amber- and white-emitting
+OLEDs are also under development. All panels undergo
+extensive automotive testing and quality control to meet
+automotive regulations and performance requirements.
+Product reliability is supported by an in-house
+environmental test laboratory and equipment. Both
+OLEDWorks sites -Aachen manufacturing and Rochester
+R&D sites are IATF16949 and ISO-9001 certified.
+4. Acknowledgments
+The authors would like to acknowledge all OLEDWorks
+colleagues that contributed to this work.
+5. References
+[1] https://atala.oledworks.com.
+[2]. M. Kondakova, J. Eser, M. Buechel, J. Knipping, F. Lindla,
+M. Boroson, J. Spindler. “Development of High-Temperature
+Stable Red OLEDs for Automotive Lighting”, SID 2020 digest,
+https://sid.onlinelibrary.wiley.com/doi/10.1002/sdtp.13810.
+[3] N. Erikson, R. Holmes. “Investigating the role of emissive
+layer architecture on exciton recombination zone in OLEDs”,
+Adv. Funct. Mater. 2013, 23, 5190–5198.
+[4]. R. Young, M. Kondakova. “Optical Measurement of the
+Emission Zone in Organic Light-Emitting Diodes”, SID
+Symposium Digest of Technical Papers 40(1), 2009,
+DOI:10.1889/1.3256646.
+
+SID 2026 DIGEST • 854
+
+

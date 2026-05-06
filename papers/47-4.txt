@@ -1,0 +1,506 @@
+47-4 / S. Kuramochi
+
+Optimization of Glass Core Substrate Design for Energy-Efficient
+High-Density AI Server Packages
+Satoru Kuramochi
+
+Takahiro Tai
+
+Koji Fujimoto
+
+Masaya Tanaka Takamasa Takano
+
+Dai Nippon Printing Co., Ltd, Chiba, Japan
+E-mail: kuramochi-s2@mai.dnp.co.jp
+Abstract
+A heterogeneous AI server package integrating XPU–HBM
+chiplets and co-packaged optics (CPO) on a glass core substrate
+is presented. This work addresses system-level mechanical,
+electrical, and power co-optimization for multi-module
+integration on glass, rather than substrate process comparison,
+by evaluating CTE-induced warpage, TGV-based power delivery,
+electromigration robustness of inorganic-coated RDL layers, and
+high-speed signal transmission between XPU and CPO modules.
+The results demonstrate improved signal integrity, power
+efficiency, and reliability for large-scale, energy-efficient AI
+server packages.
+
+Author Keywords
+Glass core substrate
+Warpage analysis Co-packaged optics
+(CPO)
+Through-glass via (TGV) Signal and power integrity
+
+Introduction
+The rapid growth of AI data servers demands higher computing
+performance under strict power consumption constraints, making
+co-packaged optics (CPO) an essential technology to reduce
+electrical I/O power dissipation.
+In parallel, AI accelerators integrating XPUs and high-bandwidth
+memory (HBM) continue to increase in chiplet count and die size,
+driving package dimensions toward approximately 200 mm square
+by the 2030s.
+Such large-area packages pose critical challenges in mechanical
+stability and warpage control, where conventional organic core
+substrates become insufficient, positioning glass core substrates as
+a key enabler due to their low CTE and high dimensional stability.
+In this work,
+
+XPU
+
+XPU
+
+IPD
+
+Package size and warpage
+According to Yole (2025), the substrate size of AI accelerator
+packages is expected to reach 120 × 120 mm² by 2028, highlighting
+the challenge of rapidly increasing form factors. This trend
+indicates further package size expansion when CPO modules are
+integrated within the same package.
+Figure 2 shows reflow warpage as a function of package outer size
+evaluated using a simplified material–thickness model. The
+warpage model is derived from classical thermo-mechanical
+bending theory (Timoshenko bi-material formulation) combined
+with plate theory, yielding a first-order scaling relationship
+W∝(ΔCTE/E)⋅(L2/t)W.[1] Results for organic cores (CTE = 16
+and 5 ppm/K) and a glass core (E = 64 GPa, CTE = 3.3 ppm/K, t =
+1.0 mm) are compared. JEITA allowable warpage limits are
+indicated for reference. The glass core substrate maintains warpage
+within JEITA limits for large package sizes.
+
+CPO
+(EIC-PIC module)
+
+AI accelerator module
+(XPU-HBM Chiplet)
+HBM
+
+to enhance electromigration robustness under high current density.
+The proposed architecture is evaluated in terms of warpage
+resistance, TGV-based power delivery capability, electromigration
+reliability, and high-speed signal transmission, demonstrating its
+suitability for large-scale, energy-efficient AI server packages.
+
+HBM
+
+EIC
+
+PIC
+
+VR
+
+Figure 1. Energy Efficient PKG for AI data server
+we propose a next-generation AI server package architecture based
+on a glass core substrate with advanced build-up interconnects, as
+illustrated in Figure 1.
+The build-up layers incorporate a high-speed wiring structure for
+low-loss XPU–CPO transmission and a fine-pitch interconnect
+structure for XPU–HBM connectivity.
+An inorganic protective coating is applied to the fine wiring layers
+
+Figure 2. Reflow warpage as a function of package outer
+size
+
+SID 2026 DIGEST • 661
+ISSN 0097-996X/26/5701-0661-$1.00 © 2026
+
+47-4 / S. Kuramochi
+Power delivery and TGV specification
+Table 1.
+
+Required power density
+2022
+
+DC power consumption
+
+TWh
+
+2026
+
+2028
+
+415
+
+520
+
+680
+
+830
+
+12nm 7-5nm 3-2nm
+
+Technology node
+
+finFET
+
+Logic structure
+Maximum chip power W/mm2
+Transistor supply voltage
+
+2024
+
+2030
+
+2032
+
+945
+
+1050
+
+Switch、HPC、AI
+
+Application
+
+V
+
+Current density standard A/mm2
+
+GAA
+
+1.5nm
+CFET-SRAM
+
+5
+
+7
+
+10
+
+14
+
+20
+
+※1
+
+1
+
+0.7
+
+0.65
+
+0.6
+
+0.6
+
+※2
+
+5
+
+10
+
+15.4
+
+23.4
+
+33.4
+
+（a）Top View
+
+（b）X-ray
+
+※1 HIR Roadmap
+※2 IRDS
+
+Table 1 summarizes the required power density for logic devices
+across technology generations, indicating a significant increase
+driven by device scaling and architectural evolution. This trend
+motivates high-capacity, low-loss power delivery at the package
+level.
+Power delivery through metallized through-glass vias (TGVs) was
+analyzed using current-density simulations (Figure 3(a)) and
+maximum-current scaling with via cross-sectional area (Figure
+3(b)). Glass substrates enable fine-pitch via fabrication, allowing
+multi-TGV configurations that provide high current capacity
+suitable for next-generation AI accelerators.
+
+（c）X-ray
+Figure 4. Fine pitch 100um TGV
+A fine-pitch, metallized TGV implementation with 50 µm diameter
+100µm pitch is shown in Figure 4(a)(b)(c).
+
+Fine pitch RDL architecture
+Figure 5 illustrates the fine-pitch RDL design employing an
+inorganic cover layer. [2] Inorganic-passivated Cu (IP-Cu)
+enhances reliability, and coplanar waveguide (CPW) transmission
+lines were fabricated to evaluate high-frequency characteristics.
+Measured results for 5-mm-long CPW lines are shown in Figure. 6.
+Insertion loss increases with finer wiring pitch due to increased
+conductive loss associated with reduced cross-sectional area.[3]
+
+(a)
+
+Figure 5. Fine pitch RDL architecture with inorganic
+layer.
+Figure 7 shows and demonstration of eye diagram. [4] Figure 7
+demonstrate after TCT test insist that Inorganic layer enhance high
+speed transmission properties.
+
+(b)
+Figure 3.
+area
+
+Maximum currents depend on Cross section
+
+SID 2026 DIGEST • 662
+
+47-4 / S. Kuramochi
+High speed RDL architecture
+High-speed RDLs are required to connect AI chiplet modules and
+CPO modules within energy-efficient packages. The proposed
+high-speed RDL architecture is shown in Figure 9. Low insertion
+loss was demonstrated for XPU–CPO interconnects at 70 and 100
+GHz, as shown in Figures 10. Insertion loss depends on crosssection trace of edge show in Figure 11.
+
+Figure 6. Measurement result of fine wiring consists
+with CPW structure.
+
+Figure 7. Eye diagram simulation result of CPW on
+RDL after 1000cycle of TCT.
+Electromigration (EM) performance of fine-pitch RDLs is
+presented in Figure 8[5], demonstrating improved lifetime
+compared with conventional Cu RDLs. Activation energies
+extracted using Black’s equation are summarized in Table 3.
+
+DNP-SAP
+
+Table3. Estimated Activation Energies Based on Black’s Equation
+
+Table3 Activation Energy calculated by Blacks equation
+Line
+
+Current
+
+Joule
+
+Density
+
+Temp
+
+(µm)
+
+(A/cm²)
+
+(°C)
+
+A
+
+1 2.00E+06
+
+180
+
+B (Ref.)
+
+2 2.00E+06
+
+C
+
+2 2.50E+06
+
+Time to
+
+Time to Activation Activation
+
+Failure – Failure –
+
+Energy –
+
+conventi
+
+DNP
+
+conventio DNP SAP
+
+onal(h)
+
+SAP (h)
+
+10
+
+1000
+
+0.913
+
+1.093
+
+180
+
+7
+
+1000
+
+0.913
+
+1.107
+
+230
+
+0.7
+
+1000
+
+0.913
+
+1.228
+
+nal(eV)
+
+Energy –
+(eV)
+
+Insertion loss(dB)
+
+Figure 10. Transmission line characteristics between AI
+module and CPO module
+
+Figure 8. Increase rate of electrical resistance of 1-μmwide Cu traces stressed with a current density of 2.0E6
+A/cm2.
+
+Condition Width
+
+Figure 9. High speed RDL architecture
+
+0.00
+-0.50
+-1.00
+-1.50
+-2.00
+-2.50
+-3.00
+-3.50
+-4.00
+
+70GHz
+100GHz
+
+0
+
+25
+
+50
+
+75
+
+100
+
+125
+
+Cross-section of trace edge(um2)
+Figure 11. Insertion loss depends on cross-section
+trace of edge
+
+SID 2026 DIGEST • 663
+
+47-4 / S. Kuramochi
+Table 4 reliability test result of Glass core substrate
+
+Reliability result of Glass substrate
+Figure 12 shows a build-up substrate with two RDL layers
+fabricated on a glass core (panel size: 300 × 400 mm). Cu-filled
+TGVs with a diameter of 100 µm were arranged at a 1 mm pitch,
+resulting in approximately 24,000 vias within a 160 × 160 mm²
+area. Reliability was evaluated using substrates with a resin buffer
+layer. After preconditioning, thermal shock testing (−55 °C to
+150 °C), and HAST, SEWARE was not observed in samples with
+the buffer layer when three and six ABF layers were laminated.
+(Figure 13, Table4).
+
+Sample
+Structure
+with resin
+buffer layer
+
+Process applied for verification
+ABF
+Dicing
+
+Precondition
+
+HAST
+
+TST
+
+±3 layers
+
+Pass
+
+Pass
+
+Pass
+
+Pass
+
+±6 layers
+
+Pass
+
+Pass
+
+Pass
+
+Pass
+
+4.Conclusion
+Key core substrate properties—including via pitch, insertion loss,
+power density, elastic modulus, and CTE—were identified as
+critical factors for large-scale AI server packages. Warpage
+simulations incorporating complex chiplet and glass core properties
+revealed a strong dependence on core modulus and CTE. RDLs
+with inorganic protective layers enhanced both reliability and highspeed signal transmission for XPU–HBM interconnects, while low
+insertion loss was demonstrated for XPU–CPO links at 70 and 100
+GHz. In addition, a 160 × 160 mm² RDL structure on a glass core
+substrate with Cu-filled TGVs was successfully fabricated on a 300
+× 400 mm² panel, and a resin buffer layer was shown to be essential
+for suppressing SEWARE and ensuring long-term reliability.
+
+5.Reference
+Figure 12. 160mmX160mm2 RDL on Glass substrate
+
+Cross-section
+Build-up
+
+[1]
+[2]
+
+Cross-section
+[3]
+
+Glass
+Build-up
+
+[4]
+
+Top view
+
+Timoshenko, S. (1925) “Analysis of Bi-Metal Thermostats”
+Hiroshi Kudo, Takamasa Takano, Kouji Sakamoto, Daisuke
+Kitayama, Haruo Iida, Masaya Tanaka, Takahiro Tai, Yumi Okazaki,
+Jyunya Suzuki, and Shinji Maekawa, “Effectiveness of inorganic
+dielectric layer on submicron-scale Cu Traces against thermal
+oxidative stress,” IEEE 71st Electronic Components and Technology
+Conference (ECTC) pp.353-358, 2021.
+Masaya Tanaka, Satoru Kuramochi, Takahiro Tai, Yoichiro Sato,
+Nobutaka Kidera, “High frequency characteristics of glass interposer”,
+IEEE 70th Electronic Components and Technology Conference
+(ECTC) pp.601-610, 2020.
+Masaya Tanaka, Nobuyoshi Moriwaki, Satoru Kuramochi,
+“Experimental study of transmission signal performance of sub-2
+micron fine-wiring with novel structure”, IEEE 75th Electronic
+Components and Technology Conference (ECTC2025) pp.1763-1767
+Takamasa Takano, “Fine Pitch RDL with High-Reliability Formed
+on Glass for Heterogeneous Integration” IMAPS 2025 Symposium
+Sandiego CA pp.249-254, 2025.
+
+Top[5]view
+
+Figure 13. Reliability test result
+
+(a) Without Resin buffer
+
+(b) With Resin buffer
+
+SID 2026 DIGEST • 664
+
+SERARE
+
+

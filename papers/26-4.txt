@@ -1,0 +1,428 @@
+26-4 / Z. Zhao
+
+Laminated and Heterogeneous Integration for Opto-electronics via Nanoprinting
+Zhixuan Zhao*, Tianshuo Zhao*, **
+* Department of Electrical and Electronic Engineering, The University of Hong Kong, Hong Kong SAR,
+China
+** Materials Innovation Institute for Life Sciences and Energy (MILES), HKU-SIRI, Shenzhen, P.R. China
+Abstract
+We established a nano-resolution printing method to deposit
+nanocrystal (NC) inks and modify material properties via in-situ
+room-temperature ligand-exchange. This enables heterogeneous
+integration of multi-layer opto-electronic devices on low-thermalresistance substrates. We printed metal (Au, Ag) and
+semiconductors (ZnO, PbS, CdSe, and InSb) NC structures,
+achieving 70-nm linewidths with competitive (opto)electronic
+characteristics for micro-nano devices.
+
+Author Keywords
+nano-printing; heterogeneous integration; room temperature;
+ligand-exchange; low-thermal-resistance substrate.
+
+1. Introduction
+The exponential proliferation of the Internet of Things (IoT),
+wearable technology, autonomous systems, and augmented and
+virtual reality (AR/VR) has rendered ubiquitous sensing and
+computing a reality, thereby precipitating a demand for highperformance,
+application-specific
+optoelectronics.1,2
+The
+realization of such customizable devices necessitates engineered
+multi-material
+constituents,
+adaptable
+manufacturing
+methodologies, and flexible heterogeneous integration strategies.
+While additive manufacturing facilitates the fabrication of bespoke,
+multiscale structures via functional inks, current techniques remain
+constrained. For instance, although stereolithography attains submicrometer resolution, its material palette is primarily restricted to
+metal oxides and polymers, limiting its utility largely to mechanical
+and optical components.3,4 Consequently, fully printed, pixelated
+microelectronics—which require precise semiconductor patterning
+and multilayer stacking—remain at a nascent stage of development.
+Addressing these challenges necessitates a adjustable ink system
+integrated with versatile printing protocols. Colloidal nanocrystals
+(NCs) are promising candidates, having demonstrated efficacy in
+flexible circuits and photodetectors. Their crystalline core-shell
+structure offers tailorable properties, particularly the size-tunable
+optoelectronics of NCs.5,6 Crucially, ligand-exchange (L-E)
+substitutes insulating ligands with compact alternatives to enable
+charge transport.7 Moreover, selective ligand chemistry allows for
+the engineering of carrier mobility, doping, and energy levels. This
+facilitates the layer-by-layer assembly of complex devices while
+mitigating micro-defects associated with ligand loss, thereby
+supporting robust multi-material integration.
+Electrohydrodynamic printing (EHDP) enables nanoscale
+resolution with diverse ink materials, overcoming nozzle diameter
+limitations.8 However, conventional high-temperature sintering is
+often deleterious to heat-sensitive semiconductive NCs and flexible
+substrates.9,10 While low-temperature chemical treatments have
+been used to deposit NCs as sensitizers on graphene11 for infrared
+detection, achieving scalable all-printed NC optoelectronics
+requires deeper understanding of NC-surface ligand interactions
+and multi-material integration.
+We present a ligand-exchange-assisted EHDP) protocol enabling
+
+sub-micron NC patterning with in-situ room-temperature
+functionalization. This method facilitates the heterogeneous
+integration of Ag, Au, ZnO, and PbS NCs, achieving linewidths of
+70 nm and Ag conductivities of 1.99×107 S/m via post-exchange
+densification. Beyond fabricating structural color gratings and
+metasurfaces, we demonstrate multi-layer IR photodiodes featuring
+10-µm pixels composed of n- and p-doped PbS NCs with
+asymmetric contacts. Under 1500 nm illumination, these devices
+exhibit enhanced rectification, reduced dark currents, and rapid
+response times compared to standard benchmarks. This work
+establishes a viable room-temperature pathway for processing
+sensitive materials in advanced optoelectronics.
+
+2. Mechanisms of L-E assisted nano-printing of
+NC assemblies
+Colloidal NCs are typically synthesized with long organic capping
+ligands, which render them stable as dispersions in non-polar
+solvents—a critical prerequisite for formulating printable inks
+compatible with EHDP. As illustrated in Fig. 2a, a diverse library
+of NC core materials can be accessed through this approach. This
+library encompasses metals, semiconductors (including quantum
+dots), and metal oxides, all synthesized with surface ligands such
+as oleic acid (OA) or oleylamine (OLAM). These ligands confer
+solubility and colloidal stability in non-polar solvent systems like
+dodecane, thereby enabling the controlled deposition required for
+high-resolution additive manufacturing.12 They are deposited by
+EHDP similar with previous research,8 which utilizes pulsed
+voltages to generate electric forces that overcome ink surface
+tension and viscosity, enabling droplet ejection from the nozzle tip.
+As illustrated in Fig. 1, by translating the stage of the custom-built
+EHD printer along a defined path, NCs are patterned into linear
+structures on the substrate (Fig. 2b). These printed lines serve as
+fundamental building blocks that can be spatially organized and
+combined through programmed stage movements to form
+customized patterns and arbitrarily shaped thin films.
+
+Figure 1. Schematic of the nanoscale electrohydrodynamic
+(EHD) printer.
+As-printed NCs structures (Fig. 2b) are initially electrically
+insulated due to steric separation by bulky organic ligands in the
+original inks (Fig. 2a). To address this, we employ a solid-state LE process wherein structures are treated with compact ligands
+(EDT, NH4SCN, TBAI, or PbI2) in polar solvents for 30–120 s,
+followed by rinsing (Fig. 2c, e). These thermodynamically
+
+SID 2026 DIGEST • 369
+ISSN 0097-996X/26/5701-0369-$1.00 © 2026
+
+26-4 / Z. Zhao
+spontaneous room-temperature reactions replace long-chain
+molecules, thereby reducing interparticle spacing. Consequently,
+ligand volume loss and altered surface energy drive autonomous
+NC reorganization, densification, and partial fusion, yielding
+significant morphological and physical transformations (Fig. 2d).
+
+nozzle diameter of 2 µm. Lightly doped silicon with native SiO2
+was selected as the substrate to mitigate artifacts associated with
+conductive auto-focusing and electrostatic repulsion. A series of
+Ag NC line arrays were printed under varied v and V conditions,
+and their morphologies and elemental composition were analyzed
+using SEM and EDX to quantify deposition per unit length.
+Results indicate that linewidth decreases with increasing stage
+speed, as fewer ink droplets and correspondingly less material are
+deposited per unit length. At speeds exceeding 6.0 μm/s, the
+linewidth of as-printed Ag NCs becomes less sensitive to further
+increases in v, and the L-E induced contraction is reduced due to
+insufficient NC mass available for migration and fusion. As
+illustrated in Fig. 3, continuous Ag NC lines with linewidths as
+narrow as 70 nm are achieved through this L-E-assisted nanoprinting approach.
+
+Figure 2. L-E-assisted nanoprinting of NCs. a Schematic
+representation of as-synthesized nanocrystals capped with
+long organic ligands and their dispersion as stable, printable
+inks in non-polar solvents. b Illustration of the EHDP process
+for the precise deposition of NC inks onto a substrate.
+Schematics of c the L-E process and d morphological
+changes induced by L‑E in patterns produced via multi‑layer
+and multi‑material printing. e Schematics showing
+neighboring NCs after L-E treatment with various compact
+ligand reagents.
+Applying a L-E condition of 1 mg/mL NH4SCN or TBAI for 60 s
+induces significant volumetric shrinkage in printed structures.
+Specifically, NH4SCN treatment reduced Ag NC linewidths from
+651.4 ± 49 nm to 274.5 ± 31 nm, while TBAI exchange PbS NC
+lines from 754.9 ±65 nm to 544.0 ±34 nm. This room-temperature
+assembly yields dense, electronically coupled sub-micron solids
+with optoelectronic properties comparable to spin-coated
+benchmarks. The resulting Ag and PbS NC lines and films
+demonstrate optoelectronic properties on par with their spin-coated
+counterparts, the underlying mechanisms and optimization of
+which will be detailed in subsequent sections.
+
+3. Exploration of Resolution Limits and
+Applications of Printed Lines
+To optimize morphology, we utilized Ag NC inks with NH4SCN
+ligand exchange as a model system to systematically investigate
+how printing parameters—specifically stage velocity (v) and pulse
+voltage (V)—govern the morphology of printed lines, using a fixed
+
+Figure 3. SEM images of Ag NC lines before and after L-E
+fabricated by EHDP, with a minimum line width of 70 nm.
+We draw on the exceptional nanoscale patterning capability and
+high electrical conductivity of printed silver nanocrystal (Ag NC)
+lines to create diffraction gratings that produce structural colors
+(SCs). These gratings spatially decompose incident white light into
+specific monochromatic components, enabling the generation of
+diverse color effects. This technology shows considerable potential
+for applications such as flexible displays, strain sensors, and anticounterfeiting features.13,14 The structural color of the printed Ag
+NC gratings was precisely modulated by varying the interline
+spacing from 600 nm to 1900 nm in 100 nm increments, enabling
+the generation of high-purity structural colors, as illustrated in Fig.
+4.
+
+Figure 4. Optical microscopy (top) and corresponding SEM
+(bottom) images of printed RGB SCs structural color patterns
+forming the letter ‘E’, with grating pitch sizes of 2220 nm (left),
+1720 nm (middle), and 1320 nm (right), respectively. Scale
+bars: 10 μm.
+By integrating different grating pitches within a single structure, a
+broader palette of structural colors can be achieved, with the
+resulting hue determined by the proportional combination of red,
+green, and blue (RGB) primary color gratings (Fig. 5). For
+instance, an equal-area fraction of the three primary gratings yields
+a distinct white coloration. In comparison to recently reported
+meniscus-guided printed polymeric structural colors14, our
+approach achieves a significantly wider color gamut (Fig. 5). This
+enhanced performance is attributed to the finer linewidth and
+greater tunability of line spacing afforded by our method, all while
+maintaining compatibility with high-speed printing at 25 μm/s.
+
+SID 2026 DIGEST • 370
+
+26-4 / Z. Zhao
+promoting multi-material printing capabilities, as shown in Fig. 6.
+
+Figure 5. Chromaticity coordinates of representative
+structural colors from this work plotted on the CIE 1931
+chromaticity diagram with SEM images of printed grating
+structures and their corresponding SCs, demonstrating color
+tuning achieved through precise control of grating pitch and
+through mixing of red, green, and blue (RGB) primary SC
+gratings at varying ratios. Scale bars: 10 μm.
+Besides line gratings, we print Ag NCs for complex linear patterns
+with extended functionalities, including bio-electrode arrays and
+long-wavelength IR metasurfaces.
+
+4. Optimization of Printed Pattern Conductivity
+Upon chemical treatment of nano-printed NC structures, we
+observe that grain growth induced by L-E is governed more
+decisively by the initial ink concentration used during the EHDP
+process. This concentration directly influences the dynamic
+detachment of ligands from NC surfaces. As described by the
+Allen-Cahn equation, the remaining surface-bound ligands
+establish the driving force for subsequent grain growth.12
+Integrating experimental data with computational modeling reveals
+that a substantial fraction of organic ligands detach during EHDP
+when higher-concentration NC inks are employed. This predeposition ligand loss leads to the formation of larger NC
+aggregates upon printing, consequently reducing the driving force
+for chemically driven sintering during the subsequent L-E step. By
+systematically optimizing the initial ink concentration, we
+successfully minimized ligand detachment during printing, thereby
+preserving a higher effective NC concentration. This optimization
+not only enhances printing efficiency but also markedly improves
+the filling density and structural integrity of the resulting
+nanocrystal architectures.
+The electrical performance of these structures was evaluated by
+measuring the DC conductivity of Ag NC films using the four-point
+probe method. Peak conductivity, reaching 1.99 × 10⁷ S/m, was
+achieved at an optimized ink concentration of 3.0 mg/mL.
+
+5. Multi-material Laminated Printing for Optoelectronics Fabrication and Heterogeneous
+Integration
+Beyond Ag NCs as printing system, the ligand-exchange (L-E)assisted nanoprinting platform demonstrates broad material
+versatility. Its applicability extends to a range of functional
+colloidal inks, including semiconductive PbS NCs, InSb NCs,
+CdSe NCs and dielectric ZnO NCs, showcased with the NH4SCN
+L-E to realise various pattern designs at sub-micron resolution,
+
+Figure 6. SEM images (top) and corresponding EDX
+elemental mappings (bottom) of printed NC patterns
+featuring diverse material compositions and geometries: Ag,
+ZnO, CdSe, PbS, and InSb NCs. Scale bar: 20 μm.
+Leveraging our L-E-assisted nanoprinting platform, we fabricated
+sub-10 µm PbS NC patterns and integrated photodiode (PD)
+devices entirely under ambient conditions. In contrast to
+single-doped PbS NC photoconductors, the photodiodes reported
+here incorporate built-in P–N junctions. These junctions are
+realized through the distinct doping characteristics imparted by
+different ligand treatments: EDT induces p-type doping in PbS
+NCs, while TBAI or PbI₂ yields n-type behavior.15,16 To construct
+the multi-layer, multi-material device architecture, we first printed
+bottom electrode pairs using Ag and Au NC inks—each processed
+with NH₄SCN-assisted ligand exchange. Subsequently, a layer of
+TBAI-treated n-type PbS NCs was printed over the Ag electrode,
+followed by a layer of EDT-treated p-type PbS NCs printed to
+establish direct contact with the Au electrode, as illustrated
+schematically in Fig. 7.
+
+Figure 7. Schematics of all-printed PbS NC IR photodiodes
+(left), energy band diagram (right top), optical microscopy
+images (right bottom).
+To realize a fully printed nanocrystal photodiode, we incorporated
+ZnO NC as the n-type electron transport layer. The device
+architecture consists of multiple NCs layers laterally bridging a pair
+of pre-printed Au and Ag electrodes, both of which have undergone
+SCN⁻-based ligand exchange. Fabrication proceeds through
+sequential deposition of PbS-EDT, PbS-TBAI, and ZnO-SCN
+layers, each followed by its corresponding ligand treatment. The
+ZnO layer is positioned atop the PbS stack, serving to electrically
+isolate it from the underlying Ag electrode. The resulting
+conduction path follows Au-SCN / PbS-EDT / PbS-TBAI /
+ZnO-SCN / Ag-SCN, supporting both in-plane charge transport
+within individual layers and vertical carrier movement across the
+heterojunction interfaces, as schematically depicted in Fig. 8a.
+Upon illumination with 1480 nm light, the photodiode exhibits an
+open-circuit voltage of 0.22 V and achieves a remarkable external
+quantum efficiency of 49%-56.1 % at a –4 V bias. The built-in
+electric field established across the device (Fig. 8b) promotes
+efficient charge separation, yielding a response time below
+20 ms—a value that exceeds the temporal resolution limit of our
+
+SID 2026 DIGEST • 371
+
+26-4 / Z. Zhao
+measurement system.
+3
+4
+5
+
+Figure 8. a Schematic illustration of the device architecture
+for all‑printed infrared photodiodes based on a PbS NC/ZnO
+NC heterojunction. b I-V characteristics of all-printed 1500
+nm PbS NC/ZnO NC IR photodiodes measured in the dark
+(black) and under 1480 nm illumination (orange),
+demonstrating photoresponse and rectifying behavior.
+
+6. Conclusion
+We report a general approach for the layer-by-layer printing and
+chemical functionalization of NC structures. In contrast to
+conventional inkjet printing followed by high-temperature
+sintering, our method integrates nano-resolution EHDP with
+room-temperature L-E. This synergistic combination substantially
+broadens the palette of compatible NC inks, substrate materials,
+and attainable device functionalities. Crucially, the entirely
+room-temperature process preserves thermally sensitive materials
+and facilitates the heterogeneous integration of disparate
+components on diverse substrate platforms.
+Using Ag NCs as a model system, we systematically investigated
+the printing parameters and elucidated the mechanism underlying
+L-E-assisted sintering. Our findings indicate that the dynamic
+coordination between NCs and their surface ligands during the
+printing process governs subsequent chemical fusion. Extending
+this understanding, we validated the semiconductive properties of
+printed PbS NCs and successfully demonstrated fully printed
+multilayer photodiodes responsive to 1500 nm irradiation. Device
+performance was further enhanced by integrating asymmetric metal
+electrodes—fabricated directly via metal NC printing, a strategy
+that offers greater design flexibility compared to conventional
+post-lithography metallization.
+As hybrid electronics increasingly converge toward integrated
+sensing, communication, and computing functions within a single
+device, the chemical-assisted nanoprinting method presented here
+offers a versatile and practical route for the heterogeneous
+integration of multi-material, multi-functional devices on both rigid
+and flexible substrate platforms.
+
+6
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+7. Acknowledgements
+The authors thank the support from the Early Career Scheme (grant
+27210623) and General Research Fund (grant 17214024) of
+Research Grants Council of University Grants Committee, Hong
+Kong SAR, and the support from National Youth Science Fund
+(grant 62304191) of National Natural Science Foundation of China.
+
+8. References
+1
+2
+
+Luo, Y. et al. Technology Roadmap for Flexible
+Sensors. ACS Nano 17, 5211-5295 (2023).
+https://doi.org:10.1021/acsnano.2c12606
+Huang, T.-Y., Gu, H. & Nelson, B. J. Increasingly
+Intelligent Micromachines. Annual Review of Control,
+
+16
+
+Robotics, and Autonomous Systems 5, 279-310 (2022).
+https://doi.org:10.1146/annurev-control-042920-013322
+Somers, P. et al. The physics of 3D printing with light.
+Nature Reviews Physics (2023).
+https://doi.org:10.1038/s42254-023-00671-3
+Saha, S. K. et al. Scalable submicrometer additive
+manufacturing. Science 366, 105-109 (2019).
+https://doi.org:doi:10.1126/science.aax8760
+Liu, M. et al. Colloidal quantum dot electronics. Nature
+Electronics 4, 548-558 (2021).
+https://doi.org:10.1038/s41928-021-00632-7
+Choi, J.-H. et al. Exploiting the colloidal nanocrystal
+library to construct electronic devices. Science 352,
+205-208 (2016).
+Brus, L. E. A simple model for the ionization potential,
+electron affinity, and aqueous redox potentials of small
+semiconductor crystallites. The Journal of Chemical
+Physics 79, 5566-5571 (1983).
+https://doi.org:10.1063/1.445676
+Galliker, P. et al. Direct printing of nanostructures by
+electrostatic autofocussing of ink nanodroplets. Nat
+Commun 3, 890 (2012).
+https://doi.org:10.1038/ncomms1891
+Goh, G. L., Zhang, H., Chong, T. H. & Yeong, W. Y.
+3D Printing of Multilayered and Multimaterial
+Electronics: A Review. Advanced Electronic Materials
+7 (2021). https://doi.org:10.1002/aelm.202100445
+Ling, S. et al. Tension-driven three-dimensional
+printing of free-standing Field’s metal structures.
+Nature Electronics (2024).
+https://doi.org:10.1038/s41928-024-01207-y
+Kara, G. et al. Scaling of Hybrid QDs-Graphene
+Photodetectors to Subwavelength Dimensions. ACS
+Photonics (2024).
+https://doi.org:10.1021/acsphotonics.3c01759
+Zhao, Z. et al. Ligand-exchange-assisted printing of
+colloidal nanocrystals to enable all-printed sub-micron
+optoelectronics. Nat Commun 16, 9173 (2025).
+https://doi.org:10.1038/s41467-025-64596-4
+Sahu, R. R. et al. Single-step fabrication of liquid
+gallium nanoparticles via capillary interaction for
+dynamic structural colours. Nat Nanotechnol (2024).
+https://doi.org:10.1038/s41565-024-01625-1
+Bae, J. et al. Three-Dimensional Printing of Structural
+Color Using a Femtoliter Meniscus. ACS Nano 17,
+13584-13593 (2023).
+https://doi.org:10.1021/acsnano.3c02236
+Chuang, C. H., Brown, P. R., Bulovic, V. & Bawendi,
+M. G. Improved performance and stability in quantum
+dot solar cells through band alignment engineering. Nat
+Mater 13, 796-801 (2014).
+https://doi.org:10.1038/nmat3984
+Deng, Y. H. et al. Short-Wave Infrared Colloidal QD
+Photodetector with Nanosecond Response Times
+Enabled by Ultrathin Absorber Layers. Adv Mater,
+e2402002 (2024).
+https://doi.org:10.1002/adma.202402002
+
+SID 2026 DIGEST • 372
+
+

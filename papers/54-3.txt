@@ -1,0 +1,359 @@
+54-3 / T. Ishinabe
+
+Ultra Low Specular Reflection LCD with High Visibility for Next Generation
+Automotive Applications
+Takahiro Ishinabe*, Yuichi Kawahira**, Akira Sakai**, Kiyoshi Minoura**
+Satoshi Yoshinaga***, Hajime Akimoto***, Taketoshi Nakano***
+*Tohoku University, Sendai, Japan
+**Sharp Display Technology Corporation, Mie, Japan
+***Nichia Corporation, Tokushima, Japan
+
+Abstract
+
+reflections can significantly decrease the display image's
+contrast ratio. Furthermore, when strong specular reflections
+create localized high-brightness regions on the screen, it
+significantly reduces image visibility due to pupil adjustment. In
+this case, while contrast ratio remains high in areas without
+specular reflections, visibility decreases when areas with
+significantly different luminance or contrast ratios coexist on the
+screen.
+
+Author Keywords
+
+Therefore, suppressing specular reflection is important for
+improving display visibility. Particularly as displays become
+larger and viewing angles widen, it is necessary to suppress
+specular reflection regardless of the angle of ambient light or the
+viewing angle.
+
+We have developed an ultra-low specular reflection LCD for
+Next Generation Automotive applications. By combining the
+FFS-mode LCD with low internal reflection, wide-viewing
+angle, and no sparkle AGAR film and high-efficiency local
+dimming mini-LED backlight, we successfully achieved
+excellent visibility in bright environments and over a wide
+viewing angle range.
+Low Specular Reflection; Low Internal Reflection; AG Film;
+Ambient Contrast Ratio; Gloss value; Local Dimming
+Backlight; Automotive
+
+1. Introduction
+
+In recent years, as displays have become increasingly important
+in automobiles, there has been a strong demand for large and
+functional displays, such as pillar-to-pillar displays and curved
+displays.
+Improving visibility is the most critical factor for safety, and it is
+essential to achieve high visibility regardless of ambient
+brightness, the angle of incident light, or the viewing angle of
+the display. Especially as displays become larger, the viewing
+angles become wider; therefore, improving visibility across a
+wide-angle range has become important.
+Ambient Contrast Ratio (ACR) [1] has been proposed as a
+method for evaluating image quality in bright environments. It is
+calculated using the following formula, based on the Specular
+Component Include (SCI) reflectance measured when the
+display is off.
+
+This research reports on the development of a wide-viewingangle AG film, a technology to suppress specular reflection by
+optimizing internal reflections within the LCD panel, and a
+high-brightness local dimming backlight using high-efficiency
+Mini-LEDs. These innovations have enabled the realization of a
+display with high image visibility regardless of the viewing
+environment.
+
+2. Evaluation of Reflective Properties
+Environmental factors causing image quality degradation are a
+decrease in contrast ratio due to specular reflection (glare) and
+lower uniformity in luminance distribution across the screen.
+This depends on the display's specular reflection characteristics
+and is determined by the difference between Specular
+Component Include (SCI) reflectance and Specular Component
+Exclude (SCE) reflectance.
+However, since SCI and SCE are methods that incident diffuse
+light onto the panel and measure it from the panel normal
+direction, they cannot evaluate the angular dependence of the
+measured object's reflectance characteristics.
+Generally, anti-reflective (AR) coatings and anti-glare (AG)
+treatments exhibit angle-dependent characteristics, and it is
+therefore necessary to evaluate their performance for light
+incident at large angles. In this study, the gloss values at 20°,
+60°, and 85° were measured using a gloss meter (GM-268Plus,
+Konica Minolta) for various display panels. The results are
+shown in Table 1.
+
+Light reflection on displays, a factor reducing ACR, is classified
+into specular reflection and diffuse reflection components.
+Display panels exhibit particularly high specular reflection
+components. Consequently, techniques to reduce surface
+reflection and internal reflection within the panel have been
+proposed as methods to improve ACR.
+However, even with reduced panel reflection, strong specular
+
+Table 1. Gloss value of various display panels.
+Incident angle
+
+OLED
+
+LCD
+
+LCD+AG
+
+20°
+
+28.6%
+
+37.3%
+
+2.1%
+
+60°
+
+46.8%
+
+58.5%
+
+12.8%
+
+85°
+
+93.1%
+
+94.4%
+
+66.9%
+
+SID 2026 DIGEST • 754
+ISSN 0097-996X/26/5701-0754-$1.00 © 2026
+
+54-3 / T. Ishinabe
+The measurement results show that compared to the glare panel,
+the anti-glare panel reduces gloss (the intensity of specular
+reflection) due to light diffusion. However, as the incident angle
+increases, light diffusion decreases, leading to a higher reflected
+light intensity. This indicates that to suppress specular reflection
+(glare) over a wide-angle range, an AG film with high scattering
+characteristics at large incident angles is necessary.
+
+angles compared to conventional AG films. We also applied an
+anti-reflective (AR) coating to the fabricated AG film. The SCI
+reflectance of the fabricated AGAR film is shown in Fig. 3.
+Table 1. Optical property of fabricated AG film.
+
+Next, we evaluated the luminance distribution within the image
+when specular reflection occurred. A diffuse light-emitting panel
+was used, illuminating the display at a 45-degree angle and
+observed from the specular reflection direction. The illuminance
+was 7,500 lux. For the glare panel, as shown in Fig. 1, light
+source reflections appear, and the contrast ratio in part of the
+image is decreased. In contrast, for the anti-glare panel using an
+AG film, the reflected image of the light source is diffused,
+resulting in a further decrease in luminance uniformity within
+the screen. The problem of reduced luminance uniformity in the
+anti-glare panel is caused by the narrowing of the light diffusion
+angle due to the angle-dependent characteristics of the AG film's
+light diffusion properties. This indicates that optimization of the
+AG film's light diffusion characteristics is necessary.
+
+Total Transmittance
+
+90%
+
+Haze
+
+70%
+
+Figure 2. Change in diffusion characteristics of AG film
+with respect to the incidence angle.
+
+(a) OLED tablet
+
+Figure 3. Wavelength - SCI reflectance characteristics of
+the fabricated AGAR Film.
+
+(b) LCD tablet with AG
+Figure 1. Reflection on various display panels.
+
+Here, when AG films have a high haze value, sparkle effects
+typically occur, reducing image display quality. So, we further
+developed a phase grating film based on ultraviolet
+photopolymerization-induced phase separation to reduce sparkle
+effects. Figure 4 compares the display image (green) from an
+LCD using conventional AG film without anti-sparkle layers
+with that from our study. Our results demonstrate that the LCD
+developed in this study achieves excellent display characteristics
+with virtually invisible sparkle effects.
+
+3. Development of Wide-viewing-angle AG film
+
+We optimized the average height and average slope of the
+surface structure of AG film. The characteristics of the
+fabricated AG film are shown in Table 2.
+Figure 2 shows the changes in diffusion characteristics with
+respect to the incident angle. Solid lines represent the AG film
+developed in this study, while dashed lines show the
+characteristics of conventional AG films. The figure indicates
+that the AG film developed in this study exhibits lower reflected
+light intensity and has high scattering properties even at large
+
+(a) LCD with normal AG
+
+(b) LCD with new AG using
+phase grating film
+
+Figure 4. Comparison of luminance uniformity (sparkle) of
+LCD panel using AG film.
+
+SID 2026 DIGEST • 755
+
+54-3 / T. Ishinabe
+4. Development of Low-Reflection LCD
+
+We fabricated an LCD with low internal reflection [2-3]. We
+suppressed refractive index mismatches between ITO and
+adjacent layers, such as the glass substrate and polarizer
+adhesive. We also optimized the refractive index of the black
+resist used for the color filter's BM and the intermediate layer.
+Furthermore, we optimized the TFT deposition sequence,
+materials, and layer thicknesses. This resulted in suppression of
+optical interference between multiple transparent insulating
+layers, improving the internal reflectance of the panel from the
+conventional 1.12% to 0.28%.
+Additionally, a high-brightness local dimming backlight
+utilizing mini-LEDs was developed to enhance visibility [4].
+Key features include achieving higher brightness and improved
+luminance uniformity by controlling the directionality of light
+emission within zones using micro-optics. Furthermore, light
+leakage into adjacent zones was suppressed, enabling localized
+light emission while maintaining high contrast. This resulted in
+image display with minimal halos and excellent contrast.
+Finally, a high brightness of 3,000 cd/m² was achieved. The
+specifications of the prototyped LED are shown in Table 3.
+
+(a) Normal LCD +AG (Incident angle: 30°)
+
+Table 3. Specification of the fabricated LCD.
+Display size
+
+7.0inch
+
+Resolution
+
+1280 x 758
+
+Contrast ratio
+
+1630:1
+
+Brightness
+
+3,000 cd/m2
+
+LCD Panel Internal
+Reflection
+
+0.28%
+
+(b) Low reflection LCD + new AG (Incident angle: 30°)
+
+Finally, Table 4 presents a comparison of gloss values for
+normal LCD+AR, low-reflectance LCD+AR, and lowreflectance LCD+new AGAR. Figure 5 compares the
+measurement results of the reflection light distribution in the
+black state measured by the Conoscope (AUTRONIC
+MELCHERS). The angles of light incidence are 30 degrees and
+60 degrees. Figure 6 shows photographs of the displayed images
+at an illuminance of 7,500 lux. The observation angle is 45
+degrees. The LCD developed in this study scatters and reflects
+external light across a wide angle range, resulting in extremely
+low glossiness and high luminance uniformity throughout the
+entire viewing angle range and confirming that specular
+reflection is effectively suppressed across a wide viewing angle
+range.
+
+(c) Normal LCD +AG (Incident angle: 60°)
+
+Table 4. Gloss value of various display panels.
+Incident
+angle
+
+Normal LCD
++AR
+
+Low reflection
+LCD + AR
+
+Low reflection
+LCD+ New AGAR
+
+20°
+
+17.4%
+
+9.8%
+
+0.2%
+
+60°
+
+50.1%
+
+46.3%
+
+3.0%
+
+85°
+
+95.5%
+
+95.3%
+
+7.5%
+
+(d) Low reflection LCD + new AG (Incident angle: 60°)
+Figure 5. Comparison of the reflection light distribution in
+the black state.
+
+SID 2026 DIGEST • 756
+
+54-3 / T. Ishinabe
+5. Conclusion
+
+In this study, we developed an LCD panel that suppresses
+internal reflections and a novel AGAR film with extremely low
+incidence angle dependency and no sparkle effect to improve
+display visibility in bright environments and over a wide
+viewing angle range. By combining these technologies with a
+high-brightness local dimming backlight, we successfully
+realized an ultra-low specular reflection LCD with excellent
+visibility that prevents image reflection even under extremely
+bright conditions of 7,500 lux. This technology is expected to be
+applied to various applications, including next-generation
+automotive displays.
+
+(a) Normal LCD +AR
+
+6. References
+
+[1] Haiwei Chen, et al. “Can LCDs Outperform OLED Displays
+in Ambient Contrast Ratio?” SID’18 DIGEST, 74-1, pp.
+981-984 (2018)
+[2] Y. Kawahira, K. Murata, T. Nakai, M. Hasegawa, A. Sakai,
+K. Minoura, N. Smith, “Sunlight Readable FFS LCD with
+High Contrast Ratio and Wide Color Gamut under High
+Ambient Light Situations,” Proc. of IDW, pp. 91-94 (2018).
+(b) Low reflection LCD + New AGAR
+Figure 6. Comparison of images under 7,500 lux
+illumination.
+
+[3] Y. Kawahira, M. Hasegawa, R. Saigusa, J. Xu, T. Oyama, A.
+Sakai, K. Minoura,” Super High Ambient Contrast LCDs
+with Low Power Consumption,” SID Display Week Digest,
+49-4 (2024).
+[4] R. Yoshimura, T. Nakabayashi, S. Akagawa, “Thin and Low
+Power 2D-Backlight Module Development with White
+Mini-LEDs,” Proc. of IDW, pp. 337-340 (2023).
+
+SID 2026 DIGEST • 757
+
+

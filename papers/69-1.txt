@@ -1,0 +1,408 @@
+69-1 / K. Blankenbach
+
+Comparison of Perceived Brightness and Colorfulness for Different
+(Automotive) Display Technologies by Helmholtz-Kohlrausch Effect
+Karlheinz Blankenbach*, Steffen Reichel*, Pascal Ulmer*, Lukas Eger*, Dale Stolitzka**
+*Display Lab, Pforzheim University, 75175 Pforzheim, Germany
+**Samsung Display America Lab, 3655 North 1st St. San Jose, CA 95134, U.S.A.
+Abstract
+Modern cars feature different display technologies with specific
+color coordinates. The Helmholtz–Kohlrausch (H-K) effect
+describes that more saturated colors appear brighter for the same
+luminance. We evaluated three LCDs (2 standard and 1 QD
+backlight) and one RGB OLED by 20 subjects. The H-K effect
+was verified. Other results included 8% luminance sensitivity for
+tiled displays, the need for color rendering for photos, and that
+the RGB OLED provides the deepest black in direct comparison.
+
+They were adapted to 10” using a checkerboard mask. The maximum common color gamut (CCG, see Figure 3) is the gamut that
+can be rendered on all four displays with their specific measured
+color coordinates. Test patterns (see Figure 4) were calibrated to
+this CCG with D65 as white point including a gamma (γ) value of
+2.2 (relevant for GUIs and photos). Manual 'fine tuning' was performed to achieve the same luminance, for example, by modifying the RGB grey levels via lightness using the HSL model.
+
+Author Keywords
+Helmholtz-Kohlrausch;
+brightness;
+saturation; LCD; OLED; Quantum Dot
+
+luminance;
+
+gamut;
+
+1. Introduction
+Displays are widespread especially in modern cars, are increasing
+in size (including pillar-to-pillar, Figure 1) and are growing in
+annual volume1. Furthermore, LCDs (edge-lit, local dimming and
+quantum dot backlights) are competing with OLEDs, and will do
+so with MicroLEDs in the future. Different display technologies
+typically have different color coordinates (saturation, purity),
+resulting in varying perceived brightness, readability, and
+colorfulness. This phenomenon is explained by the HelmholtzKohlrausch (H-K) effect (see references2 to 6) and visualized in
+Figure 2. Even if the luminance remains the same, colors appear
+brighter when purity increases (e.g. when they are closer to the
+horseshoe-like curve of CIE 1931 for monochromatic light), and
+they appear more colorful4. This is essential for the calibration of
+modern cockpits with various displays and light sources.
+We examined this phenomenon using a specialized setup to
+compare automotive display technologies. Our goal is to provide
+additional methods for selecting and calibrating displays.
+
+Figure 2. Visualization of the Helmholtz-Kohlrausch (H-K)
+effect (adapted6): (Measured) luminance (center and left)
+vs. perceived brightness (human vision, right) for red,
+green and blue. The numbers refer to 8-bit grey scale.
+
+Figure 1. Premium automotive cockpit with LCD (instrument cluster), OLED (center and codriver display) and
+LED-based interior lighting. Source: Mercedes.
+
+2. Displays and Setup for H-K Evaluation
+We compared four displays with different color coordinates that
+are currently used in cars:
+(1) TN LCD for low budget vehicles
+(2) IPS LCD with wide viewing angle (mostly used 2025)
+(3) IPS LCD with Quantum Dot backlight film (demos)
+(4) RGB OLED in mass production for premium vehicles
+The display types were not known to the subjects. These samples
+have an aspect ratio of 16:9 and sizes ranging from 10” to 11”.
+
+Figure 3. Color gamut of the four displays under test and
+their (maximum) common color gamut (CCG, covered by
+“all” displays) for CIE 1976 UCS.
+Figure 4 shows the setup for the evaluation: The four displays
+were mounted behind a vertical fixture, leaving a 40 mm distance
+due to the bezels. A random monochrome checkerboard
+surrounds them to avoid potential human eye disturbance. We
+used an illumination of 150 lux for the display wall in a dark room
+without reflections on the displays (LWhite = 80 cd/m² for CCG) as
+
+SID 2026 DIGEST • 949
+ISSN 0097-996X/26/5701-0949-$1.00 © 2026
+
+69-1 / K. Blankenbach
+well as dark room conditions (< 1 lux). The observer distance was
+set to 1 m, with the eye height adjusted to the center of the
+displays (gaze point) to minimize potential viewing angle effects.
+Four identical PCs, each with the same graphics adapter, drive the
+four displays. We used three different categories of test patterns,
+which are visualized in Figure 4. During the evaluation, the same
+test patterns were shown in parallel on the four displays:
+•
+•
+
+•
+
+Full-screen test patterns for RGBW and CMY.
+Automotive GUI with typical icons and colors using CCG.
+The colors of the full-screen test patterns were used to
+create the icons. GUIs of the instrument cluster and maps
+did not produce useful results in our pre-test.
+Photos: Two female faces and foliage (colored leaves).
+
+Figure 4. Set-up for evaluation with four displays for the
+Helmholtz-Kohlrausch effect. The displays show here the
+different test patterns used in our test (same image during
+evaluation). The subjects did not know the display types.
+Different methods were used to create the test patterns; examples
+are illustrated in Figure 5 for full-screen tests:
+(1) Luminance calibration for CCG: The same measured
+luminance was used for CCG full-screen test patterns and
+the automotive GUI; both are shown at the top of Figure 4.
+(2) Brightness calibration for CCG: Adjusted to the same
+perceived brightness by three experts for CCG for fullscreen test patterns and automotive GUI. Luminance (and
+color values) were measured and noted.
+(3) Luminance calibration for maximum saturation: Maximum
+saturated RGB (one grey level to adjust luminance, the
+other grey levels for the primaries are zero) for full-screen.
+(4) Luminance calibration for photos: Done for photos using
+CGG and maximum saturation (purity).
+(5) Luminance calibration for photos: Various renderings of
+the photos with differently reduced saturation and different
+white points, for comparison of the QD LCD and RGB
+OLED with the IPS LCD (judged as 'natural' in a pre-test).
+
+Figure 5. Visualization as example of the full-screen test
+pattern types for luminance and brightness calibration.
+
+3. Evaluation Results
+We conducted a user study with 20 participants after refining the
+test patterns according to a pre-test, which also involved 20
+participants, 50% of those were different from the final test. 65 %
+were between 20 and 30 years old (the rest were older) and 80 %
+were male (we do not expect gender to have an impact). 35 %
+were experienced in display evaluation. 80 % of the subjects were
+judged by the observer as to be relaxed, focused and credible in
+their responses (in this combination). The rest had at least one of
+these three criteria that was less favorable, but not too much. The
+display types were not known to the subjects. The evaluation
+method was in accordance with ITU-R BT.500-13: The doublestimulus impairment scale (DSIS) method involved five steps for
+the direct comparison of neighboring displays as well as the
+ranking of the displays from brightest to darkest (all using a
+forced-choice approach). The tasks of the subjects were:
+A. Rank all four displays from brightest to darkest for full
+screen test patterns and judge on vividness for full
+saturation.
+B. Compare directly (full screen patterns) the QD LCD and the
+RGB OLED with the IPS LCD regarding which one is
+brighter and how large the difference is perceived.
+C. Automotive GUI: Compare the readability of the icons,
+judge on vividness of the colors, which gear wheel of the
+icon ‘settings’ is the darkest …
+D. Photos: Judge on authenticity for maximum saturation and
+select for the QD LCD and the RGB OLED the sample of
+various renderings, which is closest to the IPS LCD.
+The following sections present selected results.
+
+3.1 Luminance-calibrated CCG full screen - method ‘A’
+Blue was ranked as brightest in Figure 6 for the OLED (highest
+saturation see Figure 3) by 45% of the subjects by method ‘A’
+(see above). This is in accordance with the color coordinates
+(purity) shown in Figure 3 for the four displays and confirms the
+Helmholtz-Kohlrausch effect. The differences observed for green
+and white were smaller than those for blue.
+Figure 7 shows the ranking results for red using ‘A’ and a
+weighting function: Sum of the ranks (brightest ‘1’ to darkest ‘4’)
+weighted by 8 for #1, by 4 for #2, by 2 for #3 and by 1 for #4. The
+standard deviation of the ranking for saturations over 90% was
+approximately ±10 for a weight of >60. The results are not fully
+compliant with the H-K effect as the IPS LCD was rated as
+brightest but the OLED has a higher saturation.
+
+Figure 6. Selected evaluation results: Common color
+gamut (CCG) blue using luminance calibration as reported
+by the subjects.
+
+SID 2026 DIGEST • 950
+
+69-1 / K. Blankenbach
+
+Figure 7. Selected evaluation results: Red using common
+color gamut (CCG) for luminance calibration with weighted
+ranking and saturation.
+
+3.2 Luminance-calibrated CCG full screen - method ‘B’
+In addition, we asked the subjects to make direct comparisons of
+the neighboring displays, asking “Which one is brighter?” and
+“How large is the perceived difference?” (method ‘B’, see above).
+The conditions were CCG and luminance-calibration. The TN
+LCD was excluded as a result of the pre-tests. Figure 8 left
+visualizes the direct comparisons for blue between the IPS LCD
+and the QD LCD: The majority rated the perceived brightness as
+the same or only very slightly different. 4 of 20 subjects stated
+that the IPS is (as mean) very slightly to slightly brighter than the
+QD LCD. Only 10% reported the QD to be brighter than the IPS.
+Figure 8 right shows the corresponding results for IPS LCD vs.
+the OLED: 45% ranked the OLED to be brighter (very slightly to
+slightly) and only a few vice versa. One third perceived both
+displays as being the same. Those results correspond with the
+“forced” ranking shown in Figure 6, thereby validating both
+methods and the Helmholtz-Kohlrausch effect for this case.
+
+some modifications (‘modified’) to force perceived differences
+(outcome of the pre-test). The TN LCD is omitted here as being
+of low relevance for modern cars.. The subjects were asked to
+provide rankings (method ‘A’) and to perform direct comparisons
+(method ‘B’), which is the focus here. The IPS LCD at 21.8 cd/m²
+for ‘red modified’ is perceived as roughly the same brightness as
+the QD display at 23.1 cd/m². When the luminance for ‘red’ of the
+IPS LCD is reduced to 19 cd/m² (a difference of ~4 cd/m²) the
+QD LCD is clearly perceived as being brighter. Consequently, a
+difference of ~ 3 cd/m² at a distance of 40 mm between the
+displays was clearly noticeable to the participants. This helps to
+define a threshold for the luminance calibration of tiled displays.
+Green leads to less significant results as expected by the H-K
+effect. The OLED appeared slightly brighter overall for ~13 cd/m²
+for ‘blue modified’. A ‘rule of thumb’ from these tests are that 40
+mm tiled displays should differ by less than 10% in luminance to
+achieve the same perceived brightness.
+Table 1. Measured luminance values for brightness
+calibrated test patterns incl. variations (modified:
+highlighted in purple) to force differences.
+L /cd/m²
+
+IPS LCD
+
+QD LCD
+
+OLED
+
+Red
+
+19.0
+
+23.1
+
+19.1
+
+Red modified
+
+21.8
+
+23.1
+
+19.1
+
+Green
+
+63.7
+
+68.0
+
+59.1
+
+Blue
+
+13.0
+
+13.9
+
+15.0
+
+Blue modified
+
+13.0
+
+13.9
+
+13.2
+
+3.4 Automotive GUI at various settings
+There is hardly any observed difference for the automotive GUI
+(see top right of Figure 4) between luminance and brightness
+calibration for CCG rendering. This is due to the icons being
+much smaller in size than the full-screen test patterns, as well as
+being spaced further apart. A preference for e.g. highly saturated
+red for warnings was stated. This has also advantages at bright
+light conditions (“bleaching of colors”, see reference4 as the
+mixed color (original plus white light) has a higher saturation.
+The perception of a gear wheel (surrounded by the same white
+luminance for all displays) of the settings icon of the automotive
+GUI (see Figure 4 top right): 80% responded that the OLED
+showed the darkest black (Figure 9), while 95% judged the TN
+LCD to have the brightest black (not plotted here). This clearly
+proves that the ‘true black’ of OLEDs is perceived as such even
+when surrounded by white (the local contrast is highest).
+
+Figure 8. Direct comparison of IPS LCD to QD LCD (left)
+and OLED (right) for CCG blue and luminance calibration.
+
+3.3 Perceived brightness -calibrated CCG full screen
+As expected, the brightness-calibrated test patterns for CCG show
+fewer variations in ranking and smaller perceived differences in
+direct comparison for neighboring displays than the luminancecalibrated patterns. The outcome of the brightness-adjusted tests
+enables the measured luminance differences to be judged. Table
+1 shows the measured luminance values for the primaries incl.
+
+Figure 9. Automotive GUI: Perception of black of the settings icon is judged as best (deepest black) for the OLED.
+
+SID 2026 DIGEST • 951
+
+69-1 / K. Blankenbach
+3.5 Additional Findings
+•
+•
+
+•
+
+There was no significant difference in the ranking for Lcalibrated CCG for the RGB for full screen test patterns
+between 150 lux and dark room conditions.
+There was no significant difference in brightness perception
+for full screen white for both CCG and maximum
+saturation. The differences for green for these cases were
+much smaller than for red and blue. This is in accordance
+with the H-K effect.
+Photos (see bottom of Figure 4) should be rendered to
+smaller gamut for large gamut displays (QD LCD, RGB
+OLED). They were judged at full saturation as unnatural,
+see Figure 10. Very similar judging was provided for the
+image showing leaves (foliage). The TN LCD had
+noticeable degradation for photos due to gamma issues.
+
+Our evaluations confirm the Helmholtz-Kohlrausch effect
+(except for some deviation for red), whereby colors with the same
+CIE coordinates appear brighter when generated by higher
+saturation primaries. For the QD LCD, red has the highest
+simulated brightness QHK, compare to Figure 3. However, the
+evaluation shows that the IPS LCD is ranked as the brightest for
+the same luminance and CCG, see Figure 7 and the other tests
+(5% luminance difference, see §3.3), which are not shown in
+more detail here. We will further study this to determine whether
+the CIECAM Helnholtz-Kohlrausch model should be improved
+or if this deviation is within acceptable limits for evaluations
+involving subjects.
+
+5. Summary
+We have successfully implemented a test setup that compares
+display technologies in terms of the perceived brightness and
+colorfulness of various colors, automotive GUIs, and photos. Our
+goal was to evaluate and to judge on the Helmholtz-Kohlrausch
+effect, which we achieved (with additional results):
+Displays with a larger gamut (higher saturation) appear brighter
+at the same (measured) luminance. This can be used to reduce
+power consumption and to improve color perception in the
+presence of ambient light reflections.
+Furthermore, photos should be rendered on large gamut displays
+to a smaller gamut (like standard LCDs). Tiled displays at 40 mm
+distance should differ in luminance by less than 10%.
+
+Figure 10. Authenticity of photos (faces) for saturated
+colors and luminance calibration.
+
+Our findings will help to design, to calibrate and to improve
+displays in addition to “traditional” parameters such as luminance
+and cost for use in various applications such as vehicles.
+
+4. CIECAM Simulation of Helmholtz-Kohlrausch
+
+6. Acknowledgements
+
+We investigated as well for the displays under test and the
+environment the CIECAM16 model7 as improved by Hellwig8 to
+include H-K effect on perceived brightness. The adapting
+luminance is 5 cd/m2. This simulator can apply many conditions
+that can consider surround luminance and display white point that
+will change as the viewing environment changes. In all cases, two
+fundamental truths emerge see Figure 11: The QHK (H-Kmodified brightness) exhibits a stronger effect than the traditional
+brightness (Q, grey bars) for the primaries. In addition, the
+technologies with the widest color gamut, such as the OLED or
+Quantum Dot LCD as shown in Figure 3, produce the strongest
+H-K effect. However, the difference for white (right) between Q
+and QHK is very small compared to the primaries RGB. This is
+an expected and validated result.
+
+The authors express their deepest gratitude to Samsung Display,
+Korea and Samsung Display America Labs, USA for funding.
+
+7. References
+1. Wu S. Navigating Innovations and Trends in Automotive
+Displays. SID Information Display. 2025;41:28-33.
+https://doi.org/10.1002/msid.1551
+2. Donofrio RL. The Helmholtz-Kohlrausch effect. Journal of
+the SID. 2011;19:658-664.
+3. Park Y. Determining the color appearance of HelmholtzKohlrausch effect for self-emissive displays. Journal of
+Information Display. 2022;23(3):235-242.
+4. Blankenbach K, Buckley E. Perceptual Effects of LaserBased HUDs. IEEE Journal of Display Technology.
+2012;8(4):194-197.
+5. Hellwig L, Stolitzka D, et al. Brightness and Vividness of
+High Dynamic Range Displayed Imagery. SID Symposium
+Digest. 2022;53:1009-1012.
+6. Wood M. The Helmholtz-Kohlrausch Effect. [cited 2025
+Nov. 12]; Available from:
+https://www.mikewoodconsulting.com/articles/Protocol%20
+Summer%202012%20-%20HK%20Effect.pdf
+7. Commission Internationale de l'Éclairage (CIE). The CIE
+2016 Colour Appearance Model for Colour Management
+Systems: CIECAM16. ISBN 978-3-902842-94-7,
+DOI 10.25039/TR.248.2022
+
+Figure 11. Simulation results of brightness Q vs. H-K
+compensated brightness QHK acc. CIECAM167 for
+luminance calibration for three displays.
+
+8. Hellwig L, Stolitzka D, Fairchild MD. The brightness of
+chromatic stimuli. Color Research & Application.
+2023;49(1):113-123.
+
+SID 2026 DIGEST • 952
+
+

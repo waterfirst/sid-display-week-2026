@@ -1,0 +1,401 @@
+47-2 / F. Liu
+
+Study of ultra-fine Redistribution Layers based on Hybrid Glass Substrate†
+Feng Liu*, Jin Cheng*, Xikun Wang*, Chuncheng Che*, Xiaojuan Wu*, Yue Li*, Xuecheng
+Hou*, Yingying Zhao*, Huiying Li *
+*BOE Corporation, Beijing, China
+Abstract
+This paper presents a hybrid structure integrating ultra-fine
+redistribution layers (RDLs) with glass substrate. RDLs with 2/2
+line/space features were achieved using an embedded process,
+providing a wiring density 2.5 times that of conventional
+substrates. The structure eliminates the solder interface,
+reducing the package profile and lamination steps, thereby
+improving cost and yield. In reliability tests, the structure
+showed ≤5% resistance variation without peeling or void
+formation, supporting AI/HPC application.
+
+Author Keywords
+ultra-fine RDLs, hybrid glass substrate, fine-line layer
+
+1. Introduction
+In the post-Moore era, as transistor dimensions approach physical
+and lithographic limits, advanced packaging technology has
+become a central pathway for continued chip performance
+enhancement [1-3]. In artificial intelligence and highperformance computing, the increasing demand for high-density
+wiring, large-form-factor packages, and low transmission loss is
+accelerating the development of advanced packaging
+technologies such as 2.5D and 3D integration. The core structure
+of 2.5D and 3D packaging involves organic substrates and
+interposer
+. On one hand, traditional organic substrates, limited by poor
+antiwarpage capability and insufficient dielectric properties, are
+increasingly unable to meet the requirements of multichiplet
+integration and large-form-factor packaging. In addition,
+constrained by the filler particle size in organic build-up
+materials, traditional laser-drilling processes face challenges in
+achieving high-density interconnects (vias < 10 μm) [4]. On the
+other hand, although silicon interposers provide high wiring
+precision enabling die-to-die interconnection, they suffer from
+high cost, thermal mismatch, and large package thickness.
+Packaging configurations using interposers also require at least
+two assembly and test cycles, resulting in elevated costs. To
+address these challenges, this study proposes an asymmetric
+packaging structure that monolithically integrates an organic
+interposer with a glass substrate and achieves ultra-fine RDL
+fabrication through process innovation, offering a promising
+solution for next-generation advanced packaging. The glass
+substrate, with its excellent dimensional stability, superior
+electrical performance (e.g., lower dielectric loss and reduced
+signal crosstalk), and stronger antiwarpage capability, is
+considered a key material for overcoming current packaging
+bottlenecks. The organic interposer provides high-precision
+wiring (L/S ≤ 2/2 μm), enhancing wiring density and enabling
+one-time assembly of chiplets and the substrate.
+This paper aims to develop a prototype of a high-density RDL on
+hybrid glass substrate. The prototype adopts an asymmetric
+stacked structure of “fine-line layer (FLL) + glass core.” Its
+wiring layer configuration can be represented as X+(2/2/3), where
+X denotes 1–3 layers of fine-line wiring from the organic
+
+interposer. To clearly describe the core process and performance,
+this study focuses on the example of a single FLL to demonstrate
+the achievement of ultra-fine L/S and to systematically present
+and discuss the corresponding reliability test results.
+
+2. Experiment
+To meet the packaging requirements of high-bandwidth memory
+and wide I/O interfaces, an integrated FLLs prototype based on a
+glass core board was designed, as shown in Figure 1. The
+prototype adopts an asymmetric structure: the glass substrate side
+contains two metal core layers, three ABF build-up layers, a
+solder mask, and a ball grid array on the lower side; the upper side
+of the core contains two ABF build-up layers and the FLL, where
+the FLL section includes X layers of high-density wiring. The
+overall configuration is X+2/2/3 (X=1–3). The glass core
+thickness is 0.7 mm, and the thickness of a single FLL is 5–10
+μm. To comprehensively evaluate performance, five L/S test
+patterns were designed within the FLL: 2/2 μm, 2.5/2.5 μm, 3/3
+μm, 4/4 μm, and 5/5 μm, along with microvias of two diameters
+(10 μm and 20 μm). The metal wiring thickness was set at 2–3
+μm, pad pitch at 40 μm, and copper pad diameter at 25 μm. These
+dimensions were selected to ensure efficient pitch transition
+between the chip and the glass substrate.
+
+Figure 1. Schematic of the ultra-fine RDLs based on
+Hybrid Glass Substrate
+
+Figure 2. Process Flow of FLLs
+The FLL was fabricated using an embedded wiring process, with
+the sequence shown in Figure 2: ① Afterpre-treating the ABF
+substrate, polyimide (PI) insulating material was spin-coated and
+cured at 180°C for 60 min; ② A hard mask (HM) material was
+deposited, patterned via lithography, and selectively etched to
+
+SID 2026 DIGEST • 653
+ISSN 0097-996X/26/5701-0653-$1.00 © 2026
+
+47-2 / F. Liu
+remove the HM in the window regions; ③ Dry etching was used
+to remove the PI not protected by the HM, forming microvia and
+microtrench structures, followed by removal of the remaining
+HM; ④ A titanium/copper seed layer was deposited by
+magnetron sputtering, after which copper was electroplated to the
+target thickness; ⑤ Chemical mechanical polishing (CMP) was
+performed to remove excess surface metal, forming a planarized
+single FLL. By repeating these steps, multilayer FLL structures
+can be constructed. Key process optimization considerations
+include HM material selection, thickness matching between the
+photoresist and HM, and control of the gas composition and dryetching parameters.
+
+3. Results and Discussion
+In traditional organic substrate packaging, the independent use of
+ABF and PI build-up layers has been well established. However,
+the adhesion and reliability between ABF and PI in hybrid
+substrate applications have not been verified. Therefore,
+evaluating the bonding strength between the first FLL and the
+underlying ABF dielectric layer is critical for ensuring the
+reliability of the hybrid structure. A test plan was designed to
+assess the adhesion performance of various PI materials on the
+ABF surface. In this test method, PI was spin-coated and cured
+on a pre-treated ABF substrate, bonded to a test stub using epoxy
+resin, and subjected to a mechanical pull test until interface
+failure. The failure strength and failure mode (i.e., whether failure
+occurred at the ABF/PI interface) were recorded. As shown in
+Table 1, the average adhesion strength of six tested PI materials
+exceeded 70.1 MPa. For samples 1–5, failure occurred between
+the PI and epoxy rather than at the ABF/PI interface, indicating
+that the ABF/PI bond strength surpassed the cohesive strength of
+the test epoxy (~70 MPa). Sample 6 failed at the glass/ABF
+interface, which was attributed to improper ABF lamination or
+curing parameters that caused slight surface wrinkling and
+reduced adhesion to the glass (55.8 MPa). After subsequent
+reliability tests, SEM inspection of all sample edges revealed no
+peeling or void between ABF and PI. The pull test and reliability
+test results collectively demonstrate excellent interfacial adhesion
+between the PI material and ABF, supporting the feasibility of
+developing the hybrid glass substrate integrated with FLLs.
+
+PI
+1
+2
+3
+4
+5
+6
+
+precision patterns are formed in the PI via dry etching under HM
+protection. The etching process employs a mixed gas composed
+of etch A and B, each with high selectivity for PI and HM
+materials, respectively. The key parameter governing this scheme
+is the Etch Rate Ratio (ERR), defined as the ratio of the etch rate
+of the HM material to the etch rate of the PI under identical
+conditions. A lower ERR indicates minimal HM consumption
+during PI etching, resulting in more consistent window profile.
+An ERR greater than 1 may lead to complete HM removal before
+the PI is fully etched. This study compared the ERR
+characteristics of two inorganic materials and one organic
+material, with results summarized in Table 2. Materials 1 and 2
+had ERR values close to 1, indicating HM consumption rates
+similar to PI, which would not provide stable etching
+performance. These materials would also require much higher
+HM thickness compared to PI, causing issues such as poor pattern
+consistency and increased etching costs. Material 3 exhibited a
+very low ERR value of 0.057, demonstrating excellent etch-stop
+capability: only 0.57 μm HM was required to etch 10 μm PI.
+Based on these results, Inorganic-2 was selected as the HM
+material for subsequent PI etching studies.
+Table 2. Etch Rate Ratio of Different HM Materials
+HM
+ERR
+Organic-1
+
+0.97
+
+Inorganic-1
+
+1.02
+
+Inorganic-2
+
+0.057
+
+Table 1. PI Adhesion Tests
+Adhension /Mpa
+Breaked interface
+69.8
+70.7
+71..3
+69.5
+69.3
+55.8
+
+PI/Epoxy
+PI/Epoxy
+PI/Epoxy
+PI/Epoxy
+PI/Epoxy
+ABF/Glass
+
+Traditional organic substrates typically use a semi-additive
+process (SAP) for fine-line wiring, which often requires a thick
+plating photoresist as a mask. However, excessively thick
+photoresist affects light scattering and chemical uniformity
+during exposure and development, making it difficult to achieve
+fine RDL lines and spaces (≤4/4 μm). In addition, SAP-formed
+lines can collapse during subsequent photoresist stripping. To
+address these issues, this work proposes a process route
+combining a hard mask with embedded wiring: a thin HM layer
+is first patterned using relatively thin photoresist, then high-
+
+Figure 3. SEM images of Microtrench
+a) Optical image of 2/2 μm; b) Cross-section under low
+proportion of etch A; c) Cross-section after etch ratio
+optimization; d) Cross-section under optimal conditions.
+As shown in Figure 2, the etching process consists of two steps—
+HM etching and PI etching—each requiring different primary
+etch atmospheres. Therefore, the etch gas ratio is a key factor
+affecting microtrench morphology. Figure 3 illustrates the
+resulting trench shapes under various etching conditions. After
+process optimization, Figure 3a demonstrates that microtrenches
+with L/S = 2/2 μm can be stably achieved with clear edges and no
+serrated morphology. When the proportion of etch A was low, gas
+exchange and reactant replenishment at the trench center were
+better than at the edges, resulting in faster etch rates along both
+sides and forming pronounced side grooves (Figure 3b).
+
+SID 2026 DIGEST • 654
+
+47-2 / F. Liu
+Increasing the proportion of etch A significantly reduced the side
+grooves (Figure 3c). With further optimization, when the etch A
+proportion reached the optimal condition, the side grooves were
+essentially eliminated, yielding an etch depth of 2.6 μm and a
+sidewall verticality greater than 85° (Figure 3d). Only slight
+tailing appeared at the trench bottom corners, caused by small rate
+differences between the center and edges near the end of etching;
+this effect is not expected to significantly impact RDL electrical
+performance.
+
+Figure 5. Electrical Performance of Different L/S
+a) Insulation characteristics; b) Impedance characteristics;
+c) Insertion loss; d) Inductance characteristics.
+
+Figure 4. SEM images of Microvia
+a) 10 μm via; b) Cross-section after etching @5 μm; c)
+Polymer accumulation on HM surface; d) Cross-section
+after optimized etching @7.5 μm.
+Photosensitive polyimide (PSPI) enables direct patterning
+through exposure and development; however, the resolution of
+mainstream commercial PSPI is typically limited to 10 μm, and
+the difference between top and bottom via diameters is often
+large, thereby constraining via density. Dry etching can overcome
+this limitation, enabling smaller vias with steeper sidewalls and
+more uniform top/bottom dimensions, which in turn enhances
+achievable interconnect density. In this work, the target microvia
+depth was 7.5 μm. As shown in Figure 4a, the optimized dryetching process produced well-formed, residue-free 10 μm
+microvias, which is difficult to obtain through traditional ABF
+substrate laser-drilling methods. The study found that under
+conditions with a high proportion of etch B (Figure 4b), the HM
+was excessively consumed at a depth of 5 μm, leaving insufficient
+protection for the remaining PI layer, preventing completion of
+the via etch. Therefore, deep via etching requires reducing the
+fraction of etch B. Concurrently, a low proportion of etch A also
+caused side grooves, similar to those observed in trench etching.
+More critically, PI etching residues accumulated on the HM
+surface under gas flow (Figure 4c). Such accumulation
+complicates mask removal and may result in static charge buildup
+that can trigger arcing, potentially damaging wafers and
+equipment [5-6]. By optimizing the etch gas flow rate and finely
+adjusting the etch A/B ratio, high-quality deep via etching was
+achieved, yielding a depth of 7.5 μm, a sidewall angle greater than
+85°, and no considerable side grooves (Figure 4d). Sub-5 μm via
+is currently under development.
+
+To characterize the passive properties of the FLLs, test element
+groups (TEGs) for resistance, inductance, and S-parameters were
+designed. The electrical performance of wiring with different L/S
+specifications was measured, and the results are presented in
+Figure 5. Insulation resistance tests (Figure 5a) depicted that as
+the line width decreased from 5 μm to 2 μm, insulation resistance
+decreased from 1.4 ×1014 Ω to 7.7 × 1013 Ω. These values remain
+far above the typical 1012 Ω threshold for advanced packaging,
+demonstrating that fine-lines continue to provide reliable
+insulation performance. For impedance characteristics (Figure
+5b), the DC resistance of 2 μm wiring (~70 Ω) was markedly
+higher than that of 5 μm wiring (~20 Ω) at 1 GHz, primarily due
+to the increased resistivity resulting from the reduced conductor
+cross-sectional area.
+High-frequency measurements (Figure 5c) showed that in the 10
+GHz band, the insertion loss for 2 μm wiring was approximately
+6 dB, compared with 2 dB for 5 μm wiring. This difference is
+mainly caused by the enhanced skin effect and the potential
+increase in radiation loss associated with narrower line widths.
+For inductance characteristics (Figure 5d), the inductance of 2 μm
+wiring (~3 nH) was slightly lower than that of 5 μm wiring (~4
+nH), as the reduced line width lowers magnetic flux coupling,
+which benefits phase stability for high-frequency signals. Overall,
+the FLLs meets the electrical performance requirements for midto high-frequency packaging applications.
+
+Item
+
+Table 3. Reliability Test
+Condition
+
+Result
+
+uHAST
+130 deg.C/85 %RH 96 hours.
+Pass
+TCT
+Pass
+−55~125℃，15min，1000 cycles
+To meet long-term operational reliability requirements, the
+reliability of the samples was evaluated, as shown in Table 3.
+After 96h of uHAST, no failure phenomena such as film peeling,
+voids, or corrosion, were observed for any L/S specification.
+After 1000cycles, the resistance variation of the interconnect
+structures remained within 5% and no degradation in insulation
+performance was detected. These results indicate that the PI
+insulating layer and the overall structure possess excellent
+resistance to moisture/heat aging and thermo-mechanical fatigue,
+meeting the long-term reliability requirements of advanced
+packaging products.
+
+SID 2026 DIGEST • 655
+
+47-2 / F. Liu
+4. Conclusion
+This study successfully developed a high-density RDL hybrid
+substrate featuring monolithic integration of an organic interposer
+with a glass substrate. The core achievements are as follows:
+
+5. References
+1.
+
+John Lau, Pei-Jer Tzeng, Chau-Jie Zhan, Ching-Kuan Lee,
+Ming-Ji Dai, Jui-Chin Chen, et al, ”Large Size Silicon
+Interposer and 3D IC Integration for System-inPacakaging(SiP),” IMAPS 45th, San Diego, California, US,
+2012, pp. 1209-1214.
+
+2.
+
+Aric Shorey, Scott Pollard, John Keech, ”Development of
+Through Glass Vias(TGV) for 3D-IC Tntegration,”IMAPS
+45th, San Diego, California, US, 2012, pp. 765-769.
+
+3.
+
+Noriyoshi Shimizu, Wataru Kaneda, Hiromu Arisaka, ”
+Development of Organic Multi Chip Package for High
+Performance Application,” IMAPS 46th, Orlando, Florida,
+US, 2013, pp. 414-419.
+
+3. The limitations associated with traditional laser drilling were
+overcome through dry etching, achieving high-quality microvias
+with a 10-μm diameter and a sidewall verticality exceeding 85°,
+thereby satisfying the needs of high-density three-dimensional
+interconnect structures.
+
+4.
+
+Hichri H, Fujishima S, Lee S, et al. ”Fine line routing and
+micro via patterning in ABF Enabled by Excimer Laser
+Ablation”International Symposium on Microelectronics.
+International Microelectronics Assembly and Packaging
+Society, 2017, pp. 113-119.
+
+4. Electrical characterization demonstrated that the 2/2 μm
+interconnects exhibit high insulation resistance (up to 7.7 × 10 13
+Ω) and an insertion loss of 6 dB at 10 GHz, meeting mid- to highfrequency packaging applications. Comprehensive reliability
+testing confirmed their excellent long-term operational stability,
+establishing a robust foundation for practical deployment.
+
+5.
+
+Ma S, Hanabusa N, Mays B, et al. Backend dielectric etch
+induced wafer arcing mechanism and solution[C]//2003 8th
+International Symposium Plasma-and Process-Induced
+Damage. IEEE, 2003: 178-181.
+
+6.
+
+An. Chung et al., "Study of Plasma Arcing Mechanism in
+High Aspect Ratio Slit Trench Etching," ASMC 30th,
+Saratoga Springs, NY, US, 2019, pp. 1-4
+
+1. An asymmetric structure integrating the FLL directly onto the
+glass substrate was proposed, eliminating the solder interface
+between the interposer and the substrate. This approach simplifies
+the overall packaging process, reduces assembly cost, improves
+yield, and enables large-form-factor packaging.
+2. Through the co-optimization of the embedded RDL process
+and CMP, key challenges such as hard mask selection and etch
+profile control were addressed. This enabled the fabrication of
+high-density interconnects with an L/S of 2/2 μm, providing a
+wiring density 2.5 times greater than that of conventional organic
+substrates.
+
+SID 2026 DIGEST • 656
+
+

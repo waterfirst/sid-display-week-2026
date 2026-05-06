@@ -1,0 +1,415 @@
+55-2 / Z. Liu
+
+Glass-Silicon Heterogeneous Integration for System-in-Package of MEMS
+Differential Pressure Sensors
+Zong Liu*, Chuncheng Che*, Xiaojuan Wu*, Jiaxing Wang*, Weilong Guo*, Jie Sun*,
+Taonan Zhang*, Nana He*, Xuecheng Hou*, Yifeng Qin*, Dongming Xing*, Qiuxu Wei*
+* Beijing BOE Sensor Technology Company, Ltd., Beijing, China
+
+Abstract
+
+System-in-package integration of Micro-Electro-Mechanical
+Systems (MEMS) piezoresistive pressure sensors with
+Application-Specific Integrated Circuits (ASICs) is achieved
+using a glass interposer. Electrical interconnection via
+Through-Glass Vias (TGV) reduces package size versus
+conventional packaging. Wafer-level anodic bonding enables Siglass heterogeneous integration. The interposer featuring
+circular bonding cavities and pressure-guiding channels for
+pressure equalization. Thus, it provides mechanical protection,
+electrical connection and pressure conduction, offering a novel
+approach for advanced system-in-package of miniaturized
+MEMS differential pressure sensors.
+
+Author Keywords
+Through Glass
+Interposer
+
+1.
+
+Via,
+
+MEMS,
+
+System-in-Package,
+
+Glass
+
+Introduction
+
+In the post-Moore era, heterogeneous integration has emerged as
+a paramount strategy to overcome the scaling limitations
+inherent in traditional integrated circuits. Among various
+integration paradigms, 2.5D/3D System-in-Package (SiP)
+technology distinguishes itself by enabling the simultaneous
+miniaturization and functional consolidation of multiple discrete
+chips.1
+For MEMS differential pressure sensors, packaging technology
+is a critical determinant of measurement accuracy and long-term
+reliability. Conventional interposer materials, however, present
+significant challenges. Organic substrates are susceptible to
+thermal warpage and suffer from Coefficient of Thermal
+Expansion (CTE) mismatch, while silicon interposers are often
+constrained by high manufacturing costs and dielectric losses.2
+In contrast, glass interposers offer a compelling alternative,
+characterized by low dielectric loss, excellent thermal
+compatibility with silicon, and atomically flat surfaces,
+rendering them highly suitable for MEMS wafer-level bonding.3
+Nevertheless,
+traditional
+glass-interposer
+packaging
+architectures impose limitations on the differential sensing
+capabilities of MEMS devices. Specifically, the hermetically
+sealed vacuum cavity typically formed via anodic bonding
+restricts the silicon diaphragm to single-sided pressure exposure,
+limiting the sensor to absolute pressure measurements.4, 5
+To address this limitation, this study proposes a wafer-level
+glass-silicon heterogeneous integrated SiP architecture tailored
+for MEMS differential pressure sensors. The objectives of this
+work are twofold: (1) to preserve the heterogeneous integration
+advantages of glass interposers while enabling true differential
+pressure measurement; and (2) to achieve the monolithic
+integration of silicon MEMS, glass interposers, and ASICs
+through Laser-Induced Deep Etching (LIDE) TGV technology
+and anodic bonding, resulting in a miniaturized, cost-effective
+packaging solution.
+
+2. Principle and Design
+
+(a) Heterogeneous Integration Structure
+The proposed design employs a three-layer vertically stacked
+heterogeneous architecture comprising MEMS, glass interposer,
+and ASIC layers, as illustrated in Figure 1(a). This configuration
+facilitates high-density system integration via wafer-level
+bonding, TGVs, and Redistribution Layer (RDL) routing. The
+intermediate layer consists of a borosilicate glass interposer,
+which serves as both a mechanical support structure and an
+electrical interconnection hub. The bottom surface of the
+interposer forms a heterogeneous bond with the silicon MEMS
+pressure sensor through anodic bonding. Vertical electrical
+conduction between the top and bottom surfaces is achieved via
+four 50 μm (bottom diameter) TGVs, fabricated using LIDE and
+precisely aligned with the heavily doped contact regions of the
+MEMS chip. An RDL on the top surface facilitates the
+redistribution of electrical interconnects for the ASIC chip and
+peripheral components. As depicted in Figure 1(b),
+piezoresistive signals from the MEMS sensor are transmitted to
+the ASIC through the TGVs, where they undergo amplification,
+temperature compensation, and analog-to-digital (A/D)
+conversion before outputting a standard current signal. This
+integration scheme reduces the signal path length to
+approximately one-fifth of that in conventional wire-bonding
+packages, effectively minimizing parasitic capacitance and
+transmission latency.
+
+Figure 1. (a) Cross-sectional schematic of the SiP
+architecture for MEMS differential pressure sensors. (b)
+Schematic of internal electrical interconnections within the
+SiP.
+(b) MEMS Piezoresistive Pressure Sensor
+The operation of the silicon-based MEMS piezoresistive
+pressure sensor is governed by the piezoresistive effect of
+single-crystal silicon. Upon application of external pressure, the
+diaphragm undergoes bending deformation, inducing
+mechanical strain that modulates the resistivity of embedded
+piezoresistors. This modulation arises from lattice distortion,
+which alters charge carrier mobility within the silicon crystal
+lattice. Notably, the piezoresistive coefficients of single-crystal
+silicon exhibit pronounced anisotropy, with magnitudes varying
+significantly across different crystallographic orientations.
+In this study, a Silicon-On-Insulator (SOI) wafer is utilized for
+sensor fabrication. Following etching, the device layer and the
+buried oxide layer collectively form the pressure-sensing
+
+SID 2026 DIGEST • 762
+ISSN 0097-996X/26/5701-0762-$1.00 © 2026
+
+55-2 / Z. Liu
+diaphragm.
+Piezoresistive
+regions are
+defined
+via
+photolithography, followed by boron ion implantation to a depth
+of 1 μm to create P-type resistors. Four such doped regions are
+configured in a Wheatstone bridge arrangement (Figure 1(b)),
+converting resistance variations into measurable voltage outputs.
+The adjacent arms of the bridge are designed to experience
+opposing resistance changes, thereby enhancing sensitivity
+through differential signal processing. To maximize sensitivity,
+all piezoresistors fabricated on N-type <100> silicon wafers are
+aligned along the [110] crystal direction, leveraging the high
+piezoresistive coefficients characteristic of this orientation.
+Finite Element Method (FEM) simulations were employed to
+determine the optimal diaphragm dimensions by analyzing stress
+distribution and deflection profiles under various pressure loads.
+Figure 3 presents the FEM simulation results for a diaphragm
+(614 × 614 × 9 μm) under 40 kPa pressure. As shown in Figure
+2 (a), the maximum (1,2) stress component reaches 30.8 MPa,
+while Figure 2 (b) demonstrates a center deflection of the
+diaphragm of 1.05 μm. Stress analysis confirms that positioning
+piezoresistors at the mid-points of the diaphragm edges enables
+optimal strain capture.
+
+which provides sufficient displacement space for the diaphragm.
+A 150 μm spacing is maintained between the cavity edge and
+the piezoresistor region. This spacing is crucial as it reduce the
+interference of bonding stress with the piezoresistive properties
+of the sensors while maintaining the small size of the device.
+Finite element simulation was conducted to analyze the bonded
+interface stress resulting from the CTE mismatch after cooling
+to room temperature. The circular cavity in this design shows
+improved uniformity in stress distribution. After bonding at
+300°C, when the structure returns to room temperature, the
+circumferential stress of the circular cavity is reduced to 13.6
+MPa, as depicted in Figure 3 (b). This reduction in stress helps
+enhance the mechanical reliability of the overall device.
+
+Figure 3. (a) 3D model of the glass-silicon heterogeneous
+integration. (b) Simulation result of the stress distribution.
+
+3.
+
+Methods
+
+The fabrication process adopted a comprehensive wafer-level
+workflow, which encompassed four core stages: silicon MEMS
+processing, glass interposer fabrication, heterogeneous bonding,
+and system integration, as illustrated in Figure 4.
+
+Figure 2. FEM simulation results for the diaphragm under
+40 kPa pressure: (a) stress distribution of the (1,2)
+component on the top surface and (b) diaphragm
+displacement.
+(c) Design of the Glass Interposer
+The glass interposer in this study incorporates several key
+structural features including the channels and cavity after
+integration with silicon for differential pressure sensing as
+shown in Figure 3 (a).
+Unlike conventional absolute pressure sensors that rely on
+unilateral pressure acting against a vacuum reference cavity, this
+design enables the independent conduction of dual pressure
+sources through an innovative architecture. The measured
+pressure (P₁) acts directly on the backside of the diaphragm via a
+silicon back cavity. Meanwhile, the reference pressure (P₂)
+enters a circular bonding cavity through an in-line pressureguiding channel in the glass interposer and acts on the frontside
+of the diaphragm. The cross-section of the channels is arcshaped, extending from the cavity edge to the interposer
+sidewall. This configuration ensures that the deformation of the
+diaphragm is determined by ΔP = P₁ - P₂. The bonding cavity
+within the glass interposer is circular in shape, with a diameter
+of 900 μm, which fully covers the sensing diaphragm area. The
+channels with two in-line parallel paths flanking the circular
+cavity and collinear with the cavity center, forming redundant
+pressure conduction paths. This design maintains pressure
+conduction efficiency if one channel is blocked by particles,
+thereby reducing the probability of single - point failure.
+The cavity depth is set at 50 μm and is fabricated in LIDE step,
+
+An 8-inch SOI wafer, featuring a 0.5 μm buried oxide (BOX)
+layer and a 9 μm device layer, was processed as follows (Fig.
+4a). Initially, the wafer underwent RCA standard cleaning.
+Subsequently, implantation regions were defined through
+photolithography. Boron ion implantation was carried out to
+form heavily-doped P-type conductive regions and P - type
+piezoresistors, followed by activation annealing (Fig. 4b).
+An 8-inch borosilicate glass substrate was employed for the
+fabrication of the interposer (Fig. 4c). During this process,
+circular bonding cavities with a diameter of 900 μm and a depth
+of 50 μm, along with in-line pressure-guiding channels having a
+width of 50 μm and a depth of 50 μm, were patterned in a same
+LIDE step. After TGV arrays were patterned by another LIDE
+step, glass cavities and channels along with TGVs of an aspect
+ratio of 6:1 were fabricated by hydrofluoric (HF) wet etching
+(Fig. 4d). The cross-sections of the cavity and the channels are
+presented in Figure 5 (a) and (b), respectively.
+The glass substrate was then thinned to 330 μm through
+mechanical grinding and chemical mechanical polishing (CMP)
+(Fig. 4d). This step ensured that the total thickness variation
+(TTV) across the 8-inch wafer was less than 1 μm. After CMP,
+the cross - section of the TGV is shown in Figure 5(c), while the
+top view of the structures, including TGVs, a cavity, and
+channels, is displayed in Figure 5(d).
+Anodic bonding was utilized to heterogeneously integrate the
+silicon MEMS and the glass interposer, with the bonded
+interface area accounting for more than 85% of the total chip
+area (Fig. 4e). Anodic bonding is an electrochemical process
+that enables intimate bonding between silicon and glass wafers,
+driven by ion migration under an external electric field. In this
+process, the silicon wafer is biased as the anode and the glass as
+
+SID 2026 DIGEST • 763
+
+55-2 / Z. Liu
+the cathode. When a direct-current (DC) voltage is applied. The
+SOI wafer was precisely aligned with the glass interposer. The
+bonding process was carried out in a vacuum environment with
+controlled mechanical pressure to prevent gas entrapment.
+
+chip after ASIC integration is presented in Figure 6 (b). The
+silicon-glass-ASIC composite wafer was finally diced into
+individual chips. After dicing, individual chips with dimensions
+of 2 mm × 2 mm were obtained, with a dimensional deviation of
+less than 20 μm between the silicon and glass layers, ensuring
+high alignment precision for subsequent packaging.
+
+Figure 5. Cross-section of (a) the cavity and (b) the
+channels before CMP. (c) Cross-section of TGVs after
+CMP. (d) Top view of the structures including TGVs, a
+cavity and channels.
+
+Figure 4. Cross-sectional schematic diagram of
+fabrication process flow
+Following the bonding process, the silicon handle layer was
+thinned down to 400 μm through a combination of grinding and
+chemical - mechanical polishing (CMP), which results in an
+overall thickness of 730 μm. This thinning operation led to a
+over 40% reduction in the subsequent back - cavity etching time.
+Deep Reactive Ion Etching (DRIE) was subsequently carried out
+on the thinned silicon side to fabricate the sensing diaphragm.
+Specifically, a Bosch process, which involved alternating
+SF₆/C₄F₈ plasma cycles, was employed to etch the back cavity.
+The etching process was precisely halted at the BOX layer,
+resulting in a suspended silicon membrane that comprised the
+BOX layer and the device layer (Fig. 4f). Next, a titanium (Ti)
+adhesion layer and a copper (Cu) seed layer were sputtered onto
+the surface of the glass interposer. Electroplating was then used
+to increase the thickness of the Cu layer to 10 μm. After that,
+photolithography and wet etching techniques were applied to
+pattern the RDL. The topview of a chip after the formation of
+the RDL is shown in Figure 6(a). To prevent the copper on the
+surface from oxidizing or corroding and to enhance ohmic
+contact, an electroless nickel/gold (Ni/Au) layer was deposited
+(Fig. 4g). A polyimide (PI) solder mask was spin - coated onto
+the surface, and openings were defined at the pad locations via
+photolithography. The ASIC wafer was processed with a
+compatible RDL and tin (Sn) bumps to align with the pads on
+the glass interposer, facilitating heterogeneous integration. The
+ASIC dies were singulated from the wafer through dicing and
+then flip - chip bonded to the glass interposer using surface mount technology (SMT) bumping (Fig. 4h). The top - view of a
+
+Figure 6. (a) Top view of a chip after formation of RDL. (b)
+A image of the complete device after integrating ASIC.
+
+4.
+
+Results
+
+The core performance parameters of the heterogeneously
+integrated MEMS differential pressure sensor developed in this
+study were characterized with a differential pressure
+measurement range of 0~40 kPa. The full-scale output signal
+reaches 100 mV. The linearity error was controlled to ±0.2% FS
+through least-squares fitting, while the hysteresis was minimized
+to ±0.1% FS. These values represent significant improvements
+compared to conventional organic substrates packaging
+solutions. The zero-offset temperature drift was measured less
+than 0.1% FS/°C across the temperature range from 0 to 65 °C.
+After integrated with the ASIC, while the the device in this
+study maintains comparable core performance metrics to the
+Sensata 112CP as outlined in Table 1, it exhibits superior
+electrical robustness with a wider overvoltage and reverse
+polarity protection range and enhanced mechanical durability
+via higher overload and burst test ratings. Collectively, these
+comprehensive performance metrics demonstrate the feasibility
+of glass-silicon heterogeneous integration for SiP of MEMS
+differential pressure sensors, particularly in terms of sensitivity,
+linearity, temperature stability, and environmental robustness.
+
+SID 2026 DIGEST • 764
+
+55-2 / Z. Liu
+Table 1. Device Performance Comparison
+
+5.
+
+Discussion
+
+This study presents a synergistic design that integrates a circular
+bonding cavity with bilaterally symmetric "in-line" pressureguiding channels. The circular cavity allows for a uniform
+circumferential stress distribution. Compared to square cavities,
+it reduces the maximum stress on the silicon diaphragm and
+eliminates corner stress concentration, directly optimizing the
+zero-offset to meet measurement requirements. The redundant
+design of the symmetric pressure-guiding channels reduces the
+risk of single-point failures, ensuring functional safety in harsh
+environments.
+In addition to structural innovations, the proposed TGV glass
+packaging (Table 2) offers several key advantages over
+traditional packaging. The reduced package size 2×2 mm and
+thickness ≤1.1 mm facilitate high-density SiP integration. This
+supports combined sensing and processing functions, in contrast
+to the discrete-sensing-only capability of traditional designs.
+Besides, it has superior compatibility with corrosive refrigerants
+and maintains resistance to conductive media and organic
+media, ensuring reliability in extreme operating conditions. It
+also features a higher via aspect ratio 10:1, a thinner substrate
+(≥135 μm), and improved RDL uniformity (10%).
+Table 2. Comparison between Proposed TGV Glass
+Packaging and Traditional Packaging
+
+6.
+
+Conclusion
+
+7.
+
+References
+
+2.
+
+Usman A, Shah E, Satishprasad NB, Chen J, Bohlemann
+SA, Shami SH, et al. Interposer Technologies for HighPerformance Applications. IEEE transactions on
+components, packaging, and manufacturing technology.
+2017 Jun 1;7(6):819–28.
+
+3.
+
+Sukumaran V, Bandyopadhyay T, Sundaram V, Tummala
+R. Low-Cost Thin Glass Interposers as a Superior
+Alternative to Silicon and Organic Interposers for
+Packaging of 3-D ICs. IEEE Transactions on Components,
+Packaging and Manufacturing Technology. 2012 Jul
+18;2(9):1426–33.
+
+4.
+
+Sun J, Che C, Fu B, Wang L, Guo W, Liu H, et al. Low‐
+Thermal‐Stress TGV Leadless Wafer‐Level‐Package
+for MEMS High‐Temperature Pressure Sensors. SID
+Symposium Digest of Technical Papers. 2025 Jun
+1;56(1):1309–12.
+
+5.
+
+Han X, Huang M, Wu Z, Gao Y, Xia Y, Yang P, et al.
+Advances in high-performance MEMS pressure sensors:
+design, fabrication, and packaging. Microsystems &
+Nanoengineering [Internet]. 2023 Dec 19;9(1):1–34.
+Available from: https://www.nature.com/articles/s41378023-00620-1
+
+This study develops a wafer-level glass-silicon heterogeneous
+integrated SiP for MEMS differential pressure sensors,
+addressing the drawbacks of conventional packaging. The
+circular bonding cavity improves zero-offset with guiding
+channels effectively enhancing functional safety. The TGV
+glass
+packaging
+facilitates
+high-density
+integration,
+demonstrates high environmental adaptability, and improves
+electrical performance. The sensor exhibits favorable core
+performance metrics and, when integrated with an ASIC, shows
+enhanced electrical robustness and mechanical durability
+compared to traditional designs, providing a viable approach for
+advanced miniaturized pressure sensing applications.
+1.
+
+Yu C, Wu S, Zhong Y, Xu R, Yu T, Zhao J, et al.
+Application of Through Glass Via (TGV) Technology for
+Sensors Manufacturing and Packaging. Sensors. 2023 Dec
+28;24(1):171–1.
+
+SID 2026 DIGEST • 765
+
+

@@ -1,0 +1,236 @@
+61-3 / H. Baek
+
+Hidden Display Structure Utilizing Micro-LEDs
+HeumeIl Baek, SungMoo Kim, Gi-Hong Kim, JoonYoung Yang and SooYoung Yoon
+LG Display Co., Ltd., Magokjungang 10-ro, Gangseo-gu, Seoul 07796, Korea
+
+E-mail: cyberist@lgdisplay.com
+
+Abstract
+Recently smart surface technology has been actively studied for the
+automotive applications with hidden display systems emerging as a
+pivotal component in this field. This study proposes an innovative
+hidden display architecture that leverages the unique
+characteristics of micro-LEDs—particularly their compact lightemitting area—to achieve high efficiency and high resolution.
+Through proof-of-concept validation, we demonstrate the
+feasibility and performance advantages of this proposed structure,
+offering promising implications for next-generation automotive
+display systems.
+
+Author Keywords
+Smart Surfaces; Shy-tech; Hidden Display; M icro-LED
+
+1.
+
+technology—particularly their compact light-emitting area—to
+achieve high efficiency and high resolution. By addressing the
+inherent challenges associated with conventional display
+integration methods, our proposed structure enables superior
+performance.
+Through comprehensive proof-of-concept (PoC) validation, we
+systematically demonstrate the technical feasibility and
+performance advantages of this novel architecture. Our
+experimental results reveal significant improvements in display
+efficiency and resolution capabilities, establishing a foundation for
+next-generation automotive display systems. The implications of
+this research extend beyond immediate automotive applications,
+potentially influencing broader developments in smart surface
+technology and human-machine interface design across multiple
+transportation and consumer electronics domains.
+
+Introduction
+
+Smart surface technology has recently emerged as a transformative
+approach to vehicle human-machine interfaces (HM Is), offering
+seamless integration of digital displays into automotive surfaces
+while maintaining aesthetic appeal and functional versatility.
+Within this rapidly evolving domain, hidden display systems have
+gained prominence as a pivotal component, enabling innovative
+visualization solutions that enhance both user experience and
+vehicle design [1, 2].
+
+2.
+
+Proposal of New Hidden Display Structure
+
+To enhance the optical efficiency of hidden displays, we focused
+on a key characteristic of micro-LEDs: their small light-emitting
+area. We redesigned the overall stacked structure of the hidden
+display to minimize absorption along the optical path of the microLED light source. To this end, we developed a method that
+decouples the two primary functional components of the hidden
+display film—the background color and the foreground pattern—
+by integrating the background color directly into the display panel
+and fabricating the foreground pattern on a separate film for
+subsequent attachment, as illustrated in Figure 3.
+
+Figure 1. Example Image of Smart Surface.
+Conventional hidden displays have been fabricated by attaching a
+hidden display film to the upper surface of the display as shown in
+Figure 2, which inevitably reduces both the display’s transmittance
+and clarity. Although recent advancements have improved the
+transmittance of these films, a certain degree of performance
+degradation in the underlying display remains unavoidable due to
+the inherent structural limitations [1].
+
+Figure 2. Simplified Structure of Conventional Hidden
+Display.
+This study introduces an innovative hidden display architecture that
+capitalizes on the distinctive characteristics of micro-LED
+
+Figure 3. Proposed Hidden Display Structure utilizing
+Micro-LEDs.
+
+SID 2026 DIGEST • 857
+ISSN 0097-996X/26/5701-0857-$1.00 © 2026
+
+61-3 / H. Baek
+3.
+
+Proof of Concept
+
+Preparation of Micro-LED panel: We selected a 10.4-inch
+micro-LED panel with a resolution of 200 ppi to validate the high efficiency hidden display concept. Each pixel of this panel
+incorporates two Φ10μm blue vertical micro-LED chips. Following
+the completion of the LED electrode interconnection process, a
+white reflective layer was deposited onto the panel. Using a
+conventional photolithography process, this reflective layer was
+patterned while considering the positions of the LED chips (see
+Figure 4(b)). The white reflective layer serves two critical
+functions: first, it enhances the visibility and accurate rendering of
+colors, analogous to the function of white paper in printed media,
+and second, it improves the light extraction efficiency of the microLED chips, thereby increasing overall luminous output.
+
+Figure 4. (a) Photograph of the panel glass after the
+formation of the white reflective layer. (b) Microscopic image
+of the corresponding pixel array. The photograph was
+captured under yellow lighting conditions, which
+unfortunately resulted in an inaccurate representation of the
+actual color.
+During the PoC process, instead of newly developing a dedicated
+color resin for achieving a specific hue, we opted to create a brownlike color by mixing existing red and green resins. By adjusting the
+ratio of red to green, we were able to achieve a color closely
+resembling brown (see Figure 5). In the future, it may be feasible
+to develop and utilize more suitable color resins as needed,
+depending on specific application requirements. The background
+color was successfully formed on top of the white reflective layer
+by coating the mixed color resin. This background color layer was
+also patterned by photolithography process as well.
+
+wood grain pattern with the background removed was printed using
+a conventional inkjet printer onto these materials to produce the
+transparent film.
+Figure 6 shows images of transparent films with different patterns
+placed over panels that have background colors. As demonstrated,
+separating the background color and the foreground pattern during
+fabrication, and combining them in the final step allows achieving
+the desired effect, as intended in this study .
+
+Figure 6. Images of various combinations of printed
+transparent film with pattern on top of display panel with
+background color.
+Final Display Evaluation: The fabricated PoC display was
+combined with a driving circuit to test actual performance of
+displayed image. It was confirmed that the foreground patterns of
+transparent pattern film did not much interfere when the image was
+activated by the bright micro-LEDs, resulting in clear and bright
+image display as shown in Figure 7. The relative efficiency of final
+PoC panel showed 96% of that of reference panel at the same power
+consumptions (See Table 1).
+
+Figure 7. Display image of turned-on PoC panel.
+Table 1. Relative Panel Efficiency Comparisons .
+Figure 5. Photograph of the panel glass after the formation
+of the background color layer.
+Preparation of transparent film with pattern: To prepare a
+patterned transparent film, inkjet printer-compatible overhead
+projector (OHP) film and waterslide decal paper were utilized. A
+
+PoC Panel
+Ref. Panel
+
+background
+color only
+
+w/ transparent
+pattern film
+
+100%
+
+110%
+
+96%
+
+SID 2026 DIGEST • 858
+
+61-3 / H. Baek
+The transparent pattern film based on OHP film could not be
+physically attached, resulting in an air gap between the film and
+the display, which somewhat degraded the image quality.
+However, when using a waterslide decal paper film, it was
+possible to attach it directly to the display without an air gap,
+thereby achieving a clearer image quality. In the future, additional
+research on improving image quality through collaboration with
+specialized film companies or the use of adhesive layers will be
+necessary.
+
+4.
+
+Furthermore, this technology is not limited to hidden displays; it
+also allows for the implementation of various off-state colors of
+display devices, rather than being confined to a black color when
+the display is turned off. The technique of directly applying the
+background color to the display panel is easy to implement as
+described in PoC section and allows for displays in various colors
+depending on the resin used. Figure 9 shows examples of display
+panels using White/Blue color resin.
+
+Discussion and Conclusion
+
+Through the PoC process and results of this study, it was
+confirmed that the proposed micro-LED display structure reduces
+light absorption by the hidden display film layer, leading to higher
+efficiency while maintaining the aesthetic appeal required for
+hidden displays when the power is off. The findings of this
+research are significant because they improve power efficiency —
+a known weakness of existing hidden displays—and suggest the
+potential for a display structure that is better suited for highresolution image representation.
+
+Figure 9. Display with different background color.
+
+5.
+
+Acknowledgements
+
+This work was supported by the Technology Innovation
+Program(20022445) funded by the M inistry of Trade,
+Industry&Energy(M OTIE, Korea). The authors also thank the
+personnel of ChemE co., ltd. who provided the white reflective
+layer and color layer materials for this study.
+
+Figure 8. Dashboard application procedure concept.
+To apply this technology to an actual car dashboard, the topmost
+film must be attached over a wider area than the display, as
+illustrated in Figure 8. Although further research and
+development are required for practical implementation, it is
+expected that collaboration among related companies will enable
+successful realization.
+
+6.
+
+References
+
+1.
+
+Kai Hohmann, Novel Automotive Display Experiences
+beyond Large Display Areas, 50-1, SID2025. Available
+from: https://doi.org/10.1002/sdtp.18251
+Juergen Baethis and Kai Hohmann, ShyTech Displays High
+resolution Displays Hidden Behind Decorative Surfaces,
+61-2, SID2022. Available
+from: https://doi.org/10.1002/sdtp.15612
+
+2.
+
+SID 2026 DIGEST • 859
+
+

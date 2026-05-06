@@ -1,0 +1,261 @@
+69-3 / D. Rosen
+
+Polarization Accurate Simulations of Complex Multilayer Optical Films for
+Automotive Display Systems
+David Rosen*, Jincy Jose*, William Gray*
+*3M, Saint Paul MN
+Abstract
+Accurate simulation of polarization is essential for many display
+applications. Birefringent and coherent effects make simulating
+polarization in ray tracers difficult. To address this, we have
+developed a method that uses Mueller matrix data integrated
+with commercial ray tracing software. Validation was
+performed using a simple cross-polarizer model, followed two
+automotive case studies that utilize reflective polarizers.
+
+Author Keywords
+HUD; Heads-up display; Polarization; Cold Mirror; Speos;
+LightTools; Simulation; Automotive display; Reflective
+Polarizer; Thermal Management.
+
+1. Introduction
+For the past few decades, traditional non-sequential ray tracing
+has been used to simulate the performance of optical systems.
+This includes things like LCD backlights, projectors,
+illuminations systems, automotive lighting and heads-up
+displays. While still a powerful tool, traditional ray tracing treats
+light as discrete rays, and does not account for the wave nature
+of light. This limitation has prevented accurate simulations of
+multilayer optical films where thin film interference is the basis
+for their optical properties. This limitation is especially relevant
+for reflective polarizer films which use thin film interference
+with many layers of birefringent materials to achieve their
+unique optical properties [1].
+Commercial ray tracing software packages have attempted to
+solve this limitation by implementing several methods of
+approximating film behavior. The most common method is to
+use tabulated data that that contains the transmission and
+reflection coefficients for the s, and p polarizations states at
+various angles of incidence (polar angle) and wavelength [2, 3].
+This method can be effective for simple thin films such as antireflective coatings but fails to accurately model complex
+multilayer films such as reflective polarizers or circular
+polarizers.
+To overcome these difficulties there are two options that
+immediately present themselves. First, one could use a
+secondary physics engine in real-time as rays interact with the
+surface to calculate the full wave physics of the of film and pass
+the information back to the ray tracer. In this work, we have
+implemented a second method where the polarization
+characteristics of the film are tabulated in a more thorough
+manner using a Mueller matrix formalism. Assuming sufficient
+sampling within the tabulated data including angle of incidence
+(polar angle), plane of incidence (azimuthal angle), wavelength,
+front/back orientation the ray tracer can accurately simulate the
+behavior of complex multilayer films such as reflective
+polarizers.
+
+2. Background Information
+Mueller Matrix Generation: Mueller matrices are generated
+using a custom proprietary thin film calculation software
+
+developed at 3M. Though there are now commercial options
+available that perform similar calculations [4, 5]. The software
+uses the transfer matrix method to calculate the full Mueller
+matrix for a given multilayer film stack at specified angles of
+incidence (polar and azimuthal), wavelength, and incident side.
+LightTools: A user defined optical property (UDOP) has been
+created that allows LightTools to read in the Mueller Matrix data
+files. It also performs the necessary calculations to take in the
+incident ray information and calculate the transmitted and
+reflection rays. The UDOP also allows the user to specify the
+orientation of the film. It also allows both an option for an inplane rotation, or bias, and an option for flipping the
+construction to swap the front and back sides of the film. This is
+important for films that are not symmetric in construction and
+have different optical properties when illuminated from the front
+or back sides and when there are different media on either side
+of the film.
+Speos: For Speos, a plugin surface optical property (SOP) has
+been developed that allows Speos to read in the Mueller Matrix
+data files. Similar to the LightTools UDOP, the SOP performs
+the necessary calculations to take in the incident ray information
+and calculate the transmitted and reflection rays.
+
+3. Comparison vs built-in methods
+A simple setup has been designed to test the Mueller matrix
+method in each software. See this example in Figure 1, where
+planar surfaces were created and one was rotated 90 degrees.
+Linear polarization models were added to each surface to create
+a cross-polarizer model. A conoscopic intensity sensor was
+added to the model to measure the transmitted light.
+
+Figure 1. Schematic of cross-polarizer system in
+LightTools.
+In this system the cross-polarizers were simulated in two ways.
+First, a coating optical property was used that implemented the
+coating as a tabulation of ts, tp vs wavelength and polar angle.
+Second, the UDOP that used tabulated Mueller matrix was used.
+Results can be viewed in figure 2. In this figure it can be
+observed that the coating method does not recreate the expected
+Maltese cross pattern [6]. While there are other built-in methods
+within the software that are all useful in their own right, they all
+have limitations that prevent them from matching the UDOP.
+The other methods that are available are not under examination
+in this paper.
+
+SID 2026 DIGEST • 957
+ISSN 0097-996X/26/5701-0957-$1.00 © 2026
+
+69-3 / D. Rosen
+
+Figure 2. Output of cross-polarizer model. a) shows the
+output using an optical coating and b) shows the output
+using the UDOP.
+
+4. Case Study: Head-up Display (HUD) in Speos
+A Heads-up Display (HUD) system is shown in Figure 3, where
+s-polarized light from the picture generation unit (PGU) is
+projected to the windshield surface. To eliminate ghosting due to
+reflections off the inner and outer windshield surface, the
+windshield is approximated to a single interface. To reduce solar
+heat radiation reaching the PGU, a 3M™ Cold Mirror Film
+(CMF) is used as the fold mirror in the HUD system. The CMF
+is a multilayer reflective polarizer which reflects over 95% of
+the polarized visible light from the PGU and transmits 50% of
+the visible solar radiation and over 90% of the near-IR solar
+radiation.
+
+Figure 4. Solar irradiance on PGU (Speos Simulation).
+
+A typical luminance map of HUD image is shown in Figure 5.
+The PGU was set to emit 0.7 Lumen prior to the linear polarizer
+and generating about 3000 Nits maximum luminance in the
+HUD image zone, which is within the acceptable range of HUD
+luminance under daylight ambient lighting (Maximum
+luminance of 10,000 Nits) [7]. With the addition of a polarized
+sunglass, the HUD luminance drops by 84% as is evident in
+Figure 4(b).
+
+Figure 3. Schematic of the HUD system.
+To estimate solar energy reaching PGU and demonstrate 3M
+CMF as a potential fold-mirror replacement, we performed
+optical simulation of the HUD system with sun as the
+illumination source. Solar irradiance maps on the PGU for a
+100% reflective cold mirror and 3M CMF are shown in Figure
+4. Incoming solar power was adjusted to obtain 50,000 Lux on
+the outer surface of the windshield. For the 100% reflective cold
+mirror, the entire spectral band of the solar radiation is directed
+towards the PGU surface, measuring a flux of 1.2W. By
+replacing the cold mirror with 3M™ CMF, the flux on PGU
+lowers to 0.14W, which is about 88% reduction.
+
+Figure 5. Image of the projected HUD image without and
+with polarized sunglasses.
+
+SID 2026 DIGEST • 958
+
+69-3 / D. Rosen
+5. Case Study: Black Print Head-up Display
+Backlight in LightTools
+A windshield black print head up display system including the
+backlight is shown in figure 6, where there is a back reflector, a
+light guide, a 3M™ Brightness Enhancement Prism Film (BEF),
+a 3M™ Image Redirecting Film – Reflective Polarizer (IDFRP), and an LCD panel. The IDF-RP has a prism layer and a
+reflective polarizer layer. After leaving the LCD panel the light
+will reflect off the windshield or other element of the vehicle
+into the eyebox of the viewer. The IDF-RP film serves a dual
+purpose; it has a reflective polarizer to help recycle light in the
+backlight and a prism layer to turn the output light distribution
+to a desirable angle for reflection into the eyebox of the driver.
+
+accomplished using new custom written plugins for LightTools
+and Speos. Using the new capability we have shown that you
+can simulate two different types of automotive heads-up
+displays and capture important phenomena such as polarized sun
+glass readability, backlight recycling, and solar flux on interior
+pieces.
+There are other applications where this capability could be
+useful. Anywhere polarizers are used could be imagined.
+Extended reality devices often use reflected polarizer in their
+components, like pancake lenses, and polarizing beam splitters.
+In the consumer electronics spaces the new capabilities could be
+used to optimize the circular polarizer in an OLED display for
+example.
+
+7. Impact of Research
+The UDOP plugin is available now on the 3M™ Digital
+Materials Hub (https://digitalmaterialshub.3m.com/). The
+installer for the plugin can be found on the learning center page
+for optical models and then the individual optical model files
+can be downloaded from the product catalog.
+
+8. Acknowledgements
+Author David A. Rosen wants to acknowledge the technical
+support received from the Ansys Optics team at Synopsis.
+
+9. References
+
+Figure 6. Schematic of IDF-RP backlight system
+A model of the backlight system was built in LightTools. In
+Figure 7 the angular output of the backlight with and without the
+IDF-RP. The effect of the prismatic layer on the light output is
+clear, turning the peak from on-axis to and an angle of 5.5
+degrees which is better suited for reflection to the observer.
+
+Figure 7. Conoscopic output of the black print head up
+display with and without Image Redirecting Film –
+Reflective Polarizer (IDF-RP). Left shows the angular
+output without IDF-RP and right shows the tilted output
+with it.
+Examining the data further the peak brightness of the output has
+been calculated. In the case where the IDF-RP is present the
+peak value is 40% higher than the case without the IDF-RP.
+
+6. Conclusion
+
+1.
+
+Weber MF, Stover CA, Gilbert LR, Nevitt TJ, Ouderkirk
+AJ. Giant birefringent optics in multilayer polymer mirrors.
+Science. 2000;287(5462):2451-2456.
+doi:10.1126/science.287.5462.2451
+
+2.
+
+LightTools Illumination Design Software | Keysight.
+Accessed November 25, 2025.
+https://www.keysight.com/us/en/products/software/opticalsolutions-software/optical-design-solutions/lighttools.html.
+
+3.
+
+Speos coating surface format – Ansys Optics. Accessed
+November 25, 2025. https://optics.ansys.com/hc/enus/articles/30422704374931-Speos-Coating-SurfaceFormat.
+
+4.
+
+STACK Optical Solver Overview. Ansys Optics. Published
+2022. Accessed November 25, 2025.
+https://optics.ansys.com/hc/en-us/articles/360034914653STACK-Optical-Solver-Overview
+
+5.
+
+Insideoptics.com. Published 2025. Accessed November 25,
+2025. http://www.insideoptics.com/wp/
+
+6.
+
+Hecht, Eugene. Optics, 2nd ed., Addison Wesley (1990)
+ISBN 0-201-11609-X. Chapter 8.
+
+7.
+
+SAE International Technical Standard, Standard - Optical
+System HUD for Automotive, SAE Standard J17572_201811, Issued November 2018,
+https://doi.org/10.4271/J1757-2_201811.
+
+Through both case studies we have shown that it is now possible
+to accurately simulate complex polarizers including reflective
+polarizers in commercial ray trace software. This was
+
+SID 2026 DIGEST • 959
+
+

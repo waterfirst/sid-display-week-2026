@@ -1,0 +1,250 @@
+47-1 / S. V. Pietambaram
+
+Glass Core Substrates – Advanced Packaging Pivot driving future AI and
+HPC Chip Performance
+Srinivas V. Pietambaram*
+*Intel Foundry, Intel Corporation, Chandler AZ
+Abstract
+
+2. Results
+
+Substrates are the foundation for Heterogeneous Integration
+that is driving the AI and HPC industry. Future AI and HPC
+packages demand more chiplets integrated on hyper larger form
+factor substrates. Glass, with its superior mechanical properties,
+is an ideal material to replace organic core to address this need.
+In this paper, we showcase some of the breakthrough
+technologies and materials innovations Intel foundry has
+developed to enable this technology.
+
+Author Keywords
+Glass Core Substrates; Large Form Factor; Feature Scaling;
+Bump Pitch Scaling; AI; HPC; Heterogeneous Integration; CTE;
+Chiplets.
+
+1. Introduction
+The ever-increasing demand for more powerful compute and
+the inevitable move of the semiconductor industry into the
+heterogeneous era that integrates multiple “chiplets” in a package
+will require many advances in substrates for packages. The
+substrate industry has gone through major technology transitions
+about every 15 years. The most recent major transition happened
+in the late 90s going from ceramic to organic flip chip substrates
+and became the standard for the industry, known as Organic Core
+Substrate. With the dawn of AI era, chip architects are demanding
+high-density, high-performance packages with increased levels of
+heterogeneous die integration for data-intensive workloads and
+the afore mentioned organic core substrates can no longer scale
+[1-4]. As a result, over the last decade, silicon interposers (Chip
+on Wafer on Substrate, CoWoS) [5] and Embedded Multi-die
+Interconnect Bridge (EMIB) have emerged to enable ultra-highdensity interconnects [6-9]. These have been able to bridge the
+critical paths of the chips with fast and dense pieces of silicon,
+albeit at fairly high costs and without addressing the bottlenecks
+of organic substrate scaling. Glass core substrates with their
+superior mechanical, physical, and thermal properties can address
+all the drawbacks, and hence can be a true replacement for the
+organic core substrates as well as to enable continued scaling for
+the next generation of semiconductor products.
+The benefits of using glass as a core material for substrates
+have been known for a while, but the success was limited to small
+coupon demonstrations. This was largely due to the inability to
+handle glass at large sizes and to process defect-free glass [10].
+Recently, our focused efforts resulted in significant strides in both
+equipment and technology overcoming these limitations enabling
+successful fabrication of large layer count thick glass core
+substrates with fully copper filled Through Glass Vias (TGVs)
+and Embedded Silicon Bridges (EMIB). In this report, we discuss
+some of the pioneering technologies and materials innovations
+involved in enabling the making of these substrates. The results
+presented are significant advances paving the path for successful
+commercialization of this technology and enabling the scalability
+of the packages to finer design rules, ultra large area die
+complexes and Hyper Large Form Factor demanded by HPC and
+AI applications.
+
+Core Through Hole Formation and Metallization:
+Cores used in traditional organic core substrates are made up
+of glass fiber-epoxy laminates. Through hole density in these
+organic cores is limited due to Cu electromigration along the fiber
+resin. Glass being a homogeneous material doesn’t suffer from
+such limitations but historically known traditional glass hole
+formation methods such as CO₂ (cardon dioxide), excimer, or
+long-pulse lasers often resulted in cracking and chipping.
+Recently, Laser-Assisted Etching (LAE) process has been
+developed that works by using an ultrashort, high-peak laser
+pulses to induce nonlinear absorption (multiphoton and avalanche
+ionization), creating a narrow laser-affected zone in which glass
+network is locally modified by Si-O-Si bond disruption and the
+formation of non-bridging oxygen and defect sites. These lasermodified regions exhibit significantly enhanced chemical
+reactivity and etch selectivity, enabling smooth, low-chipping,
+TGH formation [11, 12].
+We optimized the process to repeatedly produce low taper, high
+Aspect Ratio (AR), and tighter through hole pitches at panel scale.
+Pitches that can match with chip bumps have been demonstrated
+which can lead to a 10-fold improvement in the through hole
+density. The Glass holes formed above were subsequently filled
+with copper. High AR plating in glass substrates had been one of
+the bottlenecks in the industry to realize high through hole density
+at core thicknesses of above 500 µm. Figure 1 below shows the
+cross-sections and X-ray images of our fully copper-filled TGVs at
+high AR. No voids or defects are seen.
+
+Figure 1. (a) Cross-section of high AR Through Glass
+Holes formed with LAE process, (b) X-Ray and crosssection data showing void-free, fully copper filled TGVs.
+Overlay Improvement:
+As discussed earlier, glass has superior mechanical properties
+than glass fiber-epoxy laminate that makes up the core in the
+traditional organic core substrates. Glass has higher
+mechanical/dimensional stability resulting in improved layer-tolayer interconnect overlay, ultra-low flatness enabling a lower
+depth of focus for improved lithography and can withstand higher
+temperatures. This can result in as much as 50% less pattern
+distortion and correctable symmetric shrinkage than organic core
+materials as shown in figure 2 (a). In addition, the dimensional
+stability of the core in the horizontal (X) vs vertical (Y) is shown
+
+SID 2026 DIGEST • 650
+ISSN 0097-996X/26/5701-0650-$1.00 © 2026
+
+47-1 / S. V. Pietambaram
+below in figure 2 (b). All of these taken together can lead to a
+more stable substrate to mount the dies on that can be
+interconnected with fine interconnections as can be seen from the
+figure 2 (c) below. This will open the door to ultra-large form
+factor packages with very high assembly yields.
+
+Figure 3. (a) Singulated 24-layer Glass Core Substrate with
+two embedded bridges with no SeWaRe, (b) Cross Section
+image of substrate in (a), (c) Cut unit showing no
+degradation post thermal shock cycling.
+
+3. Conclusions
+Figure 2. (a) Panel maps showing measured residual
+overlay error by substrate, (b) Measured dimensional
+change (X-Y) between process layers, (c) Improved high
+temperature warpage with glass core substrates as
+compared to organic core for die attach.
+Singulation:
+Glass is a strong material; however, it is also brittle. Under
+tensile stress conditions, flaws and defects, larger than certain
+thresholds, can lead to crack formation and propagation. In package
+substrates containing laminated dielectric or Redistribution Layers
+(RDLs) present on both sides, this manifests itself as failure known
+as “SeWaRe” during singulation [13]. Intel Foundry Services
+developed a dicing technology and optimized it to demonstrate 24layer, thick glass core substrates cut to units with no SeWaRe or
+any other defects (Figure 3 (a) & (b)). The units were also subjected
+to the rigorous thermal shock treatment TSC50, and no degradation
+was seen (Figure 3 (c)).
+
+Scaling of Organic Core substrates is running out of gas due to
+intrinsic limitations in dimensional stability, flatness / thickness
+uniformity and through-hole density. Glass core substrates with
+their superior mechanical, physical, and thermal properties can
+address these drawbacks, and replace organic substrates to enable
+continued scaling for the next generation of semiconductor
+products. Although, the benefits of using glass as a core material
+for substrates have been known for a while, inability to handle glass
+at large sizes and to process defect-free glass have limited
+demonstrations to small coupons. Significant strides in both
+equipment and technology driven by Intel Foundry Services
+recently resulted in the industry first demonstration of large layer
+count thick glass core substrates manufactured at panel scale and
+paving the path for successful commercialization in the near future.
+
+4. Acknowledgments
+The author would like to thank Tarek Ibrahim, Nicholas Psaila,
+Hiroki Tanaka, Vinith Bejugam, Dhruba Pattadar, Praveen
+Sreeramagiri, Manohar Konchady, Jeff Kaplan, Izabela Murtagh,
+John Macdonald, Rahul Manepalli, entire Substrate Packaging TD
+organization, and various engineering teams from Intel for their
+excellent partnership and collaborations in tackling the toughest
+technical challenges.
+
+5. References
+[1]
+
+R. Manepalli, “Advanced Packaging Substrate
+Technologies for Heterogeneous Integration”, SEMI
+Industry Strategy Symposium, ISS 2025.
+
+[2]
+
+D. D. Sharma and R. V. Mahajan, “Advanced packaging of
+chiplets for future computing needs,” Nature Electronics,
+vol. 7, pp. 425–427, June 2024.
+
+[3]
+
+J. H. Lau, "Recent Advances and Trends in Chiplet Design
+and Heterogeneous Integration Packaging," ASME. J.
+Electron. Packag. March 2024; 146(1): 010801.
+https://doi.org/10.1115/1.4062529.
+
+[4]
+
+S. Li, M. -S. Lin, W. -C. Chen and C. -C. Tsai, "HighBandwidth Chiplet Interconnects for Advanced Packaging
+Technologies in AI/ML Applications: Challenges and
+Solutions," in IEEE Open Journal of the Solid-State
+Circuits Society, vol. 4, pp. 351-364, 2024, doi:
+10.1109/OJSSCS.2024.3506694.
+
+SID 2026 DIGEST • 651
+
+47-1 / S. V. Pietambaram
+[5]
+
+D. C. H. Yu, “Wafer level system integration for SiP,”
+in IEDM Tech. Dig., Dec. 2014, pp. 626–629.
+
+State Devices and Materials, Nagoya, Japan and 2024 Jpn.
+J. Appl. Phys. 63 020803.
+
+[6]
+
+R. Mahajan et al., "Embedded Multi-die Interconnect
+Bridge (EMIB) -- A High Density, High Bandwidth
+Packaging Interconnect," 2016 IEEE 66th ECTC, Las
+Vegas, NV, USA, 2016, pp. 557-565, doi:
+10.1109/ECTC.2016.201.
+
+[10] Y. Lai, K. Pan, S. Park, “Thermo-mechanical reliability of
+
+G. Duan et al., "Die embedding Challenges for EMIB
+Advanced Packaging Technology," 2021 IEEE 71st ECTC,
+2021, pp. 1-7, doi: 10.1109/ECTC32696.2021.00012.
+
+[11] O. Jedrkiewicz, D. Valetti, and P. Di Trapani, “Etching and
+
+[7]
+
+[8]
+
+[9]
+
+G. Duan et al., "Advanced Substrate Packaging
+Technologies for Enabling Heterogeneous Integration (HI)
+Applications," 2022 International Electron Devices
+Meeting (IEDM), San Francisco, CA, USA, 2022, pp.
+3.4.1-3.4.4, doi: 10.1109/IEDM45625.2022.10019355.
+G. Duan et al., “EMIB and Advanced Substrate Packaging
+Technologies to Enable Heterogeneous Integration
+Applications,” 2023 International Conference on Solid
+
+glass substrate and Through Glass Vias (TGV): A
+comprehensive review,” Microelectronics Reliability
+Volume 161, Oct 2024, 115477,
+https://doi.org/10.1016/j.microrel.2024.115477.
+drilling of through-holes in thin glass by means of
+picosecond Bessel beams,” SN Applied Sciences, vol. 1,
+no. 10, p. 1267, Oct. 2019
+[12] L. A. Hof and J. Abou Ziki, “Micro-hole drilling on glass
+
+substrates—A review,” Micromachines, vol. 8, no. 2, p. 53,
+Feb. 2017, doi: 10.3390/mi8020053.
+[13] S. McCann, “Study of Cracking of Thin Glass Interposers Intended
+for Microelectronic Packaging Substrates,” to be published
+in Proc. IEEE Electronic Components and Technology Conference
+(ECTC 65th ) , San Diego, CA, May, 2015
+
+SID 2026 DIGEST • 652
+
+

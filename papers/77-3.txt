@@ -1,0 +1,458 @@
+77-3 / J. Jin
+
+A Two-Stage Optical Design Methodology for an Eyebox-Expanded
+3D AR-HUD
+Junnan Jin, Jing Zhang, Yuan Yuan, Jiangbo Yao, Zhifu Li, Bin Zhao
+TCL China Star Optoelectronics Display Technology Co. Ltd, Shenzhen, Guangdong, China
+Abstract
+This paper presents a systematic and efficient two-stage optical
+design methodology for developing 3D Augmented Reality HeadUp Displays (AR-HUDs) with an expanded eyebox and
+suppressed crosstalk. Conventional design approaches struggle to
+balance these competing performance metrics due to their
+computational inefficiency and high sensitivity to initial
+parameter selection. To overcome these limitations, we introduce
+a dual-phase design strategy: first, a computationally efficient
+slit-mask model enables rapid parameter space exploration to
+identify optimal viewing zone configurations for eyebox
+maximization; subsequently, these results are translated into
+precise initial parameters for high-fidelity lenticular lens
+simulation and optimization in the 3D AR-HUD system. A
+prototype developed using this methodology achieves an
+expanded horizontal eyebox of ±65 mm while maintaining
+crosstalk below 5%, demonstrating excellent agreement with
+simulation results. These findings validate the proposed approach
+as both feasible and efficient for developing high-performance
+3D AR-HUDs, establishing a systematic, replicable technical
+framework for future implementations.
+
+Author Keywords
+3D Display, AR-HUD, Lenticular Lens, Eyebox, Optical Design,
+Simulation
+
+1. Introduction
+AR-HUDs enhance driving safety and interaction intuitiveness by
+projecting critical information as virtual images onto the
+windshield, seamlessly integrating with the real-road
+environment [1]. The ongoing transition from 2D to 3D display
+technology aims to further improve situational awareness through
+depth cues, enabling more precise navigation guidance and
+collision warnings [2].
+Among autostereoscopic 3D solutions, the lenticular lens
+approach has emerged as a promising candidate for automotive
+applications, owing to its compact form factor, high optical
+efficiency, mature fabrication processes, and favorable cost
+structure [3]. This technology directs light from interleaved leftand right-eye pixel columns into distinct viewing zones, allowing
+drivers to perceive stereoscopic imagery without auxiliary
+eyewear.
+
+a structurally simplified slit-mask model as an optical proxy for
+the lenticular lens. During the first stage, rapid parametric
+scanning identifies globally optimal performance regions for
+eyebox and crosstalk. These results are then mapped into highprecision initial values for the second stage—high-fidelity
+lenticular lens simulation and optimization. This structured
+approach enables seamless transition from system-level
+exploration to component-level design, effectively decoupling
+different hierarchical tasks to significantly enhance overall design
+efficiency and optimization reliability. factors.
+
+2. Two-Stage Simulation Design Methodology
+2.1 Stage 1: Rapid Parametric Exploration Using
+Slit-Mask Model
+This study employs a slit-mask as a geometrically equivalent
+model for the initial optical design of lenticular lenses. Although
+lenticular lenses operate on refractive principles to converge light
+while slit-masks utilize physical occlusion for ray selection, both
+systems share highly similar geometric relationships in viewing
+zone formation [5]. This fundamental similarity establishes the
+slit-mask as an effective proxy for preliminary design.
+The optical system is constructed as follows: light emitted from
+the micro-display is modulated by the slit-mask, then sequentially
+passes through the secondary mirror, primary mirror, and
+windshield, ultimately forming viewing zones at the eyebox plane
+(see Fig. 1 for a schematic diagram). To achieve optimal
+performance, we first established a comprehensive slit-mask
+optical model and enhanced its accuracy by optimizing pixel
+emission angles and luminous region characteristics.
+Subsequently, we performed parametric verification and
+optimization of the key design parameters: slit pitch and its
+distance from the virtual display plane.
+The primary objective of this stage is to systematically conduct
+parametric sweeps, evaluate the theoretical horizontal eyebox size
+under different parameter combinations, and identify the
+configuration that maximizes the eyebox range. The optimized
+parameters from this stage serve as refined initial inputs for the
+detailed lenticular lens design in the second stage. be achieved.
+
+Nevertheless, two key performance metrics of lenticular 3D
+systems—eyebox (the spatial region where correct stereoscopic
+images are visible) and crosstalk (undesired interference between
+left- and right-eye channels)—exhibit high sensitivity to lens
+parameters such as pitch and focal length [4]. Conventional
+design methodologies typically perform direct optimization on
+full lenticular models, a computationally intensive process prone
+to local optima convergence and strong dependence on initial
+parameter guesses. These limitations often result in protracted
+development cycles and suboptimal efficiency.
+To address these challenges, this paper introduces a systematic
+two-stage optical design methodology. The core concept employs
+
+Figure 1. Schematic diagram of the optical system
+
+SID 2026 DIGEST • 1063
+ISSN 0097-996X/26/5701-1063-$1.00 © 2026
+
+77-3 / J. Jin
+2.2 Stage 2: Precision Design and Fabrication of
+Lenticular Lens
+Building upon the optimized parameters derived from the firststage slit-mask model, this phase translates these findings into the
+physical design space of the lenticular lens. Using paraxial optical
+equations, the optimal slit pitch (p) and mask-to-display distance
+(d) are converted into initial structural parameters for the
+lenticular lens, comprising lens pitch (p), radius of curvature (r),
+and sag height (h).
+
+The emission model implemented in LightTools software is
+presented in Fig. 2(c), showing a 780 μm separation between the
+RB pixel emission layer and the grating structure. In Fig. 2(b), the
+notation n=1 indicates that the space between the grating and the
+emission layer is modeled as a medium with a refractive index of
+1.0 (air/vacuum).
+
+A high-fidelity lenticular lens optical model was subsequently
+developed and subjected to refined simulations with multiparameter co-optimization. To enhance manufacturing feasibility,
+comprehensive tolerance analysis was implemented, ensuring the
+robustness of the optical solution under practical production
+conditions. This phase culminates in a complete set of welldefined, manufacturable optical parameters for the lenticular lens,
+providing reliable foundation for subsequent prototype
+development.
+
+3. Results and Discussion
+3.1 Analysis of Grating
+Experimental Results
+
+Simulation
+
+and
+
+Parameters for Grating Simulation as shown in table 1and 2.
+Table 1 Display Module Parameters
+Screen
+Proposal
+
+Figure 2. (a) Schematic of the display-to-virtual-eyebox
+distance; (b) Grating parameter calculation diagram; (c)
+Pixel emission modeling illustration.
+Figure 3 illustrates the schematic pixel arrangement, where
+approximately eight subpixels are positioned beneath each
+grating unit. To achieve the stereoscopic effect, all green (G)
+subpixels are maintained in an "off" state. The red (R) subpixels
+located to the left of the slit grating center are activated ("on"
+state), while the blue (B) subpixels to the right of the center are
+turned on, thereby creating red-blue color separation for 3D
+perception.
+
+screen size（inch）
+
+5.5
+
+resolution
+
+1440*RGB*480
+
+pixel size (μm)
+
+85.35
+
+RGB arrangement
+
+Strip
+
+CF glass thickness（mm）
+
+0.4
+
+Pol. Type
+
+Nitto
+
+Pol. thickness
+
+POL：117μm （CF）
+POL：111 um（TFT）
+
+surface treatment
+
+Hard coating
+
+Table 2 HUD Projection Unit Parameters
+HUD
+Proposal
+Interpupillary distance
+
+65mm
+
+Eyebox
+
+140*55 mm
+
+FOV
+
+15°*5°
+
+VID
+
+Figure 3. The schematic pixel arrangement
+Simulation results confirm that the designed slit grating exhibits
+favorable performance in both eyebox range and red-blue
+separation. Figure 4 illustrates the color separation patterns and
+corresponding energy distributions under different emission
+angles of the RB pixels. Comparative analysis of Figs. 4(a), (c),
+and (e) reveals that the system achieves its maximum eyebox of
+approximately ±65 mm when the RB pixels' emission angle is set
+to ±15°.
+
+6.3m
+
+Horizontal
+factor
+
+magnification
+
+Vertical
+factor
+
+magnification
+
+12.85
+13.33
+
+Projected eyebox dimension
+
+Computed based on scaling
+relationships
+
+eyebox
+
+72.9*31.4 mm
+
+Image source to eyebox
+distance（H）
+
+243.6 mm
+
+Figure 5 further demonstrates the color separation effects and
+energy distributions with the light source positioned at different
+locations on the display. As shown in Fig. 5(a), when the source
+is centered above the display, the red and blue regions are
+correctly positioned on the left and right sides, respectively,
+aligning with theoretical expectations. When the source shifts
+leftward, both color regions move correspondingly to the left;
+conversely, a rightward source displacement causes both regions
+to shift right. These results indicate that the designed slit grating
+structure achieves excellent color separation, with response
+
+SID 2026 DIGEST • 1064
+
+77-3 / J. Jin
+behavior consistent with practical requirements, thereby
+validating the rationality and reliability of the design.
+
+Figure 7. The experimental validation results of the slit
+grating design
+
+3.2 Lenticular Lens Array Simulation and Results
+Analysis
+Based on the simulation results from the slit grating model, the
+display and optical engine parameters for the 3D AR-HUD with
+lenticular lenses were optimized. The specific design parameters
+are summarized in Tables 3 and 4.
+Figure 4. Red-blue separation patterns and energy
+distribution under different emission angles of RB pixels.
+
+Table 3 Display Module Parameters
+Screen
+Proposal
+screen size（inch）
+
+5.5
+
+Transmission
+
+Avg.6.2%
+
+Aspect ratio
+
+16：9
+
+resolution
+
+3840*RGB*2160
+
+pixel size (mm*mm)
+
+31.8*31.8
+
+A/A Size（mm*mm）
+
+122.1（H）*68.6（V）
+
+Outline（mm）
+
+125.1*74.9
+
+RGB arrangement
+
+Strip
+
+CF glass thickness（mm）
+
+0.4
+
+Figure 5. Red-blue separation performance and energy
+profile with varying source positions across the display.
+
+Pol. Type
+
+Nitto
+
+Figure 6 presents the normalized red-blue crosstalk results
+for the designed slit grating parameters. The measured
+crosstalk remains at a low level of approximately 4.8%,
+demonstrating excellent red-blue separation performance
+of the proposed grating structure.
+
+Pol. thickness
+
+POL：115μm （CF）
+
+Figure 6. The normalized red-blue crosstalk results
+Figure 7 presents the experimental validation results of the
+slit grating design. These results further confirm that the
+grating with the designed parameters effectively expands
+the eyebox while maintaining satisfactory red-blue
+separation performance.
+
+POL：128 um（TFT）
+Table 4 HUD Projection Unit Parameters
+HUD
+
+Proposal
+
+Interpupillary distance
+
+65mm
+
+Eyebox
+
+130*55 mm
+
+FOV
+
+15°*5°
+
+VID
+
+6.3m
+
+Horizontal
+factor
+
+magnification
+
+Vertical
+factor
+
+magnification
+
+12.85
+13.33
+
+Projected eyebox dimension
+
+Computed based on scaling
+relationships
+
+eyebox
+
+67.7*31.4 mm
+
+Image source to eyebox
+distance（H）
+
+243.6 mm
+
+SID 2026 DIGEST • 1065
+
+77-3 / J. Jin
+Figure 8 illustrates the assembly relationship between the
+lenticular lens and the display panel. To mitigate moiré
+patterns, the lenticular lens is tilted 14°clockwise relative to
+the display screen during lamination.
+
+Figure 10. Lenticular Lens: Simulation vs. Experimental
+Results
+The primary advantage of this approach lies in its substantially
+improved design efficiency. By employing the slit grating as a
+rapid proxy, extensive design space exploration was achieved
+with minimal computational resources, effectively avoiding the
+local optima traps common in direct lenticular lens optimization.
+This methodology establishes a more deterministic and reliable
+pathway from concept to high-performance implementation.
+A limitation of this study is its primary focus on horizontal
+parallax. Future work will extend this methodology to hybrid lens
+designs to achieve simultaneous expansion of both horizontal and
+vertical eyebox dimensions.
+Figure 8. The assembly relationship between the
+lenticular lens and the display panel.
+Figure 9 illustrates the designed pixel arrangement architecture.
+In this configuration, the lenticular lens array is oriented with a
+14°clockwise tilt, with each lens period corresponding to a "redleft, blue-right" subpixel organization. To enhance image quality,
+subpixel units exhibiting excessive crosstalk have been
+selectively disabled. The simulation domain encompasses
+approximately 13 lenticular periods horizontally and 10 pixel
+periods vertically, providing comprehensive evaluation of the
+structure's optical performance at practical scales.
+
+4. Conclusion
+This paper has successfully proposed and validated a novel dualstage optical design methodology for developing lenticular lensbased 3D AR-HUD systems. The implemented approach, which
+utilizes a slit-mask proxy for rapid system-level optimization
+followed by high-fidelity lenticular refinement, has demonstrated
+both computational efficiency and predictive accuracy. A
+functional prototype developed using this methodology achieves
+an expanded eyebox of ±65 mm with maintained low crosstalk
+(<4.8%), confirming its practical utility. The established
+framework provides a robust foundation for significantly
+accelerating the design cycle and performance optimization of 3D
+AR-HUDs, thereby facilitating their broader adoption in nextgeneration vehicles.
+
+5. References
+[1] C. Böke, et al., "Augmented Reality in the Cockpit: A
+Review of HUD and HMD Technology," SID Symposium
+Digest, vol. 52, pp. 312-315, 2021.
+Figure 9. The designed pixel arrangement architecture
+Figure 10 presents the simulation results of the lenticular lens
+grating with the designed parameters, along with experimental
+results obtained after fabrication and screen lamination.
+Specifically, panels (a) and (b) display the simulated red-blue
+separation patterns and corresponding energy distributions,
+respectively. Comparative analysis between simulated
+predictions and measured data demonstrates that the fabricated
+lenticular lens grating achieves excellent color separation
+capability, characterized by low crosstalk and an expanded
+eyebox range, thereby validating the effectiveness of the design
+parameters.
+
+[2] J. Geng, "Three-dimensional display technologies," Adv.
+Opt. Photonics, vol. 5, no. 4, pp. 456–535, 2013.
+[3] N. A. Dodgson, "Autostereoscopic 3D displays," Computer,
+vol. 38, no. 8, pp. 31-36, 2005
+[4] H. Huang, et al., "Analysis of the viewing zone of lenticular
+sheet-based autostereoscopic displays," J. Soc. Inf. Display,
+vol. 24, no. 4, pp. 245-251, 2016.
+[5] S. -W. Min, et al., "Analysis of an orthographic viewing zone
+in lenticular 3D displays," Opt. Express, vol. 15, no. 20, pp.
+13333-13341, 2007.
+
+SID 2026 DIGEST • 1066
+
+

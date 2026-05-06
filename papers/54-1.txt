@@ -1,0 +1,302 @@
+54-1 / Y. Sugita
+
+Dual View Display Technology for Enhanced Cockpit Usability
+Yasuhiro Sugita, Masashi Mayumi, Mikihiro Noma, Ryoh Kikuchi, Yoshinori Ohhitsu,
+Kenichiroh Tsuchida,Yasuyuki Togashi, Hiroshi Hasegawa
+Sharp Display Technology Corporation, Mie, Japan
+Abstract
+We developed a Dual View Display for Center Information
+Displays (CID), increasing resolution from 74 ppi to 170 ppi for
+high-definition images visible from both driver and passenger
+sides. A dual-peak backlight greatly reduced crosstalk. We also
+integrated a touch system with User ID, enabling accurate and
+personalized operation from either position. This innovation is
+expected to improve cockpit usability.
+
+Author Keywords
+Dual View Display, CID, high resolution, dual-peak
+backlight, touch panel, ToF, User ID, automotive.
+
+Figure 1. Structure and Principle of Dual View Display
+
+3.1 Panel High-Resolution Enhancement
+1. Objective and Background
+Sharp marketed Dual View Displays for automotive applications
+from 2005 to 2019, with screen sizes ranging from 7.0 inches to
+10.3 inches, and these displays were successfully implemented in
+production vehicles. In recent years, the growing popularity of
+electric vehicles (EVs) and the increasing digitalization of cockpits
+have led to a rise in the number of required displays, resulting in
+limited installation space. Consequently, the demand for Dual
+View Display technology -which enables two separate images to
+be displayed within the space of a single display -has increased.
+The Dual View Display developed by our company for CID
+(Center Information Display) applications significantly increased
+resolution from the previous 74 ppi to 170 ppi, allowing two
+distinct high-definition images to be viewed from two directions
+(driver and passenger). Furthermore, by adopting a two-peak
+backlight instead of a conventional single-peak backlight, we
+achieved a significant reduction in crosstalk. Since CID
+applications require touch functionality for both driver and
+passenger screens, we developed a touch panel system equipped
+with operator identification capability, named “Dual View Touch.”
+This paper reports on the development and performance of this
+system.
+
+2. Panel Structure of Dual View Display
+The basic principle of the Dual View Display is simple. By forming
+a barrier layer with vertical black slits at twice the horizontal pixel
+pitch on the surface of the LCD panel, image separation using
+parallax becomes possible. With this structure, the driver can view
+only image A, while the passenger can view only image B. This
+means that two different images can be displayed simultaneously
+on a single screen, significantly enhancing the efficiency of
+information presentation within limited display space.
+Furthermore, the developed prototype incorporates an in-cell
+touch panel display to enable touch interaction and adopts a twopeak backlight specifically designed for Dual View Display to
+improve visibility. (Figure. 1).
+
+The first Dual View Display panel commercialized by Sharp in
+2005 was a 7.0-inch model with a base resolution of 148 ppi. When
+a barrier composed of vertical slits was added, the effective
+resolution for Dual View Display was reduced by half to 74 ppi. As
+a result, the displayed images were of low resolution, and the
+vertical barrier lines became visible upon close observation,
+leading to degraded display quality.
+In the newly developed panel, an 11.8-inch base panel with a
+resolution of 340 ppi was adopted, achieving an effective resolution
+of 170 ppi for Dual View Display. This improvement eliminates
+the visibility of vertical barriers and enables the display of highly
+detailed and visually appealing
+Table 1. Comparison of resolution between conventional
+Dual View Display and newly developed panel.
+
+3.2 Crosstalk Reduction
+The most critical issue in Dual View Display systems is crosstalk,
+where images from the left and right overlap. When crosstalk
+occurs, the image intended to be black appears faintly transparent
+with content from the opposite view, resulting in a significant
+degradation of display quality.
+In this study, we focused on optimizing the optical design to reduce
+crosstalk in Dual View Displays. Figure 2 shows a comparison of
+transmittance when both screens (A and B) are ON and when
+screen B is ON while screen A is OFF. As shown in Figure 2, the
+transmittance characteristics of Dual View Display are designed for
+automotive use, where the viewing angles are fixed at
+approximately ±40° based on seat positions. Therefore, both
+
+SID 2026 DIGEST • 747
+ISSN 0097-996X/26/5701-0747-$1.00 © 2026
+
+54-1 / Y. Sugita
+screens are designed to have peak transmittance near ±40° when
+active. However, when screen A is black, the transmittance of
+screen B extends beyond the vertical direction (0°) into the A
+viewing area, which is the main cause of crosstalk.
+
+which the angular distribution of the backlight, which is identified
+as the fundamental cause of the diffraction, is modified and
+optimized to suppress the generation of diffracted light itself.
+
+Figure 4. Mechanism of Crosstalk Generation Caused by
+Diffracted Light
+Figure 2. Angular dependence of transmittance
+in the Dual View Display
+As a first step in addressing this issue, we examined the origin of
+transmittance leakage. Figure 3 shows a microscopic photograph of
+a single pixel (B+G+R) located directly beneath one barrier in an
+11.8-inch panel, illuminated while all other pixels were off. Light
+emitted from the pixel beneath the barrier, which should normally
+be invisible, was observed from the front due to diffraction. This
+diffraction allows light to spread into angles that should be blocked
+by the black barrier, causing the B image to mix into the A image
+and appear as crosstalk to the A-side observer.
+
+Figure 3. Photograph of a Single Pixel Illuminated
+Beneath the Barrier
+Through this study, it was clarified that the diffracted light
+generated by the black barrier constitutes the primary source of
+crosstalk. In addition, since the number of black barriers generally
+increases with higher display resolution, their impact can be
+expected to become more significant. (Figure 4)
+Furthermore, since it was determined that the diffraction effects
+induced by the black barrier cannot be completely eliminated in
+principle, we proceeded to investigate an alternative approach in
+
+We utilized the fixed viewing angle characteristic of automotive
+applications and adopted a two-peak backlight structure, as shown
+in Figure 5. This design minimizes light emission toward the front
+and concentrates light toward ±40°, reducing crosstalk
+significantly. Figure 5 compares the angular luminance
+characteristics of a conventional single-peak backlight and the
+newly developed two-peak backlight for Dual View Display.
+The two-peak backlight is designed to achieve maximum
+luminance at ±40°, corresponding to the driver and passenger
+viewing positions. Display panels are designed for automotive
+applications, where the viewing positions of the driver and
+passenger are fixed by seat location, and the observation angle is
+approximately ±40°. Therefore, both screens (A and B) are
+designed to have peak transmittance around ±40° when active.
+
+Figure 5. Angular Luminance Characteristics of
+Conventional (1 peak) Backlight and 2 Peak Backlight
+Figure 6 shows the angular dependence of crosstalk when the twopeak backlight is employed. Using the 2-peak backlight, the
+minimum crosstalk (①) is 0.3.At this condition, the Head Freedom,
+defined as the viewing region where crosstalk (XT) remains below
+5 (②), exceeded 60°, while the Mixed Zone, defined as the region
+where XT exceeds 10 (③), was 20°. These results indicate that,
+
+SID 2026 DIGEST • 748
+
+54-1 / Y. Sugita
+even in dark environments such as the interior of a vehicle at night,
+clear images without crosstalk can be observed, and the limited
+overlap between left and right images allows smooth image
+switching when the observer moves laterally.
+
+4.1
+IR ToF (Time-of-Flight) Operator Identification
+System
+This section describes the operator identification method using
+multi-zone IR (Infrared) ToF (Time of Flight) sensing. The system
+was developed in collaboration with STMicroelectronics,
+combining a ToF sensor (VL53L7CX) with the Dual View Display.
+The sensor can measure distances within a diagonal field of view
+(DFOV) of 90° using a single unit. Furthermore, its multi-zone
+detection capability allows the measurement area to be divided into
+up to 64 blocks for distance detection.The sensing system uses
+infrared (IR) light at 940 nm and measures distance through
+differential processing. With this method, highly accurate distance
+measurement up to 65 cm is possible even under strong ambient
+light conditions in automotive environments.
+
+Figure 8. structure of the IR ToF operator identification
+system
+Figure 6. Angular Dependence and Performance of
+Crosstalk
+
+4 Touch Panel and Operator Identification
+The Dual View Display used in CID (Center Information Display)
+system is designed so that the driver and passenger can view
+different images simultaneously. Accordingly, individual touch
+operations corresponding to each displayed content are required.
+However, while the Dual View Display can separate video signals
+for left and right views, it traditionally employs a single touch
+panel, making it impossible to distinguish whether the input
+originated from the driver or the passenger side.
+
+In this study, we propose a method for operator identification on an
+in-vehicle Dual View Display (CID) using two Time-of-Flight
+(ToF) sensors positioned around the periphery of the display. This
+configuration enables pre-detection of the direction from which the
+operator's fingers or arms approach, allowing the identification of
+the operator. Specifically, the operator is determined by combining
+(i) the detection area of the sensor blocks and (ii) the distance
+information. Since the seating positions in the vehicle cabin are
+fixed, the directions from which operators interact with the CID are
+limited, enabling rapid identification through a simple processing
+approach (Figure 9).
+
+To address this limitation, we developed the “Dual View Touch
+System,” which incorporates a touch panel equipped with an
+operator identification function, enabling input separation based on
+the user’s position (Figure. 7).
+Two methods were developed for operator identification. In this
+section, we describe the differences between these two approaches.
+
+Figure 9. Diagram showing two IR ToF sensors measuring
+the distance to an object( finger)
+This method does not require complex image processing, such as
+camera-based facial recognition, and can achieve detection over a
+wide field of view (approximately HFOV: 120°). Therefore, it is
+highly compatible with Dual View displays and can realize
+operator identification with low power consumption and low
+latency, compared to conventional complex recognition systems.
+Figure 7. Dual View Touch System
+
+The pre-detection functionality is defined as Proximity Detection.
+The proximity detection information is immediately transmitted to
+the HOST, which uses the received data to determine the target
+
+SID 2026 DIGEST • 749
+
+54-1 / Y. Sugita
+screen and control processing priority, thereby achieving lowlatency and efficient system response.
+Additionally, the proximity detection information is transmitted to
+the touch panel IC (TDDI). During touch input, the TDDI
+associates the proximity detection information with the touch input,
+generating operator identification information (User ID). The
+TDDI provides this User ID along with the touch input data to the
+HOST, which then controls the screen operation corresponding to
+the identified operator, ensuring that only the intended screen is
+manipulated (Figure. 10).
+However, this method has a limitation: when multiple users
+perform touch operations simultaneously, the detection accuracy of
+the IR sensors decreases, making concurrent operation from both
+sides impractical. To address this issue, the development of a more
+accurate operator identification system was considered.
+
+The characteristics of the two developed operator identification
+methods are summarized in Table 3. For Dual View Display touch
+operation, an operator identification function is essential. We
+believe that combining these methods can further enhance the
+added value of Dual View Display systems.
+Table 2. Summary of Operator Identification Touch System
+
+5.Results
+Through these measures, we successfully developed “Dual View
+Touch,” a high-resolution, low-crosstalk Dual View Display
+integrated with an operator identification touch panel system,
+optimized for automotive CID applications. The display conditions
+and specifications are shown in Table 3. We believe this concept
+will be highly valued as an advanced solution for in-vehicle display
+systems.
+
+Figure 10. IR ToF System Flowchart
+
+4. Pulse-Sheet Operator Identification System
+
+Table 3. Specifications of the Dual View Touch Prototype
+
+We developed an operator identification system using a pulse
+generation method, based on a display module with an in-cell touch
+panel and Himax TDDI: HX83195A. The pulse generator is
+installed separately from the display module, on the driver’s or
+passenger’s seat. A specific frequency pulse is applied to the seat,
+and the signal is transmitted through the human body to the touch
+panel, enabling identification of which seat the operator is
+occupying (Figure. 11).
+6.Acknowledgment
+The authors would like to express their sincere gratitude to
+STMicroelectronics and Himax for their valuable cooperation in
+the development of the Dual View Touch system.
+
+7.References
+[1] Tomoo Takatani “Dual-View and Triple-View LCDs”
+Sharp Technical Report No.96 Dec 2007
+[2] Bai-Chuan Zhao, Fan Yang, Fei Wu
+“High-Aperture-Ratio Dual-View Integral Imaging Display
+Figure 11. structure of the Pulse Seat operator identification
+system
+The operator identification information (User ID) is determined
+by the TDDI and provided to the host system along with the touch
+input data. Subsequent processing by the host is performed in the
+same manner as with the ToF sensor System (Figure. 12).
+
+Micromachines” 2022, 13(12), 2213
+[3] Yoshimitsu Ishikawa, Kazuhiro Ishiguchi, Shingo, Nagano,
+Takahiro Nishioka, Tetsuya Satake
+“Dual Directional Display Technology”
+Mitsubishi Electric Technical Report Vol.87 No.5 2013
+[4] Hiroshi Fukushima, Kohji Yabuta, Tomoo Takatani (sharp)
+Miraculous Display “Dual View LCD, Triple View LCD”
+Journal of Society of Automotive Engineers of Japan Vol. 61
+No. 2 Feb 2007
+[5] STMicroelectronics “New Time-of-Flight technology enhances
+performance” March 28th, 2023
+
+Figure 12. Pulse Seat System Flowchart
+
+SID 2026 DIGEST • 750
+
+

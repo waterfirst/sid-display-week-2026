@@ -1,0 +1,566 @@
+85-4 / P.-Y. Huang • Distinguished Student & Invited Paper
+"Review Paper"
+
+Accelerated CGH Generation for AR Head-Up Display Based on DeepCGH
+and Yolo
+Pin-Yin Huang, Ren-Xiang Ou, Hoang Yan Lin*
+1
+
+Graduate Institute of Photonics and Optoelectronics, and Department of Electrical Engineering,
+National Taiwan University, Taipei , Taiwan.
+
+Abstract
+This work presents a prototype augmented reality head-up display
+(AR-HUD) framework that integrates YOLO-based vehicle
+detection, monocular depth estimation, and phase-only hologram
+generation using the DeepCGH model. Driving-scene video is
+processed frame by frame, where detected vehicle regions are
+converted into binary target patterns for hologram synthesis, and a
+monocular depth map is employed to estimate the relative distance
+of each bounding box, enabling depth-aware holographic
+rendering. The predicted depth information is incorporated into the
+propagation model to assign appropriate reconstruction distances
+for different targets. The DeepCGH network generates
+corresponding phase holograms in real time, forming a
+holographic sequence that mirrors both the motion and depth
+variation of vehicles in the original video. Optical validation using
+an LCoS-based Fourier reconstruction setup confirms temporal
+consistency and depth correspondence in the reconstructed
+bounding boxes. Performance evaluation shows stable per-frame
+operation for both YOLO detection and DeepCGH inference,
+although reconstruction quality degrades in complex or densely
+populated scenes. The results demonstrate the feasibility of
+combining object detection, monocular depth estimation, and
+computational holography within a unified AR-HUD pipeline,
+while highlighting future improvements in latency reduction, depth
+accuracy, and reconstruction fidelity for practical automotive
+applications.
+
+Keywords
+hologram, real time, DeepCGH, YOLO, MiDaS, AR-HUD.
+
+1. Introduction
+Augmented reality head-up displays (AR-HUDs) are increasingly
+explored in advanced driver-assistance systems (ADAS) to present
+scene-relevant information directly within the driver’s forward
+field of view [1]. To support depth-consistent visualization with
+minimal distraction, computer-generated holography (CGH)
+provides wavefront-based 3D reconstruction suitable for
+windshield-based AR.
+However, conventional iterative CGH methods such as Gerchberg–
+Saxton (GS) require repeated forward–backward propagation for
+phase retrieval, leading to iteration-dependent latency that is
+incompatible with frame-by-frame dynamic driving scenes [2].
+Learning-based CGH addresses this limitation by replacing
+iterative optimization with direct neural inference; DeepCGH
+embeds differentiable propagation into training and enables fixedcomplexity, fast phase-only hologram prediction [3–4].
+For AR-HUD applications, a key challenge is maintaining
+consistency across multiple virtual depths. Most existing
+holographic pipelines optimize or reconstruct at a single plane,
+whereas depth-aware AR rendering requires multi-plane
+propagation and structured depth encoding [5–7]. In parallel, recent
+vision pipelines combine object detection with monocular depth
+estimation (e.g., YOLO with MiDaS) to infer object-wise relative
+depth from a single RGB camera in near-real-time settings [8–9].
+Yet these perception systems typically stop at geometric
+
+interpretation and are not directly connected to wave-optical
+hologram synthesis.
+Building on these developments, this work integrates YOLO-based
+vehicle detection and MiDaS depth estimation with a multi-plane
+DeepCGH framework. Detected vehicle regions are mapped to
+discrete propagation planes and encoded into a volumetric target
+representation, forming a unified perception-to-wavefront pipeline
+for depth-aware AR-HUD holographic visualization.
+
+2. Theory
+2.1 Integrated DeepCGH Algorithm
+Figure 1 illustrates the overall pipeline. The process begins with
+video input, where each frame is analyzed using YOLO for vehicle
+detection and MiDaS for monocular depth estimation. Detected
+vehicle regions are fused with their estimated depth values and
+discretized into five predefined depth intervals. Based on this
+mapping, a five-plane volumetric intensity tensor of size (1024,
+1024, 5) is constructed and normalized as the input to the hologram
+prediction network.
+The 5-plane tensor is then fed into a modified DeepCGH model.
+The U-Net–based architecture with Space-to-Depth enhancement
+learns a nonlinear mapping from multi-depth intensity targets to a
+phase-only hologram. During training, angular spectrum method
+(ASM) propagation is applied to all five depth planes using fixed
+physical parameters (λ = 532 nm, pixel pitch = 9.2 μm, predefined
+propagation distances). A multi-plane reconstruction loss is
+computed by comparing propagated intensities with ground-truth
+depth slices, and gradients are backpropagated through both the
+optical propagation model and the neural network.
+After convergence, the trained model performs single-pass
+inference without iterative optimization. The input tensor (1024,
+1024, 5) is directly mapped to a phase-only hologram (1, 1024,
+1024) in one forward pass.
+Finally, the predicted phase is numerically propagated to the five
+depth planes using ASM to generate multi-depth reconstructions.
+The outputs include the phase hologram and five reconstructed
+intensity distributions (recon_p0–recon_p4), completing the endto-end perception-to-hologram AR-HUD pipeline.
+
+Figure 1. The flowchart of Integrated DeepCGH Algorithm.
+
+2.2
+
+Multi-depth DeepCGH
+
+SID 2026 DIGEST • 1180
+ISSN 0097-996X/26/5701-1180-$1.00 © 2026
+
+85-4 / P.-Y. Huang • Distinguished Student & Invited Paper
+"Review Paper"
+1. Target Construction
+As shown in Fig. 2, a 2D object pattern is generated and assigned
+to a predefined depth plane according to the multi-depth
+configuration. The pattern is embedded into a 3D tensor of size (H,
+W, P), where each slice corresponds to one reconstruction depth.
+The tensor is normalized to ensure numerical stability during
+training and optical propagation.
+
+mask representing spatial occupancy across five depth layers. This
+dual encoding bridges depth-aware perception with subsequent
+DeepCGH hologram generation.
+
+2. Phase Prediction Network
+The multi-depth tensor is fed into a U-Net–based network to learn
+the mapping from volumetric intensity targets to a phase-only
+hologram. The predicted phase encodes the wavefront modulation
+required to reconstruct objects at their assigned depths and is
+compatible with phase-modulation devices such as SLMs.
+3. Multi-Plane Optical Propagation
+The predicted phase is combined with a uniform amplitude to form
+a complex optical field. Fourier diffraction is applied to propagate
+the field to each depth plane, generating reconstructed intensity
+distributions. The stacked reconstructions form a multi-plane
+volume for depth-resolved evaluation.
+4. Reconstruction Loss and Optimization
+Reconstructed intensities are compared with the original multidepth targets using a similarity metric. The resulting loss is
+backpropagated through the differentiable propagation model and
+network, enabling end-to-end optimization of multi-depth phase
+encoding.
+
+Figure 2. The flowchart of Multi-depth DeepCGH
+
+2.3
+
+YOLOv8+MiDaS
+
+Figure 3 illustrates the perception-to-encoding workflow. First,
+YOLOv8 performs semantic object detection and outputs bounding
+boxes 𝐵 = [𝑥, 𝑦, 𝑤, ℎ]. To improve robustness in driving scenarios,
+only vehicle-related categories (e.g., cars, trucks, buses,
+motorcycles) are retained.
+Next, a MiDaS model (DPT-Hybrid backbone) generates a dense
+monocular depth map for the scene. For each detected bounding
+box, the median depth within the ROI is computed to suppress
+outliers and improve stability. The depth values are then
+normalized using percentile scaling to ensure consistent
+distribution across different scenes.
+The normalized depths are discretized into 𝑁 = 5 predefined
+propagation planes corresponding to the multi-plane holographic
+configuration. Each object is assigned a discrete depth index,
+forming a structured volumetric representation.
+
+Figure 3. YOLOv8+MiDaS Pipeline.
+
+3. Result & Discussion
+Holograms generated by the proposed YOLO–DeepCGH pipeline
+were validated using a Fourier optical reconstruction setup. A
+reflective LCoS SLM displayed phase-only holograms under 632.8
+nm laser illumination, and reconstruction was performed through a
+Fourier lens, enabling evaluation of focal clarity and depth
+consistency under realistic optical conditions.
+To verify the multi-depth model, multiple controlled simulation
+scenes containing spatially separated rectangles at different depths
+were designed. The corresponding arithmetic depth mappings for
+different plane spacings are summarized in Table 1, where each
+equal-interval configuration defines the propagation distances of
+Planes 0–4. Quantitative evaluation was conducted using the SSIM
+structure metric across reconstruction planes, with numerical
+results listed in Table 2. For Plane 4, the 5.0 mm configuration
+achieves the highest structure value of 0.9746, compared with
+0.9714 (2.5 mm), 0.9651 (3.0 mm), and 0.9592 (3.5 mm),
+demonstrating superior axial selectivity and reduced inter-plane
+interference.
+Among the evaluated scenarios, one representative scene was
+selected for detailed presentation. The optical projection results
+further confirm the numerical analysis: when focused on the near
+rectangle, the far rectangle appears defocused, and vice versa,
+illustrating clear depth-of-field separation. Compared with smaller
+spacings (e.g., 3.5 mm), the 5.0 mm configuration exhibits stronger
+inter-plane separation and more distinct focal transitions.
+From a physical optics perspective, the predicted phase encodes
+propagation-dependent wavefront curvature corresponding to the
+distances defined in Table 1. Constructive interference occurs at the
+matched depth plane, while mismatched planes produce defocus
+blur. The agreement between the SSIM structure values in Table 2
+and the optical projection results confirms that the 5.0 mm spacing
+provides the most balanced focal sharpness and reliable multi-plane
+depth representation.
+
+Finally, the perception results are encoded into (1) a compact
+feature tensor (1, 8, 7) containing spatial coordinates, size,
+confidence, and depth index, and (2) a 1024 × 1024 multi-plane
+
+SID 2026 DIGEST • 1181
+
+85-4 / P.-Y. Huang • Distinguished Student & Invited Paper
+"Review Paper"
+
+(a)
+
+(b)
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 4. (a) Experimental scenario 3 (b) Simulation results
+of the rectangle obtained in plane 4.
+Table 1. Corresponding arithmetic depth interval mapping.
+Plane distance
+
+Plane 0
+
+Plane 1
+
+Plane 2
+
+Plane 3
+
+Plane 4
+
+2.5 mm
+
+5.0
+
+2.5
+
+0.0
+
+-2.5
+
+-5.0
+
+3.0 mm
+
+7.0
+
+4.0
+
+1.0
+
+-2.0
+
+-5.0
+
+3.5 mm
+
+9.0
+
+5.5
+
+2.0
+
+-1.5
+
+-5.0
+
+5 mm
+
+15.0
+
+10.0
+
+5.0
+
+0.0
+
+-5.0
+
+Table 2. Numerical analysis table of Structure values for
+plane 4.
+Plane
+distance
+2.5mm
+
+Rectangle
+
+SSIM
+
+Luminance
+
+Contrast
+
+Structure
+
+rect1
+
+0.1553
+
+0.4348
+
+0.3676
+
+0.9714
+
+3.0mm
+
+rect1
+
+0.1940
+
+0.5061
+
+0.3973
+
+0.9651
+
+3.5mm
+
+rect1
+
+0.1961
+
+0.5106
+
+0.4005
+
+0.9592
+
+5mm
+
+rect1
+
+0.2533
+
+0.5683
+
+0.4573
+
+0.9746
+
+Figure 5. (a) Projected image with a plane distance of 5.0
+mm, focused on rectangle 1. (b) Projected image with a plane
+distance of 3.5 mm, focused on rectangle 1. (c) Projected
+image with a plane distance of 5.0 mm, focused on rectangle
+1. (d) Projected image with a plane distance of 5.0 mm,
+focused on rectangle 1.
+
+In Fourier-based phase-only holography, conjugate image
+interference is unavoidable due to the symmetry of the Fourier
+transform and phase-only modulation of the SLM. To reduce
+background complexity, This scene was selected for optical
+validation. Although conjugate overlap remains inherent,
+evaluation focused on regions minimally affected by superposition.
+When the system was focused on Rectangle 1 (Fig. 5), the 5.0 mm
+spacing produced the sharpest reconstruction with clear edge
+definition, while the distant rectangle appeared defocused.
+Conversely, when focusing on the far rectangle (Fig. 6), the 5.0 mm
+configuration yielded the clearest distant reconstruction and visible
+foreground blur. Compared with smaller spacings (e.g., 3.5 mm),
+5.0 mm demonstrated stronger axial selectivity and clearer interplane separation.
+From a physical optics perspective, the predicted phase encodes
+depth-dependent wavefront curvature. Constructive interference
+occurs at the matched propagation plane, while mismatched planes
+produce defocus blur. Despite conjugate interference, the
+consistent focal dominance of the 5.0 mm configuration in both
+near- and far-focus experiments confirms optimal balance between
+focal sharpness and depth separation, validating the robustness of
+the proposed multi-depth encoding strategy.
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Figure 6. (a) Projected image with a plane distance of 5.0
+mm, focused on the far rectangle. (b) Projected image with a
+plane distance of 3.5 mm, focused on the far rectangle. (c)
+Projected image with a plane distance of 5.0 mm, focused on
+
+SID 2026 DIGEST • 1182
+
+85-4 / P.-Y. Huang • Distinguished Student & Invited Paper
+"Review Paper"
+the far rectangle. (d) Projected image with a plane distance
+of 5.0 mm, focused on the far rectangle.
+
+4. Discussion
+The experimental results confirm that the proposed YOLO–
+MiDaS–DeepCGH pipeline enables depth-aware phase-only
+hologram generation with consistent temporal behavior. Both
+simulation and optical validation demonstrate that a 5.0 mm plane
+spacing provides superior focal sharpness and inter-plane depth
+discrimination, verifying the correctness of the embedded multidepth propagation model.
+However, performance analysis in Tables 3 and 4 reveals that
+system-level bottlenecks limit real-time deployment. Although the
+DeepCGH inference alone achieves 87.12 FPS, full hologram
+generation including wave propagation drops to 13.99 FPS,
+indicating that optical propagation dominates computational cost.
+In the perception stage, YOLO runs at 66.91 FPS, while MiDaS
+operates at 13.33 FPS, reducing the combined speed to 11.12 FPS.
+When disk I/O is included, the overall rate further decreases to 3.52
+FPS. These results show that depth estimation and data transfer,
+rather than neural inference, are the primary constraints on
+throughput.
+From an optical standpoint, zero-order diffraction and conjugate
+image artifacts remain inherent limitations of phase-only Fourier
+holography, reducing image contrast. Future improvements should
+focus on artifact suppression and a fully GPU-based tensorstreaming architecture to eliminate disk I/O and redundant memory
+movement. Lightweight depth models and simplified network
+design can further increase throughput while preserving the
+perception-to-wavefront framework.
+
+inherent zero-order diffraction and conjugate interference in phaseonly Fourier holography, the 5.0 mm configuration exhibits the
+clearest focal reconstruction and strongest depth-selective
+behavior. The agreement between numerical SSIM trends and
+experimental projection verifies correct encoding of propagationdependent wavefront curvature.
+From a system perspective, the DeepCGH network operates
+efficiently (87.12 FPS), while practical limitations arise from wave
+propagation, monocular depth estimation, and disk I/O. Future realtime deployment should focus on lightweight depth models and
+fully GPU-based tensor streaming to reduce latency.
+Overall, the proposed YOLO–MiDaS–DeepCGH architecture
+demonstrates stable depth-aware phase-only hologram generation
+and provides a scalable foundation for real-time multi-depth ARHUD visualization.
+
+6. References.
+1.
+2.
+
+3.
+4.
+
+Table 3. Integrated DeepCGH Algorithm Performance.
+Module
+
+Average Time (ms)
+
+FPS
+
+get_hologram
+
+11.479
+
+87.12
+
+CNN-Only Hologram
+Generation
+
+71.476
+
+13.991
+
+Table 4. Integrated YOLO+MiDAS Performance.
+Module
+
+Average Time (ms)
+
+FPS
+
+YOLO
+
+14.954
+
+66.91
+
+MiDaS
+
+75.011
+
+13.33
+
+Total
+
+89.965
+
+11.12
+
+Avg Overall (with saving)
+
+284.485
+
+3.52
+
+5.
+
+Chen, Chien-Yu, et al. "Real-time hologram generation
+using a non-iterative modified Gerchberg-Saxton
+algorithm." Optics Communications 550 (2024):
+130024.
+
+6.
+
+Liao, Hao-Ting, et al. "72‐2: Real‐Time ADAS
+Visualization Using DL‐GSA‐Based Computer‐
+Generated Holography." SID Symposium Digest of
+Technical Papers. Vol. 56. No. 1. 2025.
+
+7.
+
+Chen, Chien-Yu, et al. "Impact of dual-depth head-up
+displays on vehicle driver performance." Applied
+Sciences 14.15 (2024): 6441.
+
+8.
+
+Yan, Haimin, et al. "Automatic Drone Patrol of Parking
+Lots Using YOLO and MiDaS Neural Networks." 2024
+International
+Technical
+Conference
+on
+Circuits/Systems, Computers, and Communications
+(ITC-CSCC). IEEE, 2024.
+
+9.
+
+Sujoy, Md Imamul Mursalin, et al. Depth-aware object
+detection and region filtering for autonomous vehicles:
+a monocular camera-based novel integration of MiDaS
+and YOLO for complex road scenarios with irregular
+traffic. Diss. Brac University, 2024.
+
+.
+
+5. Conclusions
+This study presents an integrated perception-to-hologram multidepth AR-HUD framework combining YOLO detection, MiDaS
+depth estimation, and a physics-consistent DeepCGH phase
+encoding model within a Fourier-based phase-only SLM system.
+Both simulation and optical experiments validate the embedded
+multi-plane propagation model. Across all evaluated scenes, SSIM
+structure analysis consistently identifies 5.0 mm plane spacing as
+the optimal configuration, achieving balanced focal sharpness and
+reliable inter-plane depth discrimination.
+
+Chan-Edmiston, Sharon, et al. "Intelligent transportation
+systems (its) joint program office: strategic plan 2020–2025."
+(2020).
+Richter, Pablo, Wolff von Spiegel, and Jonathan Waldern.
+"55‐2: Invited Paper: Volume Optimized and Mirror‐less
+Holographic Waveguide Augmented Reality Head‐up
+Display." SID Symposium Digest of Technical Papers. Vol. 49.
+No. 1. 2018.
+Shimobaba, Tomoyoshi, et al. "Deep-learning computational
+holography: A review." Frontiers in Photonics 3 (2022):
+854391.
+Hossein Eybposh, M., et al. "DeepCGH: 3D
+computergenerated holography using deep learning." Optics
+Express 28.18 (2020): 26636-26650.
+
+Optical reconstruction further confirms these findings. Despite
+
+SID 2026 DIGEST • 1183
+
+
