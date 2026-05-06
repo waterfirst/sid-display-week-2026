@@ -159,6 +159,23 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 .sen-memo{width:100%;min-height:60px;background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:8px;color:var(--tx);font-size:12px;font-family:inherit;line-height:1.6;resize:vertical}
 .sen-progress-bar{height:6px;background:var(--bd);border-radius:3px;overflow:hidden;margin:4px 0}
 .sen-progress-fill{height:100%;background:var(--gn);border-radius:3px;transition:width .3s}
+/* Category Tags */
+.sen-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-right: 4px;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+.tag-lcd { background: rgba(59, 130, 246, 0.2); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
+.tag-oled { background: rgba(236, 72, 153, 0.2); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.3); }
+.tag-microled { background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+.tag-oledos { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.3); }
+.tag-pkg { background: rgba(245, 158, 11, 0.2); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+
 
 @media(max-width:700px){
   .menu-btn{display:flex}
@@ -1185,6 +1202,111 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     </div>
   </div>
 </div>
+<!-- TAB 8: Theme Sensing -->
+<div class="card sen-card" data-cat="theme" style="border-left:3px solid var(--mt)">
+  <h3 style="color:var(--mt)">📑 핵심 기술 테마별 센싱 (IJP, PKG, OLeDoS, Micro LED)</h3>
+  <div class="sen-summary">기술 테마별 주요 논문 및 업계 동향 요약</div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--mt);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">💎 OLED & IJP (Inkjet Printing)</div>
+  <div class="sen-item" data-id="au18">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au18">
+      <span class="sen-co">[TCL CSOT]</span> 26.1 First 14inch 2.8K IJP OLED Display
+      <span class="sen-tag tag-oled">oled</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by CSOT Team</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">세계 최초 G5.5 공정 기반 14인치 2.8K 고해상도 잉크젯 프린팅(IJP) AMOLED를 개발함. IJP의 단점인 평탄도 문제를 공정 최적화로 해결하고 'R-shape' 프린팅을 구현하여 원가 경쟁력을 확보함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 중국 경쟁사가 IJP 방식으로 고해상도 중형 패널을 선점하려 하므로 원가 경쟁력 및 공정 효율성 측면에서 직접적인 위협이 됨. (위협도: 매우 높음)</div>
+      <textarea class="sen-memo" data-key="au18" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="au19">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au19">
+      <span class="sen-co">[Panasonic]</span> 26.2 Printing Stability of 1pL Inkjet Head
+      <span class="sen-tag tag-oled">oled</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by S. Suemasu</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">고해상도 양산을 위한 1pL 초미세 잉크젯 헤드의 프린팅 안정성 기술로 16일 이상 연속 운전이 가능함. 400ppi급 고해상도 픽셀 뱅크에 정밀하게 프린팅하여 IJP의 기술적 한계를 극복함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> IJP OLED의 시장 범위를 IT 및 모바일로 확장시킬 수 있는 신호탄이며, 고해상도 구현 기술의 진보를 경계해야 함. (위협도: 높음)</div>
+      <textarea class="sen-memo" data-key="au19" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--mt);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">🔍 OLeDoS & Micro Display</div>
+  <div class="sen-item" data-id="au20">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au20">
+      <span class="sen-co">[Sony]</span> 30.1 Ultra-high Resolution WOLED with Photo-patterning
+      <span class="sen-tag tag-oledos">oledos</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by Sony Team</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">포토패터닝 기술을 활용하여 초고해상도(4980ppi) WOLED의 Leakage Current를 획기적으로 개선함. 고해상도 Micro Display 구현을 위한 미세 공정 최적화를 통해 화질과 전력 효율을 동시에 확보함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> Sony의 초고해상도 OLeDoS 기술은 차세대 VR/AR 시장에서 강력한 경쟁력이 되므로, SDC의 FSM 방식 개발 속도를 가속화해야 함. (위협도: 높음)</div>
+      <textarea class="sen-memo" data-key="au20" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="au27">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au27">
+      <span class="sen-co">[INT-Tech]</span> 57.1 High Luminance RGB OLeDoS (150K nit)
+      <span class="sen-tag tag-oledos">oledos</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by INT-Tech Team</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">Non-FSM 기술을 활용하여 150K nit의 초고휘도와 3,386 ppi 해상도를 가진 RGB OLeDoS 기술을 발표함. 수명과 신뢰성 이슈를 극복하기 위한 새로운 소자 구조를 제안하여 야외 시인성을 확보함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 초고휘도 RGB OLeDoS 시장에서 중국 스타트업의 기술적 도발이 거셈. SDC는 수명과 양산 신뢰성 면에서의 우위를 강조하며 차세대 XR 시장에 대응해야 함. (위협도: 중간)</div>
+      <textarea class="sen-memo" data-key="au27" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--mt);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">🛠 Advanced Packaging & Glass Substrate</div>
+  <div class="sen-item" data-id="au22">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au22">
+      <span class="sen-co">[Intel]</span> 47.1 Glass Core Substrates for AI Packages
+      <span class="sen-tag tag-pkg">packaging</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by S. Pietambaram</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">AI 및 HPC 칩 성능 극대화를 위한 글라스 코어 기판 기술로 대면적 칩렛 통합이 가능함. 유기물 코어 대비 우수한 기계적 물성을 활용하여 시스템의 전력 효율과 신뢰성을 크게 향상시킴.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 주요 고객사인 Intel의 기술 방향성은 SDC의 글라스 가공 기술력을 반도체 패키징 시장으로 확장할 중요한 기회가 됨. (정보 활용)</div>
+      <textarea class="sen-memo" data-key="au22" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="au28">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au28">
+      <span class="sen-co">[BOE]</span> 47.2 Ultra-fine RDL based on Glass Substrate
+      <span class="sen-tag tag-pkg">packaging</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by F. Liu</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">하이브리드 글라스 기판 기반의 2/2 μm 초미세 재배선층(RDL) 구현으로 배선 밀도를 2.5배 향상함. 솔더 인터페이스 제거를 통해 패키지 두께와 비용을 절감하며 높은 신뢰성을 확보함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> BOE가 디스플레이를 넘어 반도체 패키징용 글라스 기판 분야에서도 구체적인 성과를 내고 있음. SDC의 글라스 기반 신사업 영역과 직접 겹치므로 기술 격차 유지가 필요함. (위협도: 높음)</div>
+      <textarea class="sen-memo" data-key="au28" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--mt);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">💡 Micro LED</div>
+  <div class="sen-item" data-id="au21">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au21">
+      <span class="sen-co">[LGD]</span> 61.3 Hidden Display Structure Utilizing Micro-LEDs
+      <span class="sen-tag tag-microled">micro led</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by LGD Team</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">Micro-LED를 활용하여 대시보드 내부에 숨겨진 'Hidden Display' 구조를 구현하고 시각적 통합감을 극대화함. 비활성 상태에서는 완벽한 인테리어 소재처럼 보이다가 필요 시 고휘도 정보를 표시함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> LGD가 Micro-LED를 활용한 차량용 Hidden Display 기술에서 앞서 나갈 경우 SDC의 차량용 OLED 지배력이 약화될 수 있음. (위협도: 높음)</div>
+      <textarea class="sen-memo" data-key="au21" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+</div>
+
 
 <div class="card">
   <h3>🔬 SID 2026 논문 센싱 시트</h3>
@@ -1257,37 +1379,42 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
 
 <!-- ═══════════ 5/6 수 ═══════════ -->
 <div class="card sen-card" data-cat="day2" style="border-left:3px solid var(--ac)">
-  <h3 style="color:var(--ac)">📅 5/6 (수) — Oral Sessions & Forums</h3>
-
-  <div style="font-size:12px;font-weight:700;color:var(--cy);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">🏛 09:00~17:00 — Expo Hall (2일차)</div>
-
-  <div style="font-size:12px;font-weight:700;color:var(--gd);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">⭐ 12:00~14:00 — DIA Awards Luncheon (Keynote)</div>
-  <div class="sen-item" data-id="k4">
+  <h3 style="color:var(--ac)">�  <div style="font-size:12px;font-weight:700;color:var(--gd);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">⭐⭐ S77: Automotive HUDs I — 14:00~15:30</div>
+  <div class="sen-item" data-id="au12">
     <div class="sen-hdr" onclick="togSen(this)">
-      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="k4">
-      <span class="sen-co">[Google/YouTube]</span> Joel Savitt — "The Spectrum of Spectacle"
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au12">
+      <span class="sen-co">[Chief Tech]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by K. Jin</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">고대 극장→현대 미디어 진화. 배급 주기 압축이 제작/소비 모델을 어떻게 바꾸는지. Google Developer Studio 연 2,600+ 영상 총괄 경험</div>
-      <div class="sen-resp"><b>센싱 포인트:</b> 콘텐츠 소비 변화 → 디스플레이 스펙 요구 방향</div>
-      <textarea class="sen-memo" data-key="k4" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+      <div class="sen-detail">아이트래킹 센서와 결합하여 운전자의 시선 방향에 따라 최적화된 고해상도(76.8 PPD) 라이트필드 이미지를 제공하는 HUD 기술임. 크로스토크를 1.7% 이하로 억제하여 잔상이나 어지러움이 없는 깨끗한 AR 정보를 전면 유리에 투사함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 중국 업체들이 광학 설계와 소프트웨어 알고리즘을 결합한 통합 시스템 솔루션 역량을 빠르게 키우고 있어 경계가 필요함. SDC는 고속 구동 패널 기술뿐만 아니라 저지연 영상 처리 및 센서 연동 기술 등 시스템 파트너십을 강화해야 함. (위협도: 높음)</div>
+      <textarea class="sen-memo" data-key="au12" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
-
-  <div style="font-size:12px;font-weight:700;color:var(--gd);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">⭐ 14:00~15:00 — Auto Displays Forum (필수!)</div>
-  <div style="font-size:12px;color:var(--mt);margin-bottom:8px">Automotive 디스플레이 산업 방향성 — 직접 관련 분야</div>
-
-  <div style="font-size:12px;font-weight:700;color:var(--gd);margin:10px 0 4px;padding:4px 0;border-bottom:1px solid var(--bd)">⭐⭐ S54: Automotive LCD — 16:00~17:30 (센싱 필수)</div>
-  <div class="sen-item" data-id="au1">
+  <div class="sen-item" data-id="au13">
     <div class="sen-hdr" onclick="togSen(this)">
-      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au1">
-      <span class="sen-co">[Sharp]</span> 54.1 Dual View Display for Cockpit
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au13">
+      <span class="sen-co">[TCL CSOT]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by J. Jin</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">운전자와 조수석에 서로 다른 화면을 제공하는 Dual View 기술에 IR ToF 및 좌석 펄스 방식의 사용자 식별 기능을 통합함.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 차별화된 UX 제공을 위해 사용자 식별 터치 기술 확보 필요. (위협도: 중간)</div>
+      <div class="sen-detail">슬릿 마스크와 렌티큘러 렌즈 시뮬레이션을 결합한 2단계 최적화 기법으로 3D AR-HUD의 아이박스(Eyebox)를 획기적으로 확장함. 주행 중 운전자의 머리 움직임에 관계없이 넓은 영역에서 선명한 3D 가이드 정보를 유지함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> CSOT가 3D 디스플레이 핵심 기술을 HUD 시스템에 성공적으로 이식하며 하이엔드 자동차 시장 진입을 가속화하고 있음. SDC는 기존 3D 패널 기술을 차량용 HUD에 최적화하여 아이박스와 해상도 면에서 압도적인 격차를 벌려야 함. (위협도: 매우 높음)</div>
+      <textarea class="sen-memo" data-key="au13" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="au14">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au14">
+      <span class="sen-co">[ETRI]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by J. Lee</span> <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">두 개의 SLM(Spatial Light Modulator) 타이링 기술과 Dammann 격자를 적용하여 홀로그래픽 HUD의 고질적 문제인 좁은 아이박스를 25배 이상 확장함. 실시간 홀로그램 AR 구현을 위한 물리적 광학계 구성의 한계를 극복함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 국내 정부 출연 연구소인 ETRI의 원천 기술을 활용하여 차세대 홀로그래픽 HUD 시장을 선도할 수 있는 기술 협력 기회를 모색해야 함. 홀로그래피 전용 패널(초미세 피치 SLM) 수요 발생 시 SDC가 적기에 대응할 수 있는 로드맵이 필요함. (기회)</div>
+      <textarea class="sen-memo" data-key="au14" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+en-detail">운전자와 조수석에 독립적인 화면을 제공하는 Dual View 기술에 IR ToF 및 좌석 펄스 방식의 사용자 식별 기능을 통합함. 이를 통해 한 화면에서 터치 입력의 주체를 정확히 판별하여 각각의 개별 인터랙션을 완벽하게 구현함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 차별화된 IVI UX 제공을 위해 사용자 식별 터치 기술의 내재화 또는 독자적인 방식의 센싱 기술 확보가 필수적임. 경쟁사가 기술적 장벽을 구축하기 전에 SDC만의 감성 UX와 결합된 센서 융합 기술을 개발해야 함. (위협도: 중간)</div>
       <textarea class="sen-memo" data-key="au1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1295,11 +1422,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au2">
       <span class="sen-co">[Dexerials]</span> 54.2 P-pol Reflection Screen for AR-HUD
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by S. Watanabe</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">새로운 편광 변환층(PCL)을 통해 광시야각 AR-HUD에서 고스트 이미지를 억제하는 P-편광 반사 스크린 기술.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> AR-HUD 시장 확대를 위해 고품질 반사 필름 기술 선점 중요. (위협도: 높음)</div>
+      <div class="sen-detail">광시야각 AR-HUD에서 발생하는 고스트 이미지를 억제하기 위해 새로운 편광 변환층(PCL)을 적용한 P-편광 반사 스크린 기술을 개발함. 롤투롤 공정이 가능하며 자동차 윈드실드의 까다로운 투과율 및 내구성 규격을 모두 만족함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> AR-HUD 시장 확대에 따라 고품질 반사 필름 및 광학 부품 기술의 중요성이 패널만큼이나 커지고 있음. SDC는 패널뿐만 아니라 시스템 전체의 광학 성능을 최적화할 수 있는 토탈 솔루션 공급 능력을 강화해야 함. (위협도: 높음)</div>
       <textarea class="sen-memo" data-key="au2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1307,11 +1435,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au3">
       <span class="sen-co">[Tohoku Univ]</span> 54.3 Ultra Low Specular Reflection LCD
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by T. Ishinabe</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">내부 반사율 0.28% 달성 및 스파클 없는 AGAR 필름 적용으로 야외 시인성을 극대화한 LCD 기술.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> LCD가 OLED의 강점인 시인성 격차를 줄이고 있어 대응 기술 필요. (위협도: 중간)</div>
+      <div class="sen-detail">내부 반사율을 0.28%까지 낮추고 스파클 현상이 없는 AGAR 필름을 적용하여 야외 시인성을 극대화한 초저반사 LCD 기술임. Mini-LED 로컬 디밍과 결합하여 강한 태양광 아래에서도 OLED 수준의 선명한 화질을 실현함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> LCD가 기술적 한계를 극복하며 OLED의 핵심 강점인 시인성 격차를 좁히고 있어 자동차용 시장에서 LCD의 위협이 장기화될 수 있음. SDC는 OLED만의 초박형, 디자인 유연성과 더불어 차별화된 저반사 기술을 지속적으로 고도화해야 함. (위협도: 중간)</div>
       <textarea class="sen-memo" data-key="au3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1326,12 +1455,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au4">
       <span class="sen-co">[OLEDWorks]</span> 61.1 OLEDs for Automotive Lighting
-      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by M. Kondakova</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">차량용 적색 OLED 조명 및 자율주행 모드용 Cyan 패널 개발. 고분할 벤더블 패널 기술 제시.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 차량용 조명 시장 다변화에 대응 필요. (위협도: 중간)</div>
+      <div class="sen-detail">차량용 적색 OLED 조명과 자율주행 모드용 Cyan 패널을 통합한 고분할 벤더블 패널 기술을 제시함. 자동차 인테리어와 외장 램프에 동시에 적용 가능한 유연성과 신뢰성을 확보하여 차량용 조명의 새로운 패러다임을 제안함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 차량용 조명 시장이 단순 점등에서 디스플레이 융합형으로 진화함에 따라 SDC의 OLED 기술력을 조명 영역까지 확대할 필요가 있음. 조명 특화 소재 및 구조 개발을 통해 신규 시장 진출과 동시에 경쟁 우위를 유지해야 함. (위협도: 중간)</div>
       <textarea class="sen-memo" data-key="au4" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1339,12 +1468,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au5">
       <span class="sen-co">[Analog Devices]</span> 61.2 GMSL for Auto Displays
-      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by ADI Team</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">차량용 디스플레이를 위한 GMSL(Gigabit Multimedia Serial Link) 인터페이스 솔루션.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 고해상도 패널 전송 인터페이스 표준 대응. (위협도: 낮음)</div>
+      <div class="sen-detail">차량용 디스플레이를 위한 GMSL(Gigabit Multimedia Serial Link) 인터페이스 솔루션으로, 고해상도 영상을 저지연으로 전송함. 전력 소모를 최소화하면서도 전자파 간섭(EMI)을 획기적으로 줄여 대화면 콕핏 구현에 최적화됨.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 고해상도 패널 전송 인터페이스 표준에 대한 선제적 대응이 필요함. 시스템 레벨에서의 안정적인 구동을 위해 글로벌 칩셋 업체와의 인터페이스 최적화 협업을 강화해야 함. (위협도: 낮음)</div>
       <textarea class="sen-memo" data-key="au5" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1352,12 +1481,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au6">
       <span class="sen-co">[LGD]</span> 61.3 Hidden Display MicroLEDs
-      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by H. Baek</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">Micro-LED의 소형 발광 영역을 활용해 인테리어와 조화를 이루는 고해상도 히든 디스플레이 구조 제안.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 경쟁사의 Micro-LED 기반 차세대 폼팩터 선점 위험. (위협도: 높음)</div>
+      <div class="sen-detail">Micro-LED의 매우 작은 발광 영역을 활용하여 꺼졌을 때는 인테리어 소재처럼 보이다가 켜졌을 때만 나타나는 고해상도 히든 디스플레이를 개발함. 목재나 가죽 등 실제 차량 내장재 질감을 완벽하게 구현하면서도 높은 시인성을 유지함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 경쟁사가 Micro-LED 기반의 차세대 폼팩터를 선점하여 하이엔드 차량용 시장을 위협할 가능성이 매우 높음. SDC는 히든 디스플레이 구현을 위한 센서 적층 및 소재 투과율 제어 기술 등 경쟁 기술에 대한 대응 시나리오를 마련해야 함. (위협도: 높음)</div>
       <textarea class="sen-memo" data-key="au6" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1365,12 +1494,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au7">
       <span class="sen-co">[TCL CSOT]</span> 61.4 MicroLED HUD Smart Microlens
-      <span style="font-size:10px;color:var(--mt);margin-left:4px">+정우현</span>
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by Y. Guan</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">MLA 통합으로 Micro-LED 휘도를 4배 향상(140,000 nit)시키고 시야각을 조절하는 AR-HUD 모듈 기술.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 초고휘도 HUD 시장에서 Micro-LED의 OLED 대체 위험. (위협도: 매우 높음)</div>
+      <div class="sen-detail">MLA(Microlens Array) 통합 기술을 통해 Micro-LED HUD의 휘도를 기존 대비 4배 이상인 140,000 nit까지 획기적으로 향상시킴. 스마트 마이크로렌즈를 통해 빛을 필요한 방향으로 집속시켜 전력 소모를 줄이면서도 시야각을 최적으로 조절함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 초고휘도가 요구되는 HUD 시장에서 Micro-LED가 OLED의 강력한 대체 기술로 부상하고 있어 주도권 상실의 위험이 큼. HUD용 초고휘도 소자 개발과 함께 MLA와 같은 광학 부품의 정밀 통합 설계 기술 확보가 시급함. (위협도: 매우 높음)</div>
       <textarea class="sen-memo" data-key="au7" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1380,47 +1509,45 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au8">
       <span class="sen-co">[Pforzheim]</span> 69.1 HK Effect Brightness/Colorfulness
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by K. Blankenbach</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">채도가 높을수록 더 밝게 느껴지는 헬름홀츠-콜라우슈 효과 분석. OLED의 인지 휘도 우위 입증.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> OLED의 고색순도 장점을 실질적인 시각 경험 우위로 마케팅 활용 가능. (기회)</div>
+      <div class="sen-detail">채도가 높은 색상일수록 인간이 더 밝게 느끼는 헬름홀츠-콜라우슈(HK) 효과를 자동차 환경에서 정량적으로 분석함. OLED와 같이 색순도가 높은 디스플레이가 수치상의 휘도보다 실제 사용 환경에서 훨씬 더 우수한 시인성을 제공함을 입증함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> OLED 고유의 고색순도 장점을 '실질적인 인지 휘도 우위'로 변환하여 자동차 OEM 고객사 대상 마케팅 포인트로 적극 활용해야 함. 소비 전력 대비 시인성 효율 측면에서 OLED의 경쟁력을 수치화하여 표준화할 필요가 있음. (기회)</div>
       <textarea class="sen-memo" data-key="au8" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
   <div class="sen-item" data-id="au9">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au9">
-      <span class="sen-co">[Faurecia]</span> 69.2 FALD Backlight Optimization
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[Faurecia]</span> <span class="sen-tag tag-lcd">lcd</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by Forvia Team</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">FALD 디스플레이의 헤일로 아티팩트를 줄이기 위한 시뮬레이션 기반 백라이트 최적화 알고리즘.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> LCD HDR 성능 개선 시도로, OLED의 절대 명암비 우위 지속 강조 필요. (위협도: 중간)</div>
+      <div class="sen-detail">FALD(Full Array Local Dimming) 디스플레이에서 발생하는 헤일로 아티팩트를 최소화하기 위한 시뮬레이션 기반의 백라이트 최적화 알고리즘을 제안함. 차량용 디스플레이의 가혹한 시청 조건에서도 HDR 품질을 유지하기 위한 물리적 설계와 알고리즘의 결합을 강조함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> LCD가 소프트웨어적으로 화질 결함을 보완하며 추격하고 있으므로, OLED는 픽셀 단위 디밍의 절대적 우위를 지속적으로 강조해야 함. 자발광 디스플레이만의 강점인 블랙 디테일과 빠른 응답 속도를 결합한 차별화된 화질 엔진 고도화가 요구됨. (위협도: 중간)</div>
       <textarea class="sen-memo" data-key="au9" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
   <div class="sen-item" data-id="au10">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au10">
-      <span class="sen-co">[3M]</span> 69.3 Polarization Multilayer Films for Auto
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[3M]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by D. Rosen</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">뮬러 행렬 데이터를 활용한 편광 정밀 시뮬레이션 방법 개발. HUD 및 복합 필름 분석에 활용.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 최적의 차량용 광학 설계를 위해 3M과 협업 가능성 확대. (정보)</div>
+      <div class="sen-detail">뮬러 행렬(Mueller Matrix) 데이터를 활용하여 편광 필름과 보상 필름이 적용된 복잡한 자동차용 광학계를 정밀하게 분석하는 시뮬레이션 방법론을 공개함. 이를 통해 HUD 윈드실드의 복굴절이나 필름 간의 간섭 현상을 정확히 예측하고 최적의 설계를 도출함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 고사양 차량용 디스플레이 설계 시 3M과 같은 글로벌 부품사와의 광학 시뮬레이션 협업 체계를 공고히 하여 개발 기간을 단축해야 함. SDC 내부의 광학 시뮬레이션 역량을 강화하여 시스템 레벨에서의 화질 최적화 역량을 내재화해야 함. (정보)</div>
       <textarea class="sen-memo" data-key="au10" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
   <div class="sen-item" data-id="au11">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au11">
-      <span class="sen-co">[Sun Yat-Sen]</span> 69.4 Faraday Rotator AR-HUD
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[Sun Yat-Sen]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by Y. Liu</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">패러데이 회전기를 사용하여 외부 햇빛 역류를 차단함으로써 HUD의 소자 손상을 방지하는 기술.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> HUD 모듈의 신뢰성 및 수명 향상을 위한 차세대 광학 아키텍처. (위협도: 중간)</div>
+      <div class="sen-detail">패러데이 회전기(Faraday Rotator)를 활용하여 외부로부터 들어오는 태양광의 경로를 제어하고 HUD 내부로의 열 역류를 차단하는 기술임. 이를 통해 LCD나 OLED 패널의 열에 의한 열화 및 손상을 근본적으로 방지하여 시스템 신뢰성을 높임.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> HUD 시스템의 소형화 및 고출력화 추세에 따라 열 관리 및 광학 소자 신뢰성 확보가 패널 수명에 직결됨. SDC는 이러한 차세대 광학 아키텍처를 패널 설계에 반영하여 차량용 디스플레이의 내구성을 경쟁사 대비 우위에 두어야 함. (위협도: 중간)</div>
       <textarea class="sen-memo" data-key="au11" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1431,11 +1558,10 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <div class="sen-item" data-id="au12">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au12">
-      <span class="sen-co">[Chief Tech]</span> 77.2 Light-Field HUD + Eye-Tracking
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[Chief Tech]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by K. Jin</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">아이트래킹 기술과 결합된 고해상도(76.8 PPD) 라이트필드 HUD 기술. 크로스토크 1.7% 억제.</div>
+      <div class="sen-detail">아이트래킹 센서와 결합하여 운전자의 시선 방향에 따라 최적화된 고해상도(76.8 PPD) 라이트필드 이미지를 제공하는 HUD 기술임. 크로스토크를 1.7% 이하로 억제하여 잔상이나 어지러움이 없는 깨끗한 AR 정보를 전면 유리에 투사함.</div>
       <div class="sen-resp"><b>SDC 시사점:</b> 중국 업체들의 고해상도 광학 설계 역량 강화 경계 필요. (위협도: 높음)</div>
       <textarea class="sen-memo" data-key="au12" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
@@ -1443,11 +1569,10 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <div class="sen-item" data-id="au13">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au13">
-      <span class="sen-co">[TCL CSOT]</span> 77.3 Eyebox-Expanded 3D AR-HUD
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[TCL CSOT]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by J. Jin</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">슬릿 마스크 모델과 렌티큘러 렌즈 시뮬레이션을 결합한 2단계 최적화 기반 아이박스 확장 3D HUD 설계.</div>
+      <div class="sen-detail">슬릿 마스크와 렌티큘러 렌즈 시뮬레이션을 결합한 2단계 최적화 기법으로 3D AR-HUD의 아이박스(Eyebox)를 획기적으로 확장함. 주행 중 운전자의 머리 움직임에 관계없이 넓은 영역에서 선명한 3D 가이드 정보를 유지함.</div>
       <div class="sen-resp"><b>SDC 시사점:</b> CSOT의 3D HUD 시스템 솔루션 경쟁력 확보 확인. (위협도: 매우 높음)</div>
       <textarea class="sen-memo" data-key="au13" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
@@ -1455,11 +1580,10 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <div class="sen-item" data-id="au14">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au14">
-      <span class="sen-co">[ETRI]</span> 77.4 Dual-SLM Holographic HUD
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[ETRI]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by J. Lee</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">Dual-SLM 타이링과 Dammann 격자를 이용해 홀로그래픽 HUD의 아이박스를 25배 확장하는 아키텍처.</div>
+      <div class="sen-detail">두 개의 SLM(Spatial Light Modulator) 타이링 기술과 Dammann 격자를 적용하여 홀로그래픽 HUD의 고질적 문제인 좁은 아이박스를 25배 이상 확장함. 실시간 홀로그램 AR 구현을 위한 물리적 광학계 구성의 한계를 극복함.</div>
       <div class="sen-resp"><b>SDC 시사점:</b> 차세대 홀로그래픽 HUD 구현을 위한 국내 원천 기술 협력 가능성. (기회)</div>
       <textarea class="sen-memo" data-key="au14" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
@@ -1469,36 +1593,33 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
   <div class="sen-item" data-id="au15">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au15">
-      <span class="sen-co">[Envisics]</span> 85.1 Holographic AR-HUD using CGH
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[Envisics]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by Envisics Team</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">CGH(컴퓨터 생성 홀로그램) 기술을 활용한 리얼 홀로그래픽 AR-HUD 시스템.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 홀로그래픽 전용 고해상도 패널 수요 대응 준비. (정보)</div>
+      <div class="sen-detail">CGH(컴퓨터 생성 홀로그램) 기술을 활용하여 실제 깊이감을 구현한 리얼 홀로그래픽 AR-HUD 시스템임. 기존 2D 방식과 달리 운전자의 초점 거리에 맞게 가상 이미지를 생성하여 눈의 피로도를 낮추고 직관적인 정보를 제공함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 홀로그래픽 HUD가 상용화될 경우 초고해상도 및 고속 구동이 가능한 특수 OLED 패널 수요가 발생할 것임. Envisics의 광학 요구 사항을 패널 설계에 선제적으로 반영하여 차세대 HUD 시장을 선점해야 함. (정보)</div>
       <textarea class="sen-memo" data-key="au15" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
   <div class="sen-item" data-id="au16">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au16">
-      <span class="sen-co">[NTU]</span> 85.3 Lens CGEI + GPU Accel for Light-Field
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[NTU]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by S. Hung</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">GPU 가속 및 렌즈 기반 LUT를 활용해 라이트필드 이미지를 0.032초 만에 생성하는 저지연 알고리즘.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 고해상도 라이트필드 구동을 위한 알고리즘 생태계 파악 필요. (위협도: 중간)</div>
+      <div class="sen-detail">GPU 가속과 렌즈 기반 LUT 프레임워크를 사용하여 계산량을 줄인 저지연 요소 이미지 생성 알고리즘. 0.032초의 생성 시간으로 동적 장면의 실시간 렌더링을 가능케 하여 차량 주행 시 안전성을 확보함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 고화질 3D/AR 구현을 위해서는 패널의 성능만큼이나 이를 구동하는 연산 알고리즘의 효율성이 핵심임. SDC는 구동 회로 및 칩셋 업체와의 협업을 통해 저지연/고속 구동 솔루션을 패널과 함께 패키징하여 제안해야 함. (위협도: 중간)</div>
       <textarea class="sen-memo" data-key="au16" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
   <div class="sen-item" data-id="au17">
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="au17">
-      <span class="sen-co">[NTU]</span> 85.4 DeepCGH + YOLO for AR-HUD
-      <span class="arrow" style="margin-left:auto">▼</span>
+      <span class="sen-co">[NTU]</span> <span class="sen-tag tag-pkg">pkg</span> <span style="font-size:10px;color:var(--mt);margin-left:6px">by P. Huang</span> <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">AI(YOLO+DeepCGH)를 결합하여 주행 장면 내 객체의 깊이를 인식하고 홀로그램을 실시간 생성하는 기술.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> AI 기반 홀로그램 생성 기술을 통한 시각적 품질 향상 가능성. (정보)</div>
+      <div class="sen-detail">YOLO 기반 차량 감지와 DeepCGH 모델을 결합하여 실시간으로 깊이 인식 홀로그램을 생성하는 프레임워크. 주행 영상의 객체 거리에 따른 정밀한 홀로그래픽 시각화를 실현하여 운전자의 인지 능력을 보조함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 미래 자동차 디스플레이는 단순 정보 표시 장치를 넘어 AI 인지 기술과 통합된 '지능형 인터페이스'로 진화하고 있음. SDC는 AI 기반 화질 개선 및 콘텐츠 생성 기술에 대한 연구를 강화하여 미래 모빌리티 시장의 주도권을 잡아야 함. (정보)</div>
       <textarea class="sen-memo" data-key="au17" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1508,11 +1629,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="sp1">
       <span class="sen-co">[TCL CSOT]</span> 26.1 First 14inch 2.8K IJP OLED
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by X. Li</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">세계 최초 G5.5 공정 기반 14인치 2.8K 잉크젯 프린팅 OLED. R-shape 프린팅으로 평탄도 해결.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 중형 OLED 시장에서 IJP 방식의 경쟁력 및 양산 위협. (위협도: 매우 높음)</div>
+      <div class="sen-detail">세계 최초로 G5.5 라인에서 생산된 14인치 2.8K 잉크젯 프린팅(IJP) OLED 패널로, R-shape 프린팅 공정을 통해 고질적인 건조 평탄도 문제를 해결함. 증착 방식 대비 재료 효율이 높고 공정 비용이 저렴하여 중형 OLED 시장의 가격 파괴 가능성을 제시함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 중국의 IJP OLED 양산 가시화는 SDC의 중소형/중형 FMM 증착 방식에 대한 강력한 원가 위협임. IJP의 화질 및 수명 한계를 파고드는 동시에, SDC만의 프리미엄 OLED 브랜딩과 초고해상도 기술로 시장 차별화를 공고히 해야 함. (위협도: 매우 높음)</div>
       <textarea class="sen-memo" data-key="sp1" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1520,11 +1642,12 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="sp2">
       <span class="sen-co">[Panasonic]</span> 26.2 Stability of 1pL Inkjet Head
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by Y. Suzuki</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">400ppi급 고해상도 픽셀 프린팅이 가능한 1pL 미세 헤드의 안정성 확보 기술.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> IJP의 해상도 한계 극복을 통한 IT/모바일 시장 침투 가능성. (위협도: 높음)</div>
+      <div class="sen-detail">400ppi 이상의 고해상도 IJP 구현을 위해 1pL급 미세 액적을 안정적으로 제어할 수 있는 고성능 잉크젯 헤드 기술을 개발함. 장시간 운전 시에도 노즐 막힘이나 액적 튐 현상을 방지하는 신뢰성을 확보하여 IJP의 모바일 적용 가능성을 높임.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> IJP의 해상도 한계가 극복될 경우 태블릿이나 노트북 시장에서의 경쟁 구도가 급변할 수 있음. SDC는 고정밀 FMM 기술의 압도적 우위를 유지하는 한편, 차세대 공정 기술로서 IJP의 성숙도를 면밀히 모니터링해야 함. (위협도: 높음)</div>
       <textarea class="sen-memo" data-key="sp2" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
@@ -1532,12 +1655,26 @@ main{flex:1;padding:12px;max-width:800px;width:100%;margin:0 auto}
     <div class="sen-hdr" onclick="togSen(this)">
       <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="sp3">
       <span class="sen-co">[Intel/BOE]</span> 47.1/47.2 Glass Core Substrates
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by Intel/BOE Team</span>
       <span class="arrow" style="margin-left:auto">▼</span>
     </div>
     <div class="sen-body">
-      <div class="sen-detail">AI/HPC용 글라스 기판 기술. BOE는 하이브리드 구조와 초미세 RDL(2/2um) 성과 공개.</div>
-      <div class="sen-resp"><b>SDC 시사점:</b> 반도체 패키징용 글라스 신사업 분야에서 경쟁사들의 빠른 진입 경계. (위협도: 높음)</div>
+      <div class="sen-detail">AI 및 고성능 컴퓨팅(HPC)을 위해 기존 유기 기판을 대체하는 글라스 코어 기판(GCS) 기술임. BOE는 글라스 기반의 초미세 RDL 공정(Line/Space 2um)과 하이브리드 패키징 기술을 선보이며 반도체 패키징 시장 진입을 공식화함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 디스플레이 공정 인프라를 활용한 글라스 기판 사업은 SDC의 강력한 미래 먹거리가 될 수 있으나, BOE의 빠른 진입이 위협적임. SDC는 그룹사 역량을 결집하여 글라스 기판의 수율 및 신뢰성 면에서 압도적인 표준을 제시해야 함. (위협도: 높음)</div>
       <textarea class="sen-memo" data-key="sp3" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
+    </div>
+  </div>
+  <div class="sen-item" data-id="sp4">
+    <div class="sen-hdr" onclick="togSen(this)">
+      <input type="checkbox" class="sen-chk" onclick="event.stopPropagation();saveSenChk(this)" data-key="sp4">
+      <span class="sen-co">[TCL CSOT]</span> 55.2 Common Layer NIR Sensor
+      <span style="font-size:10px;color:var(--mt);margin-left:6px">by J. Zhou</span>
+      <span class="arrow" style="margin-left:auto">▼</span>
+    </div>
+    <div class="sen-body">
+      <div class="sen-detail">OLED 소자의 공통층(Common Layer)을 NIR 센서로 공용화하여 별도의 센서 층 추가 없이도 지문 인식 및 생체 인식이 가능한 융합형 소자 구조를 제안함. 이를 통해 패널의 두께를 줄이고 생산 원가를 혁신적으로 절감할 수 있는 가능성을 입증함.</div>
+      <div class="sen-resp"><b>SDC 시사점:</b> 올인원 센서 패널 기술은 모바일뿐만 아니라 차량용 보안 인터페이스 시장에서 강력한 경쟁력이 됨. SDC는 센서 융합 OLED 기술의 양산 수율을 확보하고, 효율 저하 문제를 해결하여 시장 요구에 선제적으로 대응해야 함. (정보)</div>
+      <textarea class="sen-memo" data-key="sp4" placeholder="현장 메모..." oninput="saveSenMemo(this)"></textarea>
     </div>
   </div>
 
