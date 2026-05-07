@@ -3440,7 +3440,9 @@
     function saveEssays(e) { localStorage.setItem('dw-essays', JSON.stringify(e)) }
 
     function renderEssays() {
-      const essays = getEssays(), el = $('essayList');
+      const el = $('essayList');
+      if (!el) return; // essayList가 없으면 안전하게 종료
+      const essays = getEssays();
       if (!essays.length) { el.innerHTML = '<div style="text-align:center;color:var(--mt);padding:20px;font-size:13px">아직 작성된 에세이가 없습니다.<br>아래 주제를 탭하거나 직접 추가해보세요.</div>'; return }
       el.innerHTML = essays.map((e, i) => {
         const preview = e.content ? e.content.substring(0, 60) + '...' : '(빈 메모)';
