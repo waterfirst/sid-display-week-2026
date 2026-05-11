@@ -1,0 +1,447 @@
+ 
+Multi-device Linkage Technology for Eye-controlled  
+Content Continuation Display 
+Xiufeng Wang, Yonggui Yang, Ming Gu, Xiaoqin Guo, Zhixin Wang,  
+Chao Zhang, Xingqun Jiang 
+BOE Technology Group Co., Ltd, Beijing, China 
+ 
+ 
+Abstract 
+This paper proposes a technology that uses cameras across 
+multiple devices to perform eye recognition and eye tracking, 
+capture the human subject’s facial orientation, integrate multi-
+dimensional information, and calculate the results. It further 
+constructs a world coordinate system for spatial positioning of the 
+human subject. Based on facial orientation and line-of-sight 
+direction, this technology identifies the device currently being 
+gazed at by the user and directly projects subsequent content onto 
+the screen the user is looking at. This technology integrates 
+sensor technology, computer vision, and interaction design, 
+enabling users to transfer content to the target screen as their line 
+of sight moves—without needing to operate the device manually. 
+This approach enhances the intuitiveness and immersiveness of 
+human-computer interaction. 
+Author Keywords 
+Eye Tracking;Spatial Positioning; Facial Orientation; Line-of-
+Sight Direction 
+1. Introduction 
+With a century of development, eye-controlled technology has 
+been deeply integrated with multiple disciplines, including 
+biomedicine and artificial intelligence. Evolving from early 
+laboratory mechanical and optical observation devices, it has 
+gradually become a non-invasive, intelligent core technology 
+applied across fields—overcoming scenario constraints to enable 
+diverse applications. 
+Screen projection technology originated from wired interfaces in 
+the 1990s. Following upgrades enabled by HDMI (High-
+Definition Multimedia Interface), it moved toward wireless 
+transmission. Since the 2020s, leveraging technologies such as 
+5G and Wi-Fi 7, it has achieved high-definition (4K/8K) low-
+latency transmission and has integrated with the Internet of 
+Things (IoT) to build an all-scenario ecosystem. 
+Today, the precise interaction advantages of eye-controlled 
+technology are highly complementary to the efficient 
+transmission capabilities of screen projection technology: the 
+former provides natural, accurate core support for human-
+computer interaction, while the latter serves as a stable, smooth 
+transmission bridge for content presentation. Their collaboration 
+lays a solid foundation for innovative applications like eye-
+controlled screen projection, thereby further expanding the 
+diverse possibilities and broad development prospects of human-
+computer interaction. 
+Existing content continuation primarily relies on screen 
+projection technology, which is plagued by limitations such as 
+cumbersome operation, unintuitive interaction, and a lack of 
+intelligent multi-screen collaboration. These issues significantly 
+hinder user experience in multi-device environments. To address 
+these challenges, we have developed a multi-device linkage eye-
+controlled content continuation technology. By integrating eye 
+tracking and facial orientation recognition, this technology 
+directly links the user’s gaze to content continuation, enabling 
+seamless content transition without manual intervention. 
+ 
+Figure 1. Joint Development History of Eye-Controlled 
+Technology and Screen Projection 
+This technological solution not only markedly improves the 
+intuitiveness and fluency of interaction but also enhances 
+efficiency across diverse scenarios—including conference 
+presentations, smart homes, and medical assistance. It ultimately 
+delivers a more natural, immersive, and intent-centric digital 
+experience for users. 
+2. Experiments 
+Common toolkits for eye tracking and facial orientation 
+estimation include Google MediaPipe, YOLOv8, and dlib. Table 
+1 compares their advantages, disadvantages, and key performance 
+metrics. As observed from Table 1: 
+For "end-side + real-time" scenarios, MediaPipe is the preferred 
+choice. It enables one-click output of gaze and head-pose 
+estimation results without prior model training, but its detection 
+effective distance is short. 
+For "long-distance or dense crowd" scenarios, YOLOv8 achieves 
+the highest detection recall rate and supports offline retraining to 
+adapt to specific scenarios. However, it requires secondary 
+development to enable gaze and head-pose estimation functions. 
+When only the CPU is used, dlib’s geometric landmark-based 
+method delivers the best head-pose estimation accuracy. 
+Nevertheless, it needs secondary development for gaze estimation 
+and has low inference speed. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ISSN 0097-996X/26/5701-1515-$1.00 © 2026
+109-1 / X. Wang
+SID 2026 DIGEST • 1515 
+ 
+Table 1. Comparison of Google MediaPipe, YOLO8, and 
+dlib Technologies 
+ 
+ 
+Each of the three methods has distinct advantages and limitations. 
+Thus, we propose combining them in a cascading fashion by 
+distance segments to leverage their strengths and mitigate their 
+weaknesses. 
+Meanwhile, we use binocular cameras to acquire depth 
+information, which is used to establish a world coordinate system. 
+We then construct a virtual digital space using multi-device 
+camera data to enable spatial positioning of human subjects: first, 
+we roughly locate the human subject’s position within the virtual 
+space; then, we further infer the user’s intent by integrating facial 
+orientation and line-of-sight data. 
+Additionally, we incorporate facial feature detection to enable 
+more precise tracking of specific individuals. The overall 
+workflow is shown in Figure 2. 
+ 
+Figure 2. Overall Process 
+The relationships between coordinate systems are shown in 
+Figure 3. 
+   
+ 
+Figure 3. Coordinate Systems 
+The conversion process from the pixel coordinate system to the 
+world coordinate system is shown in Formula 1; 
+The conversion process between World Coordinate System A and 
+World Coordinate System B is shown in Formula 2. 
+ 
+t
+R
+Z
+Y
+X
+v
+u
+s
+M
+const
+1
+1
+1-
+1
+R
+−
+−
++
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+ 
+(1) 
+οP
+t
+R
+R
+T
+T
+B
+
+
+
+
+
+
+−
+=
+×
+1
+0
+P
+3
+1
+(2) 
+ 
+                      Wireless screen projection technology enables real-
+time transmission of screen images and audio from intelligent 
+devices (e.g., mobile devices, personal computers) to other 
+display devices via a wireless network, achieving simultaneous 
+content display. With the continuous advancement of technology, 
+an increasing number of electronic devices now support wireless 
+screen projection functions. Commonly used protocols include 
+DLNA, Miracast, and AirPlay. These protocols have distinct 
+characteristics and limitations, which are compared in Table 2.
+ 
+Table 2. Comparison of DLNA, Miracast, and AirPlay 
+Protocols 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+In implementing the eye-controlled screen projection technology, 
+we adopt BOE’s self-developed wireless screen projection 
+protocol, which is built on the RTP (Real-time Transport 
+Protocol) standard. This protocol is compatible with the 
+aforementioned protocols (DLNA, Miracast, AirPlay) and 
+supports cross-platform wireless screen projection across 
+multiple devices. 
+Additionally, the protocol expands two key functions: 
+information transmission between multiple large-screen devices 
+and reverse control of large screens. This expansion thereby 
+enhances its practicality in conference scenarios and multi-screen 
+combined display scenarios. 
+ 
+Figure 4. Device Screen Projection Technology 
+In conference presentation scenarios where multiple all-in-one 
+display devices (or other screen devices with built-in depth 
+cameras) are deployed, we use the aforementioned spatial 
+positioning capability for initial positioning. We then apply 
+comprehensive judgment based on eye tracking and facial 
+orientation technologies—adapted to different distances—to infer 
+the user’s intent, thereby enabling screen projection onto the 
+target all-in-one device. 
+For instance, a speaker may move during a presentation: when the 
+user moves from Device A to Device B, the system performs 
+initial positioning via Devices A and B to determine the user’s 
+distance from each device. It then conducts a comprehensive 
+assessment by integrating facial orientation and eye tracking 
+technologies, projecting screen content onto the device that is 
+closer to the user and being gazed at. This achieves the effect 
+where the projected content follows the user’s movement. 
+109-1 / X. Wang
+SID 2026 DIGEST • 1516 
+ 
+ 
+Figure 5: Eye-controlled Content Scenario 
+3. Results and Analysis 
+3.1 Scheme Design 
+The technical combination is determined based on detection 
+distance ranges, as follows: 
+Detection distance: 3m < distance < 6m: YOLOv8 face detection 
++ tracking. 
+Detection distance: 2m < distance < 3m: dlib 5-point feature 
+extraction + facial orientation estimation + tracking. 
+Detection distance: 0.2m < distance < 2m: MediaPipe 278-point 
+feature extraction + eye region estimation + iris line-of-sight 
+estimation. 
+3.2 Scheme Description 
+For long-distance scenarios (3–6 m), a lightweight YOLOv8 face 
+detection model (number of classes = 1) is employed first to 
+quickly detect human faces. Once the target enters the range 
+below 3 m, MediaPipe takes over the task and directly runs the 
+278-point feature extraction model using the pre-cropped Region 
+of Interest (ROI), eliminating the time-consuming full-image 
+detection step. 
+When switching to dlib in the 2–3 m range, the bounding box 
+(bbox) from the previous frame is reused as the initial value for 
+regression. This enables faster convergence of the 5-point feature 
+regression process, ensuring the overall frame rate is improved 
+instead of being reduced. 
+3.3 Scheme Results 
+The core idea of combining the three technologies by "distance 
+segments" is to use distance as a prior switch. This allows each 
+technology to operate within its "optimal working range," thereby 
+simultaneously improving detection accuracy, processing speed, 
+and system robustness. 
+Compared with the "single technology for the entire distance 
+range" approach, the quantifiable performance results are 
+presented in the table below: 
+Table 3. Desktop Environment with 640×480 Input, i5-
+12400+GTX-1660 
+ 
+ 
+ 
+ 
+Table 4. Mobile Device with 640×480 Input, Snapdragon 8 Gen 
+2, Android 14, FP16 
+ 
+3.4 Scheme Analysis 
+Distance segmentation is combined with a cascading approach to 
+accelerate processing. For each distance segment, the model with 
+the minimum error at that specific distance is selected. As a result, 
+the full-distance error curve forms an envelope of the optimal 
+performance of the three segments—rather than the "U-shaped" 
+curve of a single adopted technology.  
+In the "overlapping range" (2–3 m), the two models (dlib and 
+MediaPipe) can run in parallel. Kalman filtering is applied to 
+perform cross-validation and automatically eliminate outliers, 
+which significantly reduces result fluctuations in corner cases 
+(e.g., large-angle side profiles, glasses reflections). 
+YOLOv8 can detect small faces (20×20 px) at distances beyond 
+6 m, while MediaPipe can capture a 280×280 px eye region at 1 
+m. The pixel scale ratio between the two is 14:1. After 
+segmentation, however, the input size for each network is fixed. 
+This eliminates the need for multi-scale inference and reduces 
+sub-pixel offsets induced by scale interpolation. 
+4. Conclusion 
+The "distance segmentation + model cascading" approach divides 
+the detection-tracking-orientation-line-of-sight pipeline into three 
+segments, each equipped with an optimal solution. It then 
+integrates these segments using redundant filtering mechanisms 
+in the handover areas. The final performance comparison results 
+are shown in Figure 6: 
+• 
+Gaze accuracy: ↑7% 
+• 
+Side face robustness: ↑33% 
+• 
+Low-light failure rate: ↓53% 
+• 
+Frame rate: maintained at 60+ FPS 
+• 
+Zero risk of commercial licensing 
+Compared with any single adopted technology, the hybrid scheme 
+delivers improvements across three key dimensions: full-distance 
+detection 
+performance, 
+real-time 
+responsiveness, 
+and 
+implementation feasibility. 
+ 
+Figure 6: Scheme Comparison Diagram 
+109-1 / X. Wang
+SID 2026 DIGEST • 1517 
+ 
+5. Research Impact 
+The three-segment hybrid approach treats "distance" as a valid 
+prior, enabling each model to only address tasks it is most 
+competent at. Consequently, it achieves statistically significant 
+positive improvements across five dimensions: accuracy, 
+robustness, real-time responsiveness, power efficiency, and 
+licensing compliance. This forms a reproducible "Pareto frontier 
+for full-distance (0.2–6 m) gaze and head-pose estimation on 
+mobile terminals". 
+After "relaying" the three models according to distance: YOLO8 
+is used for long distances to ensure recall rate, dlib is used for 
+medium distances to achieve head-pose accuracy, and MediaPipe 
+is used for short distances to output gaze results. The results show 
+that the full-distance error is reduced by 40%, side face loss is 
+reduced by 70%, the mobile device can still maintain 60 FPS, and 
+there is zero licensing risk. In short, by allowing each segment to 
+operate within its own "comfort zone", the system achieves a 
+"triple win" in accuracy, robustness, and real-time performance. 
+6. Acknowledgments 
+Sincere gratitude is extended to all those who supported this 
+research. Thanks to the leaders for their careful guidance and 
+patient review during the topic selection, experimental design, 
+and paper writing process; thanks to colleagues for their valuable 
+suggestions and assistance in data verification; thanks to the 
+company for providing GPU computing power and test 
+equipment support, which enabled the smooth completion of 
+mobile terminal experiments. Special thanks are given to the 
+contributors of the open-source communities who maintain the 
+MediaPipe, YOLO, and dlib code repositories—their outstanding 
+work has laid a solid foundation for this research. Finally, thanks 
+to family members and friends for their encouragement and 
+companionship during the research period, which kept the author 
+motivated to move forward. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+7. References 
+1. 
+CHEN Jinxin, SHEN Wenzhong. Human eye location and 
+classification algorithm based on EL-YOLO[J/OL].  
+Computer Engineering and Application. (2020-12-21) 
+[2021-03-10] 
+2. 
+WU Dongliang,SHEN Wenzhong,LIU 
+Linsong.MEL⁃YOLO：Multi⁃task Human Eye Attribute 
+Recognition and Key Point Location Network[J].Journal of 
+Data Acquisition and Processing,2022,37(01):82-93 
+3. 
+Talaat F M, ZainEldin H. An improved fire detection 
+approach based on YOLO-v8 for smart cities[J]. Neural 
+Computing and Applications, 2023, 35(28): 20939-20954. 
+4. 
+Research Progress on Eye Tracking Technology Based on 
+Embedded Systems，Doudou Qin1, Min Yan2 Received: 
+Jul. 1st, 2025; accepted: Aug. 12th, 2025; published: Aug. 
+21st, 2025. 
+5. 
+Yan Guoli, Bai Xuejun. (2018).The Basis and Application 
+of Eye Tracking Analysis Technology. Beijing: Beijing 
+Normal University Press. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+109-1 / X. Wang
+SID 2026 DIGEST • 1518 

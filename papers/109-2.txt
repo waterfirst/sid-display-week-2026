@@ -1,0 +1,554 @@
+Thinking Differently About Video Processing at the Edge with AI in Systems 
+Including Professional Displays 
+Ben Cope*, Palanivel Guruvareddiar**, Leonardo Galteri***, Claudio Baecchi***, Matteo Bruni***  
+*Intel Corporation, London, UK ** Intel Corporation, Chandler, USA 
+***Small Pixels, Florence, IT 
+ 
+Abstract 
+With AI enabling the unthought of a decade ago, such 
+as humanoid robotics or large language models, it is 
+easy to overlook that AI can also replace or augment 
+the most traditional computation tasks such as video 
+processing. Video compression innovation seeks to 
+improve the ratio of video quality to bandwidth: three 
+different approaches to using AI target to improve this 
+efficiency. Whilst innovation in video scaling can 
+support 
+video 
+compression 
+efficiency 
+in 
+post-
+processing it can also recreate detail lost within a 
+scaled down input video sequence. This paper 
+motivates 
+how 
+these 
+innovations 
+can 
+support 
+professional display systems from digital signage to 
+unified communications with contributions including 
+showing how an implementation originally targeted to 
+run on GPU-accelerator cards can run on mobile 
+processors. It is also shown how innovation in 
+compression and scaling for displays can enable 
+thinking differently about the video preparation stage 
+for AI pipelines to provide performance improvement 
+(speed up) and more accurate classification.     
+Author Keywords 
+AI; super resolution; CODEC; video processing 
+1. Introduction  
+An insatiable audience and creator expectation for higher quality 
+visual experiences helps drive display innovation through higher 
+resolution, frame rates, dynamic range and more. To take 
+advantage of this increasing quality of display it is ever more 
+important to ensure the highest quality is maintained from the 
+video origin (e.g. from RAW form) through to delivery, the 
+techniques to support this are referred to as video processing.   
+This paper will delve into the fascinating field of the use of AI 
+to replace or augment traditional video processing which is a 
+fundamental part of the computation within display systems. 
+The authors follow the sentiment of [1] in the title quote “the 
+most successful AI right now is what I call boring AI”, that 
+whilst AI-based video processing is not the sexiest of AI 
+applications it is practical and has potential for high scale usage.  
+Whilst there are many video processing functions, video 
+compression and video scaling are the focus of this paper as two 
+of the most computationally intensive operations. 
+As a domain of focus for the authors, the application of the 
+results to applications in Professional Display Systems will be 
+specifically considered in the paper.    
+The paper is structured as follows: Section 2 surveys prior work; 
+Target compute types for video processing are discussed in 
+Section 3; Section 4 presents results showing that a super 
+resolution implementation first intended for GPU-accelerator 
+cards can run efficiently on low power AI accelerators such as 
+NPUs or integrated GPUs; The application of video processing 
+innovation to AI vision pipelines is presented in Section 5;  In 
+Section 6 the works are summarized; Thoughts on the greater 
+impact of the research are presented in Section 7.   
+2. Survey of Prior Work 
+The use of AI in video processing tasks is not a new one. [2] 
+presents a comprehensive literature survey of the role of AI in 
+the full content delivery pipeline stating applications from video 
+encoding to decoding to the delivery network. From an edge the 
+potential for energy efficiency during transmission (due to lower 
+bit rates) is an interesting observation motivating the value of 
+the AI innovations across different video processing tasks.  
+2.1. Super Resolution 
+It is interesting to consider the role of super resolution (SR) 
+across various applications. SR is used with video games for a 
+game engine to render the game play at lower resolution and 
+frame rate with inbuilt GPU technology such as XeSS2 [3] to 
+upscale resolution and frame rate for a high-resolution gaming 
+experience at a lower GPU performance. In [4], Lei and Jiang 
+present the application in social media with interesting insights 
+on use to improve user generated content as cloud-based 
+processing and on device SR upscaling at edge of network. This 
+work leveraged open-source SR code from [5]. This [6] API 
+from 
+Microsoft 
+cites 
+video 
+group 
+calls 
+(in 
+unified 
+communications) as well as social media, improved quality over 
+poor networks and bandwidth optimization to improve content 
+delivery network (CDN) costs as SR applications with stated 
+performance scaling up to 1440p using an NPU. Latest 8K TV 
+specifications [7] show support for SR within the display 
+chipset, which is cited as important to take advantage of the 
+higher display resolution whilst available content is still either 
+FHD or 4K [8]. [9] shows an example of how SR can augment a 
+bi-cubic filter with focus of the AI to add back residuals such as 
+edge sharpness, it also shows broader application to processing 
+including SDR to HDR conversion.    The common value 
+propositions across these use cases are to improve quality 
+(adding details that are not present in upscaling such as by bi-
+cubic) and/or optimizing network bandwidth or compute need. 
+There has so far been an expectation, such as enabling SR in 
+Microsoft Edge [10] requiring adding an Nvidia or AMD GPU 
+card, of the need for acceleration. The results in [6] for up to 
+1440p and those shown in Section 4 for scaling up to 4K 
+resolution show this need not be the case.     
+Hallucinations of AI are a common concern when discussing its 
+use for video scaling or CODECs. In [11] an interesting 
+approach to SR with AI is taken to use AI to pre-train filters and 
+includes guard circuitry to help protect against anomalies.  
+2.2. AI Video CODECs  
+A fundamental task of video compression is to get the highest 
+quality video signal to the destination at the lowest possible 
+bandwidth, referred to as compression efficiency. AI approaches 
+to video compression, such as [12-15], aim to improve upon this 
+ISSN 0097-996X/26/5701-1519-$1.00 © 2026
+109-2 / B. Cope
+SID 2026 DIGEST • 1519 
+compression efficiency using the predictive power of AI. 
+For video CODECs it is interesting to consider 3 roles for AI. 
+First, pre or post-processing video with AI-based approaches for 
+existing CODECs. Second, AI-based approaches to traditional 
+CODEC tools. Thirdly, where the whole video CODEC is 
+rethought to use AI throughout the processing.  
+As example of the first approach, [14] demonstrated the use of 
+SEI messages with VCC/H.266 to provide a 5% bit-rate 
+reduction 
+using 
+AI-based 
+post-processing 
+with 
+model 
+information sent in the SEI message. In [15], the concept of AI-
+based pre-processing to implicitly influence CODEC saliency 
+map is another good example of this first type. [16] is a similar 
+example from real-world deployment at the Paris Olympics 
+whereby an AI approach was taken to preset the CODEC to the 
+AI-perceived type of content and best-known settings. 
+As brief definition, saliency maps are how a CODEC determines 
+where to allocate the most bits in compression to be sympathetic 
+to how the human visual system will view the decoded video.  
+On the second type, examples include proposals to H.267 [17] or 
+the MPAI-Enhanced Video Coding (EVC) [18] standardization 
+efforts. [15] compares the implicit approach to explicitly guiding 
+the saliency map with an AI-approach as a documented example 
+of how CODECs may be modified with AI techniques.  
+Examples of the third approach include Deep Render, recently 
+acquired by Interdigital, where testing [12] shows capability to 
+run 1080p video decoding with their AI approach on an Apple 
+Mac Mini M4 38TOP NPU at 69fps with quality higher than 
+AV1 or H.265 in tested bit streams (slightly lower quality than 
+VVC). MPAI-EEV E2E is an example standardization AI-based 
+CODEC project [13]. An interesting observation is that such an 
+AI-based CODEC, like will be shown with the SR testing in 
+Section 4, can potentially be run within modern NPUs such as 
+the upcoming Intel Core Ultra 3[19], leaving the GPU free for 
+graphics or heavy workload AI allowing CODEC innovation to 
+be an NPU software change versus need for silicon changes.  
+[20] shows reduced complexity of AI CODEC for 1080p30 
+coding, claiming 20x speedup for DCVC-RT versus DCVC-
+DC/DCVC-FM running on NVIDIA RTX 2080 Ti.   
+2.3. Learnings for Professional Display Systems  
+Consider three professional display system related use cases of 
+digital signage, unified communications and a generic 
+supporting AI vision pipeline. From the above prior work the 
+value propositions of SR and AI Video CODECs can be 
+summarized as shown in Table 1. 
+Table 1. Professional Display Systems Value Proposition 
+Type 
+Digital 
+Signage 
+Unified 
+Comms. 
+AI Vision 
+Pipelines 
+Super 
+Resolution 
+Bandwidth, 
+image detail 
+Bandwidth, 
+image detail 
+Quality of results 
+Bandwidth 
+AI Video 
+CODECs 
+Lower 
+bandwidth 
+Lower 
+bandwidth 
+Bandwidth 
+A common expected value proposition for both Super 
+Resolution and AI in Video CODECs is to lower bandwidth of 
+transmitted video content. In addition, Super Resolution is 
+expected to be able to recreate image detail not there in the 
+original image, such as cropping small faces within a video feed 
+from a UC camera and enlarging. For this to be practical super 
+resolution must run on target edge compute devices – this will 
+be explored further in Section 4. For AI vision pipelines, it is 
+expected that super resolution can enhance quality of result, both 
+SR and AI Video CODECs are expected to help lower 
+transmitted compressed video bandwidth– this will be explored 
+further in Section 5. 
+3. Compute Types for Edge Display Systems 
+In display systems, video processing is a fundamental 
+requirement in the overall dataflow. [21] presented that there are 
+four types of computer hardware, with (example processor 
+types) which are commonly used to support processing 
+associated with display applications. These being scalar (CPU), 
+vector (GPU), matrix (NPU) and spatial (FPGA or ASIC). It is 
+notable that the vector and spatial types are what historically 
+computed video processing tasks such as video CODECs, 
+scaling and other pre/post-processing. It will be seen later in this 
+paper that matrix types such as neural processing units (NPUs) 
+are destined to become a third common target.  
+Modern processors today such as Intel Core Ultra 3[19] or 
+Apple M5 [22] include these different compute engine types 
+within a single packaged processor. 
+Table 2. Processing Type Taxonomy (from [21]) with AI 
+Video Processing Target Updates (column 4) 
+Type 
+Example 
+Processor 
+Display 
+Functions  
+Updated with AI in 
+video processing 
+Scalar 
+CPU 
+Interactive 
+applications 
++ AI video processing 
+(low latency) 
+Vector 
+Graphics 
+Processing 
+Unit (GPU) 
+Rendering, 
+overlay 
++AI video processing 
+(highest performance, 
+real-time) 
+Matrix 
+Neural 
+Processing 
+Unit (NPU) 
+Audience 
+measurement 
++AI video processing 
+(power efficient, 
+resource balance, 
+analytics) 
+Spatial 
+FPGA 
+ASIC 
+Display controller, 
+LED processor, 
+video splitter 
++AI video processing 
+options (specialized 
+video workflows) 
+The third column of Table 2 shows traditional display functions 
+fitting these processor types. Column 4 provides a summary of 
+where AI based video processing tasks would run based on 
+results from Sections 4 & 5 as well as insights from Section 2.  
+4. Real-time Edge Performance and Compute 
+Options for Super Resolution 
+Figure 1: FPS scaling across resolutions for different 
+devices and precisions (target: Intel® Core Ultra 7 
+Processor 265H, 16GB DDR5 RAM, Ubuntu 24.04 [23]). 
+109-2 / B. Cope
+SID 2026 DIGEST • 1520 
+In modern on-device AI workloads, understanding how model 
+performance scales with input resolution and numerical 
+precision are crucial for selecting the right hardware and 
+optimization strategy. From the standpoint of system design, the 
+behaviour of a Super Resolution model across devices illustrates 
+a more general principle: the same AI algorithm can occupy 
+very different points in the trade-off space of quality, speed, and 
+hardware constraints. A configuration that comfortably runs on a 
+GPU may, when quantized and paired with a lower-resolution 
+input, still be viable on an embedded NPU or CPU, yet remain 
+good enough for different scenarios. This flexibility suggests 
+that video compression and scaling should not be treated as 
+fixed, but as tuneable components that can be adapted to the 
+capabilities of each deployment target while still improving both 
+perceived visual quality and the effectiveness of downstream AI 
+tasks. The results in Figure 1 demonstrate this solutions space.  
+Notably at the highest performance, real-time (>60fps) 1080p to 
+4K scaling is achievable on the integrated GPU at int8 precision. 
+For the NPU (which has 13 TOPS [23] peak performance) this 
+achieves 20fps performance so it can be projected with 50 TOPS 
+on upcoming Intel processors [19] real-time could be possible. 
+Table 2 summarises the learnings from these tests in column 4.  
+5. Application to AI Vision Pipelines 
+Figure 2 shows a typical AI Vision Pipeline, concurrent camera 
+streams are decoded, this data needs pre-processing (often 
+downscaling) before object detection, after which further 
+cropping and scaling is needed to prepare objects to be classified 
+as different detections, finally the results are overlayed on the 
+original video content before display. To date the majority focus 
+for performance and accuracy improvement has been on model 
+innovation in the non-shaded boxes. In this section options for 
+innovation in the shaded boxes, by applying the AI-based video 
+processing are considered.  
+ 
+Figure 2: Typical AI Vision Pipeline  
+[24] presents some foundational work to look at the role of 
+scalable CODECs to improve AI vision pipelines. It is seen that 
+SMPTE VC-6 and MPEG-5 LC-EVC provide compute 
+performance improvements as well as bit stream compression. 
+[25] extends this work to demonstrate power efficiency. Table 3 
+shows a snapshot of results from [25] with up to 340% speed up 
+over traditional AVC with the LC-EVC scalability. Whilst VC-6 
+and LC-EVC are not “AI CODECs” these results motivate 
+conceptually that modifying the approach to compression in an 
+AI vision pipeline can have significant performance impact.  
+Table 3. AI inf. comparison for AVC VS LCEVC-AVC [25] 
+ 
+Total fps (8 streams) 
+Avg per-stream FPS 
+Fps gain 
+Video 
+Number 
+AVC 
+LCEVC 
+AVC 
+AVC 
+LCEVC 
+AVC 
+Video 1 
+242.46 
+824.2 
+30.31 
+103.03 
+340% 
+Video 2 
+243.4 
+692.74 
+30.42 
+86.59 
+285% 
+Video 3 
+243.1 
+821.1 
+30.39 
+102.64 
+338% 
+Video 4 
+220.93 
+693.82 
+27.62 
+86.73 
+314% 
+ One effective way to save bandwidth in such pipelines is to 
+transmit a downscaled video stream and then rely on super-
+resolution at the receiver. To ensure that detector performance is 
+maintained or even improved on these reconstructed videos, AI-
+based super-resolution models can be used. Building on this 
+pipeline view, we next ask how changes in the shaded stages, 
+compression and scaling before detection, affect the accuracy of 
+the non-shaded detection model. Low-bitrate compression 
+typically introduces artifacts that harm downstream object 
+detection, so we quantified this effect by measuring mean 
+Average Precision (mAP) with YOLOv11n, a lightweight 
+detector suitable for real-time multi-stream scenarios such as 
+drone body cams. We considered three transmission strategies 
+that correspond to different choices in the “preparation” part of 
+the pipeline: (i) a reference stream at full resolution (1080p) and 
+1000 kbps (H.265), (ii) a more aggressively compressed 1080p 
+stream at 700 kbps, and (iii) a 540p stream at 700 kbps that is 
+then upscaled back to 1080p using our Super Resolution 
+pipeline before entering the detector. As summarized in Table 4, 
+simply reducing the bitrate from 1000 to 700 kbps at full 
+resolution leads to a measurable drop in mAP of about one 
+percentage point, consistent with the expected impact of 
+compression artifacts. By contrast, the 540p @ 700 kbps + AI 
+Super Resolution configuration recovers essentially the same 
+mAP as the 1000 kbps baseline (and slightly exceeds it on one 
+clip), despite using 30% less bandwidth. These preliminary 
+results suggest that innovation in the shaded boxes of the 
+pipeline, here, AI-based scaling and reconstruction, can partially 
+“undo” the damage of low-bitrate compression and optimize 
+bandwidth usage without compromising detection performance. 
+Table 4. Effect of Bitrate and AI Super-Resolution on 
+Detection Accuracy (mAP) with VisDrone dataset [26] 
+ 
+Mean Average Precision (mAP) 
+Video 
+Number 
+1080p @ 1000 kbps 540p @ 700 kbps 
++ AI SR 
+1080p @ 700 
+kbps 
+Video 1 
+40.30% 
+40.30% 
+39.10% 
+Video 2 
+15.50% 
+15.50% 
+15.30% 
+Video 3 
+34.20% 
+34.40% 
+33.50% 
+Video 4 
+27.00% 
+27.00% 
+26.10% 
+6. Summary  
+This document explores how artificial intelligence (AI) 
+enhances traditional video processing tasks such as compression 
+and scaling, particularly for edge display systems including 
+professional displays. It highlights the practical benefits of AI-
+driven video processing in improving video quality, reducing 
+bandwidth, and optimizing AI vision pipelines on various 
+hardware types. Here are some summary findings.  
+• AI augments video processing tasks: AI can replace or enhance 
+video compression and scaling to improve video quality and 
+bandwidth efficiency, supporting applications like digital 
+signage and unified communications.  
+• Super resolution applications: AI-based super resolution (SR) 
+improves image detail beyond traditional upscaling, supports 
+bandwidth optimization, and can run efficiently on edge devices 
+without requiring high-end GPU accelerators.  
+• AI-based video codecs: Three AI codec approaches exist: AI 
+post-processing with traditional codecs, AI-enhanced traditional 
+codec tools, and fully AI-based codecs running on neural 
+processing units (NPUs), offering improved compression 
+109-2 / B. Cope
+SID 2026 DIGEST • 1521 
+efficiency and quality.  
+• Edge compute types for video processing: Video processing 
+leverages scalar (CPU), vector (GPU) and matrix (NPU) AI 
+acceleration in modern processors to enable flexible AI video 
+processing deployments at different optimization points.  
+• Performance on standard processors: Implementations of super 
+resolution originally designed for GPUs can achieve real-time 
+1080p to 4K scaling on integrated GPUs and promising 
+performance on NPUs, expanding edge processing capabilities 
+without dedicated GPU accelerators.  
+• Enhancing AI vision pipelines: AI video processing 
+innovations in compression and scaling stages can reduce 
+bandwidth and improve object detection accuracy in vision 
+pipelines, partially mitigating low-bitrate compression artifacts. 
+• Super Resolution in AI vision pipelines: Early results 
+demonstrate that super resolution can add back lost detail in high 
+compression (such as down to 700 kbps) to achieve accuracy of 
+result of higher bit rate compression (example at 1000 kbps). 
+As future work the authors plan to perform a deeper analysis of 
+the benefits of super resolution on AI pipelines. Also to analyse 
+in more detail the performance of AI enabled video CODECs to 
+map out performance capability on current and future processors 
+as well as understand the value of these for AI pipelines. 
+7. Industry Impact Statement 
+This paper motivates us to think differently about the role of AI 
+in the most traditional video processing tasks. The research 
+indicates that AI-driven video processing can improve 
+perceptual video quality and resource efficiency, influencing 
+future developments in large format IoT display system 
+applications. The work also motivates that innovation in the 
+video preparation stages of AI pipelines with AI-based video 
+processing shows promise to optimise quality of result and/or 
+video bandwidth requirements.    
+8. References 
+1. 
+https://www.avinteractive.com/news/collaboration/the
+-most-successful-ai-right-now-is-what-i-call-boring-
+ai-24-06-2025/  
+2. 
+Farahani, Reza, et al. "Towards ai-assisted sustainable 
+adaptive video streaming systems: Tutorial and 
+survey." arXiv preprint arXiv:2406.02302 (2024).  
+3. 
+https://www.intel.com/content/www/us/en/developer/t
+opic-technology/gamedev/xess2.html  
+4. 
+https://atscaleconference.com/how-meta-deployed-
+super-resolution-at-scale-to-transform-video-quality/ 
+5. 
+https://github.com/OpenVisualCloud/iVSR 
+6. 
+https://learn.microsoft.com/en-
+us/windows/ai/apis/video-super-resolution   
+7. 
+Samsung QN990F specifications and features (Neo 
+QLED 8K TVs) 
+8. 
+UpScaling with Samsung - the Inside Track - 8K 
+Association 
+9. 
+https://developer.nvidia.com/rtx-video-sdk 
+10. https://blogs.windows.com/msedgedev/2023/03/08/vid
+eo-super-resolution-in-microsoft-edge/  
+11. RAISR: Rapid and Accurate Image Super Resolution 
+Y. Romano, J. Isidoro and P. Milanfar, "RAISR: 
+Rapid and Accurate Image Super Resolution," in IEEE 
+Transactions on Computational Imaging, vol. 3, no. 1, 
+pp. 110-125, March 2017  
+12. Deep Render: An AI Codec That Encodes in FFmpeg, 
+Plays in VLC, and Outperforms SVT-AV1 - 
+Streaming Learning Center 
+13. https://mpai.community/standards/mpai-eev/  
+14. https://www.nokia.com/blog/ai-boosts-versatile-video-
+coding/  
+15. Pelurson, Sébastien & Cozanet, Josselin & Guionnet, 
+Thomas & Abdoli, Mohsen & Biatek, Thibaud. AI 
+Based Saliency-Aware Video Coding. IBC 2021. 
+16. https://8kassociation.com/industry-info/8k-
+news/intels-8k-live-olympic-masterclass-highlights-
+the-immersion-of-8k-sports/ 
+17. https://jvet-
+experts.org/doc_end_user/current_document.php?id=1
+4506 
+18. https://mpai.community/standards/mpai-evc/  
+19. https://newsroom.intel.com/client-
+computing/introducing-panther-lake-by-the-numbers 
+20. Jia, Zhaoyang et al. Towards Practical Real-Time 
+Neural Video Compression. 2025 IEEE/CVF 
+Conference on Computer Vision and Pattern 
+Recognition (CVPR) (2025): 12543-12552.  
+21. Cope B. Diversification of Processing Requirements 
+for Large Format IoT Displays: 8K, Programmatic and 
+LED Walls, Display Week 2021. 
+22.  https://www.apple.com/uk/newsroom/2025/10/apple-
+unveils-new-14-inch-macbook-pro-powered-by-the-
+m5-
+chip/#:~:text=With%20M5%2C%20the%2014%2Din
+ch,2%20than%20the%20previous%20generation.  
+23. https://www.intel.com/content/www/us/en/products/sk
+u/241750/intel-core-ultra-7-processor-265h-24m-
+cache-up-to-5-30-ghz/specifications.html 
+24. Cobianchi G., Razaak M, Cope B., Guruvareddiar P.  
+Enabling Resource-Efficient AI Video Analytics with 
+Hierarchical Codecs. MHV 2026.  
+25. Cobianchi G., Razaak M, Cope B., Guruvareddiar P. 
+Energy Efficient AI Video Analytics with MPEG 5 
+LCEVC: GPU Optimised Results. ICCE 2026. 
+26. https://github.com/VisDrone/VisDrone-Dataset. 
+ 
+ 
+  
+109-2 / B. Cope
+SID 2026 DIGEST • 1522 
